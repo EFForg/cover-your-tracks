@@ -22,6 +22,7 @@ def self_defense():
     return render_template('self-defense.html', title="Self-Defense")
 
 @app.route('/robots.txt')
+@app.route('/.well-known/dnt-policy.txt')
 def static_from_root():
     return send_from_directory(app.static_folder, request.path[1:])
 
