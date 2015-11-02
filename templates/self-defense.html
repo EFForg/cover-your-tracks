@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div id="self-defense">
+    <h2>Is it possible to defend against browser fingerprinting?</h2>
+    
+    Browser fingerprinting is quite a powerful method of tracking users around the
+    Internet.  There are some defensive measures that can be taken with existing
+    browsers, but none of them are ideal.
+    
+    <h3>Try to use a "non-rare" browser</h3>
+    
+    <p>The most obvious way to try to prevent browser fingerprinting is to pick a
+    "standard", "common" browser.  It turns out that this is surprisingly hard
+    to do.  It appears that the <a
+    href="https://www.eff.org/deeplinks/2010/01/tracking-by-user-agent">most
+    likely candidate</a> would be the latest version of Firefox
+    running on a modern Windows version.  But even so, many of those Firefox on
+    Windows browsers can be distinguished from one another by the enourmous
+    range of plugin versions and fonts that can be installed with them.</p>
+    
+    <p>Pending the results of the Panopticlick experiment, the only browsers
+    which we believe really meet the conflicting criteria of being common but
+    not accompanied by high-<a
+    href="https://www.eff.org/deeplinks/2010/01/primer-information-theory-and-privacy">entropy</a>
+    plugin and font configurations are the browsers in smartphones.  This is not
+    intuitive, since these browsers tend to be less common than desktop
+    browsers.  But, importantly, there are few other variables beyond the user
+    agent.  Current versions of the iPhone, Android, and Blackberries do not
+    vary much with respect to plugins, installed fonts, or screen size.  This
+    situation may well change in the future, but until it does, most of these
+    devices are far less fingerprintable than any sort of desktop PC.</p>
+    
+    <h3>Disable JavaScript</h3>
+    
+    <p>Disabling JavaScript is a powerful defense against browser fingerprinting,
+    because it cuts off the methods that websites can use to detect plugins and
+    fonts, as well as preventing the use of most kinds of supercookie.
+    Unfortunately, JavaScript is necessary to make a lot of sites work well.</p>
+    
+    <p>At least two ways to block some sites from using JavaScript while
+    allowing others to use it are available.  One, <a
+    href="http://noscript.net">NoScript</a>, tends to be overprotective: it will
+    block JavaScript everywhere and allow you to manually reenable it for some
+    sites.  This is a lot of work, and requires good intuitions about when a
+    site isn't working because JavaScript is disabled.  The other, <a
+    href="http://adblockplus.org/en/">AdBlock Plus</a>, tends to be
+    underprotective.  AdBlock Plus tends to be quite good at blocking ads,
+    because users can instantly see when they're present.  Tracking or
+    fingerprinting scripts are generally invisible, so even the AdBlock Plus
+    subscriptions that <a href="http://easylist.adblockplus.org/">focus on
+    privacy</a> will tend to miss a lot of tracking sites.</p>
+    
+    <h3>Use TorButton</h3>
+    
+    Modern versions of <a
+    href="https://www.torproject.org/torbutton/">TorButton</a> "standardize"
+    various browser charcteristics like the User Agent string, in order to
+    prevent them from being used to track Tor users.  TorButton is also quite
+    agressive at blocking JavaScript in the browser.  Taken together, these
+    measures make TorButton a strong defense against fingerprinting.
+    Unfortunately, browsing through Tor is currently a lot slower than browsing
+    without it.
+    
+    <h3>A Better Solution: Browsers' "Private Browsing" Modes</h3>
+    
+    <p>There is a lot that browser and plugin developers could do to protect
+    their users against fingerprint tracking.  In general, it might not be a
+    good engineering decision to remove all of the version-number entropy from
+    browsers, since knowing the precise version of flash, quicktime, or
+    whatever, is occasionally useful for debugging.</p>
+    
+    <p>One solution would be to add a "debugging" mode to browsers, and to round
+    version numbers off when the browser is not in debugging mode.  Another
+    solution would be to improve the <a
+    href="http://en.wikipedia.org/wiki/Privacy_mode">"private browsing"
+    modes</a> that are already present in most modern browsers, so that when the
+    mode is active, User Agent, <tt>navigator.plugins</tt> and font lists take
+    on standardized values (or, perhaps, normalized values).</p>
+  </div>
+{% endblock %}
