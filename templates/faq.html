@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div id="about">
+  <h1>Frequently asked questions about Panopticlick</h2>
+  <b>Q:</b><blockquote> Why does your browser remain unique, even if you reload
+  the page?</blockquote>
+
+  <b>A:</b> <blockquote><p>As noted in the <a href="/privacy">panopticlick
+  privacy policy</a>, the site uses a 3-month persistent cookie to try to
+  prevent double-counting of browsers.</p>
+
+  <p>Now, you may ask, what about people who block cookies? If you block cookies
+  and hit reload, your browser will be multi-counted in the live data at
+  panopticlick.eff.org, which means that the numbers will be overly optimistic
+  about how non-rare your broswer is.</p>
+
+  <p>We plan to do some analysis on the dataset to correct out these effects.
+  One strategy would be to assume that the average number of reloads for a
+  cookie-accepting user is the same as that for a cookie-blocking user. Another
+  would be to use the encrypted IP addresses and fuzzy timestamps we have to try
+  to recognise and discount cookieless reloads.</p>
+
+  <p>Once we've run these analyses, we'll publish public data on the overall
+  uniqueness rates we've seen.</p></blockquote>
+
+  <br><br>
+
+  <b>Q:</b> <blockquote>How many people are unique?</blockquote>
+
+  <b>A:</b> <blockquote>About 85% and falling, as the dataset gets larger. But
+  that's a rough estimate before doing the count corrections discussed in the
+  previous answer.</blockquote>
+
+  <br><br>
+
+  <b>Q:</b> <blockquote>Why is there so much information in the font
+  list?</blockquote>
+
+  <b>A:</b> <blockquote><p>Note that the font list includes not only a set of
+  fonts, but an ordering of those fonts which is presumably related to the inode
+  walk order as implicitly reported by Flash. In the browsers we tested before
+  launch, this ordering appeared to be stable, so we thought it was acceptable
+  to not sort the font list before using it. If it turns out that some browsers
+  have non-stable font list orderings, we may have to renormalise our data,
+  either for those browsers or all browsers, which would presumably decrease
+  uniqueness levels substantially.</p>
+
+  <p>One corollary here is that Flash, Java and other plugins that report
+  fontlists could decrease their fingerprintability by sorting the fontlist
+  before returning it to client side scripts.</p>
+
+  <p>The constant ordering property didn't seem to hold for plugin lists -- the
+  order of navigator.plugins seems to vary on a given browser, so we sort them
+  before fingerprinting.</p></blockquote>
+
+  <br><br>
+
+  <b>Q:</b> <blockquote>Why don't you include browser characteristic <font
+  face=times new roman,times,serif><i>x</i></font> in the
+  fingerprint?</blockquote>
+
+  <b>A:</b> <blockquote><p>There are a lot of things that could potentially be
+  added to the fingerprints that Panopticlick uses.  Some of them are documented
+  on the excellent website <a href="http://browserspy.dk">browserspy</a>, others
+  are being suggested by other sources.</p>
+
+  <p>In general, there are three possible reasons why we didn't include
+  something:</p>
+
+  <ol><li>we thought about that characteristic, but decided that it changed too
+  often in a given browser to make a stable fingerprint ingredient;</li>
+
+  <li>we didn't know about it or didn't have time to implement it;</li>
+
+  <li>browsers ask the user for permission before the feature operates.</ol>
+
+  <p>Examples of things that we didn't think were stable enough included:
+  geolocation, IP addresses (either yours or your gateway's) as detected using
+  Flash or Java, and the CSS history detection hack.</p>
+
+  <p>Examples of things that we'd like to have implemented, but either didn't
+  know about or didn't have time to implement: other supercookies (Flash,
+  Silverlight, HTML 5 databases, DOM globalStorage), the order of HTTP headers,
+  ActiveX CPU detection, CSS <a href="http://flippingtypical.com/">font
+  detection tricks</a> (in cases where Flash and Java don't report fonts),
+  detection of more plugins in Internet Explorer, and lots of Silverlight
+  stuff.</p>
+
+  <p>Examples of things that require user permission include Google Gears
+  supercookies and the fancy geolocation feature in recent browsers (which are
+  also non-constant).</p></blockquote>
+
+  <br><br>
+
+  <h2>A final, overall point:</h2>
+
+  <p>The quality of data that we get from this project is definitely decreased
+  as a result of the fact that the design of the website encourages people to
+  play with their browser configurations. A lot of people are doing things like
+  turning off javascript, entering private browsing mode, or deleting cookies
+  just to see what effects those actions have on uniqueness.</p>
+
+  <p>That's great from an educational point of view, but it's probably going to
+  add a lot of noise to our data that we'll only be able to correct for
+  partially. We'd have gotten better data by putting these tests in an invisible
+  corner of a high-traffic website, but that simply isn't the EFF way when it
+  comes to running an experiment like this: we wanted to make sure people knew
+  they were participating, and let them know &mdash; even approximately &mdash;
+  how rare/unique they were.</p>
+
+  </div>
+{% endblock %}
