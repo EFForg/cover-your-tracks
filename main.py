@@ -5,5 +5,9 @@ app = Flask(__name__)
 def index():
     return render_template('front.html')
 
+@app.route("/privacy")
+def privacy():
+    return render_template('privacy.html', title="Privacy Policy")
+
 if __name__ == "__main__":
     app.run()
