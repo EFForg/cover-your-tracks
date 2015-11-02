@@ -1,0 +1,267 @@
+/* generic */
+@font-face {
+  font-family: 'Open Sans Condensed Bold';
+  src: url('/static/fonts/OpenSans-CondBold-webfont.eot');
+  src: url('/static/fonts/OpenSans-CondBold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/static/fonts/OpenSans-CondBold-webfont.woff') format('woff'),
+       url('/static/fonts/OpenSans-CondBold-webfont.ttf') format('truetype'),
+       url('/static/fonts/OpenSans-CondBold-webfont.svg#open_sans_condensedbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+@font-face {
+  font-family: 'Open Sans Condensed Light';
+  src: url('/static/fonts/OpenSans-CondLight-webfont.eot');
+  src: url('/static/fonts/OpenSans-CondLight-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/static/fonts/OpenSans-CondLight-webfont.woff') format('woff'),
+       url('/static/fonts/OpenSans-CondLight-webfont.ttf') format('truetype'),
+       url('/static/fonts/OpenSans-CondLight-webfont.svg#open_sanscondensed_light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+body {
+  text-align:center;
+  font-family:"lucida grande", helvetica, arial, verdana, sans-serif;
+  font-size:.8em
+}
+
+a {
+  color:#ec1c24;
+  text-decoration:none;
+  font-weight:700
+}
+
+a:hover {
+  text-decoration:underline
+}
+
+a img {
+  border:0
+}
+
+div#wrapper {
+  background:transparent url(images/fingerprint-bg.jpg) center -30px scroll no-repeat;
+  min-height:602px
+}
+
+h1 {
+  font-family:futura, "trebuchet ms", arial, sans-serif
+}
+
+/* header */
+
+div#credit {
+  margin:0 auto 20px;
+  padding-top:20px;
+}
+
+h1#title a {
+  background:transparent url(images/panopticlick-logo.gif) left top scroll no-repeat;
+  display:block;
+  text-indent:-5000px;
+  height:119px;
+  width:537px;
+  margin:0 auto
+}
+
+/* front page */
+
+div#front {
+  width:350px;
+  margin:0 auto;
+  text-align:center;
+}
+
+div#front p {
+  text-align: left;
+}
+
+a#clicklink {
+  /*background:transparent url(images/test-me-button.png) left top scroll no-repeat;*/
+  background-color: #ec1c24;
+}
+
+a#trackerlink {
+  background-color: #ec1c24;
+}
+a.circle:hover {
+  text-decoration: none;
+}
+
+#buttons {
+  display:table;
+  border-collapse:separate;
+  border-spacing:20px 0px;
+}
+
+.row {
+  margin-left: 87px;
+}
+
+a.circle {
+  border-radius: 92px;
+  display: table-cell;
+  width:92px;
+  height:92px;
+  /*margin:0 auto; */
+  /*text-indent:-5000px;*/
+  color: #fff;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+
+p#disclaimer {
+  text-align:center;
+  margin:0
+}
+
+/* results page */
+
+table#results {
+  font-size:12px;
+  font-family:helvetica, sans;
+  border:1px solid gray;
+  background-color:#f0f0f0;
+  border-collapse:collapse;
+  border-spacing:2px;
+  margin:50px auto 0;
+  max-width:900px
+}
+
+th {
+  text-align:center;
+  border:1px solid gray;
+  padding:2px
+}
+
+td {
+  vertical-align:center;
+  text-align:center;
+  border:1px solid gray;
+  padding:2px
+}
+
+.var {
+  font-weight:700
+}
+
+.entropy {
+  margin:0 auto;
+  text-align:justify;
+  width:500px;
+}
+
+/* privacy page */
+
+#privacy, #about, #self-defense {
+  margin:0 auto;
+  text-align:left;
+  width:500px
+}
+
+#privacy h2 {
+  text-align:center
+}
+
+/* footer */
+
+div#footer {
+  margin-top:20px
+}
+
+small#center {
+  margin:0 60px
+}
+
+#ad_status, #tracker_status, #dnt_status{
+  vertical-align: middle;
+}
+.complimentary_text{
+  display: inline-block;
+  position: relative;
+  top: -3px;
+}
+.test_label{
+  text-align: left;
+}
+.tracker_results td{
+  padding: 5px;
+}
+#summary_sentence{
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 30px;
+}
+table#results.tracker_results{
+  margin-top: 10px;
+}
+#badger-download {
+  margin-top: 20px !important;
+  display: block;
+  text-align: center;
+  max-width: 405px;
+  width: 300px;
+  margin-bottom: -10px;
+  border: 2px solid #658741;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Open Sans Condensed Bold';
+  letter-spacing: 0.1em;
+  padding: 1.1em 0.8em;
+  text-transform: uppercase;
+  clear: both;
+  background-color: white;
+}
+#badger-download:hover {
+  background-color: #658741;
+  cursor: pointer;
+}
+#badger-download:hover a {
+  color: #fff;
+}
+#badger-download a:hover{
+  text-decoration: none;
+}
+#badger-download a {
+  font-size: 1.4em;
+  color: #658741;
+  font-weight: normal;
+}
+#badger-download a div {
+  color: #575654;
+  font-size: 0.75em;
+  font-family: 'Open Sans Condensed Light';
+}
+#badger-download:hover a div {
+  color: white;
+}
+#other_link a{
+  color: #575654;
+  font-family: 'Open Sans Condensed Light';
+}
+p#summary_sentence #other_link{
+  text-align: center;
+}
+div#results_wrapper {
+  width:550px;
+  margin:0 auto;
+  text-align:center;
+}
+div#results_wrapper .row{
+  margin-left: 206px;
+  margin-top: 20px;
+}
+div#results_wrapper div#buttons{
+  display: none;
+}
+
+div#fingerprintTable{
+  display: none;
+}
