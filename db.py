@@ -34,11 +34,27 @@ class Db(object):
             ip=%s,
             ip34=%s,
             timestamp=%s""", (
-                str(cookie),
-                signature,
-                ip,
-                google_style_ip,
-                timestamp
-            )
+            str(cookie),
+            signature,
+            ip,
+            google_style_ip,
+            timestamp
         )
+        )
+        self.cxn.commit()
+
+    def record_fingerprint(self, whorls):
+        c = self.cxn.cursor()
+        exec_str = "INSERT INTO fingerprint SET "
+        exec_str += ", ".join(map(lambda x: x + "=%s", whorls.keys()))
+        exec_str += " ON DUPLICATE KEY UPDATE count=count + 1"
+        c.execute(exec_str, tuple(whorls.values()))
+        self.cxn.commit()
+
+    def update_totals(self, whorls):
+        c = self.cxn.cursor()
+        update_str = "INSERT INTO totals SET total=1, variable=%s,value=%s ON DUPLICATE KEY UPDATE total=total+1"
+        c.execute(update_str, ('count', ''))
+        for i in whorls:
+            c.execute(update_str, (i, whorls[i]))
         self.cxn.commit()

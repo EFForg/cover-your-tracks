@@ -12,7 +12,7 @@ class FingerprintRecorder(object):
     @classmethod
     def record_fingerprint(cls, whorls, cookie, ip_addr, key):
         # ensure no rogue values have been entered
-        valid_vars = cls._whorl_names().keys()
+        valid_vars = cls._whorl_names.keys()
         valid_vars.append('signature')
 
         sorted_whorls = OrderedDict(sorted(whorls.items()))
@@ -26,20 +26,21 @@ class FingerprintRecorder(object):
                 valid_print[i] = whorls[i]
 
         if cls._need_to_record(cookie, signature, ip_addr, key):
-            cls._record_whorls()
+            cls._record_whorls(valid_print)
 
-    @staticmethod
-    def _whorl_names():
-        return {
-            'user_agent': "User Agent",
-            'http_accept': "HTTP_ACCEPT Headers",
-            'plugins': "Browser Plugin Details",
-            'timezone': "Time Zone",
-            'video': "Screen Size and Color Depth",
-            'fonts': "System Fonts",
-            'cookie_enabled': "Are Cookies Enabled?",
-            'supercookies': "Limited supercookie test"
-        }
+    _whorl_names = {
+        'user_agent': "User Agent",
+        'http_accept': "HTTP_ACCEPT Headers",
+        'plugins': "Browser Plugin Details",
+        'timezone': "Time Zone",
+        'video': "Screen Size and Color Depth",
+        'fonts': "System Fonts",
+        'cookie_enabled': "Are Cookies Enabled?",
+        'supercookies': "Limited supercookie test"
+    }
+
+    _md5_keys = [
+        'plugins', 'fonts', 'user_agent', 'http_accept', 'supercookies']
 
     # returns true if we think this browser/fingerprint combination hasn't
     # been counted before
@@ -67,14 +68,29 @@ class FingerprintRecorder(object):
 
         ip, google_style_ip = cls._get_ip_hmacs(ip_addr, key)
 
-        print (write_cookie, signature, ip, google_style_ip, timestamp)
         db.record_sighting(
             write_cookie, signature, ip, google_style_ip, timestamp)
         return seen == 0
 
-    @staticmethod
-    def _record_whorls():
-        pass
+    @classmethod
+    def _record_whorls(cls, whorls):
+        db = Db()
+        db.connect()
+        # actually update the fingerprint table...
+        db.record_fingerprint(whorls)
+        md5_whorls = cls._value_or_md5(whorls)
+        db.update_totals(md5_whorls)
+
+    @classmethod
+    def _value_or_md5(cls, whorls):
+        # within the live totals table, using the md5 hash of some long string
+        # values is more efficient for queries that are just looking for total
+        # value count
+        md5_whorls = whorls.copy()
+        for i in md5_whorls:
+            if i in cls._md5_keys:
+                md5_whorls[i] = hashlib.md5(md5_whorls[i]).hexdigest()
+        return md5_whorls
 
     @staticmethod
     def _get_ip_hmacs(ip_addr, key):
