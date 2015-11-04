@@ -2,6 +2,7 @@ import pickle
 from collections import OrderedDict
 import hashlib
 
+from db import Db
 
 class FingerprintRecorder(object):
 
@@ -20,7 +21,7 @@ class FingerprintRecorder(object):
             if i in valid_vars:
                 valid_print[i] = whorls[i]
         
-        if cls._need_to_record(nonce, whorls):
+        if cls._need_to_record(nonce, signature):
             cls._record_whorls()
 
     @staticmethod
@@ -36,9 +37,17 @@ class FingerprintRecorder(object):
             'supercookies': "Limited supercookie test"
         }
 
+    # returns true if we think this browser/fingerprint combination hasn't
+    # been counted before
     @staticmethod
-    def _need_to_record(nonce, whorls):
-        return True;
+    def _need_to_record(nonce, signature):
+        db = Db()
+        db.connect()
+        if nonce:
+            seen = db.count_sightings(nonce, signature)
+        else:
+            seen = 0
+        return True
 
     @staticmethod
     def _record_whorls():
