@@ -19,6 +19,11 @@ def ajax_fingerprint():
     # already recorded your fingerprint in the database
     if 'long_cookie' not in session or time() - session['long_cookie'] >= 7776000:
         session['long_cookie'] = time()
+    server_whorls = FingerprintAgent(request).detect_server_whorls()
+    whorls = server_whorls.copy()
+    for i in request.form.keys():
+        whorls[i] = request.form.get(i)
+    whorls['js'] = "1"
     return "success"
 
 @app.route("/privacy")
