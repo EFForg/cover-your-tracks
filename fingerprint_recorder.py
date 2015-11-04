@@ -12,7 +12,7 @@ class FingerprintRecorder(object):
     @classmethod
     def record_fingerprint(cls, whorls, cookie, ip_addr, key):
         # ensure no rogue values have been entered
-        valid_vars = cls._whorl_names.keys()
+        valid_vars = cls.whorl_names.keys()
         valid_vars.append('signature')
 
         sorted_whorls = OrderedDict(sorted(whorls.items()))
@@ -28,7 +28,7 @@ class FingerprintRecorder(object):
         if cls._need_to_record(cookie, signature, ip_addr, key):
             cls._record_whorls(valid_print)
 
-    _whorl_names = {
+    whorl_names = {
         'user_agent': "User Agent",
         'http_accept': "HTTP_ACCEPT Headers",
         'plugins': "Browser Plugin Details",
@@ -78,11 +78,11 @@ class FingerprintRecorder(object):
         db.connect()
         # actually update the fingerprint table...
         db.record_fingerprint(whorls)
-        md5_whorls = cls._value_or_md5(whorls)
+        md5_whorls = cls.value_or_md5(whorls)
         db.update_totals(md5_whorls)
 
     @classmethod
-    def _value_or_md5(cls, whorls):
+    def value_or_md5(cls, whorls):
         # within the live totals table, using the md5 hash of some long string
         # values is more efficient for queries that are just looking for total
         # value count

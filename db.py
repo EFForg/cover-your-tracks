@@ -58,3 +58,20 @@ class Db(object):
         for i in whorls:
             c.execute(update_str, (i, whorls[i]))
         self.cxn.commit()
+
+    def get_whorl_value_count(self, variable, value):
+        c = self.cxn.cursor()
+        c.execute(
+            """SELECT total FROM totals WHERE variable=%s AND value=%s""", (variable, value))
+        return c.fetchone()[0]
+
+    def get_total_count(self):
+        c = self.cxn.cursor()
+        c.execute("""SELECT total FROM totals WHERE variable='count'""")
+        return c.fetchone()[0]
+
+    def get_signature_matches_count(self, signature):
+        c = self.cxn.cursor()
+        c.execute(
+            """SELECT total FROM totals WHERE variable='signature' AND value=%s""", (signature, ))
+        return c.fetchone()[0]

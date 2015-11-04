@@ -4,6 +4,7 @@ from time import time
 import config
 from fingerprint_agent import FingerprintAgent
 from fingerprint_recorder import FingerprintRecorder
+from entropy_helper import EntropyHelper
 
 app = Flask(__name__)
 app.secret_key = config.secret_key
@@ -31,7 +32,8 @@ def ajax_fingerprint():
     whorls['js'] = "1"
     FingerprintRecorder.record_fingerprint(
         whorls, session['long_cookie'], request.remote_addr, key)
-    return "success"
+    entropy_values = EntropyHelper.calculate_values(whorls)
+    return entropy_values.__repr__()
 
 
 @app.route("/privacy")
