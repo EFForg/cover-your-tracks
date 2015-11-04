@@ -1,9 +1,25 @@
-from flask import Flask, render_template, send_from_directory, request
+from flask import Flask, render_template, send_from_directory, request, session
+from fingerprint_agent import FingerprintAgent
+from fingerprint_recorder import FingerprintRecorder
+from time import time
+
+import config
+
 app = Flask(__name__)
+app.secret_key = config.secret_key
+app.debug = config.debug
 
 @app.route("/")
 def index():
     return render_template('front.html')
+
+@app.route("/ajax-fingerprint", methods=['POST'])
+def ajax_fingerprint():
+    # set a long-lived session cookie.  this helps to determine if we've
+    # already recorded your fingerprint in the database
+    if 'long_cookie' not in session or time() - session['long_cookie'] >= 7776000:
+        session['long_cookie'] = time()
+    return "success"
 
 @app.route("/privacy")
 def privacy():

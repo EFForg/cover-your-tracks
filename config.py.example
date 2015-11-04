@@ -1,0 +1,2 @@
+debug = True
+secret_key = '' # import os; os.urandom(24)
