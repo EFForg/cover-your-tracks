@@ -1,6 +1,6 @@
 from math import log
 
-from fingerprint_recorder import FingerprintRecorder
+from fingerprint_helper import FingerprintHelper
 from db import Db
 
 
@@ -14,7 +14,7 @@ class EntropyHelper(object):
         bits, group = cls._entropy_overview(total, matching)
 
         uniqueness = {}
-        for i in FingerprintRecorder.whorl_names:
+        for i in FingerprintHelper.whorl_names:
             # MEASURE 1: how identifying is this fact about a browser if it's
             # the only thing one knows about the browser?
             matching_whorl = counts[i]
@@ -37,8 +37,8 @@ class EntropyHelper(object):
 
         # query an incrementally updated totals table which has an index on
         # unique (variable, value)
-        md5_whorls = FingerprintRecorder.value_or_md5(whorls)
-        for i in FingerprintRecorder.whorl_names:
+        md5_whorls = FingerprintHelper.value_or_md5(whorls)
+        for i in FingerprintHelper.whorl_names:
             counts[i] = db.get_whorl_value_count(i, md5_whorls[i])
 
         total = db.get_total_count()
@@ -51,8 +51,6 @@ class EntropyHelper(object):
     def _entropy_overview(total, matching):
         # get the overal identifying information measure, and some other
         # hopefully informative stuff, for the user
-        print matching
-        print total
         bits = round(-log(matching / float(total), 2), 2)
         group = float(total) / matching
         return bits, group
