@@ -9,6 +9,9 @@ app = Flask(__name__)
 app.secret_key = config.secret_key
 app.debug = config.debug
 
+with open(config.keyfile, 'r') as fp:
+    key = fp.read(16)
+
 @app.route("/")
 def index():
     return render_template('front.html')
@@ -24,7 +27,7 @@ def ajax_fingerprint():
     for i in request.form.keys():
         whorls[i] = request.form.get(i)
     whorls['js'] = "1"
-    FingerprintRecorder.record_fingerprint(whorls, session['long_cookie'])
+    FingerprintRecorder.record_fingerprint(whorls, session['long_cookie'], request.remote_addr, key)
     return "success"
 
 @app.route("/privacy")

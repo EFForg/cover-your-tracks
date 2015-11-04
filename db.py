@@ -23,6 +23,22 @@ class Db(object):
     def count_sightings(self, cookie, signature):
         c = self.cxn.cursor()
         c.execute("""SELECT COUNT(cookie_id) FROM cookies
-            WHERE cookie_id=%s AND signature=%s""", (cookie, signature))
+            WHERE cookie_id=%s AND signature=%s""", (str(cookie), signature))
         return c.fetchone()[0]
 
+    def record_sighting(self, cookie, signature, ip, google_style_ip, timestamp):
+        c = self.cxn.cursor()
+        c.execute("""INSERT INTO cookies SET
+            cookie_id=%s,
+            signature=%s,
+            ip=%s,
+            ip34=%s,
+            timestamp=%s""", (
+                str(cookie),
+                signature,
+                ip,
+                google_style_ip,
+                timestamp
+            )
+        )
+        self.cxn.commit()
