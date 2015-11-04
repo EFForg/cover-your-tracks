@@ -1,2 +1,9 @@
 debug = True
 secret_key = '' # import os; os.urandom(24)
+
+# database settings
+db_host = 'localhost'
+db_username = 'panopticlick'
+db_password = 'changeme'
+db_database = 'panopticlick'
+db_port = 3306
