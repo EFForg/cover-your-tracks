@@ -1,9 +1,9 @@
 from flask import Flask, render_template, send_from_directory, request, session
-from fingerprint_agent import FingerprintAgent
-from fingerprint_recorder import FingerprintRecorder
 from time import time
 
 import config
+from fingerprint_agent import FingerprintAgent
+from fingerprint_recorder import FingerprintRecorder
 
 app = Flask(__name__)
 app.secret_key = config.secret_key
@@ -12,9 +12,11 @@ app.debug = config.debug
 with open(config.keyfile, 'r') as fp:
     key = fp.read(16)
 
+
 @app.route("/")
 def index():
     return render_template('front.html')
+
 
 @app.route("/ajax-fingerprint", methods=['POST'])
 def ajax_fingerprint():
@@ -27,24 +29,30 @@ def ajax_fingerprint():
     for i in request.form.keys():
         whorls[i] = request.form.get(i)
     whorls['js'] = "1"
-    FingerprintRecorder.record_fingerprint(whorls, session['long_cookie'], request.remote_addr, key)
+    FingerprintRecorder.record_fingerprint(
+        whorls, session['long_cookie'], request.remote_addr, key)
     return "success"
+
 
 @app.route("/privacy")
 def privacy():
     return render_template('privacy.html', title="Privacy Policy")
 
+
 @app.route("/about")
 def about():
     return render_template('about.html', title="About")
+
 
 @app.route("/faq")
 def faq():
     return render_template('faq.html', title="Frequently asked questions about Panopticlick")
 
+
 @app.route("/self-defense")
 def self_defense():
     return render_template('self-defense.html', title="Self-Defense")
+
 
 @app.route('/robots.txt')
 @app.route('/.well-known/dnt-policy.txt')
