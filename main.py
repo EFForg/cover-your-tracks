@@ -24,6 +24,7 @@ def ajax_fingerprint():
     for i in request.form.keys():
         whorls[i] = request.form.get(i)
     whorls['js'] = "1"
+    FingerprintRecorder.record_fingerprint(whorls, session['long_cookie'])
     return "success"
 
 @app.route("/privacy")
