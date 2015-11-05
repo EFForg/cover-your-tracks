@@ -34,14 +34,16 @@ def fingerprint_js():
     return render_template('fingerprint_js.html')
 
 
-@app.route("/ajax-fingerprint", methods=['POST'])
-def ajax_fingerprint():
+def fingerprint_generic(ajax):
     # detect server whorls, merge with client whorls
     server_whorls = FingerprintAgent(request).detect_server_whorls()
     whorls = server_whorls.copy()
-    for i in request.form.keys():
-        whorls[i] = request.form.get(i)
-    whorls['js'] = "1"
+    if ajax:
+        for i in request.form.keys():
+            whorls[i] = request.form.get(i)
+        whorls['js'] = "1"
+    else:
+        whorls['js'] = "0"
 
     # record the fingerprint we've crafted
     FingerprintRecorder.record_fingerprint(
@@ -61,6 +63,16 @@ def ajax_fingerprint():
                            labels=FingerprintHelper.whorl_names,
                            whorls=whorls,
                            uniqueness=uniqueness)
+
+
+@app.route("/fingerprint-nojs")
+def fingerprint_nojs():
+    return render_template('fingerprint_nojs.html', content=fingerprint_generic(False))
+
+
+@app.route("/ajax-fingerprint", methods=['POST'])
+def ajax_fingerprint():
+    return fingerprint_generic(True)
 
 
 @app.route("/privacy")
