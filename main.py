@@ -86,9 +86,23 @@ def tracker():
     return render_template('tracker.html', next_link=next_link, third_party_trackers=config.third_party_trackers)
 
 
+@app.route("/tracking-tally")
+def tracking_tally():
+    return render_template('tracking_tally.html')
+
+
 @app.route("/tracker-nojs")
 def tracker_nojs():
     return render_template('tracker_nojs.html')
+
+
+@app.route("/results")
+def results():
+    return render_template('results.html',
+                           a_loads=len(request.args.get('a') or ''),
+                           t_loads=len(request.args.get('t') or ''),
+                           dnt_loads=len(request.args.get('dnt') or ''),
+                           third_party_trackers=config.third_party_trackers)
 
 
 @app.route("/ajax-fingerprint", methods=['POST'])

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex">
+    <title>panopticlick tracker</title>
+    <script type="text/javascript">
+
+      function setCookie(name, value) {
+        var date = new Date();
+        date.setTime(date.getTime()+(365*24*60*60*1000));
+        var expires = "; expires=0"; //+date.toGMTString();
+        document.cookie = name+"="+value+expires+"; path=/";
+        return value;
+      }
+
+      function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) {
+            return c.substring(nameEQ.length,c.length);
+          }
+        }
+        return '';
+      }
+
+      function getHost() {
+        // within an iframe, "referrer" is the containing page.
+        if (parent !== window) {
+          url = document.referrer;
+        } else {
+          url = document.location;
+        }
+        var tmp = document.createElement('a');
+        tmp.href = url;
+        return tmp.hostname;
+      }
+
+      var tracker_domain = '{{ request.host }}';
+      function addSite(site) {
+        var sitecookie = getCookie('site');
+        //var ls = localStorage.getItem('site');
+
+        //if (ls) {
+        //  sitecookie += ' ' + ls;
+        //}
+
+        var sts = sitecookie.split(' ');
+        sts.push(site);
+
+        var seen = {};
+        var out = [];
+
+        for(i in sts) {
+          var item = sts[i];
+          if (!item || item.indexOf(tracker_domain) !==-1) {
+            continue;
+          }
+          if(seen[item] !== true) {
+            seen[item] = true;
+            out.push(item);
+          }
+        }
+
+        var newcookie = out.join(' ');
+        setCookie('site', newcookie);
+        //localStorage.setItem('site', newcookie);
+      }
+
+      function doTrack() {
+        var host = getHost();
+        addSite(host);
+        var sites = getCookie('site');
+        var siteCount = sites.split(' ').length;
+
+        document.getElementById('whereseen').innerHTML = sites;
+
+        if (host == tracker_domain) {
+          return;
+        }
+
+        parent.postMessage(sites, '*');
+      }
+      document.addEventListener("DOMContentLoaded", doTrack);
+    </script>
+  </head>
+  <body>
+
+    <p>This page is part of Panopticlick.</p>
+
+    <p>Please take the <a href="https://panopticlick.eff.org/?action=tracker">Panopticlick tracking protection test</a>.</p>
+
+    <p>This page has been seen for ads on <b id="whereseen">(nowhere yet)</b></p>
+  </body>
+</html>
+
