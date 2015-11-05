@@ -26,6 +26,19 @@ class EntropyHelper(object):
         return counts, total, matching, bits, group, uniqueness
 
     @staticmethod
+    def size_words(total):
+        if total > 1000000:
+            return "several million"
+        elif total > 100000:
+            return "several hundred thousand"
+        elif total > 10000:
+            return "about ten thousand"
+        elif total >= 1000:
+            return "several thousand"
+        else:
+            return "under a thousand"
+
+    @staticmethod
     def _fetch_counts(whorls):
         db = Db()
         db.connect()

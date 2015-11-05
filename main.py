@@ -4,6 +4,7 @@ from time import time
 import config
 from fingerprint_agent import FingerprintAgent
 from fingerprint_recorder import FingerprintRecorder
+from fingerprint_helper import FingerprintHelper
 from entropy_helper import EntropyHelper
 
 app = Flask(__name__)
@@ -25,15 +26,31 @@ def ajax_fingerprint():
     # already recorded your fingerprint in the database
     if 'long_cookie' not in session or time() - session['long_cookie'] >= 7776000:
         session['long_cookie'] = time()
+
+    # detect server whorls, merge with client whorls
     server_whorls = FingerprintAgent(request).detect_server_whorls()
     whorls = server_whorls.copy()
     for i in request.form.keys():
         whorls[i] = request.form.get(i)
     whorls['js'] = "1"
+
+    # record the fingerprint we've crafted
     FingerprintRecorder.record_fingerprint(
         whorls, session['long_cookie'], request.remote_addr, key)
-    entropy_values = EntropyHelper.calculate_values(whorls)
-    return entropy_values.__repr__()
+
+    # calculate the values we'll need to display to the user
+    counts, total, matching, bits, group, uniqueness = EntropyHelper.calculate_values(
+        whorls)
+    return render_template('ajax_fingerprint.html',
+                           counts=counts,
+                           total=total,
+                           sample_string=EntropyHelper.size_words(total),
+                           matching=matching,
+                           bits=bits,
+                           group=group,
+                           labels=FingerprintHelper.whorl_names,
+                           whorls=whorls,
+                           uniqueness=uniqueness)
 
 
 @app.route("/privacy")
