@@ -1,7 +1,7 @@
 <br>
 <div class='entropy' style='text-align:center border:1px'>
   {% if matching == 1: %}
-    <p>Your browser fingerprint <strong>appears to be unique</strong> among the {{ total }} tested so far.</p>
+    <p>Your browser fingerprint <strong>appears to be unique</strong> among the {{ total_formatted }} tested so far.</p>
   {% else %}
     <p>Within our dataset of {{ sample_string }} visitors, {% if group > 100 %}only {% endif %}<strong>one in {{ group }} browsers have the same fingerprint as yours.</strong></p>
   {% endif %}

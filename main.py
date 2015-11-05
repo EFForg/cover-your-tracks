@@ -6,6 +6,7 @@ from fingerprint_agent import FingerprintAgent
 from fingerprint_recorder import FingerprintRecorder
 from fingerprint_helper import FingerprintHelper
 from entropy_helper import EntropyHelper
+from util import number_format
 
 app = Flask(__name__)
 app.secret_key = config.secret_key
@@ -44,6 +45,7 @@ def ajax_fingerprint():
     return render_template('ajax_fingerprint.html',
                            counts=counts,
                            total=total,
+                           total_formatted=number_format(total),
                            sample_string=EntropyHelper.size_words(total),
                            matching=matching,
                            bits=bits,
