@@ -16,18 +16,26 @@ with open(config.keyfile, 'r') as fp:
     key = fp.read(16)
 
 
-@app.route("/")
-def index():
-    return render_template('front.html')
-
-
-@app.route("/ajax-fingerprint", methods=['POST'])
-def ajax_fingerprint():
+@app.before_request
+def set_cookie():
     # set a long-lived session cookie.  this helps to determine if we've
     # already recorded your fingerprint in the database
     if 'long_cookie' not in session or time() - session['long_cookie'] >= 7776000:
         session['long_cookie'] = time()
 
+
+@app.route("/")
+def index():
+    return render_template('front.html')
+
+
+@app.route("/fingerprint-js")
+def fingerprint_js():
+    return render_template('fingerprint_js.html')
+
+
+@app.route("/ajax-fingerprint", methods=['POST'])
+def ajax_fingerprint():
     # detect server whorls, merge with client whorls
     server_whorls = FingerprintAgent(request).detect_server_whorls()
     whorls = server_whorls.copy()

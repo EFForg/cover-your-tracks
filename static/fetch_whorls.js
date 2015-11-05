@@ -200,7 +200,7 @@ function fetch_client_whorls(){
     }
   };
 
-  $.post("index.php?action=ajax_log_clientvars", whorls, callback, "html" );
+  $.post("/ajax-fingerprint", whorls, callback, "html" );
   
 };
 
