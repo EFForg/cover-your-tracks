@@ -1,5 +1,5 @@
 debug = True
-secret_key = '' # import os; os.urandom(24)
+secret_key = ''  # import os; os.urandom(24)
 
 # database settings
 db_host = 'localhost'
@@ -10,3 +10,16 @@ db_port = 3306
 
 # file for key material to use with hmac'ing ip addresses. 16 bytes
 keyfile = '/path/to/some/keyfile'
+
+# the domains for first-party trackers. order matters, only 3
+first_party_trackers = [
+    'panopticlick.eff.org',
+    'firstpartysimulator.net',
+    'firstpartysimulator.org'
+]
+
+third_party_trackers = {
+    'ad_server': 'trackersimulator.org',
+    'tracker_server': 'eviltracker.net',
+    'dnt_server': 'do-not-tracker.org'
+}

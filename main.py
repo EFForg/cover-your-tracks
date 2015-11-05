@@ -70,6 +70,27 @@ def fingerprint_nojs():
     return render_template('fingerprint_nojs.html', content=fingerprint_generic(False))
 
 
+@app.route("/tracker")
+def tracker():
+    try:
+        i = config.first_party_trackers.index(request.host)
+    except ValueError:
+        return "Invalid domain.  Please check your config settings."
+
+    if i < 2:
+        next_link = "https://" + \
+            config.first_party_trackers[i + 1] + "/tracker?"
+    else:
+        next_link = "https://" + config.first_party_trackers[0] + "/results?"
+
+    return render_template('tracker.html', next_link=next_link, third_party_trackers=config.third_party_trackers)
+
+
+@app.route("/tracker-nojs")
+def tracker_nojs():
+    return render_template('tracker_nojs.html')
+
+
 @app.route("/ajax-fingerprint", methods=['POST'])
 def ajax_fingerprint():
     return fingerprint_generic(True)
