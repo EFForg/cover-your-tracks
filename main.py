@@ -1,10 +1,12 @@
-from flask import Flask, render_template, send_from_directory, request, session
+from flask import Flask, render_template, send_from_directory, request, session, jsonify
 from time import time
+import json
 
 import config
 from fingerprint_agent import FingerprintAgent
 from fingerprint_recorder import FingerprintRecorder
 from fingerprint_helper import FingerprintHelper
+from tracking_recorder import TrackingRecorder
 from entropy_helper import EntropyHelper
 from util import number_format
 
@@ -103,6 +105,24 @@ def results():
                            t_loads=len(request.args.get('t') or ''),
                            dnt_loads=len(request.args.get('dnt') or ''),
                            third_party_trackers=config.third_party_trackers)
+
+
+@app.route("/record-results", methods=['POST'])
+def record_results():
+    results = json.loads(request.data)
+
+    constrained_results = ['ad', 'tracker', 'dnt']
+    allowed_values = ['yes', 'no', 'partial']
+    for i in constrained_results:
+        if results[i] not in allowed_values:
+            del results[i]
+
+    results['known_blockers'] = ",".join(results['known_blockers'])
+
+    if TrackingRecorder.record_tracking_results(session['long_cookie'], results, request.remote_addr, key):
+        return jsonify({"success": True})
+    else:
+        return jsonify({"success": False})
 
 
 @app.route("/ajax-fingerprint", methods=['POST'])

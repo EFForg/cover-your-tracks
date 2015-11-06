@@ -75,3 +75,34 @@ class Db(object):
         c.execute(
             """SELECT total FROM totals WHERE variable='signature' AND value=%s""", (signature, ))
         return c.fetchone()[0]
+
+    def record_tracking_results(
+            self,
+            cookie,
+            ip,
+            google_style_ip,
+            ad_result,
+            tracker_result,
+            dnt_result,
+            known_blockers):
+        c = self.cxn.cursor()
+        c.execute("""INSERT INTO `tracking_test` SET
+            `cookie_id`=%s,
+            `ip`=%s,
+            `ip34`=%s,
+            `timestamp`=NOW(),
+            `block_tracking_ads`=%s,
+            `block_invisible_trackers`=%s,
+            `dnt`=%s,
+            `canvas_fingerprinting`=NULL,
+            `known_blockers`=%s""", (
+            str(cookie),
+            ip,
+            google_style_ip,
+            ad_result,
+            tracker_result,
+            dnt_result,
+            known_blockers
+        )
+        )
+        self.cxn.commit()

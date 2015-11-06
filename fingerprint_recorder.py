@@ -2,10 +2,10 @@ import pickle
 from collections import OrderedDict
 import hashlib
 from time import time
-import hmac
 
 from db import Db
 from fingerprint_helper import FingerprintHelper
+from util import get_ip_hmacs
 
 
 class FingerprintRecorder(object):
@@ -31,8 +31,8 @@ class FingerprintRecorder(object):
 
     # returns true if we think this browser/fingerprint combination hasn't
     # been counted before
-    @classmethod
-    def _need_to_record(cls, cookie, signature, ip_addr, key):
+    @staticmethod
+    def _need_to_record(cookie, signature, ip_addr, key):
         db = Db()
         db.connect()
         if cookie:
@@ -53,7 +53,7 @@ class FingerprintRecorder(object):
         blur = timestamp % 3600  # nearest hour
         floored_timestamp = int(timestamp - blur)
 
-        ip, google_style_ip = cls._get_ip_hmacs(ip_addr, key)
+        ip, google_style_ip = get_ip_hmacs(ip_addr, key)
 
         db.record_sighting(
             write_cookie, signature, ip, google_style_ip, timestamp)
@@ -67,14 +67,3 @@ class FingerprintRecorder(object):
         db.record_fingerprint(whorls)
         md5_whorls = FingerprintHelper.value_or_md5(whorls)
         db.update_totals(md5_whorls)
-
-    @staticmethod
-    def _get_ip_hmacs(ip_addr, key):
-        # result looks like 192.168.1
-        google_style_ip_split = ip_addr.split(".")[0:3]
-        # we're not handling ipv6
-        google_style_ip_raw = ".".join(google_style_ip_split)
-
-        google_style_ip = hmac.new(key, google_style_ip_raw).digest()
-        ip = hmac.new(key, ip_addr).digest()
-        return ip, google_style_ip

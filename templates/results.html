@@ -215,7 +215,7 @@
 
       function record_results(){
         var req = new XMLHttpRequest();
-        req.open("POST", "/index.php?action=record_results",true);
+        req.open("POST", "/record-results",true);
         req.setRequestHeader('Content-type','application/json')
         req.send(JSON.stringify(results));
       }
