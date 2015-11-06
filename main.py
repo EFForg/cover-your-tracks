@@ -131,8 +131,14 @@ def self_defense():
 
 
 @app.route('/robots.txt')
-@app.route('/.well-known/dnt-policy.txt')
 def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
+
+
+@app.route('/.well-known/dnt-policy.txt')
+def dnt():
+    if request.host == config.third_party_trackers['ad_server'] or request.host == config.third_party_trackers['tracker_server']:
+        return 404
     return send_from_directory(app.static_folder, request.path[1:])
 
 if __name__ == "__main__":
