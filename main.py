@@ -125,6 +125,11 @@ def record_results():
         return jsonify({"success": False})
 
 
+@app.route("/clear-cookies")
+def clear_cookies():
+    return render_template('clear_cookies.html')
+
+
 @app.route("/ajax-fingerprint", methods=['POST'])
 def ajax_fingerprint():
     return fingerprint_generic(True)
