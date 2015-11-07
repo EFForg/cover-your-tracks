@@ -15,6 +15,25 @@ Then modify the relevant variables in config.py
 
     python main.py
 
+## Docker
+
+First, build the image
+
+    docker build -t panopticlick .
+
+Then,
+
+    docker run -d --name panopticlick-db \
+      -e MYSQL_ROOT_PASSWORD=changeme \
+      -e MYSQL_USER=panopticlick \
+      -e MYSQL_PASSWORD=changeme \
+      -e MYSQL_DATABASE=panopticlick \
+      -v $(pwd)/examples/sql:/docker-entrypoint-initdb.d mysql
+    docker run -d --name panopticlick-app \
+      --link panopticlick-db:db \
+      -p 5000:5000 \
+      panopticlick
+
 ## License
 
 This project is licensed under the Affero General Public License, version 3.  See the LICENSE file for details.
