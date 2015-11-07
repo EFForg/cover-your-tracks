@@ -7,7 +7,7 @@ How Unique - and Trackable - Is Your Browsesr?
 You may need to install `libmysqlclient-dev` and `python-dev` for Debian-based systems.
 
     pip install -r requirements.txt
-    cp config.py.example config.py
+    cp config_example.py config.py
 
 Then modify the relevant variables in config.py
 

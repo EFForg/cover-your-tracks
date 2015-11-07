@@ -1,6 +1,6 @@
 import MySQLdb
 
-import config
+import env_config as config
 
 
 class Db(object):

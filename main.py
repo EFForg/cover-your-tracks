@@ -2,7 +2,7 @@ from flask import Flask, render_template, send_from_directory, request, session,
 from time import time
 import json
 
-import config
+import env_config as config
 from fingerprint_agent import FingerprintAgent
 from fingerprint_recorder import FingerprintRecorder
 from fingerprint_helper import FingerprintHelper
