@@ -28,11 +28,17 @@ Then,
       -e MYSQL_USER=panopticlick \
       -e MYSQL_PASSWORD=changeme \
       -e MYSQL_DATABASE=panopticlick \
-      -v $(pwd)/examples/sql:/docker-entrypoint-initdb.d mysql
+      -v $(pwd)/examples/sql:/docker-entrypoint-initdb.d \
+      mysql
     docker run -d --name panopticlick-app \
       --link panopticlick-db:db \
-      -p 5000:5000 \
       panopticlick
+    docker run -d --name panopticlick-nginx \
+      --link panopticlick-app:app \
+      -v $(pwd)/examples/nginx/extra:/etc/nginx/extra \
+      -v $(pwd)/examples/nginx/conf.d:/etc/nginx/conf.d \
+      -p 443:443 \
+      nginx
 
 ## License
 
