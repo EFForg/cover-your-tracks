@@ -1,6 +1,6 @@
 from math import log
 
-from fingerprint_helper import FingerprintHelper
+from fingerprint import FingerprintHelper
 from db import Db
 
 

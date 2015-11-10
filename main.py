@@ -3,9 +3,7 @@ from time import time
 import json
 
 import env_config as config
-from fingerprint_agent import FingerprintAgent
-from fingerprint_recorder import FingerprintRecorder
-from fingerprint_helper import FingerprintHelper
+from fingerprint import FingerprintAgent, FingerprintRecorder, FingerprintHelper
 from tracking_recorder import TrackingRecorder
 from entropy_helper import EntropyHelper
 from util import number_format
