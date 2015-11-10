@@ -1,0 +1,24 @@
+db:
+  image: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: changeme
+    MYSQL_USER: panopticlick
+    MYSQL_PASSWORD: changeme
+    MYSQL_DATABASE: panopticlick
+  volumes:
+    - ./examples/sql:/docker-entrypoint-initdb.d
+
+app:
+  build: .
+  links:
+    - db:db
+
+nginx:
+  image: nginx
+  links:
+    - app:app
+  volumes:
+    - ./examples/nginx/extra:/etc/nginx/extra
+    - ./examples/nginx/conf.d:/etc/nginx/conf.d
+  ports:
+      - "443:443"
