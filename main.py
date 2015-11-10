@@ -4,7 +4,7 @@ import json
 
 import env_config as config
 from fingerprint import FingerprintAgent, FingerprintRecorder, FingerprintHelper
-from tracking_recorder import TrackingRecorder
+from tracking import TrackingRecorder
 from entropy_helper import EntropyHelper
 from util import number_format
 
