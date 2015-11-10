@@ -41,9 +41,6 @@ def fingerprint_generic(ajax):
     if ajax:
         for i in request.form.keys():
             whorls[i] = request.form.get(i)
-        whorls['js'] = "1"
-    else:
-        whorls['js'] = "0"
 
     # record the fingerprint we've crafted
     FingerprintRecorder.record_fingerprint(
