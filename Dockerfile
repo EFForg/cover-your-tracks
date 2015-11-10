@@ -8,7 +8,9 @@ WORKDIR /opt
 ADD requirements.txt ./
 RUN pip install -r requirements.txt
 
-ADD config_example.py env_config.py db.py entropy_helper.py fingerprint_agent.py fingerprint_helper.py fingerprint_recorder.py main.py tracking_helper.py tracking_recorder.py util.py ./
+ADD config_example.py env_config.py db.py entropy_helper.py main.py util.py ./
+ADD fingerprint ./fingerprint/
+ADD tracking ./tracking/
 ADD static ./static/ 
 ADD templates ./templates/
 ADD docker ./docker/
