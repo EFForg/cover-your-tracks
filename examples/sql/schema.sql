@@ -20,6 +20,7 @@ CREATE TABLE `cookies` (
 
 DROP TABLE IF EXISTS `fingerprint`;
 CREATE TABLE `fingerprint` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `js` tinyint(4) NOT NULL DEFAULT '0',
   `cookie_enabled` varchar(10) DEFAULT 'unknown',
   `user_agent` blob NOT NULL,
@@ -35,7 +36,8 @@ CREATE TABLE `fingerprint` (
   `ft_h` char(32) DEFAULT NULL,
   `ha_h` char(32) DEFAULT NULL,
   `pi_h` char(32) DEFAULT NULL,
-  PRIMARY KEY (`signature`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY (`signature`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
