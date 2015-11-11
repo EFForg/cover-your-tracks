@@ -49,14 +49,10 @@ class FingerprintRecorder(object):
         # now log the cookie, along with encrypted versions of the IP address
         # and a quarter-erased IP address, like the one Google keeps
 
-        timestamp = time()
-        blur = timestamp % 3600  # nearest hour
-        floored_timestamp = int(timestamp - blur)
-
         ip, google_style_ip = get_ip_hmacs(ip_addr, key)
 
         db.record_sighting(
-            write_cookie, signature, ip, google_style_ip, timestamp)
+            write_cookie, signature, ip, google_style_ip)
         return seen == 0
 
     @staticmethod

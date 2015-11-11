@@ -26,19 +26,17 @@ class Db(object):
             WHERE cookie_id=%s AND signature=%s""", (str(cookie), signature))
         return c.fetchone()[0]
 
-    def record_sighting(self, cookie, signature, ip, google_style_ip, timestamp):
+    def record_sighting(self, cookie, signature, ip, google_style_ip):
         c = self.cxn.cursor()
         c.execute("""INSERT INTO cookies SET
             cookie_id=%s,
             signature=%s,
             ip=%s,
-            ip34=%s,
-            timestamp=%s""", (
+            ip34=%s""", (
             str(cookie),
             signature,
             ip,
-            google_style_ip,
-            timestamp
+            google_style_ip
         )
         )
         self.cxn.commit()
@@ -90,7 +88,6 @@ class Db(object):
             `cookie_id`=%s,
             `ip`=%s,
             `ip34`=%s,
-            `timestamp`=NOW(),
             `block_tracking_ads`=%s,
             `block_invisible_trackers`=%s,
             `dnt`=%s,

@@ -9,7 +9,7 @@ CREATE TABLE `cookies` (
   `signature` varchar(32) DEFAULT NULL,
   `ip` varbinary(16) DEFAULT NULL,
   `ip34` varbinary(16) DEFAULT NULL,
-  `timestamp` int(11) NOT NULL DEFAULT '0',
+  `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `cookie_id` (`cookie_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
@@ -62,7 +62,7 @@ CREATE TABLE `tracking_test` (
   `cookie_id` varchar(255) DEFAULT NULL,
   `ip` varbinary(16) DEFAULT NULL,
   `ip34` varbinary(16) DEFAULT NULL,
-  `timestamp` datetime NOT NULL,
+  `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `block_tracking_ads` enum('yes','no','partial') NOT NULL DEFAULT 'no',
   `block_invisible_trackers` enum('yes','no','partial') NOT NULL DEFAULT 'no',
   `dnt` enum('yes','no') NOT NULL DEFAULT 'no',
