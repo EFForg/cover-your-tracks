@@ -36,6 +36,19 @@ CREATE TABLE `fingerprint` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `fingerprint_times`
+--
+
+DROP TABLE IF EXISTS `fingerprint_times`;
+CREATE TABLE `fingerprint_times` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fingerprint_id` int(11) NOT NULL,
+  `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `fingerprint_id` (`fingerprint_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `totals`
 --
 

@@ -47,6 +47,8 @@ class Db(object):
         exec_str += ", ".join(map(lambda x: x + "=%s", whorls.keys()))
         exec_str += " ON DUPLICATE KEY UPDATE count=count + 1"
         c.execute(exec_str, tuple(whorls.values()))
+        c.execute(
+            "INSERT INTO fingerprint_times SET fingerprint_id=%s", (c.lastrowid,))
         self.cxn.commit()
 
     def update_totals(self, whorls):
