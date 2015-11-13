@@ -1,6 +1,7 @@
 debug = True
 secret_key = ''  # import os; os.urandom(24)
 public = False
+epoched = False
 
 # database settings
 db_host = 'localhost'

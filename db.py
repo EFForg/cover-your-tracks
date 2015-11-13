@@ -7,6 +7,12 @@ import env_config as config
 
 class Db(object):
 
+    @staticmethod
+    def epoch_prefix(epoched):
+        if epoched:
+            return 'epoch_'
+        return ''
+
     def __init__(self):
         self.host = config.db_host
         self.username = config.db_username
@@ -63,21 +69,22 @@ class Db(object):
             c.execute(update_str, (i, whorls[i]))
         self.cxn.commit()
 
-    def get_whorl_value_count(self, variable, value):
+    def get_whorl_value_count(self, variable, value, epoched):
         c = self.cxn.cursor()
         c.execute(
-            """SELECT total FROM totals WHERE variable=%s AND value=%s""", (variable, value))
+            "SELECT " + self.epoch_prefix(epoched) + "total FROM totals WHERE variable=%s AND value=%s", (variable, value))
         return c.fetchone()[0]
 
-    def get_total_count(self):
+    def get_total_count(self, epoched):
         c = self.cxn.cursor()
-        c.execute("""SELECT total FROM totals WHERE variable='count'""")
+        c.execute("SELECT " + self.epoch_prefix(epoched) +
+                  "total FROM totals WHERE variable='count'")
         return c.fetchone()[0]
 
-    def get_signature_matches_count(self, signature):
+    def get_signature_matches_count(self, signature, epoched):
         c = self.cxn.cursor()
         c.execute(
-            """SELECT total FROM totals WHERE variable='signature' AND value=%s""", (signature, ))
+            "SELECT " + self.epoch_prefix(epoched) + "total FROM totals WHERE variable='signature' AND value=%s", (signature, ))
         return c.fetchone()[0]
 
     def record_tracking_results(

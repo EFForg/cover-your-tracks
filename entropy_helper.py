@@ -2,6 +2,7 @@ from math import log
 
 from fingerprint import FingerprintHelper
 from db import Db
+import env_config as config
 
 
 class EntropyHelper(object):
@@ -52,11 +53,11 @@ class EntropyHelper(object):
         # unique (variable, value)
         md5_whorls = FingerprintHelper.value_or_md5(whorls)
         for i in FingerprintHelper.whorl_names:
-            counts[i] = db.get_whorl_value_count(i, md5_whorls[i])
+            counts[i] = db.get_whorl_value_count(i, md5_whorls[i], config.epoched)
 
-        total = db.get_total_count()
+        total = db.get_total_count(config.epoched)
 
-        matching = db.get_signature_matches_count(whorls['signature'])
+        matching = db.get_signature_matches_count(whorls['signature'], config.epoched)
 
         return counts, total, matching
 
