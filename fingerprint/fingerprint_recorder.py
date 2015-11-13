@@ -29,6 +29,21 @@ class FingerprintRecorder(object):
         if cls._need_to_record(cookie, signature, ip_addr, key):
             cls._record_whorls(valid_print)
 
+    # This is intended to be used by a cron job or some other automated
+    # process that updates the epoch beginning to x days ago every day.
+    # Update the corresponding values in `totals` so that we have an accurate
+    # measure of how many times specific metrics have been seen in a defined
+    # period of time.
+    @staticmethod
+    def epoch_update_totals(epoch_beginning):
+        db = Db()
+        db.connect()
+        old_epoch_beginning = db.get_epoch_beginning()
+        columns_to_update = FingerprintHelper.whorl_names.keys()
+        columns_to_update.append('signature')
+        db.epoch_update_totals(
+            old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys)
+
     # returns true if we think this browser/fingerprint combination hasn't
     # been counted before
     @staticmethod

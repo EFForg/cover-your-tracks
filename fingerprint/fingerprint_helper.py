@@ -13,7 +13,7 @@ class FingerprintHelper(object):
         'supercookies': "Limited supercookie test"
     }
 
-    _md5_keys = [
+    md5_keys = [
         'plugins', 'fonts', 'user_agent', 'http_accept', 'supercookies']
 
     @classmethod
@@ -23,6 +23,6 @@ class FingerprintHelper(object):
         # value count
         md5_whorls = whorls.copy()
         for i in md5_whorls:
-            if i in cls._md5_keys:
+            if i in cls.md5_keys:
                 md5_whorls[i] = hashlib.md5(md5_whorls[i]).hexdigest()
         return md5_whorls
