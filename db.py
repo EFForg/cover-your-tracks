@@ -53,7 +53,9 @@ class Db(object):
 
     def update_totals(self, whorls):
         c = self.cxn.cursor()
-        update_str = "INSERT INTO totals SET total=1, variable=%s,value=%s ON DUPLICATE KEY UPDATE total=total+1"
+        update_str = """INSERT INTO totals SET
+            total=1, epoch_total=1, variable=%s, value=%s
+            ON DUPLICATE KEY UPDATE total=total+1, epoch_total=epoch_total+1"""
         c.execute(update_str, ('count', ''))
         for i in whorls:
             c.execute(update_str, (i, whorls[i]))
