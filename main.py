@@ -1,5 +1,6 @@
 from flask import Flask, render_template, send_from_directory, request, session, jsonify
 from time import time
+from datetime import timedelta
 import json
 
 import env_config as config
@@ -11,6 +12,7 @@ from util import number_format
 app = Flask(__name__)
 app.secret_key = config.secret_key
 app.debug = config.debug
+app.permanent_session_lifetime = timedelta(days=config.session_lifetime)
 
 with open(config.keyfile, 'r') as fp:
     key = fp.read(16)
@@ -18,9 +20,10 @@ with open(config.keyfile, 'r') as fp:
 
 @app.before_request
 def set_cookie():
+    session.permanent = True
     # set a long-lived session cookie.  this helps to determine if we've
     # already recorded your fingerprint in the database
-    if 'long_cookie' not in session or time() - session['long_cookie'] >= 7776000:
+    if 'long_cookie' not in session or time() - session['long_cookie'] >= config.session_lifetime * 24 * 60 * 60:
         session['long_cookie'] = time()
 
 
