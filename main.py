@@ -23,7 +23,8 @@ def set_cookie():
     session.permanent = True
     # set a long-lived session cookie.  this helps to determine if we've
     # already recorded your fingerprint in the database
-    if 'long_cookie' not in session or time() - session['long_cookie'] >= config.session_lifetime * 24 * 60 * 60:
+    lifetime_seconds = app.permanent_session_lifetime.total_seconds()
+    if 'long_cookie' not in session or time() - session['long_cookie'] >= lifetime_seconds:
         session['long_cookie'] = time()
 
 
