@@ -2,6 +2,7 @@ debug = True
 secret_key = ''  # import os; os.urandom(24)
 public = False
 session_lifetime = 90 # in days
+sentry_dsn = None  # change if you're using sentry exception handler
 
 # database settings
 db_host = 'localhost'
