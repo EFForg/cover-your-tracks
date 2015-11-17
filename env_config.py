@@ -27,6 +27,7 @@ def env_int(env, default):
 debug = env_bool('DEBUG', debug)
 secret_key = env_str('SECRET_KEY', secret_key)
 public = env_bool('PUBLIC', public)
+epoched = env_bool('EPOCHED', epoched)
 session_lifetime = env_int('SESSION_LIFETIME', session_lifetime)
 sentry_dsn = env_str('SENTRY_DSN', sentry_dsn)
 db_host = env_str('DB_HOST', db_host)
