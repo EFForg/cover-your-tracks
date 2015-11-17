@@ -1,4 +1,5 @@
 from flask import Flask, render_template, send_from_directory, request, session, jsonify
+from raven.contrib.flask import Sentry
 from time import time
 from datetime import timedelta
 import json
@@ -13,6 +14,10 @@ app = Flask(__name__)
 app.secret_key = config.secret_key
 app.debug = config.debug
 app.permanent_session_lifetime = timedelta(days=config.session_lifetime)
+
+if config.sentry_dsn:
+    app.config['SENTRY_DSN'] = config.sentry_dsn
+    sentry = Sentry(app)
 
 with open(config.keyfile, 'r') as fp:
     key = fp.read(16)
