@@ -58,17 +58,23 @@ def fingerprint_generic(ajax):
     # calculate the values we'll need to display to the user
     counts, total, matching, bits, group, uniqueness = EntropyHelper.calculate_values(
         whorls)
-    return render_template('ajax_fingerprint.html',
-                           counts=counts,
-                           total=total,
-                           total_formatted=number_format(total),
-                           sample_string=EntropyHelper.size_words(total),
-                           matching=matching,
-                           bits=bits,
-                           group=group,
-                           labels=FingerprintHelper.whorl_names,
-                           whorls=whorls,
-                           uniqueness=uniqueness)
+
+    markup = render_template('ajax_fingerprint.html',
+                             counts=counts,
+                             total=total,
+                             total_formatted=number_format(total),
+                             sample_string=EntropyHelper.size_words(total),
+                             matching=matching,
+                             bits=bits,
+                             group=group,
+                             labels=FingerprintHelper.whorl_names,
+                             whorls=whorls,
+                             uniqueness=uniqueness)
+
+    if ajax:
+        return jsonify({'matching': matching, 'markup': markup})
+    else:
+        return markup
 
 
 @app.route("/fingerprint-nojs")
