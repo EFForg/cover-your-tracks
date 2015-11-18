@@ -1,7 +1,9 @@
-from flask import Flask, render_template, send_from_directory, request, session, jsonify
+from flask import Flask, render_template, send_from_directory, request, session, jsonify, make_response, redirect
 from raven.contrib.flask import Sentry
 from time import time
 from datetime import timedelta
+from random import random
+from urlparse import urlparse
 import json
 
 import env_config as config
@@ -105,7 +107,74 @@ def tracking_tally():
 
 @app.route("/tracker-nojs")
 def tracker_nojs():
-    return render_template('tracker_nojs.html')
+    try2 = False
+    if request.args.get('try2') == "true":
+        try2 = True
+
+    try:
+        i = config.first_party_trackers.index(request.host)
+    except ValueError:
+        return "Invalid domain.  Please check your config settings."
+
+    if i < 2:
+        next_link = "https://" + \
+            config.first_party_trackers[i + 1] + "/tracker-nojs"
+    else:
+        if try2:
+            next_link = "https://" + \
+                config.third_party_trackers['ad_server'] + \
+                "/tracker-reporting-nojs"
+        else:
+            next_link = "https://" + \
+                config.first_party_trackers[i] + \
+                "/tracker-nojs?try2=true"
+
+    cb = random()
+    return render_template('tracker_nojs.html',
+                           next_link=next_link,
+                           third_party_trackers=config.third_party_trackers,
+                           cb=cb,
+                           try2=try2)
+
+
+@app.route("/tracking-tally-nojs")
+def tracking_tally_nojs():
+    site_cookie = request.cookies.get('site', "")
+    site_list = site_cookie.split(" ")
+    site_dict = {}
+    for site in site_list:
+        site_dict[site] = True
+    if request.referrer != None:
+        u = urlparse(request.referrer)
+        if request.args.get('try2') == "true":
+            site_dict[u.hostname + "_try2"] = True
+        else:
+            site_dict[u.hostname] = True
+    resp = make_response(" ".join(site_dict.keys()))
+    resp.set_cookie('site', " ".join(site_dict.keys()))
+    return resp
+
+
+@app.route("/tracker-reporting-nojs")
+def tracker_reporting_nojs():
+    site_cookie = request.cookies.get('site', "")
+    if request.host == config.third_party_trackers['ad_server']:
+        next_link = "https://" + \
+            config.third_party_trackers['tracker_server'] + \
+            "/tracker-reporting-nojs?a=" + site_cookie
+    elif request.host == config.third_party_trackers['tracker_server']:
+        next_link = "https://" + \
+            config.third_party_trackers['dnt_server'] + \
+            "/tracker-reporting-nojs?a=" + \
+            request.args.get('a') + "&t=" + site_cookie
+    elif request.host == config.third_party_trackers['dnt_server']:
+        next_link = "https://" + \
+            config.first_party_trackers[0] + \
+            "/results-nojs?a=" + request.args.get('a') + \
+            "&t=" + request.args.get('t') + \
+            "&dnt=" + site_cookie
+
+    return redirect(next_link, 302)
 
 
 @app.route("/results")
@@ -137,7 +206,27 @@ def record_results():
 
 @app.route("/clear-cookies")
 def clear_cookies():
-    return render_template('clear_cookies.html')
+    resp = make_response(render_template('clear_cookies.html'))
+    resp.set_cookie('site', "")
+    return resp
+
+
+@app.route("/clear-all-cookies-nojs")
+def clear_all_cookies_nojs():
+    if request.host == config.third_party_trackers['ad_server']:
+        next_link = "https://" + \
+            config.third_party_trackers['tracker_server'] + \
+            "/clear-all-cookies-nojs"
+    elif request.host == config.third_party_trackers['tracker_server']:
+        next_link = "https://" + \
+            config.third_party_trackers['dnt_server'] + \
+            "/clear-all-cookies-nojs"
+    elif request.host == config.third_party_trackers['dnt_server']:
+        next_link = "https://" + config.first_party_trackers[0] + "/"
+
+    resp = make_response(redirect(next_link, 302))
+    resp.set_cookie('site', "")
+    return resp
 
 
 @app.route("/ajax-fingerprint", methods=['POST'])
