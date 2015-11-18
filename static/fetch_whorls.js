@@ -193,10 +193,20 @@ function fetch_client_whorls(){
 
   var callback = function(results){
     success = 1;
+    json_results = JSON.parse(results);
     if(typeof trackerTest != 'undefined' && trackerTest){
-      $('#fingerprintTable').html(results);
+      $('#fingerprintTable').html(json_results.markup);
+      // the below is somewhat arbitrary.  we may want to have the result
+      // determined by entropy rather than matches in the future
+      if(json_results.matching <= 20){
+        $('#fp_status').html(status_str['no']);
+      } else if(json_results.matching <= 100){
+        $('#fp_status').html(status_str['partial']);
+      } else {
+        $('#fp_status').html(status_str['yes']);
+      }
     } else {
-      $('#content').html(results);
+      $('#content').html(json_results.markup);
     }
   };
 
