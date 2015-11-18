@@ -45,6 +45,17 @@ def fingerprint_js():
     return render_template('fingerprint_js.html')
 
 
+# route accessed via fingerprint-js
+@app.route("/ajax-fingerprint", methods=['POST'])
+def ajax_fingerprint():
+    return fingerprint_generic(True)
+
+
+@app.route("/fingerprint-nojs")
+def fingerprint_nojs():
+    return render_template('fingerprint_nojs.html', content=fingerprint_generic(False))
+
+
 def fingerprint_generic(ajax):
     # detect server whorls, merge with client whorls
     server_whorls = FingerprintAgent(request).detect_server_whorls()
@@ -79,11 +90,7 @@ def fingerprint_generic(ajax):
         return markup
 
 
-@app.route("/fingerprint-nojs")
-def fingerprint_nojs():
-    return render_template('fingerprint_nojs.html', content=fingerprint_generic(False))
-
-
+# first-party redirect route
 @app.route("/tracker")
 def tracker():
     try:
@@ -100,13 +107,17 @@ def tracker():
     return render_template('tracker.html', next_link=next_link, third_party_trackers=config.third_party_trackers)
 
 
+# third-party route accessed in an iframe for tallying up domains seen
 @app.route("/tracking-tally")
 def tracking_tally():
     return render_template('tracking_tally.html')
 
 
+# first party redirect route, no js
 @app.route("/tracker-nojs")
 def tracker_nojs():
+    # try2 is for tracking weather a domain has been blocked heuristically,
+    # after all third party domains have attempted 3 times to set cookies
     try2 = False
     if request.args.get('try2') == "true":
         try2 = True
@@ -137,6 +148,7 @@ def tracker_nojs():
                            try2=try2)
 
 
+# third-party route, no js. accessed in an iframe for tallying up domains seen
 @app.route("/tracking-tally-nojs")
 def tracking_tally_nojs():
     site_cookie = request.cookies.get('site', "")
@@ -155,6 +167,8 @@ def tracking_tally_nojs():
     return resp
 
 
+# third party redirect route, no js.  this is accessed after /tracker-nojs
+# in order to tally up the results and send them along via GET.
 @app.route("/tracker-reporting-nojs")
 def tracker_reporting_nojs():
     site_cookie = request.cookies.get('site', "")
@@ -177,6 +191,7 @@ def tracker_reporting_nojs():
     return redirect(next_link, 302)
 
 
+# results for the tracker test
 @app.route("/results")
 def results():
     return render_template('results.html',
@@ -186,6 +201,7 @@ def results():
                            third_party_trackers=config.third_party_trackers)
 
 
+# record results via an ajax call from the tracker results page
 @app.route("/record-results", methods=['POST'])
 def record_results():
     results = json.loads(request.data)
@@ -204,6 +220,7 @@ def record_results():
         return jsonify({"success": False})
 
 
+# clear all 'site' cookies for a specific domain
 @app.route("/clear-cookies")
 def clear_cookies():
     resp = make_response(render_template('clear_cookies.html'))
@@ -211,6 +228,7 @@ def clear_cookies():
     return resp
 
 
+# a redirect loop that clears all 'site' cookies from third party domains
 @app.route("/clear-all-cookies-nojs")
 def clear_all_cookies_nojs():
     if request.host == config.third_party_trackers['ad_server']:
@@ -227,11 +245,6 @@ def clear_all_cookies_nojs():
     resp = make_response(redirect(next_link, 302))
     resp.set_cookie('site', "")
     return resp
-
-
-@app.route("/ajax-fingerprint", methods=['POST'])
-def ajax_fingerprint():
-    return fingerprint_generic(True)
 
 
 @app.route("/privacy")
