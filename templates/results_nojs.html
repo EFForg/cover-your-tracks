@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block head %}
+  <link href="https://chrome.google.com/webstore/detail/pkehgijcmpdhfbdbbnkijodmdjhbjlgp" rel="chrome-webstore-item" />
+{% endblock %}
+
+{% block body %}
+  <p>
+    We tested your browser &amp; addons.  Do they protect you against non-consensual Web tracking?
+  </p>
+
+  <div id='results_wrapper'>
+    <p id='summary_sentence'>{{ summary_sentence|safe }}</p>
+    <table class='tracker_results' id='results'>
+      <tbody>
+        <tr>
+          <th>
+            Test
+          </th>
+          <th>
+            Result
+          </th>
+        </tr>
+        <tr>
+          <td class='test_label'>Is your browser blocking tracking ads?</td>
+          <td id='ad_status'>{{ ad_result|safe }}</td>
+        </tr>
+        <tr>
+          <td class='test_label'>Is your browser blocking invisible trackers?</td>
+          <td id='tracker_status'>{{ tracker_result|safe }}</td>
+        </tr>
+        <tr>
+          <td class='test_label'>Is your browser accepting <a href='https://www.eff.org/dnt-policy'>Do Not Track commitments?</a></td>
+          <td id='dnt_status'>{{ dnt_result|safe }}</td>
+        </tr>
+          <td class='test_label'>Does your browser protect from fingerprinting?</td>
+          <td id='fp_status'>{{ fingerprint_result|safe }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div id='fingerprintTable'>{{ fingerprint_content|safe }}</div>
+    <div id="buttons">
+      <div class="row">
+        <a href="{{ retest_link }}" class="circle" id="trackerlink" title="Click here to re-test how trackable your browser is">Re-test your browser</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

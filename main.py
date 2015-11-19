@@ -56,11 +56,11 @@ def fingerprint_nojs():
     return render_template('fingerprint_nojs.html', content=fingerprint_generic(False))
 
 
-def fingerprint_generic(ajax):
+def fingerprint_generic(ajax_request, provide_additional_info=False):
     # detect server whorls, merge with client whorls
     server_whorls = FingerprintAgent(request).detect_server_whorls()
     whorls = server_whorls.copy()
-    if ajax:
+    if ajax_request:
         for i in request.form.keys():
             whorls[i] = request.form.get(i)
 
@@ -84,8 +84,10 @@ def fingerprint_generic(ajax):
                              whorls=whorls,
                              uniqueness=uniqueness)
 
-    if ajax:
+    if ajax_request:
         return jsonify({'matching': matching, 'markup': markup})
+    elif provide_additional_info:
+        return matching, markup
     else:
         return markup
 
@@ -201,6 +203,71 @@ def results():
                            third_party_trackers=config.third_party_trackers)
 
 
+@app.route("/results-nojs")
+def results_nojs():
+    yes = render_template('_yes.html')
+    no = render_template('_no.html')
+    partial = render_template('_partial.html')
+
+    ad_result = tracker_result = dnt_result = no
+    if get_count_from_str(request.args.get('a')) < 4:
+        ad_result = yes
+    if get_count_from_str(request.args.get('t')) < 4:
+        tracker_result = yes
+    # if for the last pageload (the fourth one, or try2) we block some 3rd
+    # party trackers but not the dnt one, then we're using privacy badger
+    if get_count_from_str(
+            " ".join([
+                request.args.get('t'),
+                request.args.get('a'),
+                request.args.get('dnt')
+            ]), heuristic_filter) < 3:
+        if get_count_from_str(request.args.get('dnt'), heuristic_filter) == 1:
+            dnt_result = yes
+
+    if ad_result == yes and tracker_result == yes and dnt_result == yes:
+        summary_sentence = render_template('_summary_sentence_yes.html')
+    elif ad_result == yes and tracker_result == yes and dnt_result == no:
+        summary_sentence = render_template(
+            '_summary_sentence_yes_sans_dnt.html')
+    else:
+        if ad_result == no and tracker_result == no:
+            summary_sentence = render_template('_summary_sentence_no.html')
+        else:
+            summary_sentence = render_template('_summary_sentence_mixed.html')
+        summary_sentence += render_template('_summary_download_links.html')
+
+    fingerprint_matching, fingerprint_content = fingerprint_generic(
+        False, True)
+    if fingerprint_matching <= 20:
+        fingerprint_result = no
+    elif fingerprint_matching <= 100:
+        fingerprint_result = partial
+    else:
+        fingerprint_result = yes
+
+    retest_link = "https://" + \
+        config.third_party_trackers['ad_server'] + "/clear-all-cookies-nojs"
+
+    return render_template('results_nojs.html',
+                           summary_sentence=summary_sentence,
+                           fingerprint_content=fingerprint_content,
+                           ad_result=ad_result,
+                           tracker_result=tracker_result,
+                           dnt_result=dnt_result,
+                           fingerprint_result=fingerprint_result,
+                           retest_link=retest_link)
+
+
+def get_count_from_str(string, extra_filter=lambda x: True):
+    string = string.split(" ")
+    return len(filter(extra_filter, filter(lambda x: x != "", string)))
+
+
+def heuristic_filter(x):
+    return x == config.first_party_trackers[2] + "_try2"
+
+
 # record results via an ajax call from the tracker results page
 @app.route("/record-results", methods=['POST'])
 def record_results():
@@ -240,7 +307,8 @@ def clear_all_cookies_nojs():
             config.third_party_trackers['dnt_server'] + \
             "/clear-all-cookies-nojs"
     elif request.host == config.third_party_trackers['dnt_server']:
-        next_link = "https://" + config.first_party_trackers[0] + "/"
+        next_link = "https://" + \
+            config.first_party_trackers[0] + "/tracker-nojs"
 
     resp = make_response(redirect(next_link, 302))
     resp.set_cookie('site', "")
