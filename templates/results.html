@@ -58,12 +58,15 @@
   <script type="text/javascript">
     ghostery_enabled = true;
     var status_str = {
-      'yes'    : "<span style='color: green; font-size: 15pt;'>&#x2713;</span><span class='complimentary_text'>&nbsp;yes</span>",
-      'no'     : "<span style='color: red; font-size: 15pt;'>&#x2717;</span><span class='complimentary_text'>&nbsp;no</span>",
-      'partial': "<span style='color: orange; font-size: 15pt;'>&#x26A0;</span><span class='complimentary_text'>&nbsp;partial protection</span>"
+      'yes'    : "{% include '_yes.html' %}",
+      'no'     : "{% include '_no.html' %}",
+      'partial': "{% include '_partial.html' %}"
     };
-    var download_links = '<div id="badger-download"><a href="https://s.eff.org/files/privacy-badger-latest.xpi" id="badger-firefox">Download for Firefox</a> <a href="https://chrome.google.com/webstore/detail/pkehgijcmpdhfbdbbnkijodmdjhbjlgp" id="badger-chrome">Download for Chrome</a></div>';
+    var download_links = "{% include '_summary_download_links.html' %}";
     window.onload = function(){
+      document.getElementById('fingerprintTable').style.display = "none";
+      document.getElementById('buttons').style.display = "none";
+
       var a_loads = {{ a_loads }};
       var t_loads = {{ t_loads }};
       var dnt_loads = {{ dnt_loads }};
@@ -222,7 +225,7 @@
 
       setTimeout(function(){
         if(counter < 3){
-          // We're using PrivacyBadger (heuristic blocking)
+          // We're using PrivacyBadger (heuristic blocking) or domain blacklist
           results['ad'] = 'yes';
           results['tracker'] = 'yes';
           if("https://{{ third_party_trackers['dnt_server'] }}" in sites_responding){
@@ -251,16 +254,16 @@
         var summary_sentence = document.getElementById('summary_sentence');
 
         if(results['tracker'] == 'yes' && results['ad'] == 'yes' && results['dnt'] == 'yes'){
-          summary_sentence.innerHTML = "Yes! You have <b>strong protection against Web tracking</b>";
+          summary_sentence.innerHTML = "{% include '_summary_sentence_yes.html' %}";
         } else if(results['tracker'] == 'yes' && results['ad'] == 'yes' && results['dnt'] == 'no'){
-          summary_sentence.innerHTML = "Yes! you have <b>strong protection against Web tracking</b>, though your software isn't checking for Do Not Track policies";
+          summary_sentence.innerHTML = "{% include '_summary_sentence_yes_sans_dnt.html' %}";
         } else {
           if(results['tracker'] == 'no' && results['ad'] == 'no') {
-            summary_sentence.innerHTML = "No. You are not protected against tracking on the Web. We suggest you <b>install Privacy Badger:</b>";
+            summary_sentence.innerHTML = "{% include '_summary_sentence_no.html' %}";
           } else if(ghostery_detected) {
-            summary_sentence.innerHTML = "No. You seem to have some privacy software installed, but it <b>isn't passing these tests</b>. Perhaps you should <b>install Privacy Badger</b> instead:";
+            summary_sentence.innerHTML = "{% include '_summary_sentence_incomplete_protection.html' %}";
           } else {
-            summary_sentence.innerHTML = "Mixed results: you have <b>some protection</b> against Web tracking, but it has <b>some gaps</b>. We suggest re-configuring your protection software, or <b>installing Privacy Badger:</b>";
+            summary_sentence.innerHTML = "{% include '_summary_sentence_mixed.html' %}";
           }
           summary_sentence.innerHTML += download_links;
           

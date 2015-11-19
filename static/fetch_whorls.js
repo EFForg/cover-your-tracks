@@ -198,6 +198,7 @@ function fetch_client_whorls(){
       $('#fingerprintTable').html(json_results.markup);
       // the below is somewhat arbitrary.  we may want to have the result
       // determined by entropy rather than matches in the future
+      // * note: if this logic changes, change in results-nojs route too.
       if(json_results.matching <= 20){
         $('#fp_status').html(status_str['no']);
       } else if(json_results.matching <= 100){
