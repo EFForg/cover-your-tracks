@@ -115,6 +115,11 @@ def tracking_tally():
     return render_template('tracking_tally.html')
 
 
+@app.route("/tracker-preflight-nojs")
+def tracker_preflight_nojs():
+    return render_template('tracker_preflight_nojs.html', third_party_trackers=config.third_party_trackers)
+
+
 # first party redirect route, no js
 @app.route("/tracker-nojs")
 def tracker_nojs():
