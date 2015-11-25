@@ -1,0 +1,11 @@
+jquery.flash
+A jQuery plugin for embedding Flash movies.
+
+Version 1.0
+March 23rd, 2010
+
+Based on the jQuery Flash Plugin (http://jquery.lukelutman.com/plugins/flash)
+Copyright (c) 2006 Luke Lutman (http://www.lukelutman.com)
+
+Licensed under the MIT license.
+http://www.opensource.org/licenses/mit-license.php
