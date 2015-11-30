@@ -1,4 +1,5 @@
 from flask import Flask, render_template, send_from_directory, request, session, jsonify, make_response, redirect
+from flask.ext.bower import Bower
 from raven.contrib.flask import Sentry
 from time import time
 from datetime import timedelta
@@ -352,6 +353,7 @@ def dnt():
     return send_from_directory(app.static_folder, request.path[1:])
 
 if __name__ == "__main__":
+    Bower(app)
     if config.public:
         app.run(host='0.0.0.0')
     else:

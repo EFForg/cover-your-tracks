@@ -1,0 +1,14 @@
+{
+  "name": "jquery.flash",
+  "homepage": "https://github.com/juliogreff/jquery-flash",
+  "_release": "f1bca94230",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f1bca942306714587ffa16d63f38b928a8b6063d"
+  },
+  "_source": "git://github.com/juliogreff/jquery-flash.git",
+  "_target": "*",
+  "_originalSource": "jquery.flash",
+  "_direct": true
+}

@@ -1,0 +1,21 @@
+{
+  "name": "panopticlick-python",
+  "version": "0.0.0",
+  "authors": [
+    "William Budington <bill@eff.org>"
+  ],
+  "description": "How Unique - and Trackable - Is Your Browser?",
+  "license": "AGPL",
+  "homepage": "https://panopticlick.eff.org/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "jquery.flash": "*"
+  }
+}
