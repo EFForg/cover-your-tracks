@@ -1,6 +1,6 @@
 $("#flashcontent").flash(
   {
-    "src": "resources/fonts2.swf",
+    "src": "static/fonts2.swf",
     "width": "1",
     "height": "1",
     "swliveconnect": "true",
