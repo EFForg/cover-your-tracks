@@ -4,6 +4,10 @@ How Unique - and Trackable - Is Your Browsesr?
 
 ## Installation
 
+The easiest way to set up an instance of Panopticlick is with `docker`, but it can be installed on a host machine if desired.
+
+### Partial Installation on Host
+
 You may need to install `libmysqlclient-dev` and `python-dev` for Debian-based systems.
 
     pip install -r requirements.txt
@@ -11,17 +15,21 @@ You may need to install `libmysqlclient-dev` and `python-dev` for Debian-based s
 
 Then modify the relevant variables in config.py
 
-## Running
+Now, you can run
 
     python main.py
 
-## Docker
+### Full Docker Installation
 
 First, build the image
 
     docker build -t panopticlick .
 
-Then,
+To generate self-signed certificates for the Panopticlick hosts, cd into `examples/nginx` and run 
+
+    ./generate_self_signed_certs.sh
+
+Then, from the git root, run
 
     docker run -d --name panopticlick-db \
       -e MYSQL_ROOT_PASSWORD=changeme \
@@ -39,6 +47,14 @@ Then,
       -v $(pwd)/examples/nginx/conf.d:/etc/nginx/conf.d \
       -p 443:443 \
       nginx
+
+## Viewing Locally
+
+Unless you've changed the server names specified in `config.py`, you'll have to add the following line to your `/etc/hosts` file:
+
+    127.0.0.1 panopticlick.eff.org trackersimulator.org firstpartysimulator.org firstpartysimulator.net eviltracker.net do-not-tracker.org
+
+If you generated the certs yourself, in Firefox you'll have to go into private browsing mode to see the "I Understand the Risks" dialogue.  You may also have to manually go to each of the above domains and go through the certificate exception process for each one in order for the application to be fully functional.
 
 ## License
 
