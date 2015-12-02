@@ -76,7 +76,7 @@ function ieAcrobatVersion() {
   }
 }
 
-function get_fonts() {
+function get_fonts(fp, cb) {
   // Try flash first
 	var fonts = "";
 	var obj = document.getElementById("flashfontshelper");
@@ -95,9 +95,13 @@ function get_fonts() {
     fonts += " (via Java)";
     } catch (ex) {}
   }
-  if ("" == fonts)
-    fonts = "No Flash or Java fonts detected";
-  return fonts;
+  if ("" == fonts){
+    fp.fontsKey([], function(keys){
+      cb(keys[0]['value'].join(", ") + " (via javascript)");
+    });
+  } else {
+    cb(fonts);
+  }
 }
 
 function set_dom_storage(){
@@ -144,6 +148,15 @@ function test_ie_userdata(){
   }
 }
 
+function get_touch_support(fp){
+  var touch_support = fp.getTouchSupport();
+  var touch_support_str = ""
+  touch_support_str += "Max touchpoints: " + String(touch_support[0]);
+  touch_support_str += "; TouchEvent supported: " + String(touch_support[1]);
+  touch_support_str += "; onTouchStart supported: " + String(touch_support[2]);
+  return touch_support_str;
+}
+
 var success = 0;
 var retries = 20;
 
@@ -156,41 +169,6 @@ function retry_post() {
 }
 
 function fetch_client_whorls(){
-  // fetch client-side vars
-  var whorls = new Object();
-
-  // this is a backup plan
-  setTimeout("retry_post()",1100);
-
-  try { 
-    whorls['plugins'] = identify_plugins(); 
-  } catch(ex) { 
-    whorls['plugins'] = "permission denied";
-  }
-
-  // Do not catch exceptions here because the async Flash applet will raise
-  // them until it is ready.  Instead, if Flash is present, the retry timeout
-  // will cause us to try again until it returns something meaningful.
-
-  whorls['fonts'] = get_fonts();
-  
-  try { 
-    whorls['timezone'] = new Date().getTimezoneOffset();
-  } catch(ex) {
-    whorls['timezone'] = "permission denied";
-  }
-
-  try {
-    whorls['video'] = screen.width+"x"+screen.height+"x"+screen.colorDepth;
-  } catch(ex) {
-    whorls['video'] = "permission denied";
-  }
-
-  whorls['supercookies'] = test_dom_storage() + test_ie_userdata();
-
-  // send to server for logging / calculating
-  // and fetch results
-
   var callback = function(results){
     success = 1;
     json_results = JSON.parse(results);
@@ -211,8 +189,51 @@ function fetch_client_whorls(){
     }
   };
 
-  $.post("/ajax-fingerprint", whorls, callback, "html" );
-  
+  // fetch client-side vars
+  var whorls = new Object();
+
+  // this is a backup plan
+  setTimeout("retry_post()",1100);
+
+  try { 
+    whorls['plugins'] = identify_plugins(); 
+  } catch(ex) { 
+    whorls['plugins'] = "permission denied";
+  }
+
+  // Do not catch exceptions here because the async Flash applet will raise
+  // them until it is ready.  Instead, if Flash is present, the retry timeout
+  // will cause us to try again until it returns something meaningful.
+
+  try { 
+    whorls['timezone'] = new Date().getTimezoneOffset();
+  } catch(ex) {
+    whorls['timezone'] = "permission denied";
+  }
+
+  try {
+    whorls['video'] = screen.width+"x"+screen.height+"x"+screen.colorDepth;
+  } catch(ex) {
+    whorls['video'] = "permission denied";
+  }
+
+  whorls['supercookies'] = test_dom_storage() + test_ie_userdata();
+
+  var fp = new Fingerprint2();
+  whorls['canvas_hash'] = fp.x64hash128(fp.getCanvasFp());
+  whorls['webgl_hash'] = fp.x64hash128(fp.getWebglFp());
+  whorls['language'] = navigator.language;
+  whorls['platform'] = navigator.platform;
+  whorls['touch_support'] = get_touch_support(fp);
+
+  get_fonts(fp, function(fonts){
+    whorls['fonts'] = fonts;
+
+    // send to server for logging / calculating
+    // and fetch results
+
+    $.post("/ajax-fingerprint", whorls, callback, "html" );
+  });
 };
 
 

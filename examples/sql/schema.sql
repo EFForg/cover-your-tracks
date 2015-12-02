@@ -31,6 +31,12 @@ CREATE TABLE `fingerprint` (
   `signature` varchar(32) NOT NULL DEFAULT '',
   `count` int(11) NOT NULL DEFAULT '1',
   `supercookies` varchar(255) DEFAULT NULL,
+  `canvas_hash` varchar(32) DEFAULT NULL,
+  `dnt_enabled` varchar(10) DEFAULT NULL,
+  `webgl_hash` varchar(32) DEFAULT NULL,
+  `language` varchar(32) DEFAULT NULL,
+  `platform` varchar(32) DEFAULT NULL,
+  `touch_support` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY (`signature`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

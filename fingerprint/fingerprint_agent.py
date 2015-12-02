@@ -21,12 +21,19 @@ class FingerprintAgent(object):
             self._get_header('Accept-Language')
         ])
 
+        vars['dnt_enabled'] = (self._get_header('DNT') != "")
+
         # these are dummies:
         vars['plugins'] = "no javascript"
         vars['video'] = "no javascript"
         vars['timezone'] = "no javascript"
         vars['fonts'] = "no javascript"
         vars['supercookies'] = "no javascript"
+        vars['canvas_hash'] = "no javascript"
+        vars['webgl_hash'] = "no javascript"
+        vars['language'] = "no javascript"
+        vars['platform'] = "no javascript"
+        vars['touch_support'] = "no javascript"
 
         return vars
 

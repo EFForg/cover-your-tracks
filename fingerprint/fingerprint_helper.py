@@ -10,11 +10,17 @@ class FingerprintHelper(object):
         'video': "Screen Size and Color Depth",
         'fonts': "System Fonts",
         'cookie_enabled': "Are Cookies Enabled?",
-        'supercookies': "Limited supercookie test"
+        'supercookies': "Limited supercookie test",
+        'canvas_hash': "Hash of canvas fingerprint",
+        'webgl_hash': "Hash of WebGL fingerprint",
+        'dnt_enabled': "DNT Header Enabled?",
+        'language': "Language",
+        'platform': "Platform",
+        'touch_support': "Touch Support"
     }
 
     md5_keys = [
-        'plugins', 'fonts', 'user_agent', 'http_accept', 'supercookies']
+        'plugins', 'fonts', 'user_agent', 'http_accept', 'supercookies', 'touch_support']
 
     @classmethod
     def value_or_md5(cls, whorls):
