@@ -131,6 +131,7 @@ div#wrapper {
     max-width: 50%;
     min-width: auto;
     padding-left: 24px;
+    top: 12px;
   }
 
   #header .orange .bar .upper .width-wrapper .donate {
