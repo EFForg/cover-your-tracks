@@ -42,7 +42,9 @@
       {% endblock %}
 
       <div id="content">
-        {% block body %}{% endblock %}
+        <div class="content-background">
+          {% block body %}{% endblock %}
+        </div>
       </div>
 
       {% block java %}

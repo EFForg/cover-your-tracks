@@ -84,7 +84,7 @@ div#wrapper {
   top: 8px;
   width: 69px;
   text-decoration: none;
-  transition: .32s background-color;
+  transition: .16s background-color;
 }
 
 #header .orange .bar .upper .width-wrapper .donate:hover {
@@ -118,6 +118,11 @@ div#wrapper {
 }
 
 #content {
+  margin: 0 auto 62px;
+  min-height: 300px;
+}
+
+#content .content-background {
   background-color: rgba(255, 255, 255, 0.931);
   margin: 0 auto 62px;
   max-width: 440px;
@@ -126,11 +131,17 @@ div#wrapper {
   z-index: 9;
 }
 
+iframe {
+  border: none;
+}
+
 #footer {
   background-color: rgba(255, 255, 255, 0.85);
   height: calc(3000px );
   min-height: 120px;
   padding: 35px 0 0;
+  position: relative;
+  z-index: 9;
 }
 
 div#about,
@@ -155,17 +166,22 @@ div#front p:nth-of-type(1) {
 }
 
 #buttons .row a#trackerlink {
+  background-color: #007dff;
   border-radius: 4px;
   display: block;
   font-size: 22px;
   font-weight: bold;
-  text-shadow: 0 1px 0 #0070ff;
-  background-color: #007dff;
   height: 48px;
   line-height: 49px;
   margin: 0 auto;
+  text-shadow: 0 1px 0 #0070ff;
   text-transform: uppercase;
+  transition: .16s background-color;
   width: 140px;
+}
+
+#buttons .row a#trackerlink:hover {
+  background-color: #006bdb;
 }
 
 div#results_wrapper .row {
