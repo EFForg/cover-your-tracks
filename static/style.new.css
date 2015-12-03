@@ -123,6 +123,14 @@ div#wrapper {
 }
 
 @media screen and (max-width: 479px) {
+  #header .orange {
+    min-height: 165px;
+  }
+
+  #header .orange-slash {
+    top: 165px;
+  }
+
   #header .orange .bar .upper {
     height: 36px;
   }
@@ -142,6 +150,15 @@ div#wrapper {
   #header .orange .bar .upper .width-wrapper .logo {
     left: 10px;
     top: 10px;
+  }
+
+  #header .orange img.title {
+    height: 57px;
+    width: 250px;
+  }
+
+  #header .orange .subtitle {
+    font-size: 15px;
   }
 }
 
