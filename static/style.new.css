@@ -141,8 +141,7 @@ iframe {
 
 #footer {
   background-color: rgba(255, 255, 255, 0.85);
-  height: calc(3000px );
-  min-height: 120px;
+  min-height: 400px;
   padding: 35px 0 0;
   position: relative;
   z-index: 9;
@@ -171,12 +170,8 @@ div#front p:nth-of-type(1) {
 
 #buttons .row a#trackerlink {
   background-color: #007dff;
-  border-bottom: 1px solid #fffaee;
-  border-left: none;
   border-radius: 4px;
-  border-right: none;
-  border-top: 1px solid #fffaee;
-  box-shadow: 0 0 8px 1px #fffaee;
+  box-shadow: 0 0 2px 1px #fffaee;
   display: block;
   font-size: 22px;
   font-weight: bold;
