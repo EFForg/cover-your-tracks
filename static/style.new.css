@@ -1,0 +1,178 @@
+body {
+  background-color: #3e3d3d;
+  background-image: url(./images/thumbprint.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50%;
+  background-size: 80%;
+  margin: 0;
+}
+
+@media screen and (max-width: 1149px) {
+  body {
+    background-size: 910px 650px;
+  }
+}
+
+div#wrapper {
+  background: none;
+}
+
+#credit {
+  display: none;
+}
+
+#header a {
+  outline: none;
+}
+
+#header .orange {
+  background-color: #f58528;
+  min-height: 175px;
+}
+
+#header .orange .bar .upper {
+  background-color: #000;
+  height: 26px;
+}
+
+#header .orange .bar .upper .width-wrapper {
+  margin: 0 auto;
+  max-width: 440px;
+  position: relative;
+}
+
+#header .orange .bar .upper .width-wrapper .logo {
+  background-image: url(./images/logo.png);
+  background-size: 24px 17px;
+  cursor: pointer;
+  float: left;
+  height: 17px;
+  outline: none;
+  position: relative;
+  top: 9px;
+  width: 24px;
+}
+
+#header .orange .bar .upper .width-wrapper .title {
+  color: #f58528;
+  float: left;
+  font-size: 8px;
+  min-width: 285px;
+  padding-left: 11px;
+  position: relative;
+  text-align: left;
+  top: 14px;
+}
+
+#header .orange .bar .upper .width-wrapper .donate {
+  background-color: #f58528;
+  border-radius: 2px;
+  color: #0c0602;
+  cursor: pointer;
+  float: right;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  height: 17px;
+  letter-spacing: 1px;
+  line-height: 1.7;
+  margin-right: 25px;
+  outline: none;
+  position: relative;
+  text-align: center;
+  top: 8px;
+  width: 69px;
+  text-decoration: none;
+  transition: .32s background-color;
+}
+
+#header .orange .bar .upper .width-wrapper .donate:hover {
+  background-color: #ec2126;
+}
+
+#header .orange .bar .lower {
+  background-image: url(./images/squiggle.png);
+  background-position: 50% 0;
+  background-size: 625px 10px;
+  height: 10px;
+}
+
+#header .orange img.title {
+  height: 72px;
+  padding: 20px 0 8px;
+  width: 317px;
+}
+
+#header .orange .subtitle {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#header .orange-slash {
+  left: 0;
+  position: absolute;
+  top: 175px;
+  width: 100%;
+}
+
+#content {
+  background-color: rgba(255, 255, 255, 0.931);
+  margin: 0 auto 62px;
+  max-width: 440px;
+  padding: 24px 20px;
+  position: relative;
+  z-index: 9;
+}
+
+#footer {
+  background-color: rgba(255, 255, 255, 0.85);
+  height: calc(3000px );
+  min-height: 120px;
+  padding: 35px 0 0;
+}
+
+div#about,
+div#front,
+div#privacy,
+div#results_wrapper,
+div#self-defense {
+  width: auto;
+}
+
+div#front p:nth-of-type(1) {
+  margin-top: 0;
+}
+
+#buttons {
+  border-spacing: 0;
+  width: 100%;
+}
+
+#buttons .row {
+  margin: 0 auto;
+}
+
+#buttons .row a#trackerlink {
+  border-radius: 4px;
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 0 1px 0 #0070ff;
+  background-color: #007dff;
+  height: 48px;
+  line-height: 49px;
+  margin: 0 auto;
+  text-transform: uppercase;
+  width: 140px;
+}
+
+div#results_wrapper .row {
+  margin: 16px auto 0;
+}
+
+div#results_wrapper #buttons .row a#trackerlink {
+  height: auto;
+  width: auto;
+}

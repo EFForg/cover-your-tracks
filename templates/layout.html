@@ -3,6 +3,7 @@
   <head>
     <title>Panopticlick{% if title %} | {{ title }}{% endif %}</title>
     <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <link rel="stylesheet" href="static/style.new.css" type="text/css" />
     <link rel="shortcut icon" href='/static/favicon.ico'>
     {% block meta %}
       <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -12,9 +13,33 @@
   <body>
     <div id='wrapper'>
 
-      {% block header %}{% endblock %}
-
-      <h1 id="title"><a href="https://panopticlick.eff.org"><strong>Panopticlick</strong> &#8212; How Unique, and Trackable, Is Your Browser?</a></h1>
+      {% block header %}
+      <div id="header">
+        <div class="orange">
+          <div class="bar">
+            <div class="upper">
+              <div class="width-wrapper">
+                <a class="logo" href="https://www.eff.org/" target="_blank"></a>
+                <div class="title">
+                  A RESEARCH PROJECT OF THE ELECTRONIC FRONTIER FOUNDATION
+                </div>
+                <a class="donate" href="https://supporters.eff.org/donate" target="_blank">
+                  DONATE
+                </a>
+              </div>
+            </div>
+            <div class="lower"></div>
+          </div>
+          <a href="/">
+            <img class="title" src="./static/images/title.png" />
+          </a>
+          <div class="subtitle">
+            Is your browser safe against tracking?
+          </div>
+        </div>
+        <img class="orange-slash" src="./static/images/triangle.png" />
+      </div>
+      {% endblock %}
 
       <div id="content">
         {% block body %}{% endblock %}
