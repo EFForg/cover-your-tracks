@@ -1,11 +1,12 @@
 body {
+  background-attachment: fixed;
   background-color: #3e3d3d;
   background-image: url(./images/thumbprint.png);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: 50%;
+  background-repeat: no-repeat;
   background-size: 80%;
   margin: 0;
+  min-width: 320px;
 }
 
 @media screen and (max-width: 1149px) {
