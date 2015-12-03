@@ -171,7 +171,12 @@ div#front p:nth-of-type(1) {
 
 #buttons .row a#trackerlink {
   background-color: #007dff;
+  border-bottom: 1px solid #fffaee;
+  border-left: none;
   border-radius: 4px;
+  border-right: none;
+  border-top: 1px solid #fffaee;
+  box-shadow: 0 0 8px 1px #fffaee;
   display: block;
   font-size: 22px;
   font-weight: bold;
