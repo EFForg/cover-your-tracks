@@ -65,16 +65,27 @@
         </script>
       {% endblock %}
 
-      <div id="footer">
-        <small>Learn about <a href="/about">Panopticlick</a> and <a href="https://www.eff.org/deeplinks/2010/01/primer-information-theory-and-privacy">web tracking.</a></small>
-        <small id="center">The Panopticlick <a href="/privacy">Privacy Policy.</a></small>
-        <small>Learn about the <a href="https://www.eff.org/about">Electronic Frontier Foundation.</a></small>
-      </div>
-
       {% block footer %}
-        <div id="credit">
-          <a href="https://www.eff.org" title="Electronic Frontier Foundation homepage"><img src="static/images/eff-logo.gif" alt="EFF" width="61" height="43" /></a><br />
-          <small>A research project of the <a href="https://www.eff.org" title="Electronic Frontier Foundation homepage">Electronic Frontier Foundation</small></a>
+        <div id="footer">
+          <div class="social-share-buttons">
+            <a href="#">Share on Facebook</a>
+            <a href="#">Share on Twitter</a>
+            <a href="#">Share on Google+</a>
+          </div>
+
+          <a class="logo" href="https://www.eff.org/" target="_blank"></a>
+
+          <div class="subtitle">
+            A project of the Electronic Frontier Foundation
+          </div>
+
+          <div class="links">
+            <a href="#">About Panopticlick</a>
+            <a href="#">Donate to EFF</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy</a>
+            <a href="#">CC-License</a>
+          </div>
         </div>
       {% endblock %}
 
