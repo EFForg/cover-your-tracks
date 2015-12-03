@@ -47,7 +47,7 @@ div#wrapper {
 }
 
 #header .orange .bar .upper .width-wrapper .logo {
-  background-image: url(./images/logo.png);
+  background-image: url(./images/logo-small.png);
   background-size: 24px 17px;
   cursor: pointer;
   float: left;
@@ -120,6 +120,28 @@ div#wrapper {
   position: absolute;
   top: 175px;
   width: 100%;
+}
+
+@media screen and (max-width: 479px) {
+  #header .orange .bar .upper {
+    height: 36px;
+  }
+
+  #header .orange .bar .upper .width-wrapper .title {
+    max-width: 50%;
+    min-width: auto;
+    padding-left: 24px;
+  }
+
+  #header .orange .bar .upper .width-wrapper .donate {
+    margin-right: 10px;
+    top: 10px;
+  }
+
+  #header .orange .bar .upper .width-wrapper .logo {
+    left: 10px;
+    top: 10px;
+  }
 }
 
 #content {
