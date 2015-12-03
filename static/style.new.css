@@ -294,3 +294,9 @@ div#results_wrapper #buttons .row a#trackerlink {
   height: auto;
   width: auto;
 }
+
+@media screen and (max-width: 479px) {
+  div#results_wrapper #buttons .row a#trackerlink {
+    font-size: 16px;
+  }
+}
