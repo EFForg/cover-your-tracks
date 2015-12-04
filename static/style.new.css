@@ -93,10 +93,10 @@ div#wrapper {
   outline: none;
   position: relative;
   text-align: center;
-  top: 8px;
-  width: 69px;
   text-decoration: none;
+  top: 8px;
   transition: .16s background-color;
+  width: 69px;
 }
 
 #header .orange .bar .upper .width-wrapper .donate:hover {
@@ -305,6 +305,7 @@ div#front p:nth-of-type(1) {
 
 #buttons .row a#trackerlink:hover {
   background-color: #006cff;
+  border-color: #006cff;
 }
 
 div#results_wrapper .row {
@@ -313,11 +314,20 @@ div#results_wrapper .row {
 
 div#results_wrapper #buttons .row a#trackerlink {
   height: auto;
-  width: auto;
+  margin: 0 auto;
+  max-width: calc(100% - 32px);
+  padding: 0 12px;
+  border: 2px solid #007DFF;
+  width: 300px;
 }
 
 @media screen and (max-width: 479px) {
   div#results_wrapper #buttons .row a#trackerlink {
-    font-size: 16px;
+    font-size: 18px;
   }
+}
+
+#badger-download {
+  max-width: calc(100% - 32px);
+  padding: 16px 12px;
 }
