@@ -196,6 +196,7 @@
           badger_download.onclick = function(){
             window.location = firefox_url;
           };
+          badger_download.setAttribute('javascript', 'enabled');
           badger_download.appendChild(install_link('Firefox', firefox_url));
           badger_download.parentNode.insertBefore(other_link('Chrome', chrome_url),badger_download.nextSibling);
         }
@@ -204,6 +205,7 @@
           badger_download.onclick = function(){
             window.location = firefox_url;
           };
+          badger_download.setAttribute('javascript', 'enabled');
           badger_download.appendChild(install_link('Chrome', chrome_url));
           badger_download.parentNode.insertBefore(other_link('Firefox', firefox_url),badger_download.nextSibling);
         }
