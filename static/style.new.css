@@ -313,11 +313,13 @@ div#results_wrapper .row {
 }
 
 div#results_wrapper #buttons .row a#trackerlink {
+  border: 2px solid #007DFF;
+  font-size: 21px;
   height: auto;
+  line-height: 1;
   margin: 0 auto;
   max-width: calc(100% - 32px);
-  padding: 0 12px;
-  border: 2px solid #007DFF;
+  padding: 16px 12px;
   width: 300px;
 }
 
@@ -328,6 +330,42 @@ div#results_wrapper #buttons .row a#trackerlink {
 }
 
 #badger-download {
+  background-color: #f58528;
+  border-color: #f58528;
+  letter-spacing: normal;
   max-width: calc(100% - 32px);
-  padding: 16px 12px;
+  padding: 11px 12px 4px;
+  transition: .16s background-color, .16s border-color;
+}
+
+#badger-download a {
+  color: #fff;
+  font-family: "lucida grande", helvetica, arial, verdana, sans-serif;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: normal;
+}
+
+#badger-download a div {
+  color: #fff;
+  display: inline-block;
+  font-family: "lucida grande", helvetica, arial, verdana, sans-serif;
+  font-size: 12px;
+  position: relative;
+  top: -5px;
+}
+
+#badger-download:hover {
+  background-color: #f46f00;
+  border-color: #f46f00;
+}
+
+#badger-download:hover a div {
+  color: #fff;
+}
+
+@media screen and (max-width: 479px) {
+  #badger-download a {
+    font-size: 18px;
+  }
 }
