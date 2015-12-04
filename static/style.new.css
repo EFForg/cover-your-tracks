@@ -344,6 +344,7 @@ div#results_wrapper #buttons .row a#trackerlink {
   font-size: 21px;
   font-weight: bold;
   line-height: normal;
+  text-shadow: 0px 1px 0px #f46f00;
 }
 
 #badger-download a div {
