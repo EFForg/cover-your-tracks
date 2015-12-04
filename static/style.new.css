@@ -73,7 +73,7 @@ div#wrapper {
 #header .orange .bar .upper .width-wrapper .donate {
   background-color: #f58528;
   border-radius: 2px;
-  box-shadow: 0 0 2px #aacef4;
+  box-shadow: 0 0 2px #47260b;
   color: #0c0602;
   cursor: pointer;
   float: right;
@@ -171,10 +171,18 @@ div#wrapper {
 #content .content-background {
   background-color: rgba(255, 255, 255, 0.931);
   margin: 0 auto 62px;
-  max-width: 440px;
+  max-width: 750px;
   padding: 24px 20px;
   position: relative;
+  width: 75%;
   z-index: 9;
+}
+
+@media screen and (max-width: 479px) {
+  #content .content-background {
+    background-color: #fff;
+    width: calc(100% - 40px);
+  }
 }
 
 iframe {
