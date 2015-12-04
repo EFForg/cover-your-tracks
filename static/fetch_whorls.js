@@ -30,7 +30,7 @@ function identify_plugins(){
       }
       plist[i] += ". ";
     }
-    plist.sort(); 
+    plist.sort();
     for (i = 0; i < np.length; i++)
       plugins+= "Plugin "+i+": " + plist[i];
   }
@@ -39,12 +39,12 @@ function identify_plugins(){
   if (plugins == "") {
     var pp = new Array();
     pp[0] = "Java"; pp[1] = "QuickTime"; pp[2] = "DevalVR"; pp[3] = "Shockwave";
-    pp[4] = "Flash"; pp[5] = "WindowsMediaplayer"; pp[6] = "Silverlight"; 
+    pp[4] = "Flash"; pp[5] = "WindowsMediaplayer"; pp[6] = "Silverlight";
     pp[7] = "VLC";
     var version;
     for ( p in pp ) {
       version = PluginDetect.getVersion(pp[p]);
-      if (version) 
+      if (version)
         plugins += pp[p] + " " + version + "; "
     }
     plugins += ieAcrobatVersion();
@@ -58,7 +58,7 @@ function ieAcrobatVersion() {
     for (var x = 2; x < 10; x++) {
       try {
         oAcro=eval("new ActiveXObject('PDF.PdfCtrl."+x+"');");
-        if (oAcro) 
+        if (oAcro)
           return "Adobe Acrobat version" + x + ".?";
       } catch(ex) {}
     }
@@ -101,7 +101,7 @@ function get_fonts() {
 }
 
 function set_dom_storage(){
-  try { 
+  try {
     localStorage.panopticlick = "yea";
     sessionStorage.panopticlick = "yea";
   } catch (ex) { }
@@ -136,7 +136,7 @@ function test_ie_userdata(){
     oPersistDiv.load("oXMLStore");
     if ("remember this value" == (oPersistDiv.getAttribute("remember"))) {
       return ", IE userData: Yes";
-    } else { 
+    } else {
       return ", IE userData: No";
     }
   } catch (ex) {
@@ -162,9 +162,9 @@ function fetch_client_whorls(){
   // this is a backup plan
   setTimeout("retry_post()",1100);
 
-  try { 
-    whorls['plugins'] = identify_plugins(); 
-  } catch(ex) { 
+  try {
+    whorls['plugins'] = identify_plugins();
+  } catch(ex) {
     whorls['plugins'] = "permission denied";
   }
 
@@ -173,8 +173,8 @@ function fetch_client_whorls(){
   // will cause us to try again until it returns something meaningful.
 
   whorls['fonts'] = get_fonts();
-  
-  try { 
+
+  try {
     whorls['timezone'] = new Date().getTimezoneOffset();
   } catch(ex) {
     whorls['timezone'] = "permission denied";
@@ -207,12 +207,12 @@ function fetch_client_whorls(){
         $('#fp_status').html(status_str['yes']);
       }
     } else {
-      $('#content').html(json_results.markup);
+      $('#content .content-background').html(json_results.markup);
     }
   };
 
   $.post("/ajax-fingerprint", whorls, callback, "html" );
-  
+
 };
 
 
