@@ -24,5 +24,6 @@ class FingerprintHelper(object):
         md5_whorls = whorls.copy()
         for i in md5_whorls:
             if i in cls._md5_keys:
-                md5_whorls[i] = hashlib.md5(md5_whorls[i]).hexdigest()
+                md5_whorls[i] = hashlib.md5(
+                    md5_whorls[i].encode('ascii', 'ignore')).hexdigest()
         return md5_whorls
