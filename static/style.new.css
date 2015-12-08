@@ -71,9 +71,14 @@ div#wrapper {
   font-size: 8px;
   min-width: 285px;
   padding-left: 11px;
+  letter-spacing: .5px;
   position: relative;
   text-align: left;
   top: 14px;
+}
+
+#header .orange .bar .upper .width-wrapper .title a {
+  font-weight: normal;
 }
 
 #header .orange .bar .upper .width-wrapper .donate {
@@ -174,10 +179,14 @@ div#wrapper {
   min-height: 300px;
 }
 
+#content a {
+  font-weight: normal;
+}
+
 #content .content-background {
   background-color: rgba(255, 255, 255, 0.931);
   margin: 0 auto 62px;
-  max-width: 750px;
+  max-width: 800px;
   padding: 24px 20px;
   position: relative;
   width: 75%;
