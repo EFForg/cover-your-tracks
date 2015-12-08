@@ -15,7 +15,7 @@ body {
   }
 }
 
-@media screen and (max-width: 479px), screen and (max-height: 479px) {
+@media screen and (max-width: 579px), screen and (max-height: 479px) {
   body {
     background-position: top center;
   }
@@ -39,42 +39,42 @@ div#wrapper {
 
 #header .orange {
   background-color: #f58528;
-  min-height: 175px;
+  min-height: 237px;
 }
 
 #header .orange .bar .upper {
   background-color: #000;
-  height: 26px;
+  height: 33px;
 }
 
 #header .orange .bar .upper .width-wrapper {
   margin: 0 auto;
-  max-width: 440px;
+  max-width: 540px;
   position: relative;
 }
 
 #header .orange .bar .upper .width-wrapper .logo {
-  background-image: url(./images/logo-small.png);
-  background-size: 24px 17px;
+  background-image: url(./images/logo.png);
+  background-size: 30px 21px;
   cursor: pointer;
   float: left;
-  height: 17px;
+  height: 21px;
   outline: none;
   position: relative;
-  top: 9px;
-  width: 24px;
+  top: 11px;
+  width: 30px;
 }
 
 #header .orange .bar .upper .width-wrapper .title {
   color: #f58528;
   float: left;
-  font-size: 8px;
-  min-width: 285px;
-  padding-left: 11px;
-  letter-spacing: .5px;
+  font-size: 9px;
+  letter-spacing: 1.15px;
+  min-width: 375px;
+  padding-left: 14px;
   position: relative;
   text-align: left;
-  top: 14px;
+  top: 17px;
 }
 
 #header .orange .bar .upper .width-wrapper .title a {
@@ -83,25 +83,24 @@ div#wrapper {
 
 #header .orange .bar .upper .width-wrapper .donate {
   background-color: #f58528;
-  border-radius: 2px;
+  border-radius: 4px;
   box-shadow: 0 0 2px #47260b;
   color: #0c0602;
   cursor: pointer;
   float: right;
   font-family: Arial, sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
-  height: 17px;
-  letter-spacing: 1px;
-  line-height: 1.7;
-  margin-right: 25px;
+  height: 21px;
+  line-height: 22px;
+  margin-right: 18px;
   outline: none;
   position: relative;
   text-align: center;
   text-decoration: none;
-  top: 8px;
+  top: 12px;
   transition: .16s background-color;
-  width: 69px;
+  width: 87px;
 }
 
 #header .orange .bar .upper .width-wrapper .donate:hover {
@@ -111,30 +110,35 @@ div#wrapper {
 #header .orange .bar .lower {
   background-image: url(./images/squiggle.png);
   background-position: 50% 0;
-  background-size: 625px 10px;
-  height: 10px;
+  background-size: 785px 12px;
+  height: 12px;
 }
 
 #header .orange img.title {
-  height: 72px;
-  padding: 20px 0 8px;
-  width: 317px;
+  height: 90px;
+  margin-left: 10px;
+  padding: 28px 0 0;
+  width: 400px;
 }
 
 #header .orange .subtitle {
   color: #fff;
-  font-size: 20px;
+  font-size: 27px;
   font-weight: bold;
+  letter-spacing: .15px;
+  margin: 6px 0 0;
+  position: relative;
+  z-index: 1;
 }
 
 #header .orange-slash {
   left: 0;
   position: absolute;
-  top: 174px;
+  top: 236px;
   width: 100%;
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 579px) {
   #header .orange {
     min-height: 165px;
   }
@@ -148,10 +152,14 @@ div#wrapper {
   }
 
   #header .orange .bar .upper .width-wrapper .title {
+    font-size: 7px;
+    letter-spacing: 1px;
+    line-height: 1.6;
     max-width: 50%;
     min-width: auto;
-    padding-left: 24px;
+    padding-left: 22px;
     top: 12px;
+    width: 180px;
   }
 
   #header .orange .bar .upper .width-wrapper .donate {
@@ -175,7 +183,7 @@ div#wrapper {
 }
 
 #content {
-  margin: 0 auto 62px;
+  margin: -18px auto 62px;
   min-height: 300px;
 }
 
@@ -187,16 +195,18 @@ div#wrapper {
   background-color: rgba(255, 255, 255, 0.931);
   margin: 0 auto 62px;
   max-width: 800px;
-  padding: 24px 20px;
+  font-size: 14px;
+  line-height: 1.25;
+  padding: 28px;
   position: relative;
-  width: 75%;
+  width: 65%;
   z-index: 9;
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 579px) {
   #content .content-background {
     background-color: #fff;
-    width: calc(100% - 40px);
+    width: calc(100% - 56px);
   }
 }
 
@@ -212,7 +222,7 @@ iframe {
   z-index: 9;
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 579px) {
   #footer {
     min-height: 300px;
   }
@@ -332,7 +342,7 @@ div#results_wrapper #buttons .row a#trackerlink {
   width: 300px;
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 579px) {
   div#results_wrapper #buttons .row a#trackerlink {
     font-size: 18px;
   }
@@ -352,7 +362,7 @@ div#results_wrapper #buttons .row a#trackerlink {
 #badger-download[javascript="disabled"] #other_link {
   color: #f58528;
   display: block;
-  font-family: "lucida grande", helvetica, arial, verdana, sans-serif;
+  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
   font-size: 24px;
   font-weight: bold;
   letter-spacing: normal;
@@ -373,7 +383,7 @@ div#results_wrapper #buttons .row a#trackerlink {
 
 #badger-download[javascript="enabled"] a {
   color: #fff;
-  font-family: "lucida grande", helvetica, arial, verdana, sans-serif;
+  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
   font-size: 21px;
   font-weight: bold;
   line-height: normal;
@@ -383,7 +393,7 @@ div#results_wrapper #buttons .row a#trackerlink {
 #badger-download[javascript="enabled"] a div {
   color: #fff;
   display: inline-block;
-  font-family: "lucida grande", helvetica, arial, verdana, sans-serif;
+  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
   font-size: 12px;
   position: relative;
 }
@@ -397,13 +407,13 @@ div#results_wrapper #buttons .row a#trackerlink {
   color: #fff;
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 579px) {
   #badger-download[javascript="enabled"] a {
     font-size: 18px;
   }
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 579px) {
   #fingerprintTable table#results {
     font-size: 8px;
   }

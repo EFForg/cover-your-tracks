@@ -1,32 +1,30 @@
 /* generic */
 @font-face {
-  font-family: 'Open Sans Condensed Bold';
-  src: url('/static/fonts/OpenSans-CondBold-webfont.eot');
-  src: url('/static/fonts/OpenSans-CondBold-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/static/fonts/OpenSans-CondBold-webfont.woff') format('woff'),
-       url('/static/fonts/OpenSans-CondBold-webfont.ttf') format('truetype'),
-       url('/static/fonts/OpenSans-CondBold-webfont.svg#open_sans_condensedbold') format('svg');
+  font-family: 'Lato';
+  src: url('/static/fonts/Lato-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-
 }
 @font-face {
-  font-family: 'Open Sans Condensed Light';
-  src: url('/static/fonts/OpenSans-CondLight-webfont.eot');
-  src: url('/static/fonts/OpenSans-CondLight-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/static/fonts/OpenSans-CondLight-webfont.woff') format('woff'),
-       url('/static/fonts/OpenSans-CondLight-webfont.ttf') format('truetype'),
-       url('/static/fonts/OpenSans-CondLight-webfont.svg#open_sanscondensed_light') format('svg');
-  font-weight: normal;
+  font-family: 'Lato';
+  src: url('/static/fonts/Lato-Bold.ttf') format('truetype');
+  font-weight: 700;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Lato';
+  src: url('/static/fonts/Lato-Black.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
 
 
 
 
 body {
   text-align:center;
-  font-family:"lucida grande", helvetica, arial, verdana, sans-serif;
+  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
   font-size:.8em
 }
 
