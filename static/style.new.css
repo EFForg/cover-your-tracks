@@ -410,11 +410,11 @@ div#results_wrapper #buttons .row a#trackerlink {
 }
 
 @media screen and (max-width: 579px) {
-  #fingerprintTable table#results {
+  table#results {
     font-size: 8px;
   }
 
-  #fingerprintTable table#results font {
+  table#results font {
     font-size: inherit;
   }
 }
@@ -427,4 +427,12 @@ div#results_wrapper #buttons .row a#trackerlink {
 
 table#results.tracker_results {
     margin: 10px auto;
+}
+
+table#results font[size="-2"] {
+    word-break: break-all;
+}
+
+.fingerprint-thanks {
+  padding: 0 0 32px;
 }
