@@ -187,16 +187,12 @@ div#wrapper {
   min-height: 300px;
 }
 
-#content a {
-  font-weight: normal;
-}
-
 #content .content-background {
   background-color: rgba(255, 255, 255, 0.931);
-  margin: 0 auto 62px;
-  max-width: 800px;
   font-size: 14px;
   line-height: 1.25;
+  margin: 0 auto 62px;
+  max-width: 800px;
   padding: 28px;
   position: relative;
   width: 65%;
@@ -217,7 +213,7 @@ iframe {
 #footer {
   background-color: rgba(255, 255, 255, 0.85);
   min-height: 200px;
-  padding: 35px 0 0;
+  padding: 42px 0 0;
   position: relative;
   z-index: 9;
 }
@@ -238,15 +234,15 @@ iframe {
   box-shadow: 0 0 2px #e7d5c7;
   color: #fff;
   display: inline-block;
-  font-size: 11px;
-  font-weight: bold;
-  height: 22px;
-  line-height: 22px;
+  font-size: 13px;
+  font-weight: 700;
+  height: 28px;
+  line-height: 28px;
   margin: 0 18px 18px;
   outline: none;
   text-transform: uppercase;
   transition: .16s background-color;
-  width: 138px;
+  width: 172px;
 }
 
 #footer .social-share-buttons a:hover {
@@ -256,30 +252,30 @@ iframe {
 
 #footer .logo {
   background-image: url(./images/logo.png);
-  background-size: 49px 34px;
+  background-size: 62px 43px;
   cursor: pointer;
   display: block;
-  height: 34px;
-  margin: 14px auto 6px;
+  height: 43px;
+  margin: 22px auto 6px;
   outline: none;
-  width: 49px;
+  width: 62px;
 }
 
 #footer .subtitle {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   text-shadow: 0 0 1px #fffaee;
   text-transform: uppercase;
 }
 
 #footer .links {
-  margin: 14px auto 0;
+  margin: 18px auto 0;
 }
 
 #footer .links a {
   display: inline-block;
-  font-size: 10px;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: 800;
   padding: 0 7px 7px;
   text-transform: uppercase;
 }
@@ -311,15 +307,15 @@ div#front p:nth-of-type(1) {
   border-radius: 6px;
   box-shadow: 0 0 1px #aacef4;
   display: block;
-  font-size: 22px;
-  font-weight: bold;
-  height: 48px;
-  line-height: 49px;
+  font-size: 28px;
+  font-weight: 800;
+  height: 58px;
+  line-height: 58px;
   margin: 0 auto;
   text-shadow: 0 1px 0 #0070ff;
   text-transform: uppercase;
   transition: .16s background-color;
-  width: 140px;
+  width: 176px;
 }
 
 #buttons .row a#trackerlink:hover {
@@ -364,7 +360,7 @@ div#results_wrapper #buttons .row a#trackerlink {
   display: block;
   font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 800;
   letter-spacing: normal;
 }
 

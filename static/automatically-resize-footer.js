@@ -29,7 +29,7 @@
     }
 
     // Verify a change is needed
-    var footerHeight = $(window).height() - $('#header').height() - $('#content').height() - 79;
+    var footerHeight = $(window).height() - $('#header').height() - $('#content').height() - 86;
     if (footerHeight === savedFooterHeight) {
       return;
     }
