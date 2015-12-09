@@ -424,3 +424,7 @@ div#results_wrapper #buttons .row a#trackerlink {
   font-weight: normal;
   margin: 0 0 24px;
 }
+
+table#results.tracker_results {
+    margin: 10px auto;
+}
