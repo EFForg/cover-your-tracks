@@ -140,11 +140,11 @@ div#wrapper {
 
 @media screen and (max-width: 579px) {
   #header .orange {
-    min-height: 165px;
+    min-height: 200px;
   }
 
   #header .orange-slash {
-    top: 165px;
+    display: none;
   }
 
   #header .orange .bar .upper {
