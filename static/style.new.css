@@ -418,3 +418,9 @@ div#results_wrapper #buttons .row a#trackerlink {
     font-size: inherit;
   }
 }
+
+#summary_sentence {
+  font-size: inherit;
+  font-weight: normal;
+  margin: 0 0 24px;
+}
