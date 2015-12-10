@@ -17,6 +17,7 @@ app = Flask(__name__)
 app.secret_key = config.secret_key
 app.debug = config.debug
 app.permanent_session_lifetime = timedelta(days=config.session_lifetime)
+Bower(app)
 
 if config.sentry_dsn:
     app.config['SENTRY_DSN'] = config.sentry_dsn
@@ -353,7 +354,6 @@ def dnt():
     return send_from_directory(app.static_folder, request.path[1:])
 
 if __name__ == "__main__":
-    Bower(app)
     if config.public:
         app.run(host='0.0.0.0')
     else:
