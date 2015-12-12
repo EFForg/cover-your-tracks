@@ -57,7 +57,8 @@ class EntropyHelper(object):
 
         total = db.get_total_count(config.epoched)
 
-        matching = db.get_signature_matches_count(whorls['signature'], config.epoched)
+        matching = db.get_signature_matches_count(
+            whorls['legacy_signature'], config.epoched)
 
         return counts, total, matching
 

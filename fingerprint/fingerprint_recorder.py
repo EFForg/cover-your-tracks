@@ -15,18 +15,25 @@ class FingerprintRecorder(object):
         # ensure no rogue values have been entered
         valid_vars = FingerprintHelper.whorl_names.keys()
         valid_vars.append('signature')
+        valid_vars.append('legacy_signature')
 
         sorted_whorls = OrderedDict(sorted(whorls.items()))
         serialized_whorls = pickle.dumps(sorted_whorls)
         signature = hashlib.md5(serialized_whorls).hexdigest()
         whorls['signature'] = signature
 
+        sorted_legacy_whorls = OrderedDict(sorted(
+            {k: v for k, v in sorted_whorls.iteritems() if k in FingerprintHelper.legacy_keys}.items()))
+        serialized_legacy_whorls = pickle.dumps(sorted_legacy_whorls)
+        legacy_signature = hashlib.md5(serialized_legacy_whorls).hexdigest()
+        whorls['legacy_signature'] = legacy_signature
+
         valid_print = {}
         for i in whorls:
             if i in valid_vars:
                 valid_print[i] = whorls[i]
 
-        if cls._need_to_record(cookie, signature, ip_addr, key):
+        if cls._need_to_record(cookie, legacy_signature, ip_addr, key):
             cls._record_whorls(valid_print)
 
     # This is intended to be used by a cron job or some other automated
@@ -41,6 +48,7 @@ class FingerprintRecorder(object):
         old_epoch_beginning = db.get_epoch_beginning()
         columns_to_update = FingerprintHelper.whorl_names.keys()
         columns_to_update.append('signature')
+        columns_to_update.append('legacy_signature')
         db.epoch_update_totals(
             old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys)
 

@@ -19,6 +19,9 @@ class FingerprintHelper(object):
         'touch_support': "Touch Support"
     }
 
+    legacy_keys = ['user_agent', 'http_accept', 'plugins',
+                   'timezone', 'video', 'fonts', 'cookie_enabled', 'supercookies']
+
     md5_keys = [
         'plugins', 'fonts', 'user_agent', 'http_accept', 'supercookies', 'touch_support']
 
