@@ -436,6 +436,10 @@ table#results.tracker_results {
     margin: 10px auto;
 }
 
+p.tracker_results {
+  font-size: 12px;
+}
+
 table#results font[size="-2"] {
     word-break: break-all;
 }
