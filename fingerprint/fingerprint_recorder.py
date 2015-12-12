@@ -1,5 +1,4 @@
-import pickle
-from collections import OrderedDict
+import json
 import hashlib
 from time import time
 
@@ -17,14 +16,14 @@ class FingerprintRecorder(object):
         valid_vars.append('signature')
         valid_vars.append('legacy_signature')
 
-        sorted_whorls = OrderedDict(sorted(whorls.items()))
-        serialized_whorls = pickle.dumps(sorted_whorls)
+        sorted_whorls = sorted(whorls.items())
+        serialized_whorls = json.dumps(sorted_whorls)
         signature = hashlib.md5(serialized_whorls).hexdigest()
         whorls['signature'] = signature
 
-        sorted_legacy_whorls = OrderedDict(sorted(
-            {k: v for k, v in sorted_whorls.iteritems() if k in FingerprintHelper.legacy_keys}.items()))
-        serialized_legacy_whorls = pickle.dumps(sorted_legacy_whorls)
+        sorted_legacy_whorls = sorted(
+            {k: v for k, v in sorted_whorls if k in FingerprintHelper.legacy_keys}.items())
+        serialized_legacy_whorls = json.dumps(sorted_legacy_whorls)
         legacy_signature = hashlib.md5(serialized_legacy_whorls).hexdigest()
         whorls['legacy_signature'] = legacy_signature
 
