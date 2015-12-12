@@ -24,16 +24,16 @@ class FingerprintAgent(object):
         vars['dnt_enabled'] = (self._get_header('DNT') != "")
 
         # these are dummies:
-        vars['plugins'] = "no javascript"
-        vars['video'] = "no javascript"
-        vars['timezone'] = "no javascript"
-        vars['fonts'] = "no javascript"
-        vars['supercookies'] = "no javascript"
-        vars['canvas_hash'] = "no javascript"
-        vars['webgl_hash'] = "no javascript"
-        vars['language'] = "no javascript"
-        vars['platform'] = "no javascript"
-        vars['touch_support'] = "no javascript"
+        vars['plugins'] = u"no javascript"
+        vars['video'] = u"no javascript"
+        vars['timezone'] = u"no javascript"
+        vars['fonts'] = u"no javascript"
+        vars['supercookies'] = u"no javascript"
+        vars['canvas_hash'] = u"no javascript"
+        vars['webgl_hash'] = u"no javascript"
+        vars['language'] = u"no javascript"
+        vars['platform'] = u"no javascript"
+        vars['touch_support'] = u"no javascript"
 
         return vars
 
