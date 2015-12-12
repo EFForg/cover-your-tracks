@@ -2,7 +2,7 @@
 
 {% block body %}
   <p style='font-weight: bold; font-size: 15px;'>
-    ...Testing your browser. Does it protect you from tracking?...<br>
+    ... Testing your browser. How well does it protect you from tracking? ...<br>
     <img src='/static/images/ajax-loader.gif' alt='loading...'>
   </p>
   <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['ad_server'] }}/tracking-tally-nojs?{% if try2 %}try2=true{% else %}&amp;ad_url={{ cb }}{% endif %}'></iframe>
