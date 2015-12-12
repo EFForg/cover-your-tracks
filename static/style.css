@@ -163,8 +163,8 @@ td {
   width:500px
 }
 
-#privacy h2 {
-  text-align:center
+#privacy h2, #about h2 {
+  margin: 0;
 }
 
 /* footer */
@@ -240,10 +240,7 @@ table#results.tracker_results{
 #badger-download:hover a div {
   color: white;
 }
-#other_link a{
-  color: #575654;
-  font-family: 'Open Sans Condensed Light';
-}
+
 p#summary_sentence #other_link{
   text-align: center;
 }
