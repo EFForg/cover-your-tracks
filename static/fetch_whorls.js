@@ -185,7 +185,7 @@ function fetch_client_whorls(){
         $('#fp_status').html(status_str['yes']);
       }
     } else {
-      $('#content').html(json_results.markup);
+      $('#content .content-background').html(json_results.markup);
     }
   };
 

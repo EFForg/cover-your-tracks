@@ -2,21 +2,186 @@
 
 {% block body %}
   <div id="about">
-    <h2>What fingerprints does your browser leave behind as you surf the web?</h2>
+    
+     <a name="about"></a>
+   
+    <h2>About Panopticlick</h2>
+    <ul>
+      <li><a href="#about">About Panopticlick</a></li>
+      <li><a href="#methodology">Methodology</a></li>
+      <li><a href="#browser-fingerprinting">What is browser fingerprinting?</a></li>
+      <li><a href="#do-not-track">What is Do Not Track?</a></li>
+    </ul>
+    <h3> <strong>Panopticlick is a research project designed to better uncover
+        the tools and techniques of online trackers and test the efficacy of
+        privacy add-ons.</strong>
+    </h3>
+
     <p>
-    Traditionally, people assume they can prevent a website from identifying them by disabling <a href="http://en.wikipedia.org/wiki/HTTP_cookie">cookies</a> on their web browser.  Unfortunately, this is not the whole story.  
-    </p><p>
-    When you visit a website, you are allowing that site to access a lot of information about your computer's configuration.  Combined, this information can create a kind of fingerprint &mdash; a signature that could be used to identify you and your computer.  Some <a href="http://en.wikipedia.org/wiki/Device_fingerprint">companies are already using technology to try to identify individual computers</a>.  But how effective would this kind of online tracking be?  
-    </p><p>
-    EFF is running an experiment to find out.  Panopticlick will anonymously log the configuration and version information from your operating system, your browser, and your plug-ins, and compare it to our database of many other Internet users' configurations.  Then, it will give you a uniqueness score &mdash; letting you see how easily identifiable you might be as you surf the web.
-    </p><p>
-    Adding your information to our database will help EFF evaluate the capabilities of
-    Internet tracking and advertising companies, who are in the business of
-    finding as many ways as possible to record your online activities.  They
-    develop these methods in secret, and don't always tell the world what
-    they've found.  But this experiment should give us more insight into
-    the future of online tracking, and <a href="/self-defense">what web users
-    can do to protect themselves</a>.
+      When you visit a website, you are allowing that site to access a lot of information about your computer's configuration. Combined, this information can create a kind of fingerprint — a signature that could be used to identify you and your computer. Some companies are already using technology to try to identify individual computers.
+    </p>
+
+    <p>
+      In 2010, EFF launched Panopticlick, a research project to investigate how unique each browser is. We gathered information about the configuration and version information from your operating system, your browser, and your plug-ins, and compared it to our database of many other Internet users' configurations. Then, we generated a uniqueness score — letting you see how easily identifiable you might be as you surf the web.
+    </p>
+
+    <p>
+      In 2015, we upgraded Panopticlick with a new feature: tracker blocker testing. Million of Internet users are using privacy add-ons and other tools to block trackers, including tools like AdBlock, Ghostery and Disconnect. But how well do these add-ons actually protect users from invasive tracking?
+    </p>
+
+    <p>
+      <strong>Our new version of Panopticlick researches both</strong>. We analyze how well you are protected against online tracking by checking the privacy protections you have in place. The test simulates loading of a visible ad that performs tracking, an invisible script that performs tracking, and a site that looks superficially like a tracker but actually has committed to honor Do Not Track.
+    </p>
+
+    <p>
+      Even if your privacy add-ons working well, you may still be vulnerable if your browser fingerprint is unique. So we also analyze the uniqueness of your browser and let you know how it stacks up to other visitors we’ve observed recently.
+    </p>
+
+    <p>
+      We generate a report about your tracker protections and browser fingerprint for your own use, and we’ll include anonymous results from your test in our larger research report.
+    </p>
+
+    <p>
+      Running tests on Panopticlick both gives you this information about your own browser, and also helps EFF use statistical methods to evaluate the capabilities of Internet tracking and advertising companies, and the best forms of protection against tracking without consent.
+    </p>
+
+    <p>
+      A paper reporting the early statistical results of this 2010 Panopticlick experiment is available: How Unique Is Your Browser?, Proceedings of the Privacy Enhancing Technologies Symposium (PETS 2010), Springer Lecture Notes in Computer Science. <a href="https://panopticlick.eff.org/browser-uniqueness.pdf">https://panopticlick.eff.org/browser-uniqueness.pdf</a>
+    </p>
+
+
+    <a name="methodology"></a>
+    <h2>Methodology:</h2>
+
+    <p>
+      The results of Panopticlick use several simulated tracking domains to trigger tracker blockers.  Some blockers (such as Adblock Plus or Ghostery) are triggered by URL parameters that match ads or tracking beacons.  Other blockers (such as AdAway or Disconnect) match on a per-domain basis, and we strive to have our test domains included in such tools’ lists.  Still other blockers (such as our own Privacy Badger) use a heuristic approach, blocking the inclusion of trackers by detecting their use across domains.
+    </p>
+
+    <p>
+      In order to detect these different approaches, we have simulated tracking which triggers all three types of blocking.  The site generates third-party requests like:
+    </p>
+
+    <p>
+      https://<strong>trackersimulator.org</strong>/?action=tracking_tally&<strong>ad_url</strong>=123456 <br>
+      https://<strong>eviltracker.net</strong>/?action=tracking_tally&<strong>trackingserver</strong>=123456 <br>
+      https://<strong>do-not-tracker.org</strong>/?action=tracking_tally&random=123456
+    </p>
+
+    <p>
+      Each of these URLs attempts to set cookies, and is loaded from three first party domains in order to trigger heuristic blocking.
+    </p>
+
+    <p>
+      The first URL simulates tracking by a visible ad (if the ad is blocked, the test passes); the second simulates a non-visible tracking beacon (if the beacon is blocked, the test passes); and the third interaction with a domain that has implemented the Do Not Track Policy (if the domain’s scripts are unblocked, the test passes).
+    </p>
+
+    <p>
+      If the simulated ad or beacon trackers load, but with their cookies blocked, those results are reported as “partial protection”, since the site doesn’t get an easy unique identifier, but tracking by IP addresses and other means remain possible.
+    </p>
+
+    <p>
+      In addition to tracker blocking, Panopticlick measures the uniqueness of your browser. We anonymously log the following information, and compare it to a database of many other Internet users' configurations that we’ve observed recently:
+    </p>
+
+    <ul>
+      <li>The user agent string from each browser</li>
+      <li>The HTTP ACCEPT headers sent by the browser</li>
+      <li>Screen resolution and color depth</li>
+      <li>The Timezone your system is set to</li>
+      <li>The browser extensions/plugins, like Quicktime, Flash, Java or Acrobat, that are installed in the browser, and the versions of those plugins</li>
+      <li>The fonts installed on the computer, as reported by Flash or Java.</li>
+      <li>Whether your browser executes JavaScript scripts</li>
+      <li>Yes/no information saying whether the browser accepts various kinds of cookies and "super cookies"</li>
+    </ul>
+
+    <p>
+      Then, we generate a uniqueness score — letting you see how easily identifiable you might be as you surf the web. Here’s more information on how this score is derived.
+    </p>
+
+    <a name="browser-fingerprinting"></a>
+    <h2>What is fingerprinting? What does it mean if my browser is unique?</h2>
+
+    <p>
+      “Browser fingerprinting” is a method of tracking web browsers by the configuration and settings information they make visible to websites, rather than traditional tracking methods such as IP addresses  and unique cookies.
+    </p>
+
+    <p>
+      Browser fingerprinting is both difficult to detect and and extremely difficult to thwart.
+    </p>
+
+    <p>
+      When you load a web page, you will automatically broadcast certain information about your browser to the website you are visiting -- as well as to any trackers embedded within the site (such as those that serve advertisements). The site you are visiting may choose to analyze your browser using JavaScript, Flash and other methods (just like Panopticlick does). It may look for what types of fonts you have installed, the language you’ve set, the add-ons you’ve installed, and other factors. The site may then create a type of profile of you, tied to this pattern of characteristics associated with your browser, rather than tied to a specific tracking cookie.
+    </p>
+
+    <p>
+      If your browser is unique, then it’s possible that an online tracker can identify you even without setting tracking cookies. While the tracker won’t know your name, they could collect a deeply personal dossier of websites you visit.
+    </p>
+
+    <p>
+      Deleting your cookies won’t help, because it’s the characteristics of your browser configuration that are being analyzed. Read our <a href="https://panopticlick.eff.org/self-defense">suggestions to help defend against browser fingerprinting</a>.
+    </p>
+
+    <a name="do-not-track"></a>
+    <h2>What is Do Not Track? Why would I want to unblock ads that respect Do Not Track?</h2>
+
+    <p>
+      Every time your computer sends or receives information over the Web, the request begins with some short pieces of information called <a href="https://secure.wikimedia.org/wikipedia/en/wiki/List_of_HTTP_header_fields">headers</a>. These headers include information like what browser you're using, what language your computer is set to, and other technical details.
+    </p>
+
+    <p>
+      Do Not Track is a simple, machine-readable header indicating that you don't want to be tracked. Because this signal is a header, and not a cookie, users can clear their cookies at will without disrupting the functionality of the Do Not Track flag.
+    </p>
+
+    <p>
+      In all the major browsers, there is an easy way to tell websites that you do not want to be tracked by setting the Do Not Track header. (<a href="https://www.eff.org/deeplinks/2012/06/how-turn-do-not-track-your-browser">Do it yourself</a> or <a href="https://www.eff.org/privacybadger">install EFF’s Privacy Badger</a> and we’ll turn it on for you in Chrome and Firefox.)
+    </p>
+
+    <p>
+      When websites respect the Do Not Track signal, it’s easy for users to protect themselves from online tracking. The average Internet user won’t need to remember to delete cookies, install additional privacy software, or even worry about browser fingerprinting. (link to browser fingerprinting section).
+    </p>
+
+    <p>
+      Unfortunately, most websites and online trackers -- with some laudable exceptions -- currently ignore  the Do Not Track signal entirely.
+    </p>
+
+    <p>
+      Setting your browser to unblock ads from websites that commit to respecting Do Not Track rewards companies that are respecting user privacy, incentivizing more companies to respect Do Not Track in order to have their ads shown at all. By preserving privacy-friendly ads, sites that rely on advertising funding can continue to thrive without adjusting their core business model, even as they respect users’ privacy choices.
+    </p>
+
+    <p>
+      Over time, we believe we can shift the norms on the Web to ensure privacy and respect for users comes first. But that can only happen if online advertisers are incentivized to respect user choices.
+    </p>
+
+    <p>
+      You can help us by <a href="https://www.eff.org/privacybadger">installing EFF’s Privacy Badger</a>.
+    </p>
+
+    <h3>Is it possible to defend against browser fingerprinting?</h3>
+
+    <p>
+      Browser fingerprinting is quite a powerful method of tracking users around the Internet. There are some defensive measures that can be taken with existing browsers, but none of them are ideal. In practice, the most realistic protection is using the Tor Browser Bundle, which has put a lot of effort into reducing browser fingerprintability.  For day-to-day use, the best options are to run tools like Privacy Badger or Disconnect that will block some (but unfortunately not all) of the domains that try to perform fingerprinting, and/or to use a tool like NoScript for Firefox, which greatly reduces the amount of data available to fingerprinters.
+    </p>
+
+    <h3>Use the Tor Browser Bundle</h3>
+
+    <p>
+      The Tor Project has spent considerable effort trying to "standardize" various browser characteristics like the User Agent string, in order to prevent them from being used to track Tor users. In response to Panopticlick and other fingerprinting experiments, the Tor Browser now includes patches to prevent font fingerprinting (by restricting which fonts websites can use) and Canvas fingerprinting (by detecting reads to HTML5 Canvas objects and asking users to approve them).   The Tor Browser can also be configured to be aggressively block JavaScript. Taken together, these measures make the Tor Browser a strong defense against fingerprinting. Unfortunately, browsing through Tor is currently a lot slower than browsing without it.
+    </p>
+
+    <h3>Disable JavaScript</h3>
+
+    <p>
+      Disabling JavaScript is a powerful defense against browser fingerprinting, because it cuts off the methods that websites can use to detect plugins and fonts, as well as preventing the use of most kinds of supercookie. Unfortunately, JavaScript is necessary to make a lot of sites work well.
+    </p>
+
+    <p>
+      At least two ways to block some sites from using JavaScript while allowing others to use it are available. One, <a href="http://noscript.net/">NoScript</a>, is more of a power-user tool than a solution for everyone: it will block JavaScript everywhere and allow you to manually reenable it for some sites. This is a lot of work, and requires good intuitions about when a site isn't working because JavaScript is disabled. Common adblocking tools tend to be quite good at blocking ads, because users can instantly see when they're present. Tracking or fingerprinting scripts are generally invisible, so even if users enable features that <a href="http://easylist.adblockplus.org/">focus on privacy</a>, some trackers may still <a href="https://jonathanmayer.org/papers_data/trackingsurvey12.pdf">slip past the net</a>.
+    </p>
+
+    <h3>Try to use a "non-rare" browser</h3>
+
+    <p>
+      The most obvious way to try to prevent browser fingerprinting is to pick a "standard", "common" browser. It turns out that this is surprisingly hard to do. It appears that the most likely candidate would be the latest version of Firefox running on a modern Windows version. But even so, many of those Firefox on Windows browsers can be distinguished from one another by the enormous range of plugin versions and fonts that can be installed with them.  The first generations of smartphone browsers <a href="https://panopticlick.eff.org/static/browser-uniqueness.pdf">were comparatively hard to fingerprint</a>, but as these devices have become more diverse and supported wider ranges of features, they have also become very fingerprintable.
     </p>
   </div>
 {% endblock %}
