@@ -76,7 +76,7 @@ function ieAcrobatVersion() {
   }
 }
 
-function get_fonts(fp, cb) {
+function get_fonts(fp, cb, legacy) {
   // Try flash first
 	var fonts = "";
 	var obj = document.getElementById("flashfontshelper");
@@ -96,9 +96,13 @@ function get_fonts(fp, cb) {
     } catch (ex) {}
   }
   if ("" == fonts){
-    fp.fontsKey([], function(keys){
-      cb(keys[0]['value'].join(", ") + " (via javascript)");
-    });
+    if(legacy){
+      cb("No Flash or Java fonts detected");
+    } else {
+      fp.fontsKey([], function(keys){
+        cb(keys[0]['value'].join(", ") + " (via javascript)");
+      });
+    }
   } else {
     cb(fonts);
   }
@@ -228,11 +232,14 @@ function fetch_client_whorls(){
 
   get_fonts(fp, function(fonts){
     whorls['fonts'] = fonts;
+    get_fonts(fp, function(fonts){
+      whorls['legacy_fonts'] = fonts;
 
-    // send to server for logging / calculating
-    // and fetch results
+      // send to server for logging / calculating
+      // and fetch results
 
-    $.post("/ajax-fingerprint", whorls, callback, "html" );
+      $.post("/ajax-fingerprint", whorls, callback, "html" );
+    }, true);
   });
 };
 

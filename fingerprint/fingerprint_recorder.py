@@ -16,13 +16,21 @@ class FingerprintRecorder(object):
         valid_vars.append('signature')
         valid_vars.append('legacy_signature')
 
+        legacy_whorls = whorls.copy()
+
+        del whorls['legacy_http_accept']
+        del whorls['legacy_fonts']
         sorted_whorls = sorted(whorls.items())
         serialized_whorls = json.dumps(sorted_whorls)
         signature = hashlib.md5(serialized_whorls).hexdigest()
         whorls['signature'] = signature
 
+        legacy_whorls['http_accept'] = legacy_whorls['legacy_http_accept']
+        legacy_whorls['fonts'] = legacy_whorls['legacy_fonts']
+        del legacy_whorls['legacy_http_accept']
+        del legacy_whorls['legacy_fonts']
         sorted_legacy_whorls = sorted(
-            {k: v for k, v in sorted_whorls if k in FingerprintHelper.legacy_keys}.items())
+            {k: v for k, v in sorted(legacy_whorls.items()) if k in FingerprintHelper.legacy_keys}.items())
         serialized_legacy_whorls = json.dumps(sorted_legacy_whorls)
         legacy_signature = hashlib.md5(serialized_legacy_whorls).hexdigest()
         whorls['legacy_signature'] = legacy_signature

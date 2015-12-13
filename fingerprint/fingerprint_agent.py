@@ -20,6 +20,12 @@ class FingerprintAgent(object):
             self._get_header('Accept-Encoding'),
             self._get_header('Accept-Language')
         ])
+        vars['legacy_http_accept'] = " ".join([
+            self._get_header('Accept').split(";")[0],
+            self._get_header('Accept-Charset'),
+            self._get_header('Accept-Encoding'),
+            self._get_header('Accept-Language')
+        ])
 
         vars['dnt_enabled'] = (self._get_header('DNT') != "")
 
@@ -28,6 +34,7 @@ class FingerprintAgent(object):
         vars['video'] = u"no javascript"
         vars['timezone'] = u"no javascript"
         vars['fonts'] = u"no javascript"
+        vars['legacy_fonts'] = u"no javascript"
         vars['supercookies'] = u"no javascript"
         vars['canvas_hash'] = u"no javascript"
         vars['webgl_hash'] = u"no javascript"
