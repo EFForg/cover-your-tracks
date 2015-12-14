@@ -39,28 +39,14 @@
     <p>The specific `fingerprint' information we collect includes:</p>
     
     <ul>
-    <li>The user agent string from each browser</li>
-    <li>The HTTP ACCEPT headers sent by the browser</li>
-    <li>Screen resolution and color depth</li>
-    <li>The Timezone your system is set to</li>
-    <li>The browser extensions/plugins, like Quicktime, Flash, Java or
-        Acrobat, that are installed in the browser, and the versions of those
-        plugins</li>
-    <li>The fonts installed on the computer, as reported by Flash or Java</li>
-    <li>Whether your browser executes JavaScript scripts</li>
-    <li>Yes/no information saying whether the browser accepts various kinds of
-        cookies and "super cookies"</li>
-    <li>Other fingerprinting information that indicates which privacy tools you
-        have installed, which may include:
-        <ul>
-          <li>Whether your browser makes connections to various third party URLs,
-              which have characteristics that would typically indicate that they
-              serve advertising, analytics, or other forms of tracking code;</li>
-          <li>The presence or absence of DOM elements that indicate the operation
-          or absence of an ad- or tracker-blocker; or</li>
-          <li>Whether we believe that your IP address is a Tor exit relay or VPN.</li>
-        </ul>
-    </li>
+      {% include '_fingerprinting_collects.html' %}
+      <li>Other fingerprinting information that indicates which privacy tools you have installed, which may include:
+          <ul>
+            <li>Whether your browser makes connections to various third party URLs, which have characteristics that would typically indicate that they serve advertising, analytics, or other forms of tracking code;</li>
+            <li>The presence or absence of DOM elements that indicate the operation or absence of an ad- or tracker-blocker; or</li>
+            <li>Whether we believe that your IP address is a Tor exit relay or VPN.</li>
+          </ul>
+      </li>
     </ul>
     
     <p> In addition, we collect several kinds of `housekeeping' information to
