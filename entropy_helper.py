@@ -16,13 +16,19 @@ class EntropyHelper(object):
 
         uniqueness = {}
         for i in FingerprintHelper.whorl_names:
-            # MEASURE 1: how identifying is this fact about a browser if it's
-            # the only thing one knows about the browser?
-            matching_whorl = counts[i]
-            uniqueness[i] = {
-                'bits': round(-log(matching_whorl / float(total), 2), 2),
-                'one_in_x': round(float(total) / matching_whorl, 2)
-            }
+            if (i in FingerprintHelper.legacy_keys) and not (i == 'fonts' and "(via javascript)" in whorls[i]) and not (i == 'http_accept' and ";" in whorls[i][0:25]):
+                # MEASURE 1: how identifying is this fact about a browser if it's
+                # the only thing one knows about the browser?
+                matching_whorl = counts[i]
+                uniqueness[i] = {
+                    'bits': round(-log(matching_whorl / float(total), 2), 2),
+                    'one_in_x': round(float(total) / matching_whorl, 2)
+                }
+            else:
+                uniqueness[i] = {
+                    'bits': -1,
+                    'one_in_x': -1
+                }
 
         return counts, total, matching, bits, group, uniqueness
 

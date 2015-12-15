@@ -22,12 +22,27 @@
   {% for key, label in labels.iteritems(): %}
     <tr>
       <td>{{ label }}</td>
-      <td><center>{{ uniqueness[key]['bits'] }}</center></td>
-      <td><center>{{ uniqueness[key]['one_in_x'] }}</center></td>
+      <td>
+        <center>
+          {% if uniqueness[key]['bits'] == -1 %}
+            <span class='ii'>N/A</span>
+          {% else %}
+            {{ uniqueness[key]['bits'] }}
+          {% endif %}
+        </center>
+      </td>
+      <td>
+        <center>
+          {% if uniqueness[key]['one_in_x'] == -1 %}
+            <span class='ii'>N/A</span>
+          {% else %}
+            {{ uniqueness[key]['one_in_x'] }}
+          {% endif %}
+        </center>
+      </td>
       <td><font size='-2'>{{ whorls[key] }}</font></td>
     </tr>
   {% endfor %}
 </table>
-<div class="fingerprint-thanks">
-  <font size='-2'>Thanks to <a href="http://browserspy.dk">browserspy.dk</a> for the font detection code, and to <a href="https://labs.isecpartners.com/breadcrumbs/breadcrumbs.html">breadcrumbs</a> for supercookie help.<br><a href="/faq">Frequently asked questions.</a><br>Send other questions or comments to <a href="mailto:panopticlick@eff.org">panopticlick@eff.org</a>.</font>
-</div>
+
+<div class='ii_info'><span class='ii'>N/A</span>: Not enough information to calculate these results. The more data points we have, the better the results will be. Share this on social media below.</div>

@@ -445,5 +445,17 @@ table#results font[size="-2"] {
 }
 
 .fingerprint-thanks {
-  padding: 0 0 32px;
+  padding: 32px 0 0;
+}
+
+.ii{
+  font-weight: bold;
+  color: #a00;
+  font-size: 80%;
+}
+
+.ii_info{
+  font-size: 80%;
+  margin-top: 10px;
+  margin-bottom: 33px;
 }
