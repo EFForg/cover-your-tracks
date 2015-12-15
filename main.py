@@ -117,6 +117,8 @@ def tracking_tally():
     return render_template('tracking_tally.html')
 
 
+# this route is no longer used, but may be useful in the future for users
+# with domain-based blockers without js
 @app.route("/tracker-preflight-nojs")
 def tracker_preflight_nojs():
     return render_template('tracker_preflight_nojs.html', third_party_trackers=config.third_party_trackers)
