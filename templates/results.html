@@ -179,11 +179,10 @@
         return other;
       }
 
-      function not_supported_link(text, url){
+      function not_supported_link(html){
         var not_supported = document.createElement('p');
         not_supported.id = 'not_supported';
-        not_supported.href = url;
-        not_supported.innerHTML = '<a href="'+url+'">'+text+'</a>';
+        not_supported.innerHTML = html;
         return not_supported;
       }
 
@@ -244,7 +243,7 @@
           } else if(browser == 'safari'){
             badger_download.innerHTML = 'PrivacyBadger is not supported for your browser.'
             badger_download.className = "not_supported";
-            badger_download.appendChild(not_supported_link('We suggest you install AdBlock', 'https://getadblock.com/'));
+            badger_download.appendChild(not_supported_link('We suggest you install <a href="https://adblockplus.org/">AdBlock Plus</a> with <a href="https://easylist.adblockplus.org/en/">EasyPrivacy</a>'));
           }
           // unsupported browser
           else {
@@ -256,16 +255,16 @@
         } else if(platform == 'ios') {
           badger_download.innerHTML = 'PrivacyBadger is not supported for your platform.'
           badger_download.className = "not_supported";
-          badger_download.appendChild(not_supported_link('We suggest you install AdBlock for iOS', 'https://www.adblockios.com/'));
+          badger_download.appendChild(not_supported_link('<a href="https://disconnect.me/mobile/disconnect-malvertising">We suggest you install Disconnect</a>'));
         } else if(platform == 'android'){
           if(browser == 'firefox'){
             badger_download.innerHTML = 'PrivacyBadger is not supported for your platform.'
             badger_download.className = "not_supported";
-            badger_download.appendChild(not_supported_link('We suggest you install AdBlock Plus', 'https://addons.mozilla.org/en-US/android/addon/adblock-plus/'));
+            badger_download.appendChild(not_supported_link('<a href="https://addons.mozilla.org/en-US/android/addon/ublock-origin/">We suggest you install uBlock Origin</a>'));
           } else {
             badger_download.innerHTML = 'PrivacyBadger is not supported for your platform.'
             badger_download.className = "not_supported";
-            badger_download.appendChild(not_supported_link('We suggest you install Disconnect', 'https://disconnect.me/mobile/disconnect-mobile/sideload'));
+            badger_download.appendChild(not_supported_link('<a href="https://disconnect.me/mobile/disconnect-mobile/sideload">We suggest you install Disconnect</a>'));
           }
         }
       }
