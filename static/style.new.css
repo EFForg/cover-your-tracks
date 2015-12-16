@@ -459,3 +459,10 @@ table#results font[size="-2"] {
   margin-top: 10px;
   margin-bottom: 33px;
 }
+
+#badger-download.not_supported{
+  width: 100%;
+  max-width: none;
+  text-transform: none;
+  letter-spacing: normal;
+}

@@ -179,6 +179,14 @@
         return other;
       }
 
+      function not_supported_link(text, url){
+        var not_supported = document.createElement('p');
+        not_supported.id = 'not_supported';
+        not_supported.href = url;
+        not_supported.innerHTML = '<a href="'+url+'">'+text+'</a>';
+        return not_supported;
+      }
+
       function onChromeInstallFailure(url){
         window.location.assign(url);
       }
@@ -188,37 +196,77 @@
         var chrome_url = document.querySelector('#badger-chrome').href;
         // detect browser
         var browser = 'other';
+        var platform = 'desktop';
         if(navigator && navigator.userAgent){
-          if(navigator.userAgent.match(/firefox/i) && !navigator.userAgent.match(/mobile/i))
+          if(navigator.userAgent.match(/firefox/i)){
             browser = 'firefox';
-          else if(navigator.userAgent.match(/chrome/i) && !navigator.userAgent.match(/mobile/i))
+            if(navigator.userAgent.match(/android/i)){
+              platform = 'android';
+            }
+          } else if(navigator.userAgent.match(/chrome/i)) {
             browser = 'chrome';
+            if(navigator.userAgent.match(/android/i)){
+              platform = 'android';
+            }
+          } else if(navigator.userAgent.match(/fxios/i)){
+            platform = 'ios';
+            browser = 'firefox';
+          } else if(navigator.userAgent.match(/crios/i)){
+            platform = 'ios';
+            browser = 'chrome';
+          } else if(navigator.userAgent.match(/safari/i)){
+            browser = 'safari';
+            if(navigator.userAgent.match(/mobile/i)){
+              platform = 'ios';
+            }
+          }
         }
         var badger_download = document.getElementById('badger-download');
         badger_download.innerHTML = "";
         // firefox
-        if(browser == 'firefox'){
-          badger_download.onclick = function(){
-            window.location = firefox_url;
-          };
-          badger_download.setAttribute('javascript', 'enabled');
-          badger_download.appendChild(install_link('Firefox', firefox_url));
-          badger_download.parentNode.insertBefore(other_link('Chrome', chrome_url),badger_download.nextSibling);
-        }
-        // chrome
-        else if(browser == 'chrome'){
-          badger_download.onclick = function(){
-            window.location = firefox_url;
-          };
-          badger_download.setAttribute('javascript', 'enabled');
-          badger_download.appendChild(install_link('Chrome', chrome_url));
-          badger_download.parentNode.insertBefore(other_link('Firefox', firefox_url),badger_download.nextSibling);
-        }
-        // unsupported browser
-        else {
-          badger_download.innerHTML = 'Browser Not Supported';
-          badger_download.appendChild(other_link('Firefox', firefox_url));
-          badger_download.appendChild(other_link('Chrome', chrome_url));
+        if(platform == 'desktop'){
+          if(browser == 'firefox'){
+            badger_download.onclick = function(){
+              window.location = firefox_url;
+            };
+            badger_download.setAttribute('javascript', 'enabled');
+            badger_download.appendChild(install_link('Firefox', firefox_url));
+            badger_download.parentNode.insertBefore(other_link('Chrome', chrome_url),badger_download.nextSibling);
+          }
+          // chrome
+          else if(browser == 'chrome'){
+            badger_download.onclick = function(){
+              window.location = chrome_url;
+            };
+            badger_download.setAttribute('javascript', 'enabled');
+            badger_download.appendChild(install_link('Chrome', chrome_url));
+            badger_download.parentNode.insertBefore(other_link('Firefox', firefox_url),badger_download.nextSibling);
+          } else if(browser == 'safari'){
+            badger_download.innerHTML = 'PrivacyBadger is not supported for your browser.'
+            badger_download.className = "not_supported";
+            badger_download.appendChild(not_supported_link('We suggest you install AdBlock', 'https://getadblock.com/'));
+          }
+          // unsupported browser
+          else {
+            badger_download.innerHTML = 'Browser Not Supported';
+            badger_download.className = "not_supported";
+            badger_download.appendChild(other_link('Firefox', firefox_url));
+            badger_download.appendChild(other_link('Chrome', chrome_url));
+          }
+        } else if(platform == 'ios') {
+          badger_download.innerHTML = 'PrivacyBadger is not supported for your platform.'
+          badger_download.className = "not_supported";
+          badger_download.appendChild(not_supported_link('We suggest you install AdBlock for iOS', 'https://www.adblockios.com/'));
+        } else if(platform == 'android'){
+          if(browser == 'firefox'){
+            badger_download.innerHTML = 'PrivacyBadger is not supported for your platform.'
+            badger_download.className = "not_supported";
+            badger_download.appendChild(not_supported_link('We suggest you install AdBlock Plus', 'https://addons.mozilla.org/en-US/android/addon/adblock-plus/'));
+          } else {
+            badger_download.innerHTML = 'PrivacyBadger is not supported for your platform.'
+            badger_download.className = "not_supported";
+            badger_download.appendChild(not_supported_link('We suggest you install Disconnect', 'https://disconnect.me/mobile/disconnect-mobile/sideload'));
+          }
         }
       }
 
