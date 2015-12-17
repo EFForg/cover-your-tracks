@@ -254,6 +254,8 @@
             badger_download.style.display = "none";
             tool_recommendation.href = "http://windows.microsoft.com/en-us/internet-explorer/use-tracking-protection#ie=ie-11";
             tool_recommendation.innerHTML = "adding tracker protection lists EasyList and EasyPrivacy";
+          } else {
+            badger_download.style.display = "none";
           }
         } else if(platform == 'ios') {
           if(browser == 'safari'){
@@ -331,7 +333,7 @@
 
           if(detection.platform == 'desktop' && (detection.browser == "chrome" || detection.browser == "firefox")){
             summary_sentence.innerHTML += " <strong>installing EFF's Privacy Badger</strong>.";
-          } else if(detection.platform == 'desktop' && detection.browser != "opera") {
+          } else if(detection.platform == 'desktop' && detection.browser != "opera" && detection.browser != "ie") {
             summary_sentence.innerHTML += " switching to a browser or OS that offers better protections.";
           } else {
             summary_sentence.innerHTML += " <strong>installing extra protections</strong>.  Privacy Badger isn't available for your browser / OS, but <a id='tool-recommendation'></a> may work for you.";
