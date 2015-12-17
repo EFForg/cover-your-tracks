@@ -466,3 +466,39 @@ table#results font[size="-2"] {
   text-transform: none;
   letter-spacing: normal;
 }
+
+.social {
+    cursor: default;
+    margin: 0 auto;
+}
+.social a {
+    background-image: url(../static/images/social-icons.png);
+    display: inline-block;
+    height: 80px;
+    margin: 0 6px 0 0;
+    width: 80px;
+    opacity: 0.9;
+}
+.social a.no-margin {
+    margin: 0;
+}
+.social a:hover {
+    opacity: 1;
+    -webkit-transition: opacity 0.2s;
+       -moz-transition: opacity 0.2s;
+            transition: opacity 0.2s;
+}
+.googleplus {
+    background-position: -227px 0;
+}
+
+.facebook {
+    background-position: -114px 0;
+}
+
+.twitter {
+    background-position: 0;
+}
+.email {
+    background-position: -340px 0;
+}
