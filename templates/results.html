@@ -193,6 +193,8 @@
             if(navigator.userAgent.match(/android/i)){
               platform = 'android';
             }
+          } else if(navigator.userAgent.match(/msie/i) || navigator.userAgent.match(/trident/i)){
+            browser = 'ie';
           } else if(navigator.userAgent.match(/opr\//i)){
             browser = 'opera';
             if(navigator.userAgent.match(/mobile/i)){
@@ -248,6 +250,10 @@
             badger_download.style.display = "none";
             tool_recommendation.href = "https://addons.opera.com/en/extensions/details/disconnect/";
             tool_recommendation.innerHTML = "Disconnect";
+          } else if(browser == 'ie'){
+            badger_download.style.display = "none";
+            tool_recommendation.href = "http://windows.microsoft.com/en-us/internet-explorer/use-tracking-protection#ie=ie-11";
+            tool_recommendation.innerHTML = "adding tracker protection lists EasyList and EasyPrivacy";
           }
         } else if(platform == 'ios') {
           if(browser == 'safari'){
