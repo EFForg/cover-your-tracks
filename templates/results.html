@@ -179,20 +179,11 @@
         return other;
       }
 
-      function not_supported_link(html){
-        var not_supported = document.createElement('p');
-        not_supported.id = 'not_supported';
-        not_supported.innerHTML = html;
-        return not_supported;
-      }
-
       function onChromeInstallFailure(url){
         window.location.assign(url);
       }
 
-      function prepare_install_button(){
-        var firefox_url = document.querySelector('#badger-firefox').href;
-        var chrome_url = document.querySelector('#badger-chrome').href;
+      function detect_browser_and_platform(){
         // detect browser
         var browser = 'other';
         var platform = 'desktop';
@@ -225,15 +216,24 @@
             }
           }
         }
+        return {browser: browser, platform: platform};
+      }
+
+      function prepare_install_button(detection){
+        var firefox_url = document.querySelector('#badger-firefox').href;
+        var chrome_url = document.querySelector('#badger-chrome').href;
         var badger_download = document.getElementById('badger-download');
+        var tool_recommendation = document.getElementById('tool-recommendation');
+        var platform = detection.platform;
+        var browser = detection.browser;
         badger_download.innerHTML = "";
+        badger_download.setAttribute('javascript', 'enabled');
         // firefox
         if(platform == 'desktop'){
           if(browser == 'firefox'){
             badger_download.onclick = function(){
               window.location = firefox_url;
             };
-            badger_download.setAttribute('javascript', 'enabled');
             badger_download.appendChild(install_link('Firefox', firefox_url));
             badger_download.parentNode.insertBefore(other_link('Chrome', chrome_url),badger_download.nextSibling);
           }
@@ -242,32 +242,32 @@
             badger_download.onclick = function(){
               window.location = chrome_url;
             };
-            badger_download.setAttribute('javascript', 'enabled');
             badger_download.appendChild(install_link('Chrome', chrome_url));
             badger_download.parentNode.insertBefore(other_link('Firefox', firefox_url),badger_download.nextSibling);
           } else if(browser == 'opera') {
-            badger_download.innerHTML = 'Privacy Badger is not supported for your browser.'
-            badger_download.className = "not_supported";
-            badger_download.appendChild(not_supported_link('<a target="_blank" href="https://addons.opera.com/en/extensions/details/disconnect/">We suggest you install Disconnect</a>'));
-          } else {
-            // unsupported browser
-            badger_download.innerHTML = 'Privacy Badger is not supported for your browser.'
-            badger_download.className = "not_supported";
-            badger_download.appendChild(not_supported_link('We suggest you install <a target="_blank" href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> with <a target="_blank" href="https://www.eff.org/privacybadger">Privacy Badger</a>'));
+            badger_download.style.display = "none";
+            tool_recommendation.href = "https://addons.opera.com/en/extensions/details/disconnect/";
+            tool_recommendation.innerHTML = "Disconnect";
           }
         } else if(platform == 'ios') {
-          badger_download.innerHTML = 'Privacy Badger is not supported for your platform.'
-          badger_download.className = "not_supported";
-          badger_download.appendChild(not_supported_link('<a target="_blank" href="https://disconnect.me/mobile/disconnect-malvertising">We suggest you install Disconnect</a>'));
+          if(browser == 'safari'){
+            badger_download.style.display = "none";
+            tool_recommendation.href = "https://itunes.apple.com/us/app/disconnect-best-blocking-award/id935480186?mt=8";
+            tool_recommendation.innerHTML = "Disconnect";
+          } else {
+            badger_download.style.display = "none";
+            tool_recommendation.href = "https://itunes.apple.com/us/app/disconnect-privacy-pro-entire/id1057771839?mt=8";
+            tool_recommendation.innerHTML = "Disconnect Privacy Pro";
+          }
         } else if(platform == 'android'){
           if(browser == 'firefox'){
-            badger_download.innerHTML = 'Privacy Badger is not supported for your platform.'
-            badger_download.className = "not_supported";
-            badger_download.appendChild(not_supported_link('<a target="_blank" href="https://addons.mozilla.org/en-US/android/addon/ublock-origin/">We suggest you install uBlock Origin</a>'));
+            badger_download.style.display = "none";
+            tool_recommendation.href = "https://addons.mozilla.org/en-US/android/addon/ublock-origin/";
+            tool_recommendation.innerHTML = "uBlock Origin";
           } else {
-            badger_download.innerHTML = 'Privacy Badger is not supported for your platform.'
-            badger_download.className = "not_supported";
-            badger_download.appendChild(not_supported_link('<a target="_blank" href="https://disconnect.me/mobile/disconnect-mobile/sideload">We suggest you install Disconnect</a>'));
+            badger_download.style.display = "none";
+            tool_recommendation.href = "https://disconnect.me/mobile/disconnect-mobile/sideload";
+            tool_recommendation.innerHTML = "Disconnect";
           }
         }
       }
@@ -321,9 +321,18 @@
           } else {
             summary_sentence.innerHTML = "{% include '_summary_sentence_mixed.html' %}";
           }
+          detection = detect_browser_and_platform();
+
+          if(detection.platform == 'desktop' && (detection.browser == "chrome" || detection.browser == "firefox")){
+            summary_sentence.innerHTML += " <strong>installing EFF's Privacy Badger</strong>.";
+          } else if(detection.platform == 'desktop' && detection.browser != "opera") {
+            summary_sentence.innerHTML += " switching to a browser or OS that offers better protections.";
+          } else {
+            summary_sentence.innerHTML += " <strong>installing extra protections</strong>.  Privacy Badger isn't available for your browser / OS, but <a id='tool-recommendation'></a> may work for you.";
+          }
           summary_sentence.innerHTML += download_links;
 
-          prepare_install_button();
+          prepare_install_button(detection);
         }
         document.getElementById('buttons').style.display = 'block';
         record_results();

@@ -244,6 +244,7 @@ def results_nojs():
             summary_sentence = render_template('_summary_sentence_no.html')
         else:
             summary_sentence = render_template('_summary_sentence_mixed.html')
+        summary_sentence += " <strong>installing Privacy Badger</strong>";
         summary_sentence += render_template('_summary_download_links.html')
 
     fingerprint_matching, fingerprint_content = fingerprint_generic(
