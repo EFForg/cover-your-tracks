@@ -66,6 +66,12 @@
       'no'     : "{% include '_no.html' %}",
       'partial': "{% include '_partial.html' %}"
     };
+    var fp_status_str = {
+      'yes'      : "{% include '_fp_yes.html' %}",
+      'no'       : "{% include '_fp_no.html' %}",
+      'no_unique': "{% include '_fp_no_unique.html' %}",
+      'partial'  : "{% include '_fp_partial.html' %}"
+    };
     var download_links = "{% include '_summary_download_links.html' %}";
     window.onload = function(){
       document.getElementById('fingerprintTable').style.display = "none";

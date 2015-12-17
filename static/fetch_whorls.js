@@ -181,12 +181,14 @@ function fetch_client_whorls(){
       // the below is somewhat arbitrary.  we may want to have the result
       // determined by entropy rather than matches in the future
       // * note: if this logic changes, change in results-nojs route too.
-      if(json_results.matching <= 20){
-        $('#fp_status').html(status_str['no']);
+      if(json_results.matching == 1){
+        $('#fp_status').html(fp_status_str['no_unique']);
+      } else if(json_results.matching <= 20){
+        $('#fp_status').html(fp_status_str['no']);
       } else if(json_results.matching <= 100){
-        $('#fp_status').html(status_str['partial']);
+        $('#fp_status').html(fp_status_str['partial']);
       } else {
-        $('#fp_status').html(status_str['yes']);
+        $('#fp_status').html(fp_status_str['yes']);
       }
     } else {
       $('#content .content-background').html(json_results.markup);
