@@ -43,6 +43,7 @@ def index():
 
 
 @app.route("/fingerprint-js")
+@app.route("/fingerprint")
 def fingerprint_js():
     return render_template('fingerprint_js.html')
 
