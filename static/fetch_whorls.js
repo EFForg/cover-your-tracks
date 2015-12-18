@@ -227,7 +227,11 @@ function fetch_client_whorls(){
 
   var fp = new Fingerprint2();
   whorls['canvas_hash'] = fp.x64hash128(fp.getCanvasFp());
-  whorls['webgl_hash'] = fp.x64hash128(fp.getWebglFp());
+  try {
+    whorls['webgl_hash'] = fp.x64hash128(fp.getWebglFp());
+  } catch(ex) {
+    whorls['webgl_hash'] = "undetermined";
+  }
   whorls['language'] = navigator.language;
   whorls['platform'] = navigator.platform;
   whorls['touch_support'] = get_touch_support(fp);
