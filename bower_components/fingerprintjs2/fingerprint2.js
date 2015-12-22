@@ -543,6 +543,9 @@
         return "unknown";
       }
     },
+    getMediaDevices: function(){
+      return navigator.mediaDevices.getUserMedia({audio : true}).then(()=>navigator.mediaDevices.enumerateDevices()).then(e => e.map(d => d.groupId+"|"+d.kind+"|"+d.label));
+    },
     // This is a crude and primitive touch screen detection.
     // It's not possible to currently reliably detect the  availability of a touch screen
     // with a JS, without actually subscribing to a touch event.
