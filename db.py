@@ -26,7 +26,8 @@ class Db(object):
             user=self.username,
             passwd=self.password,
             db=self.database,
-            port=self.port)
+            port=self.port,
+            charset='utf8')
 
     def count_sightings(self, cookie, signature):
         c = self.cxn.cursor()
