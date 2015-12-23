@@ -228,6 +228,7 @@
         return {browser: browser, platform: platform};
       }
 
+      // this function is mirrored by get_tool_recommendation in util.py.  if you change it here, make sure it's changed there as well.
       function prepare_install_button(detection){
         var firefox_url = document.querySelector('#badger-firefox').href;
         var chrome_url = document.querySelector('#badger-chrome').href;

@@ -10,7 +10,26 @@
   </p>
 
   <div id='results_wrapper'>
-    <p id='summary_sentence'>{{ summary_sentence|safe }}</p>
+    <p id='summary_sentence'>
+      {{ summary_sentence|safe }}
+      {% if tool_recommendation and tool_recommendation['name'] == "Privacy Badger" %}
+        {% if detection['browser'] == "chrome" %}
+          <div id='badger-download' javascript='enabled'>
+            <a href='https://chrome.google.com/webstore/detail/pkehgijcmpdhfbdbbnkijodmdjhbjlgp'>Install Privacy Badger<br><div>and Enable Do Not Track</div></a>
+          </div>
+          <p class='other_link'>
+            <a href="https://www.eff.org/files/privacy-badger-latest.xpi">Click here for Firefox version</a>
+          </p>
+        {% elif detection['browser'] == "firefox" %}
+          <div id='badger-download' javascript='enabled'>
+            <a href="https://www.eff.org/files/privacy-badger-latest.xpi">Install Privacy Badger<br><div>and Enable Do Not Track</div></a>
+          </div>
+          <p class='other_link'>
+            <a href='https://chrome.google.com/webstore/detail/pkehgijcmpdhfbdbbnkijodmdjhbjlgp'>Click here for Chrome version</a>
+          </p>
+        {% endif %}
+      {% endif %}
+    </p>
     <table class='tracker_results' id='results'>
       <tbody>
         <tr>

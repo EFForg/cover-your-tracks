@@ -11,7 +11,7 @@ import env_config as config
 from fingerprint import FingerprintAgent, FingerprintRecorder, FingerprintHelper
 from tracking import TrackingRecorder
 from entropy_helper import EntropyHelper
-from util import number_format
+from util import number_format, detect_browser_and_platform, get_tool_recommendation
 
 app = Flask(__name__)
 app.secret_key = config.secret_key
@@ -235,6 +235,8 @@ def results_nojs():
         if get_count_from_str(request.args.get('dnt'), heuristic_filter) == 1:
             dnt_result = yes
 
+    tool_recommendation = None
+    detection = None
     if ad_result == yes and tracker_result == yes and dnt_result == yes:
         summary_sentence = render_template('_summary_sentence_yes.html')
     elif ad_result == yes and tracker_result == yes and dnt_result == no:
@@ -245,8 +247,19 @@ def results_nojs():
             summary_sentence = render_template('_summary_sentence_no.html')
         else:
             summary_sentence = render_template('_summary_sentence_mixed.html')
-        summary_sentence += " <strong>installing Privacy Badger</strong>";
-        summary_sentence += render_template('_summary_download_links.html')
+        detection = detect_browser_and_platform(
+            request.headers.get('User-Agent'))
+
+        tool_recommendation = get_tool_recommendation(detection)
+
+        if detection['platform'] == "desktop" and (detection['browser'] == "chrome" or detection['browser'] == "firefox"):
+            summary_sentence += " <strong>installing EFF's Privacy Badger</strong>"
+        elif detection['platform'] == "desktop" and detection['browser'] != "opera" and detection['browser'] != "ie":
+            summary_sentence += " switching to a browser or OS that offers better protections."
+        else:
+            summary_sentence += " <strong>installing extra protections</strong>.  Privacy Badger isn't available for your browser / OS, but <a id='tool-recommendation' target='_blank' href='" + \
+                tool_recommendation['url'] + "'>" + tool_recommendation['name'] + \
+                "</a> may work for you."
 
     fingerprint_matching, fingerprint_content = fingerprint_generic(
         False, True)
@@ -262,6 +275,8 @@ def results_nojs():
 
     return render_template('results_nojs.html',
                            summary_sentence=summary_sentence,
+                           tool_recommendation=tool_recommendation,
+                           detection=detection,
                            fingerprint_content=fingerprint_content,
                            ad_result=ad_result,
                            tracker_result=tracker_result,
