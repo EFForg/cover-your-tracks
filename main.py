@@ -346,6 +346,11 @@ def privacy():
     return render_template('privacy.html', title="Privacy Policy")
 
 
+@app.route("/privacy-1.0")
+def privacy_1_0():
+    return render_template('privacy_1_0.html', title="Privacy Policy")
+
+
 @app.route("/about")
 def about():
     return render_template('about.html', title="About")
