@@ -316,7 +316,7 @@ def record_results():
 # clear all 'site' cookies for a specific domain
 @app.route("/clear-cookies")
 def clear_cookies():
-    resp = make_response(render_template('clear_cookies.html'))
+    resp = make_response("")
     resp.set_cookie('site', "")
     return resp
 
