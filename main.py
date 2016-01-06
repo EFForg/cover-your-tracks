@@ -39,7 +39,10 @@ def set_cookie():
 
 @app.route("/")
 def index():
-    return render_template('front.html')
+    cb = random()
+    return render_template('front.html',
+                           third_party_trackers=config.third_party_trackers,
+                           cb=cb)
 
 
 @app.route("/fingerprint-js")

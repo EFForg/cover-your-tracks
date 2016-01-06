@@ -30,6 +30,9 @@
       Panopticlick is a research project of the Electronic Frontier Foundation. <a href="/about">Learn more</a>
     </p>
   </div>
+  <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['ad_server'] }}/clear-cookies?random={{ cb }}'></iframe>
+  <iframe id="t" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['tracker_server'] }}/clear-cookies?random={{ cb }}'></iframe>
+  <iframe id="dnt" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['dnt_server'] }}/clear-cookies?random={{ cb }}'></iframe>
 {% endblock %}
 
 {% block java %}{% endblock %}
