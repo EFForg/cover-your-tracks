@@ -454,12 +454,6 @@ table#results font[size="-2"] {
   font-size: 80%;
 }
 
-.ii_info{
-  font-size: 80%;
-  margin-top: 10px;
-  margin-bottom: 33px;
-}
-
 #badger-download.not_supported{
   width: 100%;
   max-width: none;

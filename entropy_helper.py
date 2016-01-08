@@ -16,19 +16,13 @@ class EntropyHelper(object):
 
         uniqueness = {}
         for i in FingerprintHelper.whorl_names:
-            if (i in FingerprintHelper.legacy_keys) and not (i == 'fonts' and "(via javascript)" in whorls[i]) and not (i == 'http_accept' and ";" in whorls[i][0:25]):
-                # MEASURE 1: how identifying is this fact about a browser if it's
-                # the only thing one knows about the browser?
-                matching_whorl = counts[i]
-                uniqueness[i] = {
-                    'bits': round(-log(matching_whorl / float(total), 2), 2),
-                    'one_in_x': round(float(total) / matching_whorl, 2)
-                }
-            else:
-                uniqueness[i] = {
-                    'bits': -1,
-                    'one_in_x': -1
-                }
+            # MEASURE 1: how identifying is this fact about a browser if it's
+            # the only thing one knows about the browser?
+            matching_whorl = counts[i]
+            uniqueness[i] = {
+                'bits': round(-log(matching_whorl / float(total), 2), 2),
+                'one_in_x': round(float(total) / matching_whorl, 2)
+            }
 
         return counts, total, matching, bits, group, uniqueness
 
@@ -64,7 +58,7 @@ class EntropyHelper(object):
         total = db.get_total_count(config.epoched)
 
         matching = db.get_signature_matches_count(
-            whorls['legacy_signature'], config.epoched)
+            whorls['signature'], config.epoched)
 
         return counts, total, matching
 

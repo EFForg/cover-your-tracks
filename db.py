@@ -85,7 +85,7 @@ class Db(object):
     def get_signature_matches_count(self, signature, epoched):
         c = self.cxn.cursor()
         c.execute(
-            "SELECT " + self.epoch_prefix(epoched) + "total FROM totals WHERE variable='legacy_signature' AND value=%s", (signature, ))
+            "SELECT " + self.epoch_prefix(epoched) + "total FROM totals WHERE variable='signature' AND value=%s", (signature, ))
         return c.fetchone()[0]
 
     def record_tracking_results(

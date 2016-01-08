@@ -23,11 +23,7 @@
       <td>{{ label }}</td>
       <td>
         <center>
-          {% if uniqueness[key]['bits'] == -1 %}
-            <span class='ii'>N/A</span>
-          {% else %}
-            {{ uniqueness[key]['bits'] }}
-          {% endif %}
+          {{ uniqueness[key]['bits'] }}
         </center>
       </td>
       <td>
@@ -43,5 +39,3 @@
     </tr>
   {% endfor %}
 </table>
-
-<div class='ii_info'><span class='ii'>N/A</span>: Not enough information to calculate these results. The more data points we have, the better the results will be. Share this on social media below.</div>
