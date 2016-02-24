@@ -106,19 +106,11 @@ def tracker():
     except ValueError:
         return "Invalid domain.  Please check your config settings."
 
-    pbtest_fragment = ""
-    if request.args.get('pbtest') == "true":
-        pbtest_fragment = "&pbtest=true"
-
     if i < 2:
         next_link = "https://" + \
-            config.first_party_trackers[i + 1] + "/tracker?" + pbtest_fragment
+            config.first_party_trackers[i + 1] + "/tracker?"
     else:
-        if request.args.get('pbtest') == "true":
-            next_link = "https://pbtest.org/results?"
-        else:
-            next_link = "https://" + \
-                    config.first_party_trackers[0] + "/results?"
+        next_link = "https://" + config.first_party_trackers[0] + "/results?"
 
     return render_template('tracker.html', next_link=next_link, third_party_trackers=config.third_party_trackers)
 
