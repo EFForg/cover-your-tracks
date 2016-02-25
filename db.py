@@ -129,6 +129,36 @@ class Db(object):
         else:
             return res[0]
 
+    def _epoch_total_helper(self, c, columns_to_update, columns_to_md5, operation):
+        if(operation != '+' and operation != '-'):
+            return
+
+        row = c.fetchone()
+        while row != None:
+            fingerprint_id = row[0]
+            count = row[1]
+            fingerprint_c = self.cxn.cursor()
+            fingerprint_c.execute(
+                "SELECT " + ", ".join(columns_to_update) +
+                " FROM fingerprint WHERE id=%s", (fingerprint_id, ))
+            fingerprint_row = fingerprint_c.fetchone()
+            if fingerprint_row != None:
+                i = 0
+                totals_c = self.cxn.cursor()
+                for variable in columns_to_update:
+                    if variable in columns_to_md5:
+                        value = hashlib.md5(fingerprint_row[i]).hexdigest()
+                    else:
+                        value = fingerprint_row[i]
+                    i += 1
+                    totals_c.execute(
+                        """UPDATE totals SET epoch_total=epoch_total""" + operation + """%s
+                        WHERE variable=%s AND value=%s""", (count, variable, value))
+                totals_c.execute(
+                    """UPDATE totals SET epoch_total=epoch_total""" + operation + """%s
+                    WHERE variable='count'""", (count,))
+            row = c.fetchone()
+
     def epoch_update_totals(self, old_epoch_beginning, new_epoch_beginning, columns_to_update, columns_to_md5):
         c = self.cxn.cursor()
         if old_epoch_beginning == None:
@@ -140,32 +170,28 @@ class Db(object):
                       FROM fingerprint_times
                       WHERE timestamp BETWEEN %s AND %s GROUP BY fingerprint_id""",
                       (old_epoch_beginning, new_epoch_beginning))
-            row = c.fetchone()
-            while row != None:
-                fingerprint_id = row[0]
-                count = row[1]
-                fingerprint_c = self.cxn.cursor()
-                fingerprint_c.execute(
-                    "SELECT " + ", ".join(columns_to_update) +
-                    " FROM fingerprint WHERE id=%s", (fingerprint_id, ))
-                fingerprint_row = fingerprint_c.fetchone()
-                if fingerprint_row != None:
-                    i = 0
-                    totals_c = self.cxn.cursor()
-                    for variable in columns_to_update:
-                        if variable in columns_to_md5:
-                            value = hashlib.md5(fingerprint_row[i]).hexdigest()
-                        else:
-                            value = fingerprint_row[i]
-                        i += 1
-                        totals_c.execute(
-                            """UPDATE totals SET epoch_total=epoch_total-%s
-                            WHERE variable=%s AND value=%s""", (count, variable, value))
-                    totals_c.execute(
-                        """UPDATE totals SET epoch_total=epoch_total-%s
-                        WHERE variable='count'""", (count,))
-                row = c.fetchone()
+            self._epoch_total_helper(c, columns_to_update, columns_to_md5, '-')
             c.execute(
                 """UPDATE totals SET value=%s
                 WHERE variable='epoch_beginning'""", (new_epoch_beginning, ))
+        self.cxn.commit()
+
+    def epoch_calculate_totals(self, old_epoch_beginning, new_epoch_beginning, columns_to_update, columns_to_md5):
+        c = self.cxn.cursor()
+
+        if old_epoch_beginning == None:
+            c.execute(
+                "INSERT INTO totals SET value=%s, variable='epoch_beginning'",
+                (new_epoch_beginning, ))
+        else:
+            c.execute(
+                """UPDATE totals SET value=%s
+                WHERE variable='epoch_beginning'""", (new_epoch_beginning, ))
+
+        c.execute("UPDATE totals SET epoch_total=0 WHERE 1")
+        c.execute("""SELECT fingerprint_id, count(id)
+                  FROM fingerprint_times
+                  WHERE timestamp > %s GROUP BY fingerprint_id""",
+                  (new_epoch_beginning, ))
+        self._epoch_total_helper(c, columns_to_update, columns_to_md5, '+')
         self.cxn.commit()
