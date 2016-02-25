@@ -52,7 +52,6 @@ class FingerprintRecorder(object):
         old_epoch_beginning = db.get_epoch_beginning()
         columns_to_update = FingerprintHelper.whorl_names.keys()
         columns_to_update.append('signature')
-        columns_to_update.append('legacy_signature')
         db.epoch_calculate_totals(
             old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys)
 
