@@ -164,7 +164,6 @@ class Db(object):
                     totals_c.execute(
                         """UPDATE totals SET epoch_total=epoch_total-%s
                         WHERE variable='count'""", (count,))
-                    self.cxn.commit()
                 row = c.fetchone()
             c.execute(
                 """UPDATE totals SET value=%s
