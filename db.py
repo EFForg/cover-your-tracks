@@ -149,21 +149,22 @@ class Db(object):
                     "SELECT " + ", ".join(columns_to_update) +
                     " FROM fingerprint WHERE id=%s", (fingerprint_id, ))
                 fingerprint_row = fingerprint_c.fetchone()
-                i = 0
-                totals_c = self.cxn.cursor()
-                for variable in columns_to_update:
-                    if variable in columns_to_md5:
-                        value = hashlib.md5(fingerprint_row[i]).hexdigest()
-                    else:
-                        value = fingerprint_row[i]
-                    i += 1
+                if fingerprint_row != None:
+                    i = 0
+                    totals_c = self.cxn.cursor()
+                    for variable in columns_to_update:
+                        if variable in columns_to_md5:
+                            value = hashlib.md5(fingerprint_row[i]).hexdigest()
+                        else:
+                            value = fingerprint_row[i]
+                        i += 1
+                        totals_c.execute(
+                            """UPDATE totals SET epoch_total=epoch_total-%s
+                            WHERE variable=%s AND value=%s""", (count, variable, value))
                     totals_c.execute(
                         """UPDATE totals SET epoch_total=epoch_total-%s
-                        WHERE variable=%s AND value=%s""", (count, variable, value))
-                totals_c.execute(
-                    """UPDATE totals SET epoch_total=epoch_total-%s
-                    WHERE variable='count'""", (count,))
-                self.cxn.commit()
+                        WHERE variable='count'""", (count,))
+                    self.cxn.commit()
                 row = c.fetchone()
             c.execute(
                 """UPDATE totals SET value=%s
