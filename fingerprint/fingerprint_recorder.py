@@ -43,6 +43,19 @@ class FingerprintRecorder(object):
         db.epoch_update_totals(
             old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys)
 
+    # This is the 'nuclear option' for recalculating the epoch totals from
+    # scratch, given a certain date.
+    @staticmethod
+    def epoch_calculate_totals(epoch_beginning):
+        db = Db()
+        db.connect()
+        old_epoch_beginning = db.get_epoch_beginning()
+        columns_to_update = FingerprintHelper.whorl_names.keys()
+        columns_to_update.append('signature')
+        columns_to_update.append('legacy_signature')
+        db.epoch_calculate_totals(
+            old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys)
+
     # returns true if we think this browser/fingerprint combination hasn't
     # been counted before
     @staticmethod
