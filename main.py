@@ -268,14 +268,14 @@ def results_nojs():
                 tool_recommendation['url'] + "'>" + tool_recommendation['name'] + \
                 "</a> may work for you."
 
-    fingerprint_matching, fingerprint_content = fingerprint_generic(
-        False, True)
-    if fingerprint_matching <= 20:
-        fingerprint_result = no
-    elif fingerprint_matching <= 100:
-        fingerprint_result = partial
-    else:
-        fingerprint_result = yes
+    #fingerprint_matching, fingerprint_content = fingerprint_generic(
+    #    False, True)
+    #if fingerprint_matching <= 20:
+    #    fingerprint_result = no
+    #elif fingerprint_matching <= 100:
+    #    fingerprint_result = partial
+    #else:
+    #    fingerprint_result = yes
 
     retest_link = "https://" + \
         config.third_party_trackers['ad_server'] + "/clear-all-cookies-nojs"
@@ -284,11 +284,9 @@ def results_nojs():
                            summary_sentence=summary_sentence,
                            tool_recommendation=tool_recommendation,
                            detection=detection,
-                           fingerprint_content=fingerprint_content,
                            ad_result=ad_result,
                            tracker_result=tracker_result,
                            dnt_result=dnt_result,
-                           fingerprint_result=fingerprint_result,
                            retest_link=retest_link)
 
 

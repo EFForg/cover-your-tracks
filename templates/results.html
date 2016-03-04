@@ -44,12 +44,11 @@
           <td id='dnt_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
         </tr>
         <tr>
-          <td class='test_label'>Does your browser protect from <a id='showFingerprintLink1' href='#fingerprintTable'>fingerprinting</a>?</td>
-          <td id='fp_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
+          <td class='test_label'>Does your browser protect from fingerprinting?</td>
+          <td id='fp_status'>Result not available due to site maintenance.  Please check back in a few hours.</td>
         </tr>
       </tbody>
     </table>
-    <a id='showFingerprintLink2' href='#fingerprintTable'>Show full results for fingerprinting</a>
     <p class="tracker_results">Note: because tracking techniques are complex, subtle, and constantly evolving, Panopticlick does not measure all forms of tracking and protection.</p>
     <div id='fingerprintTable'></div>
     <div id="buttons">
@@ -90,17 +89,6 @@
       if(acceptable_ads_test){
         $('#trackerlink').attr('href', $('#trackerlink').attr('href') + '?aat=1');
       }
-
-      (function fingerprint_table_ux(){
-        var showFingerprintLink1 = document.getElementById('showFingerprintLink1');
-        var showFingerprintLink2 = document.getElementById('showFingerprintLink2');
-        var fingerprintTable = document.getElementById('fingerprintTable')
-
-        showFingerprintLink1.onclick = showFingerprintLink2.onclick = function(){
-          showFingerprintLink2.style.display = 'none';
-          fingerprintTable.style.display = 'block';
-        };
-      })();
 
       (function load_iframes(){
         var cb = Math.floor((Math.random()*1000000)+1);

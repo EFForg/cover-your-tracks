@@ -53,12 +53,11 @@
           <td id='dnt_status'>{{ dnt_result|safe }}</td>
         </tr>
           <td class='test_label'>Does your browser protect from fingerprinting?</td>
-          <td id='fp_status'>{{ fingerprint_result|safe }}</td>
+          <td id='fp_status'>Result not available due to site maintenance.  Please check back in a few hours.</td>
         </tr>
       </tbody>
     </table>
     <p class="tracker_results">Note: because tracking techniques are complex, subtle, and constantly evolving, Panopticlick does not measure all forms of tracking and protection.</p>
-    <div id='fingerprintTable'>{{ fingerprint_content|safe }}</div>
     <div id="buttons">
       <div class="row">
         <a href="{{ retest_link }}" class="circle" id="trackerlink" title="Click here to re-test how trackable your browser is">Re-test your browser</a>
