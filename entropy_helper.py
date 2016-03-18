@@ -40,6 +40,30 @@ class EntropyHelper(object):
             return "under a thousand"
 
     @staticmethod
+    def single_whorl_uniqueness(whorl_name, whorl_value):
+        print "here"
+        db = Db()
+        db.connect()
+
+        md5_whorl_value = FingerprintHelper.value_or_md5(
+            {whorl_name: whorl_value})[whorl_name]
+
+        try:
+            count = db.get_whorl_value_count(
+                whorl_name, md5_whorl_value, config.epoched)
+        except TypeError:
+            return {'status': "Error: that value has not yet been recorded for '" + whorl_name + "'"}
+
+        total = db.get_total_count(config.epoched)
+
+        uniqueness = {
+            'bits': round(-log(count / float(total), 2), 2),
+            'one_in_x': round(float(total) / count, 2)
+        }
+
+        return uniqueness
+
+    @staticmethod
     def _fetch_counts(whorls):
         db = Db()
         db.connect()
