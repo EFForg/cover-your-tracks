@@ -344,6 +344,12 @@ def clear_all_cookies_nojs():
     return resp
 
 
+@app.route("/api/v1/whorl-uniqueness", methods=['POST'])
+def api_v1_ua_uniqueness():
+    whorl = json.loads(request.data)
+    return jsonify(EntropyHelper.single_whorl_uniqueness(whorl['name'], whorl['value']))
+
+
 @app.route("/privacy")
 def privacy():
     return render_template('privacy.html', title="Privacy Policy")
