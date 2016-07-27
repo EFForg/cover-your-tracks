@@ -624,7 +624,25 @@
       ctx.arc(75, 75, 25, 0, Math.PI * 2, true);
       ctx.fill("evenodd");
 
-      result.push("canvas fp:" + canvas.toDataURL());
+      //result.push("canvas fp:" + canvas.toDataURL()); 
+      //toDataURL() stops further Javascript-execution if a canvas-blocker blocks this function because it can cause a typeerror
+      var canvasFingerprint;
+      try {
+        canvasFingerprint = canvas.toDataURL();
+      } catch (error) {
+        if (error.message === "canvas.toDataURL is not a function") { // Firefox error message when toDataURL() is not available.
+          canvasFingerprint = "Canvas-fingerprinting failed. Either your browser does not support the canvas element or you are using a canvas-blocker."
+        } else { // potential other error messages
+          canvasFingerprint = "Canvas-fingerprinting failed, reason:" + err.message;
+        } 
+      }
+      
+      if (canvasFingerprint.substring(0,28) === "Canvas-fingerprinting failed") {
+        //Canvas-fingerprinting was successfully blocked
+        //unsure if anything needs to be pushed to result for further handling this case
+      } else {
+        result.push("canvas fp:" + canvasFingerprint);
+      }
       return result.join("~");
     },
 
