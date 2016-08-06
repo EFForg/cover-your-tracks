@@ -91,5 +91,5 @@ class EntropyHelper(object):
         # get the overal identifying information measure, and some other
         # hopefully informative stuff, for the user
         bits = round(-log(matching / float(total), 2), 2)
-        group = float(total) / matching
+        group = round(float(total) / matching, 2)
         return bits, group
