@@ -222,7 +222,11 @@ function fetch_client_whorls(){
   whorls['supercookies'] = test_dom_storage() + test_ie_userdata();
 
   var fp = new Fingerprint2();
-  whorls['canvas_hash'] = fp.x64hash128(fp.getCanvasFp());
+  try {
+    whorls['canvas_hash'] = fp.x64hash128(fp.getCanvasFp());
+  } catch(ex) {
+    whorls['canvas_hash'] = "undetermined";
+  }
   try {
     whorls['webgl_hash'] = fp.x64hash128(fp.getWebglFp());
   } catch(ex) {
