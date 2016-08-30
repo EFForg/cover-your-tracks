@@ -951,6 +951,10 @@
       if (!gl) { gl = null; }
       return gl;
     },
+    getTTSEngines: function() {
+      //https://www.w3.org/Bugs/Public/show_bug.cgi?id=29350
+      return speechSynthesis.getVoices().map(v => v.name+"|"+v.lang);
+    },
     each: function (obj, iterator, context) {
       if (obj === null) {
         return;
