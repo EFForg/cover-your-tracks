@@ -951,6 +951,45 @@
       if (!gl) { gl = null; }
       return gl;
     },
+    TTSLangs:{
+      "en" : "409",
+      //see https://bugzilla.mozilla.org/show_bug.cgi?id=1234654 to understand why other langs are disabled
+      /*"fr" : "40c",
+      "de" : "407",
+      "es" : "c0a",
+      "ru" : "419",
+      "zh" : "804",
+      "no" : "414",
+      "pt": "816"*/
+      },
+    getTTSLanguagesTiming: function(volume=1) {
+      //https://www.w3.org/Bugs/Public/show_bug.cgi?id=29350
+      const str="it@2#3 oe/cj, asd%f! lk*dg4w?";
+      let genStr;
+      if(navigator.userAgent.toLowerCase().indexOf("windows")>-1){
+        genStr=(lid)=>'<voice required="Language='+this.TTSLangs[lid]+'">'+str+'</voice>';
+      }else{
+        genStr=(lid)=>'<?xml version="1.0"?>\n<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/TR/speech-synthesis/synthesis.xsd" xml:lang="'+lid+'">'+str+'</speak>';
+      }
+      var obj={};
+      return Promise.all(Object.keys(this.TTSLangs).map(en=>{
+        let ut=new SpeechSynthesisUtterance(genStr(en));
+        ut.volume=volume;
+        ut.rate=10;
+        ut.pitch=10;
+        let t=0;
+        return new Promise(function(resolve, reject) {
+          ut.onstart=(e)=>{
+            t=e.timeStamp;
+          };
+          ut.onend=(e)=>{
+            obj[en]=e.timeStamp-t;
+            resolve();
+          };
+          speechSynthesis.speak(ut);
+        });
+      })).then(()=>{console.log(obj);});
+    },
     each: function (obj, iterator, context) {
       if (obj === null) {
         return;
