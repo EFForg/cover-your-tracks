@@ -529,6 +529,14 @@
         return "unknown";
       }
     },
+    getEndianess: function(){
+      let a=new Uint32Array([0xf807f00f]),
+              c=new Uint8Array(a.buffer);
+      if(b[0]==c[0]+c[1]*256+c[2]*256*256+c[3]*256*256*256)
+        return true;
+      if(b[0]==c[3]+c[2]*256+c[1]*256*256+c[0]*256*256*256)
+        return false;
+    },
     getNavigatorPlatform: function () {
       if(navigator.platform) {
         return navigator.platform;
