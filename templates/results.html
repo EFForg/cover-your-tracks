@@ -147,6 +147,11 @@
                 ad_assumed_status = 'no';
               }
             } else {
+              var acceptable_ad = document.createElement('img');
+              acceptable_ad.onload = function(){
+                results['ad'] = 'partial';
+              };
+              acceptable_ad.src = "https://pagead2.googlesyndication.com/pagead/images/nessie_icon_chevron_white.png";
               results['ad'] = 'yes';
             }
           } else if(event.origin == "https://{{ third_party_trackers['tracker_server'] }}"){
