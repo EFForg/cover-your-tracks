@@ -147,6 +147,11 @@
                 ad_assumed_status = 'no';
               }
             } else {
+              var meta = document.createElement('meta');
+              meta.name = "referrer";
+              meta.content = "no-referrer";
+              document.getElementsByTagName('head')[0].appendChild(meta);
+
               var acceptable_ad = document.createElement('img');
               acceptable_ad.onload = function(){
                 results['ad'] = 'partial';
