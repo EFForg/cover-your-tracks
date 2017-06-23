@@ -112,6 +112,9 @@ def tracker():
     else:
         next_link = "https://" + config.first_party_trackers[0] + "/results?"
 
+    if request.args.get('aat'):
+        next_link = next_link + "aat=" + request.args.get('aat')
+
     return render_template('tracker.html', next_link=next_link, third_party_trackers=config.third_party_trackers)
 
 
@@ -213,6 +216,7 @@ def results():
                            a_loads=len(request.args.get('a') or ''),
                            t_loads=len(request.args.get('t') or ''),
                            dnt_loads=len(request.args.get('dnt') or ''),
+                           acceptable_ads_test=len(request.args.get('aat') or ''),
                            third_party_trackers=config.third_party_trackers)
 
 

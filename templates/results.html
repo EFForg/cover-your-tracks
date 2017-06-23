@@ -80,6 +80,11 @@
       var a_loads = {{ a_loads }};
       var t_loads = {{ t_loads }};
       var dnt_loads = {{ dnt_loads }};
+      var acceptable_ads_test = {{ acceptable_ads_test }};
+
+      if(acceptable_ads_test){
+        $('#trackerlink').attr('href', $('#trackerlink').attr('href') + '?aat=1');
+      }
 
       (function fingerprint_table_ux(){
         var showFingerprintLink1 = document.getElementById('showFingerprintLink1');
@@ -147,16 +152,18 @@
                 ad_assumed_status = 'no';
               }
             } else {
-              var meta = document.createElement('meta');
-              meta.name = "referrer";
-              meta.content = "no-referrer";
-              document.getElementsByTagName('head')[0].appendChild(meta);
+              if(acceptable_ads_test){
+                var meta = document.createElement('meta');
+                meta.name = "referrer";
+                meta.content = "no-referrer";
+                document.getElementsByTagName('head')[0].appendChild(meta);
 
-              var acceptable_ad = document.createElement('img');
-              acceptable_ad.onload = function(){
-                results['ad'] = 'partial';
-              };
-              acceptable_ad.src = "https://pagead2.googlesyndication.com/pagead/images/nessie_icon_chevron_white.png";
+                var acceptable_ad = document.createElement('img');
+                acceptable_ad.onload = function(){
+                  results['ad'] = 'partial';
+                };
+                acceptable_ad.src = "https://yieldkit.com/favicon.ico";
+              }
               results['ad'] = 'yes';
             }
           } else if(event.origin == "https://{{ third_party_trackers['tracker_server'] }}"){
