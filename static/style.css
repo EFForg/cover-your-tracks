@@ -253,3 +253,15 @@ div#results_wrapper .row{
   margin-left: 206px;
   margin-top: 20px;
 }
+label#acceptable_ads{
+  display: block;
+  margin-top: 10px;
+}
+label#acceptable_ads sup{
+  color: blue;
+  text-decoration: underline;
+  font-size: 70%;
+}
+.ui-tooltip-content{
+  text-align: left;
+}

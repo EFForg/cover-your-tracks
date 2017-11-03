@@ -1,0 +1,28 @@
+{
+  "name": "jquery-ui-tooltip",
+  "version": "1.11.5",
+  "homepage": "https://github.com/fagbokforlaget/jquery-ui-tooltip",
+  "authors": [
+    "Deepak Thukral <iapain@gmail.com>"
+  ],
+  "description": "jquery-ui tooltip which can be installed via bower",
+  "main": [
+    "jquery-ui-tooltip.min.js",
+    "jquery-ui-tooltip.css"
+  ],
+  "keywords": [
+    "jquery-ui",
+    "tooltip"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=1.6"
+  }
+}

@@ -14,4 +14,8 @@ $(document).ready(function(){
       $('#trackerlink').attr('href', no_aat_link);
     }
   });
+
+  $('#whats_this').tooltip({
+    tooltipClass: "acceptable_ads_tooltip"
+  });
 });
