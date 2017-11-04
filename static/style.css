@@ -265,3 +265,6 @@ label#acceptable_ads sup{
 .ui-tooltip-content{
   text-align: left;
 }
+#acceptable_ads_tr{
+  display: none;
+}

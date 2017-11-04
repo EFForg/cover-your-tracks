@@ -34,6 +34,11 @@
           <td class='test_label'>Is your browser blocking invisible trackers?</td>
           <td id='tracker_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
         </tr>
+        <tr id='acceptable_ads_tr'>
+          <td class='test_label'>Does your blocker stop trackers that are included in the so-called <a href='https://acceptable.ads.blog.post/'>“acceptable ads”</a> whitelist?</td>
+          <td id='acceptable_ads_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
+        </tr>
+
         <tr>
           <td class='test_label'>Does your browser unblock 3rd parties that promise to honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
           <td id='dnt_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
@@ -123,7 +128,7 @@
 
       var results = {'known_blockers': []};
       function display_results(){
-        var metrics = ['ad', 'tracker', 'dnt'];
+        var metrics = ['ad', 'tracker', 'dnt', 'acceptable_ads'];
 
         for(x in metrics){
           var metric = metrics[x];
@@ -152,18 +157,6 @@
                 ad_assumed_status = 'no';
               }
             } else {
-              if(acceptable_ads_test){
-                var meta = document.createElement('meta');
-                meta.name = "referrer";
-                meta.content = "no-referrer";
-                document.getElementsByTagName('head')[0].appendChild(meta);
-
-                var acceptable_ad = document.createElement('img');
-                acceptable_ad.onload = function(){
-                  results['ad'] = 'partial';
-                };
-                acceptable_ad.src = "https://yieldkit.com/favicon.ico";
-              }
               results['ad'] = 'yes';
             }
           } else if(event.origin == "https://{{ third_party_trackers['tracker_server'] }}"){
@@ -317,6 +310,7 @@
           // We're using PrivacyBadger (heuristic blocking) or domain blacklist
           results['ad'] = 'yes';
           results['tracker'] = 'yes';
+          results['acceptable_ads'] = 'yes';
           if("https://{{ third_party_trackers['dnt_server'] }}" in sites_responding){
             results['dnt'] = 'yes';
           } else {
@@ -337,8 +331,30 @@
             }
           }
         }
-        display_results();
 
+        // Only display the results of the acceptable ads test if we have at
+        // least *some* protection against ads or trackers.
+        if(acceptable_ads_test && !(results['ad'] == "no" && results['tracker'] == "no")){
+          // If we don't already have a 'yes' result from Privacy Badger...
+          if(results['acceptable_ads'] != 'yes'){
+            results['acceptable_ads'] = 'yes';
+
+            var meta = document.createElement('meta');
+            meta.name = "referrer";
+            meta.content = "no-referrer";
+            document.getElementsByTagName('head')[0].appendChild(meta);
+
+            var acceptable_ad = document.createElement('img');
+            acceptable_ad.onload = function(){
+              results['acceptable_ads'] = 'no';
+              display_results();
+            };
+            acceptable_ad.src = "https://yieldkit.com/favicon.ico";
+          }
+          $('#acceptable_ads_tr').show();
+        }
+
+        display_results();
         // final string from results...
         var summary_sentence = document.getElementById('summary_sentence');
 
