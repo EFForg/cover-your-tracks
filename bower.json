@@ -16,7 +16,6 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4",
-    "jquery.flash": "*",
-    "fingerprintjs2": "1.0.0-rc3"
+    "jquery.flash": "*"
   }
 }
