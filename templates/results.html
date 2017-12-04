@@ -347,7 +347,14 @@
             var acceptable_ad = document.createElement('img');
             acceptable_ad.onload = function(){
               results['acceptable_ads'] = 'no';
+              if(results['tracker'] == 'yes'){
+                results['tracker'] = 'partial';
+              }
+              if(results['ad'] == 'yes'){
+                results['ad'] = 'partial';
+              }
               display_results();
+              display_summary_sentence();
             };
             acceptable_ad.src = "https://yieldkit.com/favicon.ico";
           }
@@ -356,34 +363,38 @@
 
         display_results();
         // final string from results...
-        var summary_sentence = document.getElementById('summary_sentence');
 
-        if(results['tracker'] == 'yes' && results['ad'] == 'yes' && results['dnt'] == 'yes'){
-          summary_sentence.innerHTML = "{% include '_summary_sentence_yes.html' %}";
-        } else if(results['tracker'] == 'yes' && results['ad'] == 'yes' && results['dnt'] == 'no'){
-          summary_sentence.innerHTML = "{% include '_summary_sentence_yes_sans_dnt.html' %}";
-        } else {
-          if(results['tracker'] == 'no' && results['ad'] == 'no') {
-            summary_sentence.innerHTML = "{% include '_summary_sentence_no.html' %}";
-          } else if(ghostery_detected) {
-            summary_sentence.innerHTML = "{% include '_summary_sentence_incomplete_protection.html' %}";
+        function display_summary_sentence(){
+          var summary_sentence = document.getElementById('summary_sentence');
+
+          if(results['tracker'] == 'yes' && results['ad'] == 'yes' && results['dnt'] == 'yes'){
+            summary_sentence.innerHTML = "{% include '_summary_sentence_yes.html' %}";
+          } else if(results['tracker'] == 'yes' && results['ad'] == 'yes' && results['dnt'] == 'no'){
+            summary_sentence.innerHTML = "{% include '_summary_sentence_yes_sans_dnt.html' %}";
           } else {
-            summary_sentence.innerHTML = "{% include '_summary_sentence_mixed.html' %}";
-          }
-          detection = detect_browser_and_platform();
+            if(results['tracker'] == 'no' && results['ad'] == 'no') {
+              summary_sentence.innerHTML = "{% include '_summary_sentence_no.html' %}";
+            } else if(ghostery_detected) {
+              summary_sentence.innerHTML = "{% include '_summary_sentence_incomplete_protection.html' %}";
+            } else {
+              summary_sentence.innerHTML = "{% include '_summary_sentence_mixed.html' %}";
+            }
+            detection = detect_browser_and_platform();
 
-          if(detection.platform == 'desktop' && (detection.browser == "chrome" || detection.browser == "firefox")){
-            summary_sentence.innerHTML += " <strong>installing EFF's Privacy Badger</strong>.";
-          } else if(detection.platform == 'desktop' && detection.browser != "opera" && detection.browser != "ie") {
-            summary_sentence.innerHTML += " switching to a browser or OS that offers better protections.";
-          } else {
-            summary_sentence.innerHTML += " <strong>installing extra protections</strong>.  Privacy Badger isn't available for your browser / OS, but <a id='tool-recommendation' target='_blank'></a> may work for you.";
-          }
-          summary_sentence.innerHTML += download_links;
+            if(detection.platform == 'desktop' && (detection.browser == "chrome" || detection.browser == "firefox")){
+              summary_sentence.innerHTML += " <strong>installing EFF's Privacy Badger</strong>.";
+            } else if(detection.platform == 'desktop' && detection.browser != "opera" && detection.browser != "ie") {
+              summary_sentence.innerHTML += " switching to a browser or OS that offers better protections.";
+            } else {
+              summary_sentence.innerHTML += " <strong>installing extra protections</strong>.  Privacy Badger isn't available for your browser / OS, but <a id='tool-recommendation' target='_blank'></a> may work for you.";
+            }
+            summary_sentence.innerHTML += download_links;
 
-          prepare_install_button(detection);
+            prepare_install_button(detection);
+          }
+          document.getElementById('buttons').style.display = 'block';
         }
-        document.getElementById('buttons').style.display = 'block';
+        display_summary_sentence();
         record_results();
       },2000);
 
