@@ -190,7 +190,7 @@
 
       function other_link(browser, url){
         var other = document.createElement('p');
-        other.id = 'other_link';
+        other.className = 'other_link';
         other.href = url;
         other.innerHTML = '<a href="'+url+'">Click here for '+browser+' version</a>';
         return other;
@@ -242,6 +242,7 @@
       function prepare_install_button(detection){
         var firefox_url = document.querySelector('#badger-firefox').href;
         var chrome_url = document.querySelector('#badger-chrome').href;
+        var opera_url = document.querySelector('#badger-opera').href;
         var badger_download = document.getElementById('badger-download');
         var tool_recommendation = document.getElementById('tool-recommendation');
         var platform = detection.platform;
@@ -255,6 +256,7 @@
               window.location = firefox_url;
             };
             badger_download.appendChild(install_link('Firefox', firefox_url));
+            badger_download.parentNode.insertBefore(other_link('Opera', opera_url),badger_download.nextSibling);
             badger_download.parentNode.insertBefore(other_link('Chrome', chrome_url),badger_download.nextSibling);
           }
           // chrome
@@ -263,11 +265,15 @@
               window.location = chrome_url;
             };
             badger_download.appendChild(install_link('Chrome', chrome_url));
+            badger_download.parentNode.insertBefore(other_link('Opera', opera_url),badger_download.nextSibling);
             badger_download.parentNode.insertBefore(other_link('Firefox', firefox_url),badger_download.nextSibling);
           } else if(browser == 'opera') {
-            badger_download.style.display = "none";
-            tool_recommendation.href = "https://addons.opera.com/en/extensions/details/ublock/?display=en";
-            tool_recommendation.innerHTML = "µBlock";
+            badger_download.onclick = function(){
+              window.location = opera_url;
+            };
+            badger_download.appendChild(install_link('Opera', opera_url));
+            badger_download.parentNode.insertBefore(other_link('Chrome', chrome_url),badger_download.nextSibling);
+            badger_download.parentNode.insertBefore(other_link('Firefox', firefox_url),badger_download.nextSibling);
           } else if(browser == 'ie'){
             badger_download.style.display = "none";
             tool_recommendation.href = "http://windows.microsoft.com/en-us/internet-explorer/use-tracking-protection#ie=ie-11";
@@ -381,9 +387,9 @@
             }
             detection = detect_browser_and_platform();
 
-            if(detection.platform == 'desktop' && (detection.browser == "chrome" || detection.browser == "firefox")){
+            if(detection.platform == 'desktop' && (detection.browser == "chrome" || detection.browser == "firefox" || detection.browser == "opera")){
               summary_sentence.innerHTML += " <strong>installing EFF's Privacy Badger</strong>.";
-            } else if(detection.platform == 'desktop' && detection.browser != "opera" && detection.browser != "ie") {
+            } else if(detection.platform == 'desktop' && detection.browser != "ie") {
               summary_sentence.innerHTML += " switching to a browser or OS that offers better protections.";
             } else {
               summary_sentence.innerHTML += " <strong>installing extra protections</strong>.  Privacy Badger isn't available for your browser / OS, but <a id='tool-recommendation' target='_blank'></a> may work for you.";

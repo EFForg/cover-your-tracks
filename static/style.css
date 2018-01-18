@@ -205,7 +205,7 @@ table#results.tracker_results{
   text-align: center;
   max-width: 405px;
   width: 300px;
-  margin-bottom: -10px;
+  margin-bottom: 6px;
   border: 2px solid #658741;
   border-radius: 5px;
   margin-left: auto;
@@ -241,8 +241,9 @@ table#results.tracker_results{
   color: white;
 }
 
-p#summary_sentence #other_link{
+p#summary_sentence .other_link{
   text-align: center;
+  margin: 0px;
 }
 div#results_wrapper {
   width:550px;
