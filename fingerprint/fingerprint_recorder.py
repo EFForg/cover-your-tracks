@@ -3,7 +3,7 @@ import hashlib
 from time import time
 
 from db import Db
-from fingerprint_helper import FingerprintHelper
+from .fingerprint_helper import FingerprintHelper
 from util import get_ip_hmacs
 
 
@@ -12,12 +12,12 @@ class FingerprintRecorder(object):
     @classmethod
     def record_fingerprint(cls, whorls, cookie, ip_addr, key):
         # ensure no rogue values have been entered
-        valid_vars = FingerprintHelper.whorl_names.keys()
+        valid_vars = list(FingerprintHelper.whorl_names.keys())
         valid_vars.append('signature')
 
         sorted_whorls = sorted(whorls.items())
         serialized_whorls = json.dumps(sorted_whorls)
-        signature = hashlib.md5(serialized_whorls).hexdigest()
+        signature = hashlib.md5(serialized_whorls.encode("utf-8")).hexdigest()
         whorls['signature'] = signature
 
         valid_print = {}

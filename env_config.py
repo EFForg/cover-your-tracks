@@ -25,7 +25,7 @@ def env_int(env, default):
         return default
 
 debug = env_bool('DEBUG', debug)
-secret_key = env_str('SECRET_KEY', secret_key)
+secret_key = env_str('SECRET_KEY', secret_key).encode("utf-8", "surrogateescape")
 public = env_bool('PUBLIC', public)
 epoched = env_bool('EPOCHED', epoched)
 session_lifetime = env_int('SESSION_LIFETIME', session_lifetime)
