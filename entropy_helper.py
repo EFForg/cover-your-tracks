@@ -41,7 +41,6 @@ class EntropyHelper(object):
 
     @staticmethod
     def single_whorl_uniqueness(whorl_name, whorl_value):
-        print "here"
         db = Db()
         db.connect()
 

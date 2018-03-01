@@ -1,4 +1,4 @@
-from tracking_helper import TrackingHelper
+from .tracking_helper import TrackingHelper
 from util import get_ip_hmacs
 from db import Db
 

@@ -1,10 +1,10 @@
 from flask import Flask, render_template, send_from_directory, request, session, jsonify, make_response, redirect
-from flask.ext.bower import Bower
+from flask_bower import Bower
 from raven.contrib.flask import Sentry
 from time import time
 from datetime import timedelta
 from random import random
-from urlparse import urlparse
+from urllib.parse import urlparse
 import json
 
 import env_config as config
@@ -23,7 +23,7 @@ if config.sentry_dsn:
     app.config['SENTRY_DSN'] = config.sentry_dsn
     sentry = Sentry(app)
 
-with open(config.keyfile, 'r') as fp:
+with open(config.keyfile, 'rb',) as fp:
     key = fp.read(16)
 
 
@@ -180,8 +180,8 @@ def tracking_tally_nojs():
             site_dict[u.hostname + "_try2"] = True
         else:
             site_dict[u.hostname] = True
-    resp = make_response(" ".join(site_dict.keys()))
-    resp.set_cookie('site', " ".join(site_dict.keys()))
+    resp = make_response(" ".join(list(site_dict.keys())))
+    resp.set_cookie('site', " ".join(list(site_dict.keys())))
     return resp
 
 
