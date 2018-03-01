@@ -31,8 +31,8 @@ def get_ip_hmacs(ip_addr, key):
     # we're not handling ipv6
     google_style_ip_raw = ".".join(google_style_ip_split)
 
-    google_style_ip = hmac.new(key, google_style_ip_raw).digest()
-    ip = hmac.new(key, ip_addr).digest()
+    google_style_ip = hmac.new(key, google_style_ip_raw.encode("utf8")).hexdigest()
+    ip = hmac.new(key, ip_addr.encode("utf8")).hexdigest()
     return ip, google_style_ip
 
 

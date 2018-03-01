@@ -40,8 +40,8 @@ class Db(object):
         c.execute("""INSERT INTO cookies SET
             cookie_id=%s,
             signature=%s,
-            ip=%s,
-            ip34=%s""", (
+            ip=UNHEX(%s),
+            ip34=UNHEX(%s)""", (
             str(cookie),
             signature,
             ip,
