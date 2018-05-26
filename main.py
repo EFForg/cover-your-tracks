@@ -367,6 +367,10 @@ def privacy_1_0():
 def privacy_2_0():
     return render_template('privacy_2_0.html', title="Privacy Policy")
 
+@app.route("/privacy-3.0")
+def privacy_3_0():
+    return render_template('privacy_3_0.html', title="Privacy Policy") 
+
 @app.route("/about")
 def about():
     return render_template('about.html', title="About")
