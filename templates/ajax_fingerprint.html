@@ -1,9 +1,9 @@
 <br>
 <div class='entropy' style='text-align:center border:1px'>
   {% if matching == 1: %}
-    <p>Your browser fingerprint <strong>appears to be unique</strong> among the {{ total_formatted }} tested so far.</p>
+    <p>Your browser fingerprint <strong>appears to be unique</strong> among the {{ total_formatted }} tested in the past 45 days.</p>
   {% else %}
-    <p>Within our dataset of {{ sample_string }} visitors, {% if group > 100 %}only {% endif %}<strong>one in {{ group }} browsers have the same fingerprint as yours.</strong></p>
+    <p>Within our dataset of {{ sample_string }} visitors tested in the past 45 days, {% if group > 100 %}only {% endif %}<strong>one in {{ group }} browsers have the same fingerprint as yours.</strong></p>
   {% endif %}
   <p>Currently, we estimate that your browser has a fingerprint that conveys <strong>{% if matching == 1 %}at least {% endif %}{{ bits }} bits of identifying information.</strong></p>
   {% if total < 10000 %}
