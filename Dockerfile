@@ -18,4 +18,4 @@ ADD docker ./docker/
 
 ENV PUBLIC True
 ENTRYPOINT ["/opt/docker/entrypoint.sh"]
-CMD ["python", "main.py"]
+CMD ["uwsgi", "-s", "0.0.0.0:5000", "-w", "main:app", "--static-map", "/static=/opt/static", "-m", "--stats", "127.0.0.1:1717", "--cheaper", "2", "--workers", "16", "--cheaper-step", "1"]

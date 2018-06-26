@@ -1,0 +1,2 @@
+5 45 12 * * head -c 16 /dev/urandom > /tmp/keyfile
+5 55 12 * * curl -s -X POST -H "Content-Type: application/json" -d "{\"password\": \"$(cat /run/secrets/refresh-key-password)\"}" nginx/refresh-key > /dev/null

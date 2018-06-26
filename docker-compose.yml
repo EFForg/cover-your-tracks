@@ -47,4 +47,11 @@ services:
       - ./examples/nginx/extra:/etc/nginx/extra
       - ./examples/nginx/conf.d:/etc/nginx/conf.d
     ports:
-      - "443:443"
+      - "80:80"
+
+  crond:
+    build: docker/crond/
+    volumes:
+      - keymaterial:/tmp
+    secrets:
+      - refresh-key-password
