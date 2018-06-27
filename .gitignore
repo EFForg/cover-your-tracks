@@ -2,4 +2,3 @@
 *.pyc
 *.swp
 config.py
-/docker-compose.yml
