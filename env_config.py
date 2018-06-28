@@ -36,6 +36,7 @@ db_password = env_str('DB_PASSWORD', db_password)
 db_database = env_str('DB_DATABASE', db_database)
 db_port = env_int('DB_PORT', db_port)
 keyfile = env_str('KEYFILE', keyfile)
+refresh_key_password = env_str('REFRESH_KEY_PASSWORD', refresh_key_password)
 first_party_trackers = [
     env_str('FIRST_PARTY_TRACKERS_1', first_party_trackers[0]),
     env_str('FIRST_PARTY_TRACKERS_2', first_party_trackers[1]),
