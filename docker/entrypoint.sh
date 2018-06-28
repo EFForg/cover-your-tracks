@@ -13,10 +13,7 @@ export SECRET_KEY
 
 export KEYFILE=/tmp/keyfile
 
-export DB_HOST=$DB_PORT_3306_TCP_ADDR
-export DB_PORT=$DB_PORT_3306_TCP_PORT
-export DB_USERNAME=$DB_ENV_MYSQL_USER
-export DB_PASSWORD=$DB_ENV_MYSQL_PASSWORD
-export DB_DATABASE=$DB_ENV_MYSQL_DATABASE
+export DB_HOST=db
+export DB_PASSWORD=$(cat /run/secrets/mysql-password)
 
 $@

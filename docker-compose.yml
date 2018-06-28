@@ -1,26 +1,47 @@
-db:
-  image: mysql
-  environment:
-    MYSQL_ROOT_PASSWORD: changeme
-    MYSQL_USER: panopticlick
-    MYSQL_PASSWORD: changeme
-    MYSQL_DATABASE: panopticlick
-  volumes:
-    - ./examples/sql:/docker-entrypoint-initdb.d
+version: "3.2"
 
-app:
-  build: .
-  links:
-    - db:db
-  volumes:
-    - .:/opt
+volumes:
+  keymaterial:
 
-nginx:
-  image: nginx
-  links:
-    - app:app
-  volumes:
-    - ./examples/nginx/extra:/etc/nginx/extra
-    - ./examples/nginx/conf.d:/etc/nginx/conf.d
-  ports:
-    - "443:443"
+secrets:
+  mysql-root-password:
+    file: docker/secrets/mysql-root-password
+  mysql-password:
+    file: docker/secrets/mysql-password
+
+services:
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-root-password
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql-password
+      MYSQL_USER: "panopticlick"
+      MYSQL_DATABASE: "panopticlick"
+    volumes:
+      - ./examples/sql:/docker-entrypoint-initdb.d
+    secrets:
+      - mysql-root-password
+      - mysql-password
+    entrypoint: ['/entrypoint.sh', '--default-authentication-plugin=mysql_native_password'] 
+
+  app:
+    build: .
+    links:
+      - db:db
+    volumes:
+      - .:/opt
+      - keymaterial:/tmp
+    secrets:
+      - mysql-password
+
+
+  nginx:
+    image: nginx
+    links:
+      - app:app
+    volumes:
+      - ./examples/nginx/extra:/etc/nginx/extra
+      - ./examples/nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - "443:443"
