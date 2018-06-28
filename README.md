@@ -21,23 +21,15 @@ Now, you can run
 
 ### Full Docker Installation
 
-To generate self-signed certificates for the Panopticlick hosts, cd into `examples/nginx` and run 
-
-    ./generate_self_signed_certs.sh
-
 Change each of the secrets in `docker/secrets/` to a random value.
 
 Then, from the git root, run
 
     docker-compose up
 
-## Viewing Locally
+## Deploying
 
-Unless you've changed the server names specified in `config.py`, you'll have to add the following line to your `/etc/hosts` file:
-
-    127.0.0.1 panopticlick.eff.org trackersimulator.org firstpartysimulator.org firstpartysimulator.net eviltracker.net do-not-tracker.org
-
-If you generated the certs yourself, in Firefox you'll have to go into private browsing mode to see the "I Understand the Risks" dialogue.  You may also have to manually go to each of the above domains and go through the certificate exception process for each one in order for the application to be fully functional. Or with chrome, you can start chrome with the `--ignore-certificate-errors` flag, but beware this will ignore *all* certificate errors.
+uWSGI has exposed port 80 for all virtualhosts, so any edge-node load balancer should be able to point directly to the hosts port 80.
 
 ## License
 
