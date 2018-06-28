@@ -23,8 +23,12 @@ if config.sentry_dsn:
     app.config['SENTRY_DSN'] = config.sentry_dsn
     sentry = Sentry(app)
 
-with open(config.keyfile, 'rb',) as fp:
-    key = fp.read(16)
+def read_keyfile():
+    global key
+    with open(config.keyfile, 'rb',) as fp:
+        key = fp.read(16)
+
+read_keyfile()
 
 
 @app.before_request
@@ -35,6 +39,18 @@ def set_cookie():
     lifetime_seconds = app.permanent_session_lifetime.total_seconds()
     if 'long_cookie' not in session or time() - session['long_cookie'] >= lifetime_seconds:
         session['long_cookie'] = time()
+
+
+@app.route("/refresh-key", methods=['POST'])
+def refresh_key():
+    print(request.data)
+    results = json.loads(request.data)
+
+    if results['password'] == config.refresh_key_password:
+        read_keyfile()
+        return jsonify({"success": True})
+    else:
+        return jsonify({"success": False})
 
 
 @app.route("/")
