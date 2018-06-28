@@ -4,7 +4,7 @@ How Unique - and Trackable - Is Your Browsesr?
 
 ## Installation
 
-The easiest way to set up an instance of Panopticlick is with `docker`, but it can be installed on a host machine if desired.
+The easiest way to set up an instance of Panopticlick is with `docker` and `docker-compose`, but it can be installed on a host machine if desired.
 
 ### Partial Installation on Host
 
@@ -21,32 +21,15 @@ Now, you can run
 
 ### Full Docker Installation
 
-First, build the image
-
-    docker build -t panopticlick .
-
 To generate self-signed certificates for the Panopticlick hosts, cd into `examples/nginx` and run 
 
     ./generate_self_signed_certs.sh
 
+Change each of the secrets in `docker/secrets/` to a random value.
+
 Then, from the git root, run
 
-    docker run -d --name panopticlick-db \
-      -e MYSQL_ROOT_PASSWORD=changeme \
-      -e MYSQL_USER=panopticlick \
-      -e MYSQL_PASSWORD=changeme \
-      -e MYSQL_DATABASE=panopticlick \
-      -v $(pwd)/examples/sql:/docker-entrypoint-initdb.d \
-      mysql --default-authentication-plugin=mysql_native_password
-    docker run -d --name panopticlick-app \
-      --link panopticlick-db:db \
-      panopticlick
-    docker run -d --name panopticlick-nginx \
-      --link panopticlick-app:app \
-      -v $(pwd)/examples/nginx/extra:/etc/nginx/extra \
-      -v $(pwd)/examples/nginx/conf.d:/etc/nginx/conf.d \
-      -p 443:443 \
-      nginx
+    docker-compose up
 
 ## Viewing Locally
 
