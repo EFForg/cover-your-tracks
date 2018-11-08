@@ -37,7 +37,7 @@ Then, from the git root, run
       -e MYSQL_PASSWORD=changeme \
       -e MYSQL_DATABASE=panopticlick \
       -v $(pwd)/examples/sql:/docker-entrypoint-initdb.d \
-      mysql
+      mysql --default-authentication-plugin=mysql_native_password
     docker run -d --name panopticlick-app \
       --link panopticlick-db:db \
       panopticlick

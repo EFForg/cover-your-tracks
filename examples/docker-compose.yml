@@ -1,5 +1,6 @@
 db:
   image: mysql
+  command: --default-authentication-plugin=mysql_native_password
   environment:
     MYSQL_ROOT_PASSWORD: changeme
     MYSQL_USER: panopticlick
