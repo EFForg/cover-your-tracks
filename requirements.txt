@@ -8,5 +8,5 @@ argparse==1.2.1
 blinker==1.4
 itsdangerous==0.24
 raven==5.8.1
-uWSGI==2.0.11.2
+uWSGI==2.0.17.1
 wsgiref==0.1.2
