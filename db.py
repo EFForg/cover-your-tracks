@@ -100,8 +100,8 @@ class Db(object):
         c = self.cxn.cursor()
         c.execute("""INSERT INTO `tracking_test` SET
             `cookie_id`=%s,
-            `ip`=%s,
-            `ip34`=%s,
+            `ip`=UNHEX(%s),
+            `ip34`=UNHEX(%s),
             `block_tracking_ads`=%s,
             `block_invisible_trackers`=%s,
             `dnt`=%s,
