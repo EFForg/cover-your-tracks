@@ -31,6 +31,22 @@ Then, from the git root, run
 
     docker-compose up
 
+## Admin Routes
+
+The following routes allow you to perform administrative tasks on the application.  For each of the following `curl` commands, be sure to change the `password` to what you've set as the admin password in your `config.py` or `docker-compose.yml` file.  Remove the `--insecure` flag in production.
+
+### `POST /refresh-key`
+
+To have the application re-read the keyfile, which contains the key to the HMAC function for storing IP addresses, issue the following command:
+
+    curl -X POST -H 'Content-Type: application/json' -d '{"password": "changeme"}' --insecure https://panopticlick.eff.org/refresh-key
+
+### `POST /migrate-db`
+
+To migrate the database to the latest version of the application, issue the following command:
+
+    curl -X POST -H 'Content-Type: application/json' -d '{"password": "changeme"}' --insecure https://panopticlick.eff.org/migrate-db
+
 ## Viewing Locally
 
 Unless you've changed the server names specified in `config.py`, you'll have to add the following line to your `/etc/hosts` file:
