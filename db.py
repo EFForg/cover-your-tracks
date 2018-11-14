@@ -29,6 +29,33 @@ class Db(object):
             port=self.port,
             charset='utf8')
 
+    def create_database_info_table_if_not_exists(self):
+        c = self.cxn.cursor()
+        c.execute("""CREATE TABLE IF NOT EXISTS `database_info` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `key` varchar(255) NOT NULL DEFAULT '',
+            `value` varchar(255) DEFAULT NULL,
+            PRIMARY KEY (`id`),
+            UNIQUE KEY (`key`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8"""
+        )
+        self.cxn.commit()
+
+    def get_version(self):
+        c = self.cxn.cursor()
+        c.execute("""SELECT value FROM database_info WHERE `key`='version'""")
+        version_res = c.fetchall()
+        if len(version_res) == 0:
+            return 0
+        else:
+            return int(version_res[0][0])
+
+    def set_version(self, version):
+        c = self.cxn.cursor()
+        c.execute("""REPLACE INTO database_info (`key`, `value`)
+            VALUES ('version', %s)""", (str(version),))
+        self.cxn.commit()
+
     def count_sightings(self, cookie, signature):
         c = self.cxn.cursor()
         c.execute("""SELECT COUNT(cookie_id) FROM cookies

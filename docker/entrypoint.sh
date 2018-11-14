@@ -12,7 +12,7 @@ SECRET_KEY=$(cat /tmp/secret_key)
 export SECRET_KEY
 
 export KEYFILE=/tmp/keyfile
-export REFRESH_KEY_PASSWORD=$(cat /run/secrets/refresh-key-password)
+export ADMIN_PASSWORD=$(cat /run/secrets/admin-password)
 
 export DB_HOST=db
 export DB_PASSWORD=$(cat /run/secrets/mysql-password)
