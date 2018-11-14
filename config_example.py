@@ -15,9 +15,8 @@ db_port = 3306
 # file for key material to use with hmac'ing ip addresses. 16 bytes
 keyfile = '/path/to/some/keyfile'
 
-# a list of comma-separated IPs which are authorized to refresh key material
-# from the keyfile via /refresh-key
-refresh_key_password = 'changeme'
+# a password which authorizes various administrative tasks
+admin_password = 'changeme'
 
 # the domains for first-party trackers. order matters, only 3
 first_party_trackers = [

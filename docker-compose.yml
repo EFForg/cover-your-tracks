@@ -8,8 +8,8 @@ secrets:
     file: docker/secrets/mysql-root-password
   mysql-password:
     file: docker/secrets/mysql-password
-  refresh-key-password:
-    file: docker/secrets/refresh-key-password
+  admin-password:
+    file: docker/secrets/admin-password
 
 services:
 
@@ -36,7 +36,7 @@ services:
       - keymaterial:/tmp
     secrets:
       - mysql-password
-      - refresh-key-password
+      - admin-password
 
 
   nginx:

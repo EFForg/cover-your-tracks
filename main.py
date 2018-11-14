@@ -12,6 +12,7 @@ from fingerprint import FingerprintAgent, FingerprintRecorder, FingerprintHelper
 from tracking import TrackingRecorder
 from entropy_helper import EntropyHelper
 from util import number_format, detect_browser_and_platform, get_tool_recommendation
+from db import Db
 
 app = Flask(__name__)
 app.secret_key = config.secret_key
@@ -43,11 +44,31 @@ def set_cookie():
 
 @app.route("/refresh-key", methods=['POST'])
 def refresh_key():
-    print(request.data)
     results = json.loads(request.data)
 
-    if results['password'] == config.refresh_key_password:
+    if results['password'] == config.admin_password:
         read_keyfile()
+        return jsonify({"success": True})
+    else:
+        return jsonify({"success": False})
+
+
+@app.route("/migrate-db", methods=['POST'])
+def migrate_db():
+    results = json.loads(request.data)
+
+    if results['password'] == config.admin_password:
+
+        db = Db()
+        db.connect()
+        db.create_database_info_table_if_not_exists()
+        db_version = db.get_version()
+
+        if db_version < 1:
+            db_version = 1
+
+        db.set_version(db_version)
+
         return jsonify({"success": True})
     else:
         return jsonify({"success": False})
