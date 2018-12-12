@@ -223,12 +223,24 @@ function fetch_client_whorls(){
 
   var fp = new Fingerprint2();
   try {
-    whorls['canvas_hash'] = fp.x64hash128(fp.getCanvasFp());
+    let canvas_hash_1 = fp.x64hash128(fp.getCanvasFp());
+    let canvas_hash_2 = fp.x64hash128(fp.getCanvasFp());
+    if(canvas_hash_1 == canvas_hash_2){
+      whorls['canvas_hash'] = canvas_hash_1;
+    } else {
+      whorls['canvas_hash'] = "randomized";
+    }
   } catch(ex) {
     whorls['canvas_hash'] = "undetermined";
   }
   try {
-    whorls['webgl_hash'] = fp.x64hash128(fp.getWebglFp());
+    let webgl_hash_1 = fp.x64hash128(fp.getWebglFp());
+    let webgl_hash_2 = fp.x64hash128(fp.getWebglFp());
+    if(webgl_hash_1 == webgl_hash_2){
+      whorls['webgl_hash'] = webgl_hash_1;
+    } else {
+      whorls['webgl_hash'] = "randomized";
+    }
   } catch(ex) {
     whorls['webgl_hash'] = "undetermined";
   }
