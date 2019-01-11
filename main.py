@@ -83,7 +83,7 @@ def migrate_db():
 @app.route("/epoch-update-totals", methods=['POST'])
 @require_admin_pass
 def epoch_update_totals():
-    FingerprintRecorder.epoch_update_totals(str(datetime.now() - timedelta(days=45)))
+    FingerprintRecorder.epoch_update_totals(str(datetime.now() - timedelta(days=config.epoch_days)))
     return jsonify({"success": True})
 
 
