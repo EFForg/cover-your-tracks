@@ -47,6 +47,12 @@ To migrate the database to the latest version of the application, issue the foll
 
     curl -X POST -H 'Content-Type: application/json' -d '{"password": "changeme"}' --insecure https://panopticlick.eff.org/migrate-db
 
+### `POST /epoch-update-totals`
+
+To update the totals table to reflect the number of times we've seen each fingerprinting characteristic in the last epoch (45 days), issue the following command:
+
+    curl -X POST -H 'Content-Type: application/json' -d '{"password": "changeme"}' --insecure https://panopticlick.eff.org/epoch-update-totals
+
 ## Viewing Locally
 
 Unless you've changed the server names specified in `config.py`, you'll have to add the following line to your `/etc/hosts` file:

@@ -2,7 +2,7 @@ from flask import Flask, render_template, send_from_directory, request, session,
 from flask_bower import Bower
 from raven.contrib.flask import Sentry
 from time import time
-from datetime import timedelta
+from datetime import timedelta, datetime
 from random import random
 from urllib.parse import urlparse
 from functools import wraps
@@ -80,6 +80,11 @@ def migrate_db():
     return jsonify({"success": True})
 
 
+@app.route("/epoch-update-totals", methods=['POST'])
+@require_admin_pass
+def epoch_update_totals():
+    FingerprintRecorder.epoch_update_totals(str(datetime.now() - timedelta(days=config.epoch_days)))
+    return jsonify({"success": True})
 
 
 @app.route("/")
