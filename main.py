@@ -5,6 +5,7 @@ from time import time
 from datetime import timedelta
 from random import random
 from urllib.parse import urlparse
+from functools import wraps
 import json
 
 import env_config as config
@@ -32,6 +33,20 @@ def read_keyfile():
 read_keyfile()
 
 
+def require_admin_pass(route):
+    @wraps(route)
+
+    def check_admin_pass(*args, **kwargs):
+        results = json.loads(request.data)
+
+        if results['password'] == config.admin_password:
+            return route(*args, **kwargs)
+        else:
+            return jsonify({"success": False})
+
+    return check_admin_pass
+
+
 @app.before_request
 def set_cookie():
     session.permanent = True
@@ -43,35 +58,28 @@ def set_cookie():
 
 
 @app.route("/refresh-key", methods=['POST'])
+@require_admin_pass
 def refresh_key():
-    results = json.loads(request.data)
-
-    if results['password'] == config.admin_password:
-        read_keyfile()
-        return jsonify({"success": True})
-    else:
-        return jsonify({"success": False})
+    read_keyfile()
+    return jsonify({"success": True})
 
 
 @app.route("/migrate-db", methods=['POST'])
+@require_admin_pass
 def migrate_db():
-    results = json.loads(request.data)
+    db = Db()
+    db.connect()
+    db.create_database_info_table_if_not_exists()
+    db_version = db.get_version()
 
-    if results['password'] == config.admin_password:
+    if db_version < 1:
+        db_version = 1
 
-        db = Db()
-        db.connect()
-        db.create_database_info_table_if_not_exists()
-        db_version = db.get_version()
+    db.set_version(db_version)
 
-        if db_version < 1:
-            db_version = 1
+    return jsonify({"success": True})
 
-        db.set_version(db_version)
 
-        return jsonify({"success": True})
-    else:
-        return jsonify({"success": False})
 
 
 @app.route("/")
