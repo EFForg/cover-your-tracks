@@ -5,6 +5,16 @@ MAINTAINER William Budington <bill@eff.org>
 EXPOSE 5000
 
 WORKDIR /opt
+
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends \
+    cron && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* \
+    /tmp/* \
+    /var/tmp/*
+ADD docker/crontab /etc/crontab
+
 ADD requirements.txt ./
 RUN pip install -r requirements.txt
 
