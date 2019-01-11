@@ -174,7 +174,7 @@ class Db(object):
                 totals_c = self.cxn.cursor()
                 for variable in columns_to_update:
                     if variable in columns_to_md5:
-                        if isinstance(fingerprint_row[i], unicode):
+                        if isinstance(fingerprint_row[i], str):
                             value = hashlib.md5(fingerprint_row[i].encode('utf-8')).hexdigest()
                         else:
                             value = hashlib.md5(fingerprint_row[i]).hexdigest()
