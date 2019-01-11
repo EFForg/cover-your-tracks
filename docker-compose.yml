@@ -38,6 +38,14 @@ services:
       - mysql-password
       - admin-password
 
+  cron:
+    build: .
+    entrypoint: []
+    command: bash -c 'touch /etc/crontab && cron -f'
+    volumes:
+      - keymaterial:/tmp
+    secrets:
+      - admin-password
 
   nginx:
     image: nginx
