@@ -192,15 +192,15 @@ function fetch_client_whorls(){
   };
 
   // fetch client-side vars
-  var whorls = new Object();
+  var whorls_v1 = new Object();
 
   // this is a backup plan
   setTimeout("retry_post()",1100);
 
   try { 
-    whorls['plugins'] = identify_plugins(); 
+    whorls_v1['plugins'] = identify_plugins();
   } catch(ex) { 
-    whorls['plugins'] = "permission denied";
+    whorls_v1['plugins'] = "permission denied";
   }
 
   // Do not catch exceptions here because the async Flash applet will raise
@@ -208,53 +208,59 @@ function fetch_client_whorls(){
   // will cause us to try again until it returns something meaningful.
 
   try { 
-    whorls['timezone'] = new Date().getTimezoneOffset();
+    whorls_v1['timezone'] = new Date().getTimezoneOffset();
   } catch(ex) {
-    whorls['timezone'] = "permission denied";
+    whorls_v1['timezone'] = "permission denied";
   }
 
   try {
-    whorls['video'] = screen.width+"x"+screen.height+"x"+screen.colorDepth;
+    whorls_v1['video'] = screen.width+"x"+screen.height+"x"+screen.colorDepth;
   } catch(ex) {
-    whorls['video'] = "permission denied";
+    whorls_v1['video'] = "permission denied";
   }
 
-  whorls['supercookies'] = test_dom_storage() + test_ie_userdata();
+  whorls_v1['supercookies'] = test_dom_storage() + test_ie_userdata();
 
   var fp = new Fingerprint2();
   try {
     let canvas_hash_1 = fp.x64hash128(fp.getCanvasFp());
     let canvas_hash_2 = fp.x64hash128(fp.getCanvasFp());
     if(canvas_hash_1 == canvas_hash_2){
-      whorls['canvas_hash'] = canvas_hash_1;
+      whorls_v1['canvas_hash'] = canvas_hash_1;
     } else {
-      whorls['canvas_hash'] = "randomized";
+      whorls_v1['canvas_hash'] = "randomized";
     }
   } catch(ex) {
-    whorls['canvas_hash'] = "undetermined";
+    whorls_v1['canvas_hash'] = "undetermined";
   }
   try {
     let webgl_hash_1 = fp.x64hash128(fp.getWebglFp());
     let webgl_hash_2 = fp.x64hash128(fp.getWebglFp());
     if(webgl_hash_1 == webgl_hash_2){
-      whorls['webgl_hash'] = webgl_hash_1;
+      whorls_v1['webgl_hash'] = webgl_hash_1;
     } else {
-      whorls['webgl_hash'] = "randomized";
+      whorls_v1['webgl_hash'] = "randomized";
     }
   } catch(ex) {
-    whorls['webgl_hash'] = "undetermined";
+    whorls_v1['webgl_hash'] = "undetermined";
   }
-  whorls['language'] = navigator.language;
-  whorls['platform'] = navigator.platform;
-  whorls['touch_support'] = get_touch_support(fp);
+  whorls_v1['language'] = navigator.language;
+  whorls_v1['platform'] = navigator.platform;
+  whorls_v1['touch_support'] = get_touch_support(fp);
 
   get_fonts(fp, function(fonts){
-    whorls['fonts'] = fonts;
+    whorls_v1['fonts'] = fonts;
 
     // send to server for logging / calculating
     // and fetch results
 
-    $.post("/ajax-fingerprint", whorls, callback, "html" );
+    $.post({
+      url: "/ajax-fingerprint",
+      data: JSON.stringify({v1: whorls_v1}),
+      contentType: 'application/json',
+      success: callback,
+      dataType: "html"
+    });
   });
 };
 

@@ -8,14 +8,14 @@ import env_config as config
 class EntropyHelper(object):
 
     @classmethod
-    def calculate_values(cls, whorls):
+    def calculate_values(cls, whorls, whorl_names):
         # calculate metrics for a high level summary of identifying information
         # for each whorl
-        counts, total, matching = cls._fetch_counts(whorls)
+        counts, total, matching = cls._fetch_counts(whorls, whorl_names)
         bits, group = cls._entropy_overview(total, matching)
 
         uniqueness = {}
-        for i in FingerprintHelper.whorl_names:
+        for i in whorl_names:
             # MEASURE 1: how identifying is this fact about a browser if it's
             # the only thing one knows about the browser?
             matching_whorl = counts[i]
@@ -63,7 +63,7 @@ class EntropyHelper(object):
         return uniqueness
 
     @staticmethod
-    def _fetch_counts(whorls):
+    def _fetch_counts(whorls, whorl_names):
         db = Db()
         db.connect()
 
@@ -75,7 +75,7 @@ class EntropyHelper(object):
         # query an incrementally updated totals table which has an index on
         # unique (variable, value)
         md5_whorls = FingerprintHelper.value_or_md5(whorls)
-        for i in FingerprintHelper.whorl_names:
+        for i in whorl_names:
             counts[i] = db.get_whorl_value_count(i, md5_whorls[i], config.epoched)
 
         total = db.get_total_count(config.epoched)

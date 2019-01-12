@@ -2,7 +2,7 @@ import hashlib
 
 
 class FingerprintHelper(object):
-    whorl_names = {
+    whorl_v1_names = {
         'user_agent': "User Agent",
         'http_accept': "HTTP_ACCEPT Headers",
         'plugins': "Browser Plugin Details",
@@ -19,6 +19,8 @@ class FingerprintHelper(object):
         'touch_support': "Touch Support"
     }
 
+    # Any value that is ever expected to be over 255 characters (the length of
+    # the 'value' field in 'totals') should be contained in this list.
     md5_keys = [
         'plugins', 'fonts', 'user_agent', 'http_accept', 'supercookies', 'touch_support']
 

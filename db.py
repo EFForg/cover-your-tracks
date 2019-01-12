@@ -77,24 +77,39 @@ class Db(object):
         )
         self.cxn.commit()
 
-    def record_fingerprint(self, whorls):
+    def record_fingerprint(self, whorls, signatures):
         c = self.cxn.cursor()
         exec_str = "INSERT INTO fingerprint SET "
         exec_str += ", ".join(map(lambda x: x + "=%s", whorls.keys()))
         exec_str += " ON DUPLICATE KEY UPDATE count=count + 1"
         c.execute(exec_str, tuple(whorls.values()))
+        fingerprint_id = c.lastrowid
         c.execute(
-            "INSERT INTO fingerprint_times SET fingerprint_id=%s", (c.lastrowid,))
+            "INSERT INTO fingerprint_times SET fingerprint_id=%s", (fingerprint_id,))
+        for signature_dict in signatures:
+            c.execute("""INSERT INTO signatures SET
+                fingerprint_id=%s,
+                version=%s,
+                signature=%s
+                ON DUPLICATE KEY UPDATE signature=signature""", (
+                    fingerprint_id,
+                    str(signature_dict['version']),
+                    signature_dict['signature']
+                )
+            )
         self.cxn.commit()
 
-    def update_totals(self, whorls):
+    def update_totals(self, whorls, signatures):
         c = self.cxn.cursor()
         update_str = """INSERT INTO totals SET
             total=1, epoch_total=1, variable=%s, value=%s
             ON DUPLICATE KEY UPDATE total=total+1, epoch_total=epoch_total+1"""
         c.execute(update_str, ('count', ''))
         for i in whorls:
-            c.execute(update_str, (i, whorls[i]))
+            if i != "signature":
+                c.execute(update_str, (i, whorls[i]))
+        for signature_dict in signatures:
+            c.execute(update_str, ('signature', signature_dict['signature']))
         self.cxn.commit()
 
     def get_whorl_value_count(self, variable, value, epoched):
@@ -164,6 +179,7 @@ class Db(object):
         while row != None:
             fingerprint_id = row[0]
             count = row[1]
+
             fingerprint_c = self.cxn.cursor()
             fingerprint_c.execute(
                 "SELECT " + ", ".join(columns_to_update) +
@@ -187,6 +203,19 @@ class Db(object):
                 totals_c.execute(
                     """UPDATE totals SET epoch_total=epoch_total""" + operation + """%s
                     WHERE variable='count'""", (count,))
+
+            signatures_c = self.cxn.cursor()
+            signatures_c.execute("SELECT signature FROM signatures WHERE fingerprint_id=%s", (fingerprint_id, ))
+            signatures_row = signatures_c.fetchone()
+            while signatures_row != None:
+                signature_totals_c = self.cxn.cursor()
+                signature_totals_c.execute(
+                    """UPDATE totals SET epoch_total=epoch_total""" + operation + """%s
+                    WHERE variable='signature' AND value=%s""", (count, signatures_row[0]))
+                signatures_row = signatures_c.fetchone()
+
+            fingerprint_row = fingerprint_c.fetchone()
+
             row = c.fetchone()
 
     def epoch_update_totals(self, old_epoch_beginning, new_epoch_beginning, columns_to_update, columns_to_md5):

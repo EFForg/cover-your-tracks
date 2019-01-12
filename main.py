@@ -112,19 +112,20 @@ def fingerprint_nojs():
 
 def fingerprint_generic(ajax_request, provide_additional_info=False):
     # detect server whorls, merge with client whorls
-    server_whorls = FingerprintAgent(request).detect_server_whorls()
-    whorls = server_whorls.copy()
+    server_whorls_v1 = FingerprintAgent(request).detect_server_whorls()
+    whorls_v1 = server_whorls_v1.copy()
     if ajax_request:
-        for i in request.form.keys():
-            whorls[i] = request.form.get(i)
+        data = json.loads(request.data)
+        for i in data['v1'].keys():
+            whorls_v1[i] = str(data['v1'][i])
 
     # record the fingerprint we've crafted
     FingerprintRecorder.record_fingerprint(
-        whorls, session['long_cookie'], request.remote_addr, key)
+        whorls_v1, session['long_cookie'], request.remote_addr, key)
 
     # calculate the values we'll need to display to the user
     counts, total, matching, bits, group, uniqueness = EntropyHelper.calculate_values(
-        whorls)
+        whorls_v1, FingerprintHelper.whorl_v1_names)
 
     markup = render_template('ajax_fingerprint.html',
                              counts=counts,
@@ -134,8 +135,8 @@ def fingerprint_generic(ajax_request, provide_additional_info=False):
                              matching=matching,
                              bits=bits,
                              group=group,
-                             labels=FingerprintHelper.whorl_names,
-                             whorls=whorls,
+                             labels=FingerprintHelper.whorl_v1_names,
+                             whorls=whorls_v1,
                              uniqueness=uniqueness)
 
     if ajax_request:
