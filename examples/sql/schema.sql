@@ -42,6 +42,20 @@ CREATE TABLE `fingerprint` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `signatures`
+--
+
+DROP TABLE IF EXISTS `signatures`;
+CREATE TABLE `signatures` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fingerprint_id` int(11) NOT NULL,
+  `version` int(11) NOT NULL,
+  `signature` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `fingerprint_id` (`fingerprint_id`, `signature`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `fingerprint_times`
 --
 
