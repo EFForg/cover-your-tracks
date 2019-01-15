@@ -11,31 +11,9 @@
 {% block body %}
   <div id="front">
     <p>
-      When you visit a website, online trackers and the site itself may be able to identify you – even if you’ve installed software to protect yourself. It’s possible to configure your browser to thwart tracking, but many people don’t know how.
-    </p>
-
-    <p>
-      Panopticlick will analyze how well your browser and add-ons protect you against online tracking techniques. We’ll also see if your system is uniquely configured—and thus identifiable—even if you are using privacy-protective software. However, we only do so with your explicit consent, through the TEST ME button below.
-    </p>
-
-    <div id="buttons">
-      <div class="row">
-        <a href="/tracker-nojs" class="circle" id="trackerlink" title="Click here to test how trackable your browser is">Test me</a>
-        <label id='acceptable_ads'><input type='checkbox' checked='checked' /> Test with a real tracking company <sup id='whats_this' title='In order to test whether some tracking companies have been whitelisted (unblocked) by your blocking or privacy software, we need to have your browser try to connect to one of these companies. You can enable or disable this as you prefer.'>what's this?</sup></label>
-      </div>
-    </div>
-
-    <p>
-      Only <a href="/privacy">anonymous data</a> will be collected through this site.
-    </p>
-
-    <p>
-      Panopticlick is a research project of the Electronic Frontier Foundation. EFF operates Panopticlick in the United States, which may not provide as much privacy protection as your home country. Panopticlick is part of an effort to illustrate the problem with tracking techniques, and help get stronger privacy protections for everyone. <a href="/about">Learn more</a>.
+      Site is currently under maintenance.  Please check back in a few hours.
     </p>
   </div>
-  <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['ad_server'] }}/clear-cookies?random={{ cb }}'></iframe>
-  <iframe id="t" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['tracker_server'] }}/clear-cookies?random={{ cb }}'></iframe>
-  <iframe id="dnt" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['dnt_server'] }}/clear-cookies?random={{ cb }}'></iframe>
 {% endblock %}
 
 {% block java %}{% endblock %}
