@@ -496,3 +496,16 @@ table#results font[size="-2"] {
 .email {
     background-position: -340px 0;
 }
+
+.tooltip-inner {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+}
+.tooltip.bs-tooltip-left .arrow:before {
+    border-top-color: #333;
+}

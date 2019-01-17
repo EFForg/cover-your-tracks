@@ -3,8 +3,7 @@
 {% block meta %}{% endblock %}
 
 {% block head %}
-  <link rel="stylesheet" href="{{ url_for('bower.static', filename='jquery-ui-tooltip/jquery-ui-tooltip.css') }}" type="text/css" />
-  <script src="{{ url_for('bower.static', filename='jquery-ui-tooltip/jquery-ui-tooltip.min.js') }}" type="text/javascript"></script>
+  {% include 'dist/tooltip.html' %}
   <script src="static/front.js" type="text/javascript"></script>
 {% endblock %}
 
@@ -21,7 +20,7 @@
     <div id="buttons">
       <div class="row">
         <a href="/tracker-nojs" class="circle" id="trackerlink" title="Click here to test how trackable your browser is">Test me</a>
-        <label id='acceptable_ads'><input type='checkbox' checked='checked' /> Test with a real tracking company <sup id='whats_this' title='In order to test whether some tracking companies have been whitelisted (unblocked) by your blocking or privacy software, we need to have your browser try to connect to one of these companies. You can enable or disable this as you prefer.'>what's this?</sup></label>
+        <label id='acceptable_ads'><input type='checkbox' checked='checked' /> Test with a real tracking company <sup id='whats_this'>what's this?</sup></label>
       </div>
     </div>
 

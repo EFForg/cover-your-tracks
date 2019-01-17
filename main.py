@@ -1,5 +1,4 @@
 from flask import Flask, render_template, send_from_directory, request, session, jsonify, make_response, redirect
-from flask_bower import Bower
 from raven.contrib.flask import Sentry
 from time import time
 from datetime import timedelta, datetime
@@ -19,7 +18,6 @@ app = Flask(__name__)
 app.secret_key = config.secret_key
 app.debug = config.debug
 app.permanent_session_lifetime = timedelta(days=config.session_lifetime)
-Bower(app)
 
 if config.sentry_dsn:
     app.config['SENTRY_DSN'] = config.sentry_dsn
