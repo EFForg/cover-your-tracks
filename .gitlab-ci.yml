@@ -15,11 +15,11 @@ build:
   script:
   - docker build --pull --no-cache --label "repo=$CI_PROJECT_URL" -t $IMAGE_NAME .
   only:
-  - python3
+  - master
 
 deploy:
   stage: deploy
   script:
   - docker push $IMAGE_NAME
   only:
-  - python3
+  - master
