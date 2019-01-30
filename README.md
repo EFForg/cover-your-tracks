@@ -1,6 +1,6 @@
 # Panopticlick
 
-How Unique - and Trackable - Is Your Browsesr?
+How Unique - and Trackable - Is Your Browser?
 
 ## Installation
 
