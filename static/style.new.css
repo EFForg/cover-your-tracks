@@ -51,30 +51,24 @@ div#wrapper {
 #header .orange .bar .upper .width-wrapper {
   margin: 0 auto;
   max-width: 540px;
-  position: relative;
+  display: flex;
+
 }
 
-#header .orange .bar .upper .width-wrapper .logo {
-  background-image: url(./images/logo.png);
-  background-size: 30px 21px;
-  cursor: pointer;
+#header .orange .bar .upper .width-wrapper img.logo {
+  height: 13px;
+  margin-right: 15px;
   float: left;
-  height: 21px;
-  outline: none;
-  position: relative;
-  top: 11px;
-  width: 30px;
 }
 
 #header .orange .bar .upper .width-wrapper .title {
+  align-items: center;
+  justify-content: center;
   color: #f58528;
-  float: left;
   font-size: 9px;
   letter-spacing: 1.15px;
   min-width: 375px;
-  padding-left: 14px;
   position: relative;
-  text-align: left;
   top: 17px;
 }
 
@@ -94,12 +88,12 @@ div#wrapper {
   font-weight: 800;
   height: 21px;
   line-height: 22px;
-  margin-right: 18px;
   outline: none;
   position: relative;
   text-align: center;
   text-decoration: none;
   top: 12px;
+  margin-left: 15px;
   transition: .16s background-color;
   width: 87px;
 }
@@ -251,15 +245,10 @@ iframe {
   text-decoration: none;
 }
 
-#footer .logo {
-  background-image: url(./images/logo.png);
-  background-size: 62px 43px;
-  cursor: pointer;
-  display: block;
-  height: 43px;
+#footer img.logo {
+  height: 40px;
   margin: 22px auto 6px;
   outline: none;
-  width: 62px;
 }
 
 #footer .subtitle {
