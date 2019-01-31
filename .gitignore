@@ -3,3 +3,4 @@
 *.swp
 config.py
 node_modules
+.cache
