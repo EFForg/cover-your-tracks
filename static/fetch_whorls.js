@@ -76,7 +76,7 @@ function ieAcrobatVersion() {
   }
 }
 
-function get_fonts(fp, cb) {
+function get_fonts(js_fonts, cb) {
   // Try flash first
 	var fonts = "";
 	var obj = document.getElementById("flashfontshelper");
@@ -96,11 +96,9 @@ function get_fonts(fp, cb) {
     } catch (ex) {}
   }
   if ("" == fonts){
-    fp.fontsKey([], function(keys){
-      cb(keys[0]['value'].join(", ") + " (via javascript)");
-    });
+    return js_fonts.join(", ") + " (via javascript)";
   } else {
-    cb(fonts);
+    return fonts;
   }
 }
 
@@ -148,8 +146,19 @@ function test_ie_userdata(){
   }
 }
 
-function get_touch_support(fp){
-  var touch_support = fp.getTouchSupport();
+function test_open_database(){
+  return ", openDatabase: " + (!!window.openDatabase);
+}
+
+function test_indexed_db(){
+  try {
+    return ", indexed db: " + (!!window.indexedDB);
+  } catch (e) {
+    return ", indexed db: true";
+  }
+}
+
+function get_touch_support(touch_support){
   var touch_support_str = ""
   touch_support_str += "Max touchpoints: " + String(touch_support[0]);
   touch_support_str += "; TouchEvent supported: " + String(touch_support[1]);
@@ -219,49 +228,118 @@ function fetch_client_whorls(){
     whorls_v1['video'] = "permission denied";
   }
 
-  whorls_v1['supercookies'] = test_dom_storage() + test_ie_userdata();
-
-  var fp = new Fingerprint2();
-  try {
-    let canvas_hash_1 = fp.x64hash128(fp.getCanvasFp());
-    let canvas_hash_2 = fp.x64hash128(fp.getCanvasFp());
-    if(canvas_hash_1 == canvas_hash_2){
-      whorls_v1['canvas_hash'] = canvas_hash_1;
-    } else {
-      whorls_v1['canvas_hash'] = "randomized";
-    }
-  } catch(ex) {
-    whorls_v1['canvas_hash'] = "undetermined";
-  }
-  try {
-    let webgl_hash_1 = fp.x64hash128(fp.getWebglFp());
-    let webgl_hash_2 = fp.x64hash128(fp.getWebglFp());
-    if(webgl_hash_1 == webgl_hash_2){
-      whorls_v1['webgl_hash'] = webgl_hash_1;
-    } else {
-      whorls_v1['webgl_hash'] = "randomized";
-    }
-  } catch(ex) {
-    whorls_v1['webgl_hash'] = "undetermined";
-  }
   whorls_v1['language'] = navigator.language;
   whorls_v1['platform'] = navigator.platform;
-  whorls_v1['touch_support'] = get_touch_support(fp);
 
-  get_fonts(fp, function(fonts){
-    whorls_v1['fonts'] = fonts;
+  let whorls_v2 = JSON.parse(JSON.stringify(whorls_v1));
 
-    // send to server for logging / calculating
-    // and fetch results
+  whorls_v1['supercookies'] = test_dom_storage() + test_ie_userdata();
 
-    $.post({
-      url: "/ajax-fingerprint",
-      data: JSON.stringify({v1: whorls_v1}),
-      contentType: 'application/json',
-      success: callback,
-      dataType: "html"
+  whorls_v2['supercookies_v2'] = test_dom_storage() + test_ie_userdata() + test_open_database() + test_indexed_db();
+  whorls_v2['cpu_class'] = navigator.cpuClass || "N/A";
+  whorls_v2['hardware_concurrency'] = navigator.hardwareConcurrency || "N/A";
+  whorls_v2['device_memory'] = navigator.deviceMemory || "N/A";
+
+  let post_idle_callback = function(components, components_second_run){
+    let components_hash = {};
+    let components_second_run_hash = {};
+
+    for(component of components){
+      components_hash[component.key] = component.value;
+    }
+    for(component of components_second_run){
+      components_second_run_hash[component.key] = component.value;
+    }
+
+    try {
+      let canvas_hash_v2_1 = Fingerprint2_new.x64hash128(JSON.stringify(components_hash['canvas']), 31);
+      let canvas_hash_v2_2 = Fingerprint2_new.x64hash128(JSON.stringify(components_second_run_hash['canvas']), 31);
+      if(canvas_hash_v2_1 == canvas_hash_v2_2){
+        whorls_v2['canvas_hash_v2'] = canvas_hash_v2_1;
+      } else {
+        whorls_v2['canvas_hash_v2'] = "randomized";
+      }
+    } catch(ex) {
+      whorls_v2['canvas_hash_v2'] = "undetermined";
+    }
+
+    try {
+      let webgl_hash_v2_1 = Fingerprint2_new.x64hash128(JSON.stringify(components_hash['webgl']), 31);
+      let webgl_hash_v2_2 = Fingerprint2_new.x64hash128(JSON.stringify(components_second_run_hash['webgl']), 31);
+      if(webgl_hash_v2_1 == webgl_hash_v2_2){
+        whorls_v2['webgl_hash_v2'] = webgl_hash_v2_1;
+      } else {
+        whorls_v2['webgl_hash_v2'] = "randomized";
+      }
+    } catch(ex) {
+      whorls_v2['webgl_hash_v2'] = "undetermined";
+    }
+
+    whorls_v2['touch_support'] = get_touch_support(components_hash['touchSupport']);
+    whorls_v2['timezone_string'] = components_hash['timezone'];
+    whorls_v2['ad_block'] = components_hash['adBlock'];
+    whorls_v2['audio'] = components_hash['audio'];
+    whorls_v2['webgl_vendor_renderer'] = components_hash['webglVendorAndRenderer'];
+
+    var fp = new Fingerprint2();
+
+    try{
+      let canvas_hash_1 = fp.x64hash128(fp.getCanvasFp());
+      let canvas_hash_2 = fp.x64hash128(fp.getCanvasFp());
+      if(canvas_hash_1 == canvas_hash_2){
+        whorls_v1['canvas_hash'] = canvas_hash_1;
+      } else {
+        whorls_v1['canvas_hash'] = "randomized";
+      }
+    } catch(ex) {
+      whorls_v1['canvas_hash'] = "undetermined";
+    }
+
+    try{
+      let webgl_hash_1 = fp.x64hash128(fp.getWebglFp());
+      let webgl_hash_2 = fp.x64hash128(fp.getWebglFp());
+      if(webgl_hash_1 == webgl_hash_2){
+        whorls_v1['webgl_hash'] = webgl_hash_1;
+      } else {
+        whorls_v1['webgl_hash'] = "randomized";
+      }
+    } catch(ex) {
+      whorls_v1['webgl_hash'] = "undetermined";
+    }
+
+    whorls_v1['touch_support'] = get_touch_support(fp.getTouchSupport());
+
+    fp.fontsKey([], function(fonts){
+      whorls_v1['fonts'] = get_fonts(fonts[0]['value']);
+      whorls_v2['fonts_v2'] = get_fonts(components_hash['fonts']);
+
+      // send to server for logging / calculating
+      // and fetch results
+
+      $.post({
+        url: "/ajax-fingerprint",
+	data: JSON.stringify({v1: whorls_v1, v2: whorls_v2}),
+        contentType: 'application/json',
+        success: callback,
+        dataType: "html"
+      });
     });
-  });
+  }
+
+  let fp2_get_components = function(){
+    Fingerprint2_new.get(function(components){
+      Fingerprint2_new.get(function(components_second_run){
+        post_idle_callback(components, components_second_run);
+      });
+    });
+  };
+
+  if (window.requestIdleCallback) {
+    requestIdleCallback(fp2_get_components);
+  } else {
+    setTimeout(fp2_get_components, 500);
+  }
+
 };
 
 

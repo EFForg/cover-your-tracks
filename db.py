@@ -56,6 +56,22 @@ class Db(object):
             VALUES ('version', %s)""", (str(version),))
         self.cxn.commit()
 
+    def migrate_to_2(self):
+        c = self.cxn.cursor()
+        c.execute("""ALTER TABLE `fingerprint`
+            ADD `fonts_v2` blob DEFAULT NULL,
+            ADD `supercookies_v2` varchar(255) DEFAULT NULL,
+            ADD `canvas_hash_v2` varchar(32) DEFAULT NULL,
+            ADD `webgl_hash_v2` varchar(32) DEFAULT NULL,
+            ADD `timezone_string` varchar(32) DEFAULT NULL,
+            ADD `webgl_vendor_renderer` varchar(255) DEFAULT NULL,
+            ADD `ad_block` varchar(5) DEFAULT NULL,
+            ADD `audio` varchar(32) DEFAULT NULL,
+            ADD `cpu_class` varchar(64) DEFAULT NULL,
+            ADD `hardware_concurrency` varchar(3) DEFAULT NULL,
+            ADD `device_memory` varchar(3) DEFAULT NULL""");
+        self.cxn.commit()
+
     def count_sightings(self, cookie, signature):
         c = self.cxn.cursor()
         c.execute("""SELECT COUNT(cookie_id) FROM cookies

@@ -37,6 +37,17 @@ CREATE TABLE `fingerprint` (
   `language` varchar(32) DEFAULT NULL,
   `platform` varchar(32) DEFAULT NULL,
   `touch_support` varchar(128) DEFAULT NULL,
+  `fonts_v2` blob DEFAULT NULL,
+  `supercookies_v2` varchar(255) DEFAULT NULL,
+  `canvas_hash_v2` varchar(32) DEFAULT NULL,
+  `webgl_hash_v2` varchar(32) DEFAULT NULL,
+  `timezone_string` varchar(32) DEFAULT NULL,
+  `webgl_vendor_renderer` varchar(255) DEFAULT NULL,
+  `ad_block` varchar(5) DEFAULT NULL,
+  `audio` varchar(32) DEFAULT NULL,
+  `cpu_class` varchar(64) DEFAULT NULL,
+  `hardware_concurrency` varchar(3) DEFAULT NULL,
+  `device_memory` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY (`signature`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

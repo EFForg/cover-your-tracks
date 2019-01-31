@@ -27,15 +27,31 @@ class FingerprintAgent(object):
         vars_v1['plugins'] = u"no javascript"
         vars_v1['video'] = u"no javascript"
         vars_v1['timezone'] = u"no javascript"
-        vars_v1['fonts'] = u"no javascript"
-        vars_v1['supercookies'] = u"no javascript"
-        vars_v1['canvas_hash'] = u"no javascript"
-        vars_v1['webgl_hash'] = u"no javascript"
         vars_v1['language'] = u"no javascript"
         vars_v1['platform'] = u"no javascript"
         vars_v1['touch_support'] = u"no javascript"
 
-        return vars_v1
+        vars_v2 = vars_v1.copy()
+
+        vars_v1['fonts'] = u"no javascript"
+        vars_v1['supercookies'] = u"no javascript"
+        vars_v1['canvas_hash'] = u"no javascript"
+        vars_v1['webgl_hash'] = u"no javascript"
+
+        vars_v2['fonts_v2'] = u"no javascript"
+        vars_v2['supercookies_v2'] = u"no javascript"
+        vars_v2['canvas_hash_v2'] = u"no javascript"
+        vars_v2['webgl_hash_v2'] = u"no javascript"
+
+        vars_v2['timezone_string'] = u"no javascript"
+        vars_v2['webgl_vendor_renderer'] = u"no javascript"
+        vars_v2['ad_block'] = u"no javascript"
+        vars_v2['audio'] = u"no javascript"
+        vars_v2['cpu_class'] = u"no javascript"
+        vars_v2['hardware_concurrency'] = u"no javascript"
+        vars_v2['device_memory'] = u"no javascript"
+
+        return (vars_v1, vars_v2)
 
     def _get_header(self, header):
         return self.request.headers.get(header) or ""

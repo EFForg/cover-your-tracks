@@ -10,7 +10,7 @@ from util import get_ip_hmacs
 class FingerprintRecorder(object):
 
     @classmethod
-    def record_fingerprint(cls, whorls_v1, cookie, ip_addr, key):
+    def record_fingerprint(cls, whorls_v1, whorls_v2, cookie, ip_addr, key):
         # ensure no rogue values have been entered
         valid_vars_v1 = list(FingerprintHelper.whorl_v1_names.keys())
         valid_vars_v1.append('signature')
@@ -21,6 +21,16 @@ class FingerprintRecorder(object):
         signature_v1 = hashlib.md5(serialized_whorls_v1.encode("utf-8")).hexdigest()
         whorls_v1['signature'] = signature_v1
 
+        # ensure no rogue values have been entered
+        valid_vars_v2 = list(FingerprintHelper.whorl_v2_names.keys())
+        valid_vars_v2.append('signature')
+
+        sorted_whorls_v2 = sorted(whorls_v2.items())
+        serialized_whorls_v2 = json.dumps(sorted_whorls_v2)
+
+        signature_v2 = hashlib.md5(serialized_whorls_v2.encode("utf-8")).hexdigest()
+        whorls_v2['signature'] = signature_v2
+
         # When multiple whorl versions are being calculated, valid_print should
         # combine the whorls from both versions.  There should never be a
         # mismatch of a whorl between two versions.  If, say, the canvas_hash
@@ -30,9 +40,13 @@ class FingerprintRecorder(object):
         for i in whorls_v1:
             if i in valid_vars_v1:
                 valid_print[i] = whorls_v1[i]
+        for i in whorls_v2:
+            if i in valid_vars_v2:
+                valid_print[i] = whorls_v2[i]
 
         signatures = [
-            { 'version': 1, 'signature': signature_v1 }
+            { 'version': 1, 'signature': signature_v1 },
+            { 'version': 2, 'signature': signature_v2 }
         ]
 
         if cls._need_to_record(cookie, signatures, ip_addr, key):
@@ -67,14 +81,14 @@ class FingerprintRecorder(object):
     # been counted before
     @staticmethod
     def _need_to_record(cookie, signatures, ip_addr, key):
-        signature_v1 = signatures[0]['signature']
+        signature_v2 = signatures[1]['signature']
 
         db = Db()
         db.connect()
         if cookie:
             # okay, we have a cookie; check whether we've seen it with this
             # fingerprint before
-            seen = db.count_sightings(cookie, signature_v1)
+            seen = db.count_sightings(cookie, signature_v2)
             write_cookie = cookie
         else:
             seen = 0  # always count cookieless browsers

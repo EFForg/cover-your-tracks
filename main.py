@@ -72,6 +72,9 @@ def migrate_db():
 
     if db_version < 1:
         db_version = 1
+    if db_version < 2:
+        db.migrate_to_2()
+        db_version = 2
 
     db.set_version(db_version)
 
@@ -112,16 +115,19 @@ def fingerprint_nojs():
 
 def fingerprint_generic(ajax_request, provide_additional_info=False):
     # detect server whorls, merge with client whorls
-    server_whorls_v1 = FingerprintAgent(request).detect_server_whorls()
+    server_whorls_v1, server_whorls_v2 = FingerprintAgent(request).detect_server_whorls()
     whorls_v1 = server_whorls_v1.copy()
+    whorls_v2 = server_whorls_v2.copy()
     if ajax_request:
         data = json.loads(request.data)
         for i in data['v1'].keys():
             whorls_v1[i] = str(data['v1'][i])
+        for i in data['v2'].keys():
+            whorls_v2[i] = str(data['v2'][i])
 
     # record the fingerprint we've crafted
     FingerprintRecorder.record_fingerprint(
-        whorls_v1, session['long_cookie'], request.remote_addr, key)
+        whorls_v1, whorls_v2, session['long_cookie'], request.remote_addr, key)
 
     # calculate the values we'll need to display to the user
     counts, total, matching, bits, group, uniqueness = EntropyHelper.calculate_values(
