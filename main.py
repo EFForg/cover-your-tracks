@@ -17,7 +17,7 @@ from db import Db
 app = Flask(__name__)
 app.secret_key = config.secret_key
 app.debug = config.debug
-app.permanent_session_lifetime = timedelta(days=config.session_lifetime)
+app.permanent_session_lifetime = timedelta(days=config.epoch_days)
 
 if config.sentry_dsn:
     app.config['SENTRY_DSN'] = config.sentry_dsn

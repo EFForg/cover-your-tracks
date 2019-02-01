@@ -29,7 +29,6 @@ secret_key = env_str('SECRET_KEY', secret_key).encode("utf-8", "surrogateescape"
 public = env_bool('PUBLIC', public)
 epoched = env_bool('EPOCHED', epoched)
 epoch_days = env_int('EPOCH_DAYS', epoch_days)
-session_lifetime = env_int('SESSION_LIFETIME', session_lifetime)
 sentry_dsn = env_str('SENTRY_DSN', sentry_dsn)
 db_host = env_str('DB_HOST', db_host)
 db_username = env_str('DB_USERNAME', db_username)
