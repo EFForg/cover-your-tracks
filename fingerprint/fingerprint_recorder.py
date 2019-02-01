@@ -10,17 +10,7 @@ from util import get_ip_hmacs
 class FingerprintRecorder(object):
 
     @classmethod
-    def record_fingerprint(cls, whorls_v1, whorls_v2, cookie, ip_addr, key):
-        # ensure no rogue values have been entered
-        valid_vars_v1 = list(FingerprintHelper.whorl_v1_names.keys())
-        valid_vars_v1.append('signature')
-
-        sorted_whorls_v1 = sorted(whorls_v1.items())
-        serialized_whorls_v1 = json.dumps(sorted_whorls_v1)
-
-        signature_v1 = hashlib.md5(serialized_whorls_v1.encode("utf-8")).hexdigest()
-        whorls_v1['signature'] = signature_v1
-
+    def record_fingerprint(cls, whorls_v2, cookie, ip_addr, key):
         # ensure no rogue values have been entered
         valid_vars_v2 = list(FingerprintHelper.whorl_v2_names.keys())
         valid_vars_v2.append('signature')
@@ -37,15 +27,11 @@ class FingerprintRecorder(object):
         # changes between versions due to a new library being used, this should
         # be separated into a new whorl, like canvas_hash_<library_name>.
         valid_print = {}
-        for i in whorls_v1:
-            if i in valid_vars_v1:
-                valid_print[i] = whorls_v1[i]
         for i in whorls_v2:
             if i in valid_vars_v2:
                 valid_print[i] = whorls_v2[i]
 
         signatures = [
-            { 'version': 1, 'signature': signature_v1 },
             { 'version': 2, 'signature': signature_v2 }
         ]
 
@@ -62,7 +48,7 @@ class FingerprintRecorder(object):
         db = Db()
         db.connect()
         old_epoch_beginning = db.get_epoch_beginning()
-        columns_to_update = set(list(FingerprintHelper.whorl_v1_names.keys()) + list(FingerprintHelper.whorl_v2_names.keys()))
+        columns_to_update = list(FingerprintHelper.whorl_v2_names.keys())
         db.epoch_update_totals(
             old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys, FingerprintHelper.fingerprint_expansion_keys)
 
@@ -73,7 +59,7 @@ class FingerprintRecorder(object):
         db = Db()
         db.connect()
         old_epoch_beginning = db.get_epoch_beginning()
-        columns_to_update = set(list(FingerprintHelper.whorl_v1_names.keys()) + list(FingerprintHelper.whorl_v2_names.keys()))
+        columns_to_update = list(FingerprintHelper.whorl_v2_names.keys())
         db.epoch_calculate_totals(
             old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys, FingerprintHelper.fingerprint_expansion_keys)
 
@@ -81,7 +67,7 @@ class FingerprintRecorder(object):
     # been counted before
     @staticmethod
     def _need_to_record(cookie, signatures, ip_addr, key):
-        signature_v2 = signatures[1]['signature']
+        signature_v2 = signatures[0]['signature']
 
         db = Db()
         db.connect()

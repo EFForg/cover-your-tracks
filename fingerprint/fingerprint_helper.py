@@ -2,23 +2,6 @@ import hashlib
 
 
 class FingerprintHelper(object):
-    whorl_v1_names = {
-        'user_agent': "User Agent",
-        'http_accept': "HTTP_ACCEPT Headers",
-        'plugins': "Browser Plugin Details",
-        'timezone': "Time Zone",
-        'video': "Screen Size and Color Depth",
-        'fonts': "System Fonts",
-        'cookie_enabled': "Are Cookies Enabled?",
-        'supercookies': "Limited supercookie test",
-        'canvas_hash': "Hash of canvas fingerprint",
-        'webgl_hash': "Hash of WebGL fingerprint",
-        'dnt_enabled': "DNT Header Enabled?",
-        'language': "Language",
-        'platform': "Platform",
-        'touch_support': "Touch Support"
-    }
-
     whorl_v2_names = {
         'user_agent': "User Agent",
         'http_accept': "HTTP_ACCEPT Headers",
@@ -64,11 +47,9 @@ class FingerprintHelper(object):
     # the 'value' field in 'totals') should be contained in this list.
     md5_keys = [
         'plugins',
-        'fonts',
         'fonts_v2',
         'user_agent',
         'http_accept',
-        'supercookies',
         'supercookies_v2',
         'touch_support',
         'webgl_vendor_renderer',
