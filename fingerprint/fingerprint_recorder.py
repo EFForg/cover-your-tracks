@@ -62,7 +62,7 @@ class FingerprintRecorder(object):
         db = Db()
         db.connect()
         old_epoch_beginning = db.get_epoch_beginning()
-        columns_to_update = list(FingerprintHelper.whorl_v1_names.keys())
+        columns_to_update = set(list(FingerprintHelper.whorl_v1_names.keys()) + list(FingerprintHelper.whorl_v2_names.keys()))
         db.epoch_update_totals(
             old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys)
 
@@ -73,7 +73,7 @@ class FingerprintRecorder(object):
         db = Db()
         db.connect()
         old_epoch_beginning = db.get_epoch_beginning()
-        columns_to_update = list(FingerprintHelper.whorl_v1_names.keys())
+        columns_to_update = set(list(FingerprintHelper.whorl_v1_names.keys()) + list(FingerprintHelper.whorl_v2_names.keys()))
         db.epoch_calculate_totals(
             old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys)
 
