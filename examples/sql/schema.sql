@@ -37,6 +37,18 @@ CREATE TABLE `fingerprint` (
   `language` varchar(32) DEFAULT NULL,
   `platform` varchar(32) DEFAULT NULL,
   `touch_support` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY (`signature`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `fingerprint_v2`
+--
+
+DROP TABLE IF EXISTS `fingerprint_v2`;
+CREATE TABLE `fingerprint_v2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fingerprint_id` int(11) NOT NULL,
   `fonts_v2` blob DEFAULT NULL,
   `supercookies_v2` varchar(255) DEFAULT NULL,
   `canvas_hash_v2` varchar(32) DEFAULT NULL,
@@ -49,7 +61,7 @@ CREATE TABLE `fingerprint` (
   `hardware_concurrency` varchar(3) DEFAULT NULL,
   `device_memory` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY (`signature`)
+  UNIQUE KEY (`fingerprint_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

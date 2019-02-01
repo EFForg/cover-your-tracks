@@ -43,6 +43,22 @@ class FingerprintHelper(object):
         'device_memory': "Device Memory (GB)"
     }
 
+    # Which keys should be added to the expansion fingerprint tables?
+    fingerprint_expansion_keys = {
+        'v2': [
+            'fonts_v2',
+            'supercookies_v2',
+            'canvas_hash_v2',
+            'webgl_hash_v2',
+            'timezone_string',
+            'webgl_vendor_renderer',
+            'ad_block',
+            'audio',
+            'cpu_class',
+            'hardware_concurrency',
+            'device_memory'
+        ]
+    }
 
     # Any value that is ever expected to be over 255 characters (the length of
     # the 'value' field in 'totals') should be contained in this list.

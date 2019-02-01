@@ -64,7 +64,7 @@ class FingerprintRecorder(object):
         old_epoch_beginning = db.get_epoch_beginning()
         columns_to_update = set(list(FingerprintHelper.whorl_v1_names.keys()) + list(FingerprintHelper.whorl_v2_names.keys()))
         db.epoch_update_totals(
-            old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys)
+            old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys, FingerprintHelper.fingerprint_expansion_keys)
 
     # This is the 'nuclear option' for recalculating the epoch totals from
     # scratch, given a certain date.
@@ -75,7 +75,7 @@ class FingerprintRecorder(object):
         old_epoch_beginning = db.get_epoch_beginning()
         columns_to_update = set(list(FingerprintHelper.whorl_v1_names.keys()) + list(FingerprintHelper.whorl_v2_names.keys()))
         db.epoch_calculate_totals(
-            old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys)
+            old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys, FingerprintHelper.fingerprint_expansion_keys)
 
     # returns true if we think this browser/fingerprint combination hasn't
     # been counted before
@@ -114,6 +114,6 @@ class FingerprintRecorder(object):
         db = Db()
         db.connect()
         # actually update the fingerprint table...
-        db.record_fingerprint(whorls, signatures)
+        db.record_fingerprint(whorls, signatures, FingerprintHelper.fingerprint_expansion_keys)
         md5_whorls = FingerprintHelper.value_or_md5(whorls)
         db.update_totals(md5_whorls, signatures)
