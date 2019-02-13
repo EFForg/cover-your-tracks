@@ -343,7 +343,7 @@ def results_nojs():
 
 def get_count_from_str(string, extra_filter=lambda x: True):
     string = string.split(" ")
-    return len(filter(extra_filter, filter(lambda x: x != "", string)))
+    return len(list(filter(extra_filter, filter(lambda x: x != "", string))))
 
 
 def heuristic_filter(x):
