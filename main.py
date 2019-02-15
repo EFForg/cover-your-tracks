@@ -282,19 +282,19 @@ def results_nojs():
     partial = render_template('_partial.html')
 
     ad_result = tracker_result = dnt_result = no
-    if get_count_from_str(request.args.get('a')) < 4:
+    if get_count_from_str(string_default_blank(request.args.get('a'))) < 4:
         ad_result = yes
-    if get_count_from_str(request.args.get('t')) < 4:
+    if get_count_from_str(string_default_blank(request.args.get('t'))) < 4:
         tracker_result = yes
     # if for the last pageload (the fourth one, or try2) we block some 3rd
     # party trackers but not the dnt one, then we're using privacy badger
     if get_count_from_str(
             " ".join([
-                request.args.get('t'),
-                request.args.get('a'),
-                request.args.get('dnt')
+                string_default_blank(request.args.get('t')),
+                string_default_blank(request.args.get('a')),
+                string_default_blank(request.args.get('dnt'))
             ]), heuristic_filter) < 3:
-        if get_count_from_str(request.args.get('dnt'), heuristic_filter) == 1:
+        if get_count_from_str(string_default_blank(request.args.get('dnt')), heuristic_filter) == 1:
             dnt_result = yes
 
     tool_recommendation = None
@@ -345,6 +345,12 @@ def results_nojs():
                            dnt_result=dnt_result,
                            fingerprint_result=fingerprint_result,
                            retest_link=retest_link)
+
+
+def string_default_blank(string):
+    if string == None:
+        return ""
+    return string
 
 
 def get_count_from_str(string, extra_filter=lambda x: True):
