@@ -67,11 +67,11 @@ class Db(object):
             `webgl_hash_v2` varchar(32) DEFAULT NULL,
             `timezone_string` varchar(32) DEFAULT NULL,
             `webgl_vendor_renderer` varchar(255) DEFAULT NULL,
-            `ad_block` varchar(5) DEFAULT NULL,
+            `ad_block` varchar(16) DEFAULT NULL,
             `audio` varchar(32) DEFAULT NULL,
             `cpu_class` varchar(64) DEFAULT NULL,
-            `hardware_concurrency` varchar(3) DEFAULT NULL,
-            `device_memory` varchar(3) DEFAULT NULL,
+            `hardware_concurrency` varchar(16) DEFAULT NULL,
+            `device_memory` varchar(16) DEFAULT NULL,
             PRIMARY KEY (`id`),
             UNIQUE KEY (`fingerprint_id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8""");
