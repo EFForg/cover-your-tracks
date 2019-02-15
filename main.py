@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory, request, session, jsonify, make_response, redirect
+from flask import Flask, render_template, send_from_directory, request, session, jsonify, make_response, redirect, abort
 from raven.contrib.flask import Sentry
 from time import time
 from datetime import timedelta, datetime
@@ -455,7 +455,7 @@ def static_from_root():
 @app.route('/.well-known/dnt-policy.txt')
 def dnt():
     if request.host == config.third_party_trackers['ad_server'] or request.host == config.third_party_trackers['tracker_server']:
-        return 404
+        abort(404)
     return send_from_directory(app.static_folder, request.path[1:])
 
 if __name__ == "__main__":
