@@ -18,7 +18,7 @@ ADD docker/crontab /etc/crontab
 ADD requirements.txt ./
 RUN pip install -r requirements.txt
 
-ADD config_example.py env_config.py db.py entropy_helper.py main.py util.py ./
+ADD config_example.py env_config.py db.py entropy_helper.py main.py gunicorn.conf util.py ./
 ADD fingerprint ./fingerprint/
 ADD tracking ./tracking/
 ADD static ./static/ 
@@ -27,4 +27,6 @@ ADD docker ./docker/
 
 ENV PUBLIC True
 ENTRYPOINT ["/opt/docker/entrypoint.sh"]
-CMD ["python", "main.py"]
+ENV GUNICORN_BIND 0.0.0.0:5000
+ENV GUNICORN_WORKERS 4
+CMD ["gunicorn", "--config", "gunicorn.conf", "main:app"]
