@@ -27,6 +27,4 @@ ADD docker ./docker/
 
 ENV PUBLIC True
 ENTRYPOINT ["/opt/docker/entrypoint.sh"]
-ENV GUNICORN_BIND 0.0.0.0:5000
-ENV GUNICORN_WORKERS 4
-CMD ["gunicorn", "--config", "gunicorn.conf", "main:app"]
+CMD ["python", "main.py"]
