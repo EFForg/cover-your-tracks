@@ -29,8 +29,6 @@ services:
 
   app:
     build: .
-    links:
-      - db:db
     volumes:
       - .:/opt
       - keymaterial:/tmp
@@ -49,8 +47,6 @@ services:
 
   nginx:
     image: nginx
-    links:
-      - app:app
     volumes:
       - ./examples/nginx/extra:/etc/nginx/extra
       - ./examples/nginx/conf.d:/etc/nginx/conf.d
