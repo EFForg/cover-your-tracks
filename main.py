@@ -1,11 +1,12 @@
+import json
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
 from flask import Flask, render_template, send_from_directory, request, session, jsonify, make_response, redirect, abort
-from raven.contrib.flask import Sentry
 from time import time
 from datetime import timedelta, datetime
 from random import random
 from urllib.parse import urlparse
 from functools import wraps
-import json
 
 import env_config as config
 from fingerprint import FingerprintAgent, FingerprintRecorder, FingerprintHelper
@@ -20,8 +21,10 @@ app.debug = config.debug
 app.permanent_session_lifetime = timedelta(days=config.epoch_days)
 
 if config.sentry_dsn:
-    app.config['SENTRY_DSN'] = config.sentry_dsn
-    sentry = Sentry(app)
+    sentry_sdk.init(
+        config.sentry_dsn,
+        integrations=[FlaskIntegration()]
+    )
 
 def read_keyfile():
     global key
