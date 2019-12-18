@@ -373,10 +373,18 @@ def record_results():
     constrained_results = ['ad', 'tracker', 'dnt']
     allowed_values = ['yes', 'no', 'partial']
     for i in constrained_results:
-        if results[i] not in allowed_values:
-            del results[i]
+        try:
+            if results[i] not in allowed_values:
+                results[i] = ''
+        except KeyError:
+            # Treat missing data as bad data
+            results[i] = ''
 
-    results['known_blockers'] = ",".join(results['known_blockers'])
+    try:
+        results['known_blockers'] = ",".join(results['known_blockers'])
+    except KeyError:
+        # Treat missing list like an empty list
+        results['known_blocker'] = ''
 
     if TrackingRecorder.record_tracking_results(session['long_cookie'], results, request.remote_addr, key):
         return jsonify({"success": True})
