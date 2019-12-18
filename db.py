@@ -20,6 +20,16 @@ class Db(object):
         self.database = config.db_database
         self.port = config.db_port
 
+    def close(self):
+        try:
+            self.cxn.close()
+        except AttributeError:
+            # Connection not yet defined
+            pass
+        except MySQLDb.ProgrammingError:
+            # Connection probably already closed
+            pass
+
     def connect(self):
         self.cxn = MySQLdb.connect(
             host=self.host,
