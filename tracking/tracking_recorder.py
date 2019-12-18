@@ -7,9 +7,6 @@ class TrackingRecorder(object):
 
     @staticmethod
     def record_tracking_results(cookie, results, ip_addr, key):
-        db = Db()
-        db.connect()
-
         valid_print = {}
         for i in results:
             if i in TrackingHelper.valid_fields.keys():
@@ -17,12 +14,18 @@ class TrackingRecorder(object):
 
         ip, google_style_ip = get_ip_hmacs(ip_addr, key)
 
-        db.record_tracking_results(
-            cookie,
-            ip,
-            google_style_ip,
-            results['ad'],
-            results['tracker'],
-            results['dnt'],
-            results['known_blockers'])
+        db = Db()
+        db.connect()
+        try:
+            db.record_tracking_results(
+                cookie,
+                ip,
+                google_style_ip,
+                results['ad'],
+                results['tracker'],
+                results['dnt'],
+                results['known_blockers'])
+        finally:
+            db.close()
+
         return True

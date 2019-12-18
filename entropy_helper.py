@@ -48,12 +48,15 @@ class EntropyHelper(object):
             {whorl_name: whorl_value})[whorl_name]
 
         try:
-            count = db.get_whorl_value_count(
-                whorl_name, md5_whorl_value, config.epoched)
-        except TypeError:
-            return {'status': "Error: that value has not yet been recorded for '" + whorl_name + "'"}
+            try:
+                count = db.get_whorl_value_count(
+                    whorl_name, md5_whorl_value, config.epoched)
+            except TypeError:
+                return {'status': "Error: that value has not yet been recorded for '" + whorl_name + "'"}
 
-        total = db.get_total_count(config.epoched)
+            total = db.get_total_count(config.epoched)
+        finally:
+            db.close()
 
         uniqueness = {
             'bits': round(-log(count / float(total), 2), 2),
@@ -75,13 +78,16 @@ class EntropyHelper(object):
         # query an incrementally updated totals table which has an index on
         # unique (variable, value)
         md5_whorls = FingerprintHelper.value_or_md5(whorls)
-        for i in whorl_names:
-            counts[i] = db.get_whorl_value_count(i, md5_whorls[i], config.epoched)
+        try:
+            for i in whorl_names:
+                counts[i] = db.get_whorl_value_count(i, md5_whorls[i], config.epoched)
 
-        total = db.get_total_count(config.epoched)
+            total = db.get_total_count(config.epoched)
 
-        matching = db.get_signature_matches_count(
-            whorls['signature'], config.epoched)
+            matching = db.get_signature_matches_count(
+                whorls['signature'], config.epoched)
+        finally:
+            db.close()
 
         return counts, total, matching
 
