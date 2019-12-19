@@ -278,42 +278,41 @@ class Db(object):
             try:
                 fingerprint_c.execute(fingerprint_string, (fingerprint_id, ))
                 fingerprint_row = fingerprint_c.fetchone()
-                if fingerprint_row != None:
-                    i = 0
-                    totals_c = self.cxn.cursor()
-                    for variable in columns_to_update:
-                        if fingerprint_row[i] is not None:
-                            if variable in columns_to_md5:
-                                if isinstance(fingerprint_row[i], str):
-                                    value = hashlib.md5(fingerprint_row[i].encode('utf-8')).hexdigest()
-                                else:
-                                    value = hashlib.md5(fingerprint_row[i]).hexdigest()
-                            else:
-                                value = fingerprint_row[i]
-                            totals_c.execute(
-                                """UPDATE totals SET epoch_total=epoch_total""" + operation + """%s
-                                WHERE variable=%s AND value=%s""", (count, variable, value))
-                        i += 1
-                    totals_c.execute(
-                        """UPDATE totals SET epoch_total=epoch_total""" + operation + """%s
-                        WHERE variable='count'""", (count,))
-
-                signatures_c = self.cxn.cursor()
-                try:
-                    signatures_c.execute("SELECT signature FROM signatures WHERE fingerprint_id=%s", (fingerprint_id, ))
-                    signatures_row = signatures_c.fetchone()
-                    while signatures_row != None:
-                        signature_totals_c = self.cxn.cursor()
-                        signature_totals_c.execute(
-                            """UPDATE totals SET epoch_total=epoch_total""" + operation + """%s
-                            WHERE variable='signature' AND value=%s""", (count, signatures_row[0]))
-                        signatures_row = signatures_c.fetchone()
-                finally:
-                    signatures_c.close()
-
-            fingerprint_row = fingerprint_c.fetchone()
             finally:
                 fingerprint_c.close()
+
+            if fingerprint_row != None:
+                i = 0
+                totals_c = self.cxn.cursor()
+                for variable in columns_to_update:
+                    if fingerprint_row[i] is not None:
+                        if variable in columns_to_md5:
+                            if isinstance(fingerprint_row[i], str):
+                                value = hashlib.md5(fingerprint_row[i].encode('utf-8')).hexdigest()
+                            else:
+                                value = hashlib.md5(fingerprint_row[i]).hexdigest()
+                        else:
+                            value = fingerprint_row[i]
+                        totals_c.execute(
+                            """UPDATE totals SET epoch_total=epoch_total""" + operation + """%s
+                            WHERE variable=%s AND value=%s""", (count, variable, value))
+                    i += 1
+                totals_c.execute(
+                    """UPDATE totals SET epoch_total=epoch_total""" + operation + """%s
+                    WHERE variable='count'""", (count,))
+
+            signatures_c = self.cxn.cursor()
+            try:
+                signatures_c.execute("SELECT signature FROM signatures WHERE fingerprint_id=%s", (fingerprint_id, ))
+                signatures_row = signatures_c.fetchone()
+                while signatures_row != None:
+                    signature_totals_c = self.cxn.cursor()
+                    signature_totals_c.execute(
+                        """UPDATE totals SET epoch_total=epoch_total""" + operation + """%s
+                        WHERE variable='signature' AND value=%s""", (count, signatures_row[0]))
+                    signatures_row = signatures_c.fetchone()
+            finally:
+                signatures_c.close()
 
             row = c.fetchone()
 
