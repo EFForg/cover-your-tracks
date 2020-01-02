@@ -61,10 +61,13 @@ class FingerprintRecorder(object):
     def epoch_update_totals(epoch_beginning):
         db = Db()
         db.connect()
-        old_epoch_beginning = db.get_epoch_beginning()
-        columns_to_update = set(list(FingerprintHelper.whorl_v1_names.keys()) + list(FingerprintHelper.whorl_v2_names.keys()))
-        db.epoch_update_totals(
-            old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys, FingerprintHelper.fingerprint_expansion_keys)
+        try:
+            old_epoch_beginning = db.get_epoch_beginning()
+            columns_to_update = set(list(FingerprintHelper.whorl_v1_names.keys()) + list(FingerprintHelper.whorl_v2_names.keys()))
+            db.epoch_update_totals(
+                old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys, FingerprintHelper.fingerprint_expansion_keys)
+        finally:
+            db.close()
 
     # This is the 'nuclear option' for recalculating the epoch totals from
     # scratch, given a certain date.
@@ -72,10 +75,13 @@ class FingerprintRecorder(object):
     def epoch_calculate_totals(epoch_beginning):
         db = Db()
         db.connect()
-        old_epoch_beginning = db.get_epoch_beginning()
-        columns_to_update = set(list(FingerprintHelper.whorl_v1_names.keys()) + list(FingerprintHelper.whorl_v2_names.keys()))
-        db.epoch_calculate_totals(
-            old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys, FingerprintHelper.fingerprint_expansion_keys)
+        try:
+            old_epoch_beginning = db.get_epoch_beginning()
+            columns_to_update = set(list(FingerprintHelper.whorl_v1_names.keys()) + list(FingerprintHelper.whorl_v2_names.keys()))
+            db.epoch_calculate_totals(
+                old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys, FingerprintHelper.fingerprint_expansion_keys)
+        finally:
+            db.close()
 
     # returns true if we think this browser/fingerprint combination hasn't
     # been counted before
@@ -85,35 +91,42 @@ class FingerprintRecorder(object):
 
         db = Db()
         db.connect()
-        if cookie:
-            # okay, we have a cookie; check whether we've seen it with this
-            # fingerprint before
-            seen = db.count_sightings(cookie, signature_v2)
-            write_cookie = cookie
-        else:
-            seen = 0  # always count cookieless browsers
-            # we need to log the HMAC'd IP even if there's no cookie so use a
-            # dummy
-            write_cookie = 'no cookie'
+        try:
+            if cookie:
+                # okay, we have a cookie; check whether we've seen it with this
+                # fingerprint before
+                seen = db.count_sightings(cookie, signature_v2)
+                write_cookie = cookie
+            else:
+                seen = 0  # always count cookieless browsers
+                # we need to log the HMAC'd IP even if there's no cookie so use a
+                # dummy
+                write_cookie = 'no cookie'
 
-        # now log the cookie, along with encrypted versions of the IP address
-        # and a quarter-erased IP address, like the one Google keeps
+            # now log the cookie, along with encrypted versions of the IP address
+            # and a quarter-erased IP address, like the one Google keeps
 
-        ip, google_style_ip = get_ip_hmacs(ip_addr, key)
+            ip, google_style_ip = get_ip_hmacs(ip_addr, key)
 
-        # We're only checking for signature_v1 to know whether we need to
-        # record, but if multple whorl vesions are being calculated, we should
-        # record all of them so that we can gracefully transition in the future
-        for signature_dict in signatures:
-            db.record_sighting(
-                write_cookie, signature_dict['signature'], ip, google_style_ip)
+            # We're only checking for signature_v1 to know whether we need to
+            # record, but if multple whorl vesions are being calculated, we should
+            # record all of them so that we can gracefully transition in the future
+            for signature_dict in signatures:
+                db.record_sighting(
+                    write_cookie, signature_dict['signature'], ip, google_style_ip)
+        finally:
+            db.close()
+
         return seen == 0
 
     @staticmethod
     def _record_whorls(whorls, signatures):
         db = Db()
         db.connect()
-        # actually update the fingerprint table...
-        db.record_fingerprint(whorls, signatures, FingerprintHelper.fingerprint_expansion_keys)
-        md5_whorls = FingerprintHelper.value_or_md5(whorls)
-        db.update_totals(md5_whorls, signatures)
+        try:
+            # actually update the fingerprint table...
+            db.record_fingerprint(whorls, signatures, FingerprintHelper.fingerprint_expansion_keys)
+            md5_whorls = FingerprintHelper.value_or_md5(whorls)
+            db.update_totals(md5_whorls, signatures)
+        finally:
+            db.close()
