@@ -1,7 +1,7 @@
 import json
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
-from flask import Flask, render_template, send_from_directory, request, session, jsonify, make_response, redirect, abort
+from flask import Flask, render_template, send_from_directory, request, session, jsonify, make_response, redirect, abort, config as flask_config
 from time import time
 from datetime import timedelta, datetime
 from random import random
@@ -19,6 +19,11 @@ app = Flask(__name__)
 app.secret_key = config.secret_key
 app.debug = config.debug
 app.permanent_session_lifetime = timedelta(days=config.epoch_days)
+app.config.update(
+    USE_MATOMO=config.use_matomo,
+    MATOMO_URL=config.matomo_url,
+    MATOMO_SITE_ID=config.matomo_site_id,
+)
 
 if config.sentry_dsn:
     sentry_sdk.init(

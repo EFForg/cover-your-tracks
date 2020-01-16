@@ -37,6 +37,9 @@ db_database = env_str('DB_DATABASE', db_database)
 db_port = env_int('DB_PORT', db_port)
 keyfile = env_str('KEYFILE', keyfile)
 admin_password = env_str('ADMIN_PASSWORD', admin_password)
+use_matomo = env_bool('USE_MATOMO', use_matomo)
+matomo_url = env_str('MATOMO_URL', matomo_url)
+matomo_site_id = env_str('MATOMO_SITE_ID', matomo_site_id)
 first_party_trackers = [
     env_str('FIRST_PARTY_TRACKERS_1', first_party_trackers[0]),
     env_str('FIRST_PARTY_TRACKERS_2', first_party_trackers[1]),

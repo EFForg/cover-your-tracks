@@ -97,5 +97,12 @@
       {% endblock %}
 
     </div>
+    {% if config.get('USE_MATOMO') %}
+      <noscript><img src="https://{{ config.get('MATOMO_URL') }}/js/?idsite={{ config.get('MATOMO_SITE_ID') }}&amp;rec=1&amp;action_name=Panopticlick{% if title %} | {{ title }}{% endif %}" style="border:0" height="0" width="0" alt="" /></noscript>
+      <div style="height: 0; width: 0; position: absolute" id="anon-stats"></div>
+      <script type="text/javascript">
+        document.getElementById('anon-stats').innerHTML = '<img src="https://{{ config.get('MATOMO_URL') }}/js/?idsite={{ config.get('MATOMO_SITE_ID') }}&amp;rec=1&amp;urlref=' + encodeURIComponent(document.referrer) + '&amp;action_name=' + encodeURIComponent(document.title) + '" style="border:0" height="0" width="0" alt="" />';
+      </script>
+    {% endif %}
   </body>
 </html>

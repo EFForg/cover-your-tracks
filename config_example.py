@@ -18,6 +18,11 @@ keyfile = '/path/to/some/keyfile'
 # a password which authorizes various administrative tasks
 admin_password = 'changeme'
 
+# if your site wishes to use Matomo for analytics
+use_matomo = False
+matomo_url = 'anon-stats.eff.org'
+matomo_site_id = '1111111'
+
 # the domains for first-party trackers. order matters, only 3
 first_party_trackers = [
     'panopticlick.eff.org',
