@@ -309,6 +309,24 @@ function fetch_client_whorls(){
 
     whorls_v1['touch_support'] = get_touch_support(fp.getTouchSupport());
 
+    if (typeof(fpi_whorls) != "undefined") {
+      if (fpi_whorls['v2']['audio'] != whorls_v2['audio']) {
+        whorls_v2['audio'] = "randomized by first party domain";
+      }
+      if (fpi_whorls['v2']['canvas_hash_v2'] != whorls_v2['canvas_hash_v2']) {
+        whorls_v2['canvas_hash_v2'] = "randomized by first party domain";
+      }
+      if (fpi_whorls['v2']['webgl_hash_v2'] != whorls_v2['webgl_hash_v2']) {
+        whorls_v2['webgl_hash_v2'] = "randomized by first party domain";
+      }
+      if(fpi_whorls['v1']['canvas_hash'] != whorls_v1['canvas_hash']){
+        whorls_v1['canvas_hash'] = "randomized by first party domain";
+      }
+      if (fpi_whorls['v1']['webgl_hash'] != whorls_v1['webgl_hash']) {
+        whorls_v1['webgl_hash'] = "randomized by first party domain";
+      }
+    }
+
     fp.fontsKey([], function(fonts){
       whorls_v1['fonts'] = get_fonts(fonts[0]['value']);
       whorls_v2['fonts_v2'] = get_fonts(components_hash['fonts']);

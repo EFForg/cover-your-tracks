@@ -79,6 +79,7 @@
       'partial'  : "{% include '_fp_partial.html' %}"
     };
     var download_links = "{% include '_summary_download_links.html' %}";
+    var fpi_whorls = JSON.parse('{{ fpi_whorls | safe }}');
     window.onload = function(){
       document.getElementById('fingerprintTable').style.display = "none";
       document.getElementById('buttons').style.display = "none";

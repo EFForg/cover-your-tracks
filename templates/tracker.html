@@ -3,6 +3,12 @@
 {% block java %}
 {% endblock %}
 
+{% block head %}
+  <script src="static/fp2.js" type="text/javascript"></script>
+  {% include 'dist/fp2.html' %}
+  <script src="static/fetch_first_party_isolated_whorls.js" type="text/javascript"></script>
+{% endblock %}
+
 {% block body %}
   <p style='font-weight: bold; font-size: 15px;'>
     ... Testing your browser. How well does it protect you from tracking? ...<br>
@@ -40,7 +46,16 @@
       }
 
       setTimeout(function(){
-        window.location = next;
+        {% if last_redirect %}
+          fetch_first_party_isolated_whorls(function(fpi_whorls){
+            let fpi_whorls_param = new URLSearchParams();
+            fpi_whorls_param.append('fpi_whorls', JSON.stringify(fpi_whorls));
+            next += '&' + fpi_whorls_param.toString();
+            window.location = next;
+          });
+        {% else %}
+          window.location = next;
+        {% endif %}
       },3000);
     }
 

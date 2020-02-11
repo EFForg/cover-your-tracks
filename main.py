@@ -169,16 +169,18 @@ def tracker():
     except ValueError:
         return "Invalid domain.  Please check your config settings."
 
+    last_redirect = False
     if i < 2:
         next_link = "https://" + \
             config.first_party_trackers[i + 1] + "/tracker?"
     else:
+        last_redirect = True
         next_link = "https://" + config.first_party_trackers[0] + "/results?"
 
     if request.args.get('aat'):
         next_link = next_link + "aat=" + request.args.get('aat')
 
-    return render_template('tracker.html', next_link=next_link, third_party_trackers=config.third_party_trackers)
+    return render_template('tracker.html', next_link=next_link, last_redirect=last_redirect, third_party_trackers=config.third_party_trackers)
 
 
 # third-party route accessed in an iframe for tallying up domains seen
@@ -280,6 +282,7 @@ def results():
                            t_loads=len(request.args.get('t') or ''),
                            dnt_loads=len(request.args.get('dnt') or ''),
                            acceptable_ads_test=len(request.args.get('aat') or ''),
+                           fpi_whorls=request.args.get('fpi_whorls') or {},
                            third_party_trackers=config.third_party_trackers)
 
 
