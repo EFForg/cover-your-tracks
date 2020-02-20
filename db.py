@@ -75,30 +75,6 @@ class Db(object):
         finally:
             c.close()
 
-    def migrate_to_2(self):
-        c = self.cxn.cursor()
-        try:
-            c.execute("""CREATE TABLE `fingerprint_v2` (
-                `id` int(11) NOT NULL AUTO_INCREMENT,
-                `fingerprint_id` int(11) NOT NULL,
-                `fonts_v2` blob DEFAULT NULL,
-                `supercookies_v2` varchar(255) DEFAULT NULL,
-                `canvas_hash_v2` varchar(32) DEFAULT NULL,
-                `webgl_hash_v2` varchar(32) DEFAULT NULL,
-                `timezone_string` varchar(32) DEFAULT NULL,
-                `webgl_vendor_renderer` varchar(255) DEFAULT NULL,
-                `ad_block` varchar(16) DEFAULT NULL,
-                `audio` varchar(32) DEFAULT NULL,
-                `cpu_class` varchar(64) DEFAULT NULL,
-                `hardware_concurrency` varchar(16) DEFAULT NULL,
-                `device_memory` varchar(16) DEFAULT NULL,
-                PRIMARY KEY (`id`),
-                UNIQUE KEY (`fingerprint_id`)
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8""");
-            self.cxn.commit()
-        finally:
-            c.close()
-
     def count_sightings(self, cookie, signature):
         c = self.cxn.cursor()
         try:

@@ -201,15 +201,15 @@ function fetch_client_whorls(){
   };
 
   // fetch client-side vars
-  var whorls_v1 = new Object();
+  var whorls_v2 = new Object();
 
   // this is a backup plan
   setTimeout("retry_post()",1100);
 
   try { 
-    whorls_v1['plugins'] = identify_plugins();
+    whorls_v2['plugins'] = identify_plugins();
   } catch(ex) { 
-    whorls_v1['plugins'] = "permission denied";
+    whorls_v2['plugins'] = "permission denied";
   }
 
   // Do not catch exceptions here because the async Flash applet will raise
@@ -217,24 +217,19 @@ function fetch_client_whorls(){
   // will cause us to try again until it returns something meaningful.
 
   try { 
-    whorls_v1['timezone'] = new Date().getTimezoneOffset();
+    whorls_v2['timezone'] = new Date().getTimezoneOffset();
   } catch(ex) {
-    whorls_v1['timezone'] = "permission denied";
+    whorls_v2['timezone'] = "permission denied";
   }
 
   try {
-    whorls_v1['video'] = screen.width+"x"+screen.height+"x"+screen.colorDepth;
+    whorls_v2['video'] = screen.width+"x"+screen.height+"x"+screen.colorDepth;
   } catch(ex) {
-    whorls_v1['video'] = "permission denied";
+    whorls_v2['video'] = "permission denied";
   }
 
-  whorls_v1['language'] = navigator.language;
-  whorls_v1['platform'] = navigator.platform;
-
-  let whorls_v2 = JSON.parse(JSON.stringify(whorls_v1));
-
-  whorls_v1['supercookies'] = test_dom_storage() + test_ie_userdata();
-
+  whorls_v2['language'] = navigator.language;
+  whorls_v2['platform'] = navigator.platform;
   whorls_v2['supercookies_v2'] = test_dom_storage() + test_ie_userdata() + test_open_database() + test_indexed_db();
   whorls_v2['cpu_class'] = navigator.cpuClass || "N/A";
   whorls_v2['hardware_concurrency'] = navigator.hardwareConcurrency || "N/A";
@@ -280,34 +275,10 @@ function fetch_client_whorls(){
     whorls_v2['ad_block'] = components_hash['adBlock'];
     whorls_v2['audio'] = components_hash['audio'];
     whorls_v2['webgl_vendor_renderer'] = components_hash['webglVendorAndRenderer'];
+    whorls_v2['fonts_v2'] = get_fonts(components_hash['fonts']);
 
-    var fp = new Fingerprint2();
-
-    try{
-      let canvas_hash_1 = fp.x64hash128(fp.getCanvasFp());
-      let canvas_hash_2 = fp.x64hash128(fp.getCanvasFp());
-      if(canvas_hash_1 == canvas_hash_2){
-        whorls_v1['canvas_hash'] = canvas_hash_1;
-      } else {
-        whorls_v1['canvas_hash'] = "randomized";
-      }
-    } catch(ex) {
-      whorls_v1['canvas_hash'] = "undetermined";
-    }
-
-    try{
-      let webgl_hash_1 = fp.x64hash128(fp.getWebglFp());
-      let webgl_hash_2 = fp.x64hash128(fp.getWebglFp());
-      if(webgl_hash_1 == webgl_hash_2){
-        whorls_v1['webgl_hash'] = webgl_hash_1;
-      } else {
-        whorls_v1['webgl_hash'] = "randomized";
-      }
-    } catch(ex) {
-      whorls_v1['webgl_hash'] = "undetermined";
-    }
-
-    whorls_v1['touch_support'] = get_touch_support(fp.getTouchSupport());
+    // send to server for logging / calculating
+    // and fetch results
 
     if (typeof(fpi_whorls) != "undefined") {
       if (fpi_whorls['v2']['audio'] != whorls_v2['audio']) {
@@ -319,28 +290,14 @@ function fetch_client_whorls(){
       if (fpi_whorls['v2']['webgl_hash_v2'] != whorls_v2['webgl_hash_v2']) {
         whorls_v2['webgl_hash_v2'] = "randomized by first party domain";
       }
-      if(fpi_whorls['v1']['canvas_hash'] != whorls_v1['canvas_hash']){
-        whorls_v1['canvas_hash'] = "randomized by first party domain";
-      }
-      if (fpi_whorls['v1']['webgl_hash'] != whorls_v1['webgl_hash']) {
-        whorls_v1['webgl_hash'] = "randomized by first party domain";
-      }
     }
 
-    fp.fontsKey([], function(fonts){
-      whorls_v1['fonts'] = get_fonts(fonts[0]['value']);
-      whorls_v2['fonts_v2'] = get_fonts(components_hash['fonts']);
-
-      // send to server for logging / calculating
-      // and fetch results
-
-      $.post({
-        url: "/ajax-fingerprint",
-	data: JSON.stringify({v1: whorls_v1, v2: whorls_v2}),
-        contentType: 'application/json',
-        success: callback,
-        dataType: "html"
-      });
+    $.post({
+      url: "/ajax-fingerprint",
+      data: JSON.stringify({v2: whorls_v2}),
+      contentType: 'application/json',
+      success: callback,
+      dataType: "html"
     });
   }
 

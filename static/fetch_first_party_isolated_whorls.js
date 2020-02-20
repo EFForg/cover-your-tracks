@@ -33,7 +33,6 @@ function fetch_first_party_isolated_whorls(callback){
       enumerateDevices: true,
     }
   };
-  let whorls_v1 = new Object();
   let whorls_v2 = new Object();
 
   const fp2_get_components = function() {
@@ -77,33 +76,7 @@ function fetch_first_party_isolated_whorls(callback){
           whorls_v2['webgl_hash_v2'] = "undetermined";
         }
 
-        var fp = new Fingerprint2();
-
-        try{
-          let canvas_hash_1 = fp.x64hash128(fp.getCanvasFp());
-          let canvas_hash_2 = fp.x64hash128(fp.getCanvasFp());
-          if(canvas_hash_1 == canvas_hash_2){
-            whorls_v1['canvas_hash'] = canvas_hash_1;
-          } else {
-            whorls_v1['canvas_hash'] = "randomized";
-          }
-        } catch(ex) {
-          whorls_v1['canvas_hash'] = "undetermined";
-        }
-
-        try{
-          let webgl_hash_1 = fp.x64hash128(fp.getWebglFp());
-          let webgl_hash_2 = fp.x64hash128(fp.getWebglFp());
-          if(webgl_hash_1 == webgl_hash_2){
-            whorls_v1['webgl_hash'] = webgl_hash_1;
-          } else {
-            whorls_v1['webgl_hash'] = "randomized";
-          }
-        } catch(ex) {
-          whorls_v1['webgl_hash'] = "undetermined";
-        }
-        
-        callback({v1: whorls_v1, v2: whorls_v2});
+        callback({v2: whorls_v2});
       });
     });
   };
