@@ -156,8 +156,8 @@ def fingerprint_generic(ajax_request, provide_additional_info=False):
 
 
 # first-party redirect route
-@app.route("/tracker")
-def tracker():
+@app.route("/kcarter")
+def kcarter():
     try:
         i = config.first_party_trackers.index(request.host)
     except ValueError:
@@ -166,7 +166,7 @@ def tracker():
     last_redirect = False
     if i < 2:
         next_link = "https://" + \
-            config.first_party_trackers[i + 1] + "/tracker?"
+            config.first_party_trackers[i + 1] + "/kcarter?"
     else:
         last_redirect = True
         next_link = "https://" + config.first_party_trackers[0] + "/results?"
@@ -174,24 +174,17 @@ def tracker():
     if request.args.get('aat'):
         next_link = next_link + "aat=" + request.args.get('aat')
 
-    return render_template('tracker.html', next_link=next_link, last_redirect=last_redirect, third_party_trackers=config.third_party_trackers)
+    return render_template('kcarter.html', next_link=next_link, last_redirect=last_redirect, third_party_trackers=config.third_party_trackers)
 
 
 # third-party route accessed in an iframe for tallying up domains seen
-@app.route("/tracking-tally")
-def tracking_tally():
-    return render_template('tracking_tally.html')
-
-
-# this route is no longer used, but may be useful in the future for users
-# with domain-based blockers without js
-@app.route("/tracker-preflight-nojs")
-def tracker_preflight_nojs():
-    return render_template('tracker_preflight_nojs.html', third_party_trackers=config.third_party_trackers)
+@app.route("/kcarting-tally")
+def kcarting_tally():
+    return render_template('kcarting_tally.html')
 
 
 # first party redirect route, no js
-@app.route("/tracker-nojs")
+@app.route("/kcarter-nojs")
 def tracker_nojs():
     # try2 is for tracking weather a domain has been blocked heuristically,
     # after all third party domains have attempted 3 times to set cookies
@@ -206,19 +199,19 @@ def tracker_nojs():
 
     if i < 2:
         next_link = "https://" + \
-            config.first_party_trackers[i + 1] + "/tracker-nojs"
+            config.first_party_trackers[i + 1] + "/kcarter-nojs"
     else:
         if try2:
             next_link = "https://" + \
                 config.third_party_trackers['ad_server'] + \
-                "/tracker-reporting-nojs"
+                "/kcarter-reporting-nojs"
         else:
             next_link = "https://" + \
                 config.first_party_trackers[i] + \
-                "/tracker-nojs?try2=true"
+                "/kcarter-nojs?try2=true"
 
     cb = random()
-    return render_template('tracker_nojs.html',
+    return render_template('kcarter_nojs.html',
                            next_link=next_link,
                            third_party_trackers=config.third_party_trackers,
                            cb=cb,
@@ -226,8 +219,8 @@ def tracker_nojs():
 
 
 # third-party route, no js. accessed in an iframe for tallying up domains seen
-@app.route("/tracking-tally-nojs")
-def tracking_tally_nojs():
+@app.route("/kcarting-tally-nojs")
+def kcarting_tally_nojs():
     site_cookie = request.cookies.get('site', "")
     site_list = site_cookie.split(" ")
     site_dict = {}
@@ -244,19 +237,19 @@ def tracking_tally_nojs():
     return resp
 
 
-# third party redirect route, no js.  this is accessed after /tracker-nojs
+# third party redirect route, no js.  this is accessed after /kcarter-nojs
 # in order to tally up the results and send them along via GET.
-@app.route("/tracker-reporting-nojs")
+@app.route("/kcarter-reporting-nojs")
 def tracker_reporting_nojs():
     site_cookie = request.cookies.get('site', "")
     if request.host == config.third_party_trackers['ad_server']:
         next_link = "https://" + \
             config.third_party_trackers['tracker_server'] + \
-            "/tracker-reporting-nojs?a=" + site_cookie
+            "/kcarter-reporting-nojs?a=" + site_cookie
     elif request.host == config.third_party_trackers['tracker_server']:
         next_link = "https://" + \
             config.third_party_trackers['dnt_server'] + \
-            "/tracker-reporting-nojs?a=" + \
+            "/kcarter-reporting-nojs?a=" + \
             request.args.get('a') + "&t=" + site_cookie
     elif request.host == config.third_party_trackers['dnt_server']:
         next_link = "https://" + \
@@ -415,7 +408,7 @@ def clear_all_cookies_nojs():
             "/clear-all-cookies-nojs"
     elif request.host == config.third_party_trackers['dnt_server']:
         next_link = "https://" + \
-            config.first_party_trackers[0] + "/tracker-nojs"
+            config.first_party_trackers[0] + "/kcarter-nojs"
 
     resp = make_response(redirect(next_link, 302))
     resp.set_cookie('site', "")

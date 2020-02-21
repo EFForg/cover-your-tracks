@@ -55,7 +55,7 @@
     <div id='fingerprintTable'></div>
     <div id="buttons">
       <div class="row">
-        <a href="/tracker" class="circle" id="trackerlink" title="Click here to re-test how trackable your browser is">Re-test your browser</a>
+        <a href="/kcarter" class="circle" id="kcarterlink" title="Click here to re-test how trackable your browser is">Re-test your browser</a>
       </div>
     </div>
     <div class="fingerprint-thanks">
@@ -90,7 +90,7 @@
       var acceptable_ads_test = {{ acceptable_ads_test }};
 
       if(acceptable_ads_test){
-        $('#trackerlink').attr('href', $('#trackerlink').attr('href') + '?aat=1');
+        $('#kcarterlink').attr('href', $('#kcarterlink').attr('href') + '?aat=1');
       }
 
       (function fingerprint_table_ux(){
@@ -107,22 +107,22 @@
       (function load_iframes(){
         var cb = Math.floor((Math.random()*1000000)+1);
         var a = document.getElementById('a');
-        a.src = 'https://{{ third_party_trackers['ad_server'] }}/tracking-tally?&random=' + cb;
+        a.src = 'https://{{ third_party_trackers['ad_server'] }}/kcarting-tally?&random=' + cb;
 
         var t = document.getElementById('t');
-        t.src = 'https://{{ third_party_trackers['tracker_server'] }}/tracking-tally?&random=' + cb;
+        t.src = 'https://{{ third_party_trackers['tracker_server'] }}/kcarting-tally?&random=' + cb;
 
         var dnt = document.getElementById('dnt');
-        dnt.src = 'https://{{ third_party_trackers['dnt_server'] }}/tracking-tally?&random=' + cb;
+        dnt.src = 'https://{{ third_party_trackers['dnt_server'] }}/kcarting-tally?&random=' + cb;
 
-        var trackerlink = document.getElementById('trackerlink');
-        trackerlink.onclick = function clearCookies(){
+        var kcarterlink = document.getElementById('kcarterlink');
+        kcarterlink.onclick = function clearCookies(){
           a.src = 'https://{{ third_party_trackers['ad_server'] }}/clear-cookies?&random=' + cb;
           t.src = 'https://{{ third_party_trackers['tracker_server'] }}/clear-cookies?&random=' + cb;
           dnt.src = 'https://{{ third_party_trackers['dnt_server'] }}/clear-cookies?&random=' + cb;
 
           setTimeout(function(){
-            window.location = trackerlink.href;
+            window.location = kcarterlink.href;
           }, 2000);
           return false;
         }

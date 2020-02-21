@@ -24,13 +24,13 @@
 
       var cb = Math.floor((Math.random()*1000000)+1);
       var a = document.getElementById('a');
-      a.src = 'https://{{ third_party_trackers['ad_server'] }}/tracking-tally?&ad_url=' + cb;
+      a.src = 'https://{{ third_party_trackers['ad_server'] }}/kcarting-tally?&ad_url=' + cb;
 
       var t = document.getElementById('t');
-      t.src = 'https://{{ third_party_trackers['tracker_server'] }}/tracking-tally?&trackingserver=' + cb;
+      t.src = 'https://{{ third_party_trackers['tracker_server'] }}/kcarting-tally?&trackingserver=' + cb;
 
       var dnt = document.getElementById('dnt');
-      dnt.src = 'https://{{ third_party_trackers['dnt_server'] }}/tracking-tally?&random=' + cb;
+      dnt.src = 'https://{{ third_party_trackers['dnt_server'] }}/kcarting-tally?&random=' + cb;
 
       window.addEventListener("message", receiveMessage, false);
       function receiveMessage(event){
