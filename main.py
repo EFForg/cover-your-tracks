@@ -5,7 +5,7 @@ from flask import Flask, render_template, send_from_directory, request, session,
 from time import time
 from datetime import timedelta, datetime
 from random import random
-from urllib.parse import urlparse
+from urllib.parse import urlparse, quote
 from functools import wraps
 
 import env_config as config
@@ -269,7 +269,7 @@ def results():
                            t_loads=len(request.args.get('t') or ''),
                            dnt_loads=len(request.args.get('dnt') or ''),
                            acceptable_ads_test=len(request.args.get('aat') or ''),
-                           fpi_whorls=request.args.get('fpi_whorls') or {},
+                           fpi_whorls=quote(request.args.get('fpi_whorls') or {}, safe=''),
                            third_party_trackers=config.third_party_trackers)
 
 
