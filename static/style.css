@@ -19,43 +19,166 @@
 }
 
 
-
-
-
 body {
-  text-align:center;
+  text-align: left;
   font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
-  font-size:.8em
+  font-size: 16px;
 }
 
 a {
-  color:#ec1c24;
-  text-decoration:none;
-  font-weight:700
+  color: #f58528;
+  text-decoration: none;
+  font-weight: 700;
 }
 
 a:hover {
-  text-decoration:underline
+  text-decoration: underline;
 }
 
 a img {
-  border:0
+  border: 0;
 }
 
 div#wrapper {
-  background:transparent url(images/fingerprint-bg.jpg) center -30px scroll no-repeat;
-  min-height:602px
+
 }
 
 h1 {
-  font-family:futura, "trebuchet ms", arial, sans-serif
+  font-family:futura, "trebuchet ms", arial, sans-serif;
 }
 
 /* header */
 
-div#credit {
-  margin:0 auto 20px;
-  padding-top:20px;
+#header a {
+  outline: none;
+}
+
+#header .banner {
+  min-height: 237px;
+}
+
+#header .banner .bar .upper {
+  background-color: #000;
+  height: 33px;
+}
+
+#header .banner .bar .upper .width-wrapper {
+  margin: 0 auto;
+  max-width: 540px;
+  display: flex;
+
+}
+
+#header .banner .bar .upper .width-wrapper img.logo {
+  height: 13px;
+  margin-right: 15px;
+  float: left;
+}
+
+#header .banner .bar .upper .width-wrapper .title {
+  align-items: center;
+  justify-content: center;
+  color: #f58528;
+  font-size: 9px;
+  letter-spacing: 1.15px;
+  min-width: 375px;
+  position: relative;
+  top: 17px;
+}
+
+#header .banner .bar .upper .width-wrapper .title a {
+  font-weight: normal;
+}
+
+#header .banner .bar .upper .width-wrapper .donate {
+  background-color: #f58528;
+  border-radius: 4px;
+  box-shadow: 0 0 2px #47260b;
+  color: #0c0602;
+  cursor: pointer;
+  float: right;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  height: 21px;
+  line-height: 22px;
+  outline: none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  top: 12px;
+  margin-left: 15px;
+  transition: .16s background-color;
+  width: 87px;
+}
+
+#header .banner .bar .upper .width-wrapper .donate:hover {
+  background-color: #f46f00;
+}
+
+#header .banner img.title {
+  height: 90px;
+  margin-left: 10px;
+  padding: 28px 0 0;
+  width: 400px;
+}
+
+#header .banner .subtitle {
+  color: #fff;
+  font-size: 27px;
+  font-weight: bold;
+  letter-spacing: .15px;
+  margin: 6px 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+#header .banner-slash {
+  left: 0;
+  position: absolute;
+  top: 236px;
+  width: 100%;
+}
+
+@media screen and (max-width: 579px) {
+  #header .banner {
+    min-height: 200px;
+  }
+
+
+  #header .banner .bar .upper {
+    height: 36px;
+  }
+
+  #header .banner .bar .upper .width-wrapper .title {
+    font-size: 7px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    max-width: 50%;
+    min-width: auto;
+    padding-left: 22px;
+    top: 12px;
+    width: 180px;
+  }
+
+  #header .banner .bar .upper .width-wrapper .donate {
+    margin-right: 10px;
+    top: 10px;
+  }
+
+  #header .banner .bar .upper .width-wrapper .logo {
+    left: 10px;
+    top: 10px;
+  }
+
+  #header .banner img.title {
+    height: 57px;
+    width: 250px;
+  }
+
+  #header .banner .subtitle {
+    font-size: 15px;
+  }
 }
 
 h1#title a {
