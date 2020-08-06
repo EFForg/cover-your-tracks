@@ -17,26 +17,20 @@
     {% block head %}{% endblock %}
   </head>
   <body>
-    <div id='wrapper'>
 
       {% block header %}
       <div id="header">
         <div class="banner">
           <div class="bar">
-            <div class="upper">
-              <div class="width-wrapper">
-                <div class="title">
-                <a href="https://www.eff.org/"><img class="logo" src="/static/images/eff-logo-red.svg" alt="EFF logo"></img></a>
-                  A RESEARCH PROJECT OF THE <a href="https://www.eff.org/">ELECTRONIC FRONTIER FOUNDATION</a>
-                </div>
-                <a class="donate" href="https://supporters.eff.org/donate/panopticlick">
-                  DONATE
-                </a>
-              </div>
+            <div class="title">
+              <a href="https://www.eff.org/"><img class="logo" src="/static/images/eff-logo-red.svg" alt="EFF logo"></img></a>
+                  A Research Project of the <a href="https://www.eff.org/">Electronic Frontier Foundations</a>
             </div>
+            <a class="donate" href="https://supporters.eff.org/donate/panopticlick">Donate
+            </a>
           </div>
           <a href="https://panopticlick.eff.org">
-            <img class="title" src="./static/images/title.png" />
+            <h1>New Name Here</h1>
           </a>
           <div class="subtitle">
             Is your browser safe against tracking?
@@ -83,7 +77,7 @@
         </div>
       {% endblock %}
 
-    </div>
+
     {% if config.get('USE_MATOMO') %}
       <noscript><img src="https://{{ config.get('MATOMO_URL') }}/js/?idsite={{ config.get('MATOMO_SITE_ID') }}&amp;rec=1&amp;action_name=Panopticlick{% if title %} | {{ title }}{% endif %}" style="border:0" height="0" width="0" alt="" /></noscript>
       <div style="height: 0; width: 0; position: absolute" id="anon-stats"></div>

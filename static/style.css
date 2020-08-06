@@ -39,12 +39,11 @@ a img {
   border: 0;
 }
 
-div#wrapper {
-
-}
 
 h1 {
-  font-family:futura, "trebuchet ms", arial, sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 /* header */
@@ -57,25 +56,24 @@ h1 {
   min-height: 237px;
 }
 
-#header .banner .bar .upper {
+#header .banner .bar  {
   background-color: #000;
   height: 33px;
 }
 
-#header .banner .bar .upper .width-wrapper {
-  margin: 0 auto;
-  max-width: 540px;
+#header .banner .bar  {
   display: flex;
-
+  margin: 0 auto;
+  width: 100%;
 }
 
-#header .banner .bar .upper .width-wrapper img.logo {
+#header .banner .bar  img.logo {
+  float: left;
   height: 13px;
   margin-right: 15px;
-  float: left;
 }
 
-#header .banner .bar .upper .width-wrapper .title {
+#header .banner .bar  .title {
   align-items: center;
   justify-content: center;
   color: #f58528;
@@ -86,11 +84,11 @@ h1 {
   top: 17px;
 }
 
-#header .banner .bar .upper .width-wrapper .title a {
+#header .banner .bar .title a {
   font-weight: normal;
 }
 
-#header .banner .bar .upper .width-wrapper .donate {
+#header .banner .bar  .donate {
   background-color: #f58528;
   border-radius: 4px;
   box-shadow: 0 0 2px #47260b;
@@ -112,7 +110,7 @@ h1 {
   width: 87px;
 }
 
-#header .banner .bar .upper .width-wrapper .donate:hover {
+#header .banner .bar  .donate:hover {
   background-color: #f46f00;
 }
 
@@ -124,21 +122,12 @@ h1 {
 }
 
 #header .banner .subtitle {
-  color: #fff;
+  color: black;
   font-size: 27px;
   font-weight: bold;
-  letter-spacing: .15px;
   margin: 6px 0 0;
-  position: relative;
-  z-index: 1;
 }
 
-#header .banner-slash {
-  left: 0;
-  position: absolute;
-  top: 236px;
-  width: 100%;
-}
 
 @media screen and (max-width: 579px) {
   #header .banner {
@@ -146,11 +135,11 @@ h1 {
   }
 
 
-  #header .banner .bar .upper {
+  #header .banner .bar  {
     height: 36px;
   }
 
-  #header .banner .bar .upper .width-wrapper .title {
+  #header .banner .bar .title {
     font-size: 7px;
     letter-spacing: 1px;
     line-height: 1.6;
@@ -161,12 +150,12 @@ h1 {
     width: 180px;
   }
 
-  #header .banner .bar .upper .width-wrapper .donate {
+  #header .banner .bar  .donate {
     margin-right: 10px;
     top: 10px;
   }
 
-  #header .banner .bar .upper .width-wrapper .logo {
+  #header .banner .bar .logo {
     left: 10px;
     top: 10px;
   }
@@ -181,13 +170,8 @@ h1 {
   }
 }
 
-h1#title a {
-  background:transparent url(images/panopticlick-logo.gif) left top scroll no-repeat;
-  display:block;
-  text-indent:-5000px;
-  height:119px;
-  width:537px;
-  margin:0 auto
+iframe {
+  border: none;
 }
 
 /* front page */
@@ -292,8 +276,27 @@ td {
 
 /* footer */
 
-div#footer {
+#footer {
   margin-top:20px
+}
+
+#footer img.logo {
+  height: 40px;
+  margin: 22px auto 6px;
+  outline: none;
+}
+
+
+#footer .links {
+  margin: 18px auto 0;
+}
+
+#footer .links a {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 0 7px 7px;
+  text-transform: uppercase;
 }
 
 small#center {

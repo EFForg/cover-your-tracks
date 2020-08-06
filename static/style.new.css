@@ -1,49 +1,5 @@
 
 
-#content {
-  margin: -18px auto 62px;
-  min-height: 300px;
-}
-
-
-iframe {
-  border: none;
-}
-
-#footer {
-
-}
-
-
-#footer img.logo {
-  height: 40px;
-  margin: 22px auto 6px;
-  outline: none;
-}
-
-#footer .subtitle {
-  font-size: 12px;
-  font-weight: bold;
-  text-shadow: 0 0 1px #fffaee;
-  text-transform: uppercase;
-}
-
-#footer .subtitle a {
-  color: black;
-}
-
-#footer .links {
-  margin: 18px auto 0;
-}
-
-#footer .links a {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 800;
-  padding: 0 7px 7px;
-  text-transform: uppercase;
-}
-
 div.entropy,
 div#about,
 div#front,
