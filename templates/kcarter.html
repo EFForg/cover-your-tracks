@@ -10,13 +10,22 @@
 {% endblock %}
 
 {% block body %}
-  <p style='font-weight: bold; font-size: 15px;'>
-    ... Testing your browser. How well does it protect you from tracking? ...<br>
-    <img src='/static/images/ajax-loader.gif' alt='loading...'>
-  </p>
-  <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;"></iframe>
-  <iframe id="t" style="position:absolute;left:0px;bottom:0px;height:1px;width:1px;"></iframe>
-  <iframe id="dnt" style="position:absolute;left:0px;bottom:0px;height:1px;width:1px;"></iframe>
+  <div class="testing">
+    <div class="column-left">
+      <p>
+       Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.  Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.
+      </p>
+    </div>
+   <div class="column-right">
+    <p>
+      ... Testing your browser. How well does it protect you from tracking? ...<br>
+      <img src='/static/images/ajax-loader.gif' alt='loading...'>
+    </p>
+    <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;"></iframe>
+    <iframe id="t" style="position:absolute;left:0px;bottom:0px;height:1px;width:1px;"></iframe>
+    <iframe id="dnt" style="position:absolute;left:0px;bottom:0px;height:1px;width:1px;"></iframe>
+  </div>
+  </div>
   <script type="text/javascript">
 
     window.onload = function(){

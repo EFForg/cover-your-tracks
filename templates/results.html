@@ -11,56 +11,63 @@
 {% endblock %}
 
 {% block body %}
-  <p>
-    How well are you protected against non-consensual Web tracking? After analyzing your browser and add-ons, the answer is ...
-  </p>
+  <div id='results-wrapper'>
+    <div class="column-left">
+      <p>
+       Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.  Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.
+      </p>
+    </div>
+    <div class="column-right">
+      <p>
+        How well are you protected against non-consensual Web tracking? After analyzing your browser and add-ons, the answer is ...
+      </p>
 
-  <div id='results_wrapper'>
-    <p id='summary_sentence'></p>
-    <table class='tracker_results' id='results'>
-      <tbody>
-        <tr>
-          <th>
-            Test
-          </th>
-          <th>
-            Result
-          </th>
-        </tr>
-        <tr>
-          <td class='test_label'>Is your browser blocking tracking ads?</td>
-          <td id='ad_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
-        </tr>
-        <tr>
-          <td class='test_label'>Is your browser blocking invisible trackers?</td>
-          <td id='tracker_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
-        </tr>
-        <tr id='acceptable_ads_tr'>
-          <td class='test_label'>Does your blocker stop trackers that are included in the so-called <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>“acceptable ads”</a> whitelist?</td>
+      <p id='summary_sentence'></p>
+      <table class='tracker_results' id='results'>
+        <tbody>
+          <tr>
+            <th>
+              Test
+            </th>
+            <th>
+              Result
+            </th>
+          </tr>
+          <tr>
+            <td class='test_label'>Is your browser blocking tracking ads?</td>
+            <td id='ad_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
+         </tr>
+         <tr>
+           <td class='test_label'>Is your browser blocking  invisible trackers?</td>
+           <td id='tracker_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
+         </tr>
+         <tr id='acceptable_ads_tr'>
+           <td class='test_label'>Does your blocker stop trackers that are included in the so-called <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>“acceptable ads”</a> whitelist?</td>
           <td id='acceptable_ads_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
-        </tr>
+         </tr>
 
-        <tr>
+         <tr>
           <td class='test_label'>Does your browser unblock 3rd parties that promise to honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
           <td id='dnt_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
-        </tr>
-        <tr>
+         </tr>
+         <tr>
           <td class='test_label'>Does your browser protect from <a id='showFingerprintLink1' href='#fingerprintTable'>fingerprinting</a>?</td>
           <td id='fp_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
-        </tr>
-      </tbody>
-    </table>
-    <a id='showFingerprintLink2' href='#fingerprintTable'>Show full results for fingerprinting</a>
-    <p class="tracker_results">Note: because tracking techniques are complex, subtle, and constantly evolving, Panopticlick does not measure all forms of tracking and protection.</p>
-    <div id='fingerprintTable'></div>
-    <div id="buttons">
-      <div class="row">
-        <a href="/kcarter" class="circle" id="kcarterlink" title="Click here to re-test how trackable your browser is">Re-test your browser</a>
-      </div>
-    </div>
-    <div class="fingerprint-thanks">
+         </tr>
+       </tbody>
+     </table>
+     <a id='showFingerprintLink2' href='#fingerprintTable'>Show full results for fingerprinting</a>
+     <p class="tracker_results">Note: because tracking techniques are complex, subtle, and constantly evolving, Panopticlick does not measure all forms of tracking and protection.</p>
+     <div id='fingerprintTable'></div>
+     <div id="buttons">
+       <div class="row">
+         <a href="/kcarter" class="circle" id="kcarterlink" title="Click here to re-test how trackable your browser is">Re-test your browser</a>
+       </div>
+     </div>
+     <div class="fingerprint-thanks">
       <font size='-2'>Thanks to <a href='https://github.com/Valve/fingerprintjs2'>Fingerprint2</a> for various fingerprinting tests, <a href='http://www.aloodo.org/'>Aloodo</a> for portions of the tracker test, <a href="http://browserspy.dk">browserspy.dk</a> for the font detection code, and to <a href="https://labs.isecpartners.com/breadcrumbs/breadcrumbs.html">breadcrumbs</a> for supercookie help. Send questions or comments to <a href="mailto:panopticlick@eff.org">panopticlick@eff.org</a>.</font>
-    </div>
+     </div>
+   </div>
   </div>
   <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;"></iframe>
   <iframe id="t" style="position:absolute;left:0px;bottom:0px;height:1px;width:1px;"></iframe>

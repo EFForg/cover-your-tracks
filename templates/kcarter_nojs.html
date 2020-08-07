@@ -1,13 +1,20 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <p style='font-weight: bold; font-size: 15px;'>
+  <div class="column-left">
+    <p>
+     Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.  Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.
+    </p>
+  </div>
+  <div class="column-right">
+    <p>
     ... Testing your browser. How well does it protect you from tracking? ...<br>
     <img src='/static/images/ajax-loader.gif' alt='loading...'>
-  </p>
-  <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['ad_server'] }}/kcarting-tally-nojs?{% if try2 %}try2=true{% else %}&amp;ad_url={{ cb }}{% endif %}'></iframe>
-  <iframe id="t" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['tracker_server'] }}/kcarting-tally-nojs?{% if try2 %}try2=true{% else %}&amp;trackingserver={{ cb }}{% endif %}'></iframe>
-  <iframe id="dnt" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['dnt_server'] }}/kcarting-tally-nojs?{% if try2 %}try2=true{% else %}&amp;ad_url={{ cb }}&amp;trackingserver={{ cb }}{% endif %}'></iframe>
+    </p>
+    <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['ad_server'] }}/kcarting-tally-nojs?{% if try2 %}try2=true{% else %}&amp;ad_url={{ cb }}{% endif %}'></iframe>
+    <iframe id="t" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['tracker_server'] }}/kcarting-tally-nojs?{% if try2 %}try2=true{% else %}&amp;trackingserver={{ cb }}{% endif %}'></iframe>
+    <iframe id="dnt" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['dnt_server'] }}/kcarting-tally-nojs?{% if try2 %}try2=true{% else %}&amp;ad_url={{ cb }}&amp;trackingserver={{ cb }}{% endif %}'></iframe>
+  </div>
   <noscript>
     <meta http-equiv="refresh" content="3;url={{ next_link }}">
   </noscript>

@@ -9,63 +9,71 @@
     How well are you protected against non-consensual Web tracking? After analyzing your browser and add-ons, the answer is ...
   </p>
 
-  <div id='results_wrapper'>
-    <p id='summary_sentence'>
-      {{ summary_sentence|safe }}
-      {% if tool_recommendation and tool_recommendation['name'] == "Privacy Badger" %}
-        {% if detection['browser'] == "chrome" %}
-          <div id='badger-download' javascript='enabled'>
-            <a href='https://chrome.google.com/webstore/detail/pkehgijcmpdhfbdbbnkijodmdjhbjlgp'>Install Privacy Badger<br><div>and Enable Do Not Track</div></a>
-          </div>
-          <p class='other_link'>
-            <a href="https://www.eff.org/files/privacy-badger-latest.xpi">Click here for Firefox version</a>
-          </p>
-        {% elif detection['browser'] == "firefox" %}
-          <div id='badger-download' javascript='enabled'>
-            <a href="https://www.eff.org/files/privacy-badger-latest.xpi">Install Privacy Badger<br><div>and Enable Do Not Track</div></a>
-          </div>
-          <p class='other_link'>
-            <a href='https://chrome.google.com/webstore/detail/pkehgijcmpdhfbdbbnkijodmdjhbjlgp'>Click here for Chrome version</a>
-          </p>
-        {% endif %}
-      {% endif %}
-    </p>
-    <table class='tracker_results' id='results'>
-      <tbody>
-        <tr>
-          <th>
-            Test
-          </th>
-          <th>
-            Result
-          </th>
-        </tr>
-        <tr>
-          <td class='test_label'>Is your browser blocking tracking ads?</td>
-          <td id='ad_status'>{{ ad_result|safe }}</td>
-        </tr>
-        <tr>
-          <td class='test_label'>Is your browser blocking invisible trackers?</td>
-          <td id='tracker_status'>{{ tracker_result|safe }}</td>
-        </tr>
-        <tr>
-          <td class='test_label'>Is your browser accepting <a href='https://www.eff.org/dnt-policy'>Do Not Track commitments?</a></td>
-          <td id='dnt_status'>{{ dnt_result|safe }}</td>
-        </tr>
-          <td class='test_label'>Does your browser protect from fingerprinting?</td>
-          <td id='fp_status'>{{ fingerprint_result|safe }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="tracker_results">Note: because tracking techniques are complex, subtle, and constantly evolving, Panopticlick does not measure all forms of tracking and protection.</p>
-    <div id='fingerprintTable'>{{ fingerprint_content|safe }}</div>
-    <div id="buttons">
-      <div class="row">
-        <a href="{{ retest_link }}" class="circle" id="kcarterlink" title="Click here to re-test how trackable your browser is">Re-test your browser</a>
-      </div>
+  <div id='results-wrapper'>
+    <div class="column-left">
+      <p>
+        Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.  Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.
+      </p>
     </div>
-    <div class="fingerprint-thanks">
-      <font size='-2'>Thanks to <a href='https://github.com/Valve/fingerprintjs2'>Fingerprint2</a> for various fingerprinting tests, <a href='http://www.aloodo.org/'>Aloodo</a> for portions of the tracker test, <a href="http://browserspy.dk">browserspy.dk</a> for the font detection code, and to <a href="https://labs.isecpartners.com/breadcrumbs/breadcrumbs.html">breadcrumbs</a> for supercookie help. Send questions or comments to <a href="mailto:panopticlick@eff.org">panopticlick@eff.org</a>.</font>
+    <div class="column-right">
+      <p id='summary_sentence'>
+        {{ summary_sentence|safe }}
+        {% if tool_recommendation and tool_recommendation['name'] == "Privacy Badger" %}
+          {% if detection['browser'] == "chrome" %}
+            <div id='badger-download' javascript='enabled'>
+              <a href='https://chrome.google.com/webstore/detail/pkehgijcmpdhfbdbbnkijodmdjhbjlgp'>Install Privacy Badger<br><div>and Enable Do Not Track</div></a>
+            </div>
+            <p class='other_link'>
+              <a href="https://www.eff.org/files/privacy-badger-latest.xpi">Click here for Firefox version</a>
+            </p>
+            {% elif detection['browser'] == "firefox" %}
+            <div id='badger-download' javascript='enabled'>
+              <a href="https://www.eff.org/files/privacy-badger-latest.xpi">Install Privacy Badger<br><div>and Enable Do Not Track</div></a>
+            </div>
+            <p class='other_link'>
+              <a href='https://chrome.google.com/webstore/detail/pkehgijcmpdhfbdbbnkijodmdjhbjlgp'>Click here for Chrome version</a>
+            </p>
+            {% endif %}
+          {% endif %}
+        </p>
+        <table class='tracker_results' id='results'>
+          <tbody>
+            <tr>
+              <th>
+              Test
+            </th>
+            <th>
+              Result
+            </th>
+          </tr>
+          <tr>
+            <td class='test_label'>Is your browser blocking tracking ads?</td>
+            <td id='ad_status'>{{ ad_result|safe }}</td>
+          </tr>
+          <tr>
+            <td class='test_label'>Is your browser blocking invisible trackers?</td>
+            <td id='tracker_status'>{{ tracker_result|safe }}</td>
+          </tr>
+          <tr>
+            <td class='test_label'>Is your browser accepting <a href='https://www.eff.org/dnt-policy'>Do Not Track commitments?</a></td>
+            <td id='dnt_status'>{{ dnt_result|safe }}</td>
+          </tr>
+          <tr>
+            <td class='test_label'>Does your browser protect from fingerprinting?</td>
+            <td id='fp_status'>{{ fingerprint_result|safe }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="tracker_results">Note: because tracking techniques are complex, subtle, and constantly evolving, Panopticlick does not measure all forms of tracking and protection.</p>
+      <div id='fingerprintTable'>{{ fingerprint_content|safe }}</div>
+      <div id="buttons">
+        <div class="row">
+          <a href="{{ retest_link }}" class="circle" id="kcarterlink" title="Click here to re-test how trackable your browser is">Re-test your browser</a>
+        </div>
+      </div>
+      <div class="fingerprint-thanks">
+        <font size='-2'>Thanks to <a href='https://github.com/Valve/fingerprintjs2'>Fingerprint2</a> for various fingerprinting tests, <a href='http://www.aloodo.org/'>Aloodo</a> for portions of the tracker test, <a href="http://browserspy.dk">browserspy.dk</a> for the font detection code, and to <a href="https://labs.isecpartners.com/breadcrumbs/breadcrumbs.html">breadcrumbs</a> for supercookie help. Send questions or comments to <a href="mailto:panopticlick@eff.org">panopticlick@eff.org</a>.</font>
+      </div>
     </div>
   </div>
 {% endblock %}
