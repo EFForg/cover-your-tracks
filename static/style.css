@@ -8,7 +8,7 @@
 ** content
 ** footer
 ** individual pages
-** various shared elements
+** various custom elements (tooltips, badger-download)
 */
 @font-face {
   font-family: 'Lato';
@@ -271,6 +271,30 @@ td {
   padding:2px
 }
 
+
+table#results font[size="-2"] {
+    word-break: break-all;
+}
+
+table#results.tracker_results {
+    margin: 10px auto;
+}
+
+p.tracker_results {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 579px) {
+  table#results {
+    font-size: 8px;
+  }
+
+  table#results font {
+    font-size: inherit;
+  }
+}
+
+
 .var {
   font-weight:700
 }
@@ -345,10 +369,11 @@ small#center {
   padding: 5px;
 }
 #summary_sentence{
-  font-weight: bold;
-  font-size: 15px;
-  margin-top: 30px;
+  font-size: inherit;
+  font-weight: normal;
+  margin: 0 0 24px;
 }
+
 table#results.tracker_results{
   margin-top: 10px;
 }
@@ -479,4 +504,88 @@ div#results-wrapper #buttons .row a#kcarterlink {
 }
 .tooltip.bs-tooltip-left .arrow:before {
     border-top-color: #333;
+}
+
+
+#badger-download[javascript="disabled"],
+#badger-download[javascript="disabled"]:hover {
+  background: none;
+  border: none;
+  color: #f58528;
+  cursor: default;
+  margin: 0 auto;
+  padding: 0 0 12px;
+}
+
+#badger-download[javascript="disabled"] a,
+#badger-download[javascript="disabled"] .other_link {
+  color: #f58528;
+  display: block;
+  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: normal;
+}
+
+#badger-download[javascript="disabled"] a:hover {
+  text-decoration: underline;
+}
+
+#badger-download[javascript="enabled"] {
+  background-color: #007DFF;
+  border-color: #007DFF;
+  letter-spacing: normal;
+  max-width: calc(100% - 32px);
+  padding: 16px 12px;
+  transition: .16s background-color, .16s border-color;
+}
+
+#badger-download[javascript="enabled"] a {
+  color: #fff;
+  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: normal;
+  text-shadow: 0px 1px 0px #0070ff;
+}
+
+#badger-download[javascript="enabled"] a div {
+  color: #fff;
+  display: inline-block;
+  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
+  font-size: 12px;
+  position: relative;
+}
+
+#badger-download[javascript="enabled"]:hover {
+  background-color: #006cff;
+  border-color: #006cff;
+}
+
+#badger-download[javascript="enabled"]:hover a div {
+  color: #fff;
+}
+
+@media screen and (max-width: 579px) {
+  #badger-download[javascript="enabled"] a {
+    font-size: 18px;
+  }
+}
+
+#badger-download.not_supported{
+  width: 100%;
+  max-width: none;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+
+.fingerprint-thanks {
+  padding: 32px 0 0;
+}
+
+.ii{
+  font-weight: bold;
+  color: #a00;
+  font-size: 80%;
 }
