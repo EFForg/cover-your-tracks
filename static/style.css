@@ -1,4 +1,15 @@
-/* generic */
+/* colors
+
+*/
+
+/* toc:
+/* base styles
+** header
+** content
+** footer
+** individual pages
+** various shared elements
+*/
 @font-face {
   font-family: 'Lato';
   src: url('/static/fonts/Lato-Regular.ttf') format('truetype');
@@ -68,20 +79,15 @@ h1 {
 }
 
 #header .banner .bar  img.logo {
-  float: left;
   height: 13px;
-  margin-right: 15px;
 }
 
 #header .banner .bar  .title {
-  align-items: center;
-  justify-content: center;
   color: #f58528;
-  font-size: 9px;
-  letter-spacing: 1.15px;
-  min-width: 375px;
+  font-size: 16px;
   position: relative;
-  top: 17px;
+  text-transform: uppercase;
+  top: 0.5rem;
 }
 
 #header .banner .bar .title a {
@@ -95,7 +101,6 @@ h1 {
   color: #0c0602;
   cursor: pointer;
   float: right;
-  font-family: Arial, sans-serif;
   font-size: 12px;
   font-weight: 800;
   height: 21px;
@@ -174,20 +179,39 @@ iframe {
   border: none;
 }
 
-/* front page */
+/* content */
 
-div#front {
-  width:350px;
-  margin:0 auto;
-  text-align:center;
+.column-right {
+  width: 70%;
 }
 
-div#front p {
-  text-align: left;
+.column-left {
+  width: 30%;
+}
+
+/* individual pages */
+div.entropy,
+div#about,
+div#front,
+div#privacy,
+div#results-wrapper,
+div#self-defense {
+  width: auto;
+}
+
+/* front page */
+
+#front {
+  display: flex;
+  margin: 0 auto;
+}
+
+#front .column-right {
+  background-image: url("/static/images/wireframe-flock.png");
+  background-size: cover;
 }
 
 a#clicklink {
-  /*background:transparent url(images/test-me-button.png) left top scroll no-repeat;*/
   background-color: #ec1c24;
 }
 
@@ -196,12 +220,6 @@ a#kcarterlink {
 }
 a.circle:hover {
   text-decoration: none;
-}
-
-#buttons {
-  display:table;
-  border-collapse:separate;
-  border-spacing:20px 0px;
 }
 
 .row {
@@ -213,8 +231,6 @@ a.circle {
   display: table-cell;
   width:92px;
   height:92px;
-  /*margin:0 auto; */
-  /*text-indent:-5000px;*/
   color: #fff;
   font-weight: normal;
   vertical-align: middle;
@@ -225,7 +241,10 @@ p#disclaimer {
   text-align:center;
   margin:0
 }
-
+/* testing page */
+.testing {
+  display: flex;
+}
 /* results page */
 
 table#results {
@@ -274,6 +293,14 @@ td {
   margin: 0;
 }
 
+/* results page */
+div#results-wrapper {
+  display: flex;
+  margin: 0 auto;
+}
+div#results-wrapper .row{
+  margin: 16px auto 0;
+}
 /* footer */
 
 #footer {
@@ -336,7 +363,6 @@ table#results.tracker_results{
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'Open Sans Condensed Bold';
   letter-spacing: 0.1em;
   padding: 1.1em 0.8em;
   text-transform: uppercase;
@@ -361,7 +387,6 @@ table#results.tracker_results{
 #badger-download a div {
   color: #575654;
   font-size: 0.75em;
-  font-family: 'Open Sans Condensed Light';
 }
 #badger-download:hover a div {
   color: white;
@@ -371,15 +396,7 @@ p#summary_sentence .other_link{
   text-align: center;
   margin: 0px;
 }
-div#results_wrapper {
-  width:550px;
-  margin:0 auto;
-  text-align:center;
-}
-div#results_wrapper .row{
-  margin-left: 206px;
-  margin-top: 20px;
-}
+
 label#acceptable_ads{
   display: block;
   margin-top: 10px;
@@ -394,4 +411,72 @@ label#acceptable_ads sup{
 }
 #acceptable_ads_tr{
   display: none;
+}
+
+/* various elements */
+
+#buttons {
+  border-collapse: separate;
+  border-spacing: 0;
+  display: table;
+  width: 100%;
+}
+
+#buttons .row {
+  margin: 0 auto;
+}
+
+#buttons .row a#kcarterlink {
+  background-color: #f58528;
+  border-radius: 6px;
+  box-shadow: 0 0 1px #aacef4;
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  height: 58px;
+  line-height: 58px;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: 0 1px 0 #f58528;
+  text-transform: uppercase;
+  transition: .16s background-color;
+  width: 176px;
+}
+
+#buttons .row a#kcarterlink:hover,
+div#results-wrapper #buttons .row a#kcarterlink:hover {
+  background-color: #f46f00;
+  border-color: #f46f00;
+}
+
+
+div#results-wrapper #buttons .row a#kcarterlink {
+  border: 2px solid #f58528;
+  font-size: 21px;
+  height: auto;
+  line-height: 1;
+  margin: 0 auto;
+  max-width: calc(100% - 32px);
+  padding: 16px 12px;
+  text-align: center;
+  width: 300px;
+}
+
+@media screen and (max-width: 579px) {
+  div#results-wrapper #buttons .row a#kcarterlink {
+    font-size: 18px;
+  }
+}
+
+.tooltip-inner {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+}
+.tooltip.bs-tooltip-left .arrow:before {
+    border-top-color: #333;
 }
