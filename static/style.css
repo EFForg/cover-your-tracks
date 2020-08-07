@@ -31,15 +31,15 @@
 
 
 body {
-  text-align: left;
   font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
   font-size: 16px;
+  text-align: left;
 }
 
 a {
   color: #f58528;
-  text-decoration: none;
   font-weight: 700;
+  text-decoration: none;
 }
 
 a:hover {
@@ -54,9 +54,14 @@ a img {
 h1 {
   font-size: 48px;
   font-weight: 600;
+  margin-bottom: 0;
   text-transform: uppercase;
 }
 
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+}
 /* header */
 
 #header a {
@@ -64,12 +69,12 @@ h1 {
 }
 
 #header .banner {
-  min-height: 237px;
+  margin-bottom: 2rem;
 }
 
 #header .banner .bar  {
-  background-color: #000;
-  height: 33px;
+  background-color: black;
+  height: 2.4rem;
 }
 
 #header .banner .bar  {
@@ -97,8 +102,7 @@ h1 {
 #header .banner .bar  .donate {
   background-color: #f58528;
   border-radius: 4px;
-  box-shadow: 0 0 2px #47260b;
-  color: #0c0602;
+  color: black;
   cursor: pointer;
   float: right;
   font-size: 12px;
@@ -109,21 +113,14 @@ h1 {
   position: relative;
   text-align: center;
   text-decoration: none;
-  top: 12px;
-  margin-left: 15px;
+  top: 0.5rem;
+  margin-left: 1rem;
   transition: .16s background-color;
   width: 87px;
 }
 
 #header .banner .bar  .donate:hover {
   background-color: #f46f00;
-}
-
-#header .banner img.title {
-  height: 90px;
-  margin-left: 10px;
-  padding: 28px 0 0;
-  width: 400px;
 }
 
 #header .banner .subtitle {
@@ -134,19 +131,13 @@ h1 {
 }
 
 
-@media screen and (max-width: 579px) {
-  #header .banner {
-    min-height: 200px;
-  }
-
-
+@media screen and (max-width: 579px)
   #header .banner .bar  {
     height: 36px;
   }
 
   #header .banner .bar .title {
     font-size: 7px;
-    letter-spacing: 1px;
     line-height: 1.6;
     max-width: 50%;
     min-width: auto;
@@ -325,6 +316,10 @@ div#results-wrapper {
 div#results-wrapper .row{
   margin: 16px auto 0;
 }
+
+table#results.tracker_results{
+  margin-top: 10px;
+}
 /* footer */
 
 #footer {
@@ -374,9 +369,7 @@ small#center {
   margin: 0 0 24px;
 }
 
-table#results.tracker_results{
-  margin-top: 10px;
-}
+
 #badger-download {
   margin-top: 20px !important;
   display: block;
