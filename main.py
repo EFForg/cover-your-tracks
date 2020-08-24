@@ -436,12 +436,15 @@ def privacy_2_0():
 
 @app.route("/privacy-3.0")
 def privacy_3_0():
-    return render_template('privacy_3_0.html', title="Privacy Policy") 
+    return render_template('privacy_3_0.html', title="Privacy Policy")
 
 @app.route("/about")
 def about():
     return render_template('about.html', title="About")
 
+@app.route("/learn")
+def learn():
+    return render_template('learn.html', title="Learn")
 
 @app.route("/faq")
 def faq():
