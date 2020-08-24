@@ -72,13 +72,47 @@ h1 {
   margin-bottom: 2rem;
 }
 
-#header .banner .bar  {
-  background-color: black;
-  height: 2.4rem;
+
+@media screen and (max-width: 579px) { /* mobile styles */
+  #header .banner .bar  {
+    height: 36px;
+  }
+
+  #header .banner .bar .title {
+    font-size: 7px;
+    line-height: 1.6;
+    max-width: 50%;
+    min-width: auto;
+    padding-left: 22px;
+    top: 12px;
+    width: 180px;
+  }
+
+  #header .banner .bar  .donate {
+    margin-right: 10px;
+    top: 10px;
+  }
+
+  #header .banner .bar .logo {
+    left: 10px;
+    top: 10px;
+  }
+
+  #header .banner img.title {
+    height: 57px;
+    width: 250px;
+  }
+
+  #header .banner .subtitle {
+    font-size: 15px;
+  }
 }
 
+@media screen and (min-width: 768px) { /*desktop*/
 #header .banner .bar  {
+  background-color: black;
   display: flex;
+  height: 2.4rem;
   margin: 0 auto;
   width: 100%;
 }
@@ -130,70 +164,40 @@ h1 {
   margin: 6px 0 0;
 }
 
-
-@media screen and (max-width: 579px)
-  #header .banner .bar  {
-    height: 36px;
-  }
-
-  #header .banner .bar .title {
-    font-size: 7px;
-    line-height: 1.6;
-    max-width: 50%;
-    min-width: auto;
-    padding-left: 22px;
-    top: 12px;
-    width: 180px;
-  }
-
-  #header .banner .bar  .donate {
-    margin-right: 10px;
-    top: 10px;
-  }
-
-  #header .banner .bar .logo {
-    left: 10px;
-    top: 10px;
-  }
-
-  #header .banner img.title {
-    height: 57px;
-    width: 250px;
-  }
-
-  #header .banner .subtitle {
-    font-size: 15px;
-  }
-}
-
 iframe {
   border: none;
 }
 
 /* content */
 
+#content {
+  margin: 1rem;
+}
 .column-right {
+  margin: 1rem 0 1rem 1rem;
   width: 70%;
 }
 
 .column-left {
+  margin: 1rem 1rem 1rem 0;
   width: 30%;
 }
 
 /* individual pages */
 div.entropy,
 div#about,
+div#learn,
 div#front,
 div#privacy,
 div#results-wrapper,
 div#self-defense {
+  display: flex;
   width: auto;
 }
 
 /* front page */
 
 #front {
-  display: flex;
   margin: 0 auto;
 }
 

@@ -2,6 +2,22 @@
 
 {% block body %}
   <div id="learn">
-    <h3>What does this do?</h3>
+    <div class="column-left">
+      <h3>What is a tracker?</h3>
+      <p>
+        Third party trackers are designed to amass small bits of information gathered from your personal technology. They combine these pieces until they form an all-too-accurate portrait of your online actvity. Each section is an aspect of your device configuration, which was extracted from your browser. Digital fingerprinting is the process whereby a remote site or service gathers little bits of information about a user's machine, and stitches those pieces together to form a unique picture, or "fingerprint," of the user's device. Once the fingerprint is established, the user is recognizable to any third party with access to their profile–in other words, the user is like a microchipped bird.
+      </p>
+    </div>
+    <div class="column-right">
+      <h3>Use the buttons to test different levels of protection</h3>
+      <div class="slide-container">
+        <h5>Adblocker installed</h5>
+        <input type="range" min="1" max="2" value="1" class="slider" >
+        <br/>
+        <br/>
+        <h5>Javascript enabled</h5>
+        <input type="range" min="1" max="2" value="1" class="slider" >
+      </div>
+    </div>
   </div>
 {% endblock %}
