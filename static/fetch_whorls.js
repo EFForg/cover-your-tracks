@@ -30,7 +30,7 @@ function identify_plugins(){
       }
       plist[i] += ". ";
     }
-    plist.sort(); 
+    plist.sort();
     for (i = 0; i < np.length; i++)
       plugins+= "Plugin "+i+": " + plist[i];
   }
@@ -39,12 +39,12 @@ function identify_plugins(){
   if (plugins == "") {
     var pp = new Array();
     pp[0] = "Java"; pp[1] = "QuickTime"; pp[2] = "DevalVR"; pp[3] = "Shockwave";
-    pp[4] = "Flash"; pp[5] = "WindowsMediaplayer"; pp[6] = "Silverlight"; 
+    pp[4] = "Flash"; pp[5] = "WindowsMediaplayer"; pp[6] = "Silverlight";
     pp[7] = "VLC";
     var version;
     for ( p in pp ) {
       version = PluginDetect.getVersion(pp[p]);
-      if (version) 
+      if (version)
         plugins += pp[p] + " " + version + "; "
     }
     plugins += ieAcrobatVersion();
@@ -206,9 +206,9 @@ function fetch_client_whorls(){
   // this is a backup plan
   setTimeout("retry_post()",1100);
 
-  try { 
+  try {
     whorls_v2['plugins'] = identify_plugins();
-  } catch(ex) { 
+  } catch(ex) {
     whorls_v2['plugins'] = "permission denied";
   }
 
@@ -289,6 +289,12 @@ function fetch_client_whorls(){
       }
       if (fpi_whorls['v2']['webgl_hash_v2'] != whorls_v2['webgl_hash_v2']) {
         whorls_v2['webgl_hash_v2'] = "randomized by first party domain";
+      }
+      if (fpi_whorls['v2']['plugins'] != whorls_v2['plugins']) {
+        whorls_v2['plugins'] = "randomized by first party domain";
+      }
+      if (fpi_whorls['v2']['hardware_concurrency'] != whorls_v2['hardware_concurrency']) {
+        whorls_v2['hardware_concurrency'] = "randomized";
       }
     }
 
