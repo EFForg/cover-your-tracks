@@ -1,3 +1,45 @@
+function identify_plugins(){
+  // fetch and serialize plugins
+  var plugins = "";
+  // in Mozilla and in fact most non-IE browsers, this is easy
+  if (navigator.plugins) {
+    var np = navigator.plugins;
+    var plist = new Array();
+    // sorting navigator.plugins is a right royal pain
+    // but it seems to be necessary because their order
+    // is non-constant in some browsers
+    for (var i = 0; i < np.length; i++) {
+      plist[i] = np[i].name + "; ";
+      plist[i] += np[i].description + "; ";
+      plist[i] += np[i].filename + ";";
+      for (var n = 0; n < np[i].length; n++) {
+        plist[i] += " (" + np[i][n].description +"; "+ np[i][n].type +
+                   "; "+ np[i][n].suffixes + ")";
+      }
+      plist[i] += ". ";
+    }
+    plist.sort();
+    for (i = 0; i < np.length; i++)
+      plugins+= "Plugin "+i+": " + plist[i];
+  }
+  // in IE, things are much harder; we use PluginDetect to get less
+  // information (only the plugins listed below & their version numbers)
+  if (plugins == "") {
+    var pp = new Array();
+    pp[0] = "Java"; pp[1] = "QuickTime"; pp[2] = "DevalVR"; pp[3] = "Shockwave";
+    pp[4] = "Flash"; pp[5] = "WindowsMediaplayer"; pp[6] = "Silverlight";
+    pp[7] = "VLC";
+    var version;
+    for ( p in pp ) {
+      version = PluginDetect.getVersion(pp[p]);
+      if (version)
+        plugins += pp[p] + " " + version + "; "
+    }
+    plugins += ieAcrobatVersion();
+  }
+  return plugins;
+}
+
 function fetch_first_party_isolated_whorls(callback){
   const options = {
     excludes: {
@@ -34,6 +76,14 @@ function fetch_first_party_isolated_whorls(callback){
     }
   };
   let whorls_v2 = new Object();
+
+  try {
+    whorls_v2['plugins'] = identify_plugins();
+  } catch(ex) {
+    whorls_v2['plugins'] = "permission denied";
+  }
+
+  whorls_v2['hardware_concurrency'] = navigator.hardwareConcurrency || "N/A";
 
   const fp2_get_components = function() {
     Fingerprint2_new.get(options, function(components){
