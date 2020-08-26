@@ -197,31 +197,6 @@ div#self-defense {
   background-size: cover;
 }
 
-a#clicklink {
-  background-color: #ec1c24;
-}
-
-a#kcarterlink {
-  background-color: #ec1c24;
-}
-a.circle:hover {
-  text-decoration: none;
-}
-
-.row {
-  margin-left: 87px;
-}
-
-a.circle {
-  border-radius: 92px;
-  display: table-cell;
-  width:92px;
-  height:92px;
-  color: #fff;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
 
 p#disclaimer {
   text-align:center;
@@ -427,6 +402,29 @@ label#acceptable_ads sup{
 }
 
 /* various elements */
+.button-style {
+  background: gray;
+  border: 2px solid gray;
+  border-radius: 18px;
+  clear: both;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1rem auto;
+  max-width: 23rem;
+  padding: 0.3rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.button-style:hover {
+  background: black;
+  border: 2px solid black;
+  color: white;
+  text-decoration: none;
+}
 
 #buttons {
   border-collapse: separate;
@@ -440,20 +438,15 @@ label#acceptable_ads sup{
 }
 
 #buttons .row a#kcarterlink {
-  background-color: #f58528;
   border-radius: 6px;
-  box-shadow: 0 0 1px #aacef4;
   display: block;
   font-size: 28px;
   font-weight: 800;
-  height: 58px;
-  line-height: 58px;
   margin: 0 auto;
+  padding: 1rem 0 0;
   text-align: center;
-  text-shadow: 0 1px 0 #f58528;
-  text-transform: uppercase;
   transition: .16s background-color;
-  width: 176px;
+  width: 100%;
 }
 
 #buttons .row a#kcarterlink:hover,
