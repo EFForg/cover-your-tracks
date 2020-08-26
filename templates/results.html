@@ -23,39 +23,30 @@
       </p>
 
       <p id='summary_sentence'></p>
-      <table class='tracker_results' id='results'>
-        <tbody>
-          <tr>
-            <th>
-              Test
-            </th>
-            <th>
-              Result
-            </th>
-          </tr>
-          <tr>
-            <td class='test_label'>Is your browser blocking tracking ads?</td>
-            <td id='ad_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
-         </tr>
-         <tr>
-           <td class='test_label'>Is your browser blocking  invisible trackers?</td>
-           <td id='tracker_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
-         </tr>
-         <tr id='acceptable_ads_tr'>
-           <td class='test_label'>Does your blocker stop trackers that are included in the so-called <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>“acceptable ads”</a> whitelist?</td>
-          <td id='acceptable_ads_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
-         </tr>
+      <div class='tracker_results' id='results'>
 
-         <tr>
-          <td class='test_label'>Does your browser unblock 3rd parties that promise to honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
-          <td id='dnt_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
-         </tr>
-         <tr>
-          <td class='test_label'>Does your browser protect from <a id='showFingerprintLink1' href='#fingerprintTable'>fingerprinting</a>?</td>
-          <td id='fp_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
-         </tr>
-       </tbody>
-     </table>
+            <div class='test_label'>Is your browser blocking tracking ads?</div>
+            <div id='ad_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></div>
+
+
+           <div class='test_label'>Is your browser blocking  invisible trackers?</div>
+           <div id='tracker_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></div>
+
+         <div id='acceptable_ads_tr'>
+           <div class='test_label'>Does your blocker stop trackers that are included in the so-called <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>“acceptable ads”</a> whitelist?</div>
+          <div id='acceptable_ads_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></div>
+         </div>
+
+
+          <div class='test_label'>Does your browser unblock 3rd parties that promise to honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</div>
+          <div id='dnt_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></div>
+
+
+          <div class='test_label'>Does your browser protect from <a id='showFingerprintLink1' href='#fingerprintTable'>fingerprinting</a>?</div>
+          <div id='fp_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></div>
+
+
+     </div>
      <a id='showFingerprintLink2' href='#fingerprintTable'>Show full results for fingerprinting</a>
      <p class="tracker_results">Note: because tracking techniques are complex, subtle, and constantly evolving, Panopticlick does not measure all forms of tracking and protection.</p>
      <div id='fingerprintTable'></div>
