@@ -85,7 +85,7 @@
       'no_unique': "{% include '_fp_no_unique.html' %}",
       'partial'  : "{% include '_fp_partial.html' %}"
     };
-    var download_links = "{% include '_summary_download_links.html' %}";
+
     var fpi_whorls = JSON.parse(decodeURIComponent('{{ fpi_whorls }}'));
     window.onload = function(){
       document.getElementById('fingerprintTable').style.display = "none";
@@ -184,18 +184,6 @@
         }
       })();
 
-      function install_link(browser, url) {
-        var install = document.createElement('a');
-        install.href = url;
-        install.innerHTML = "Install Privacy Badger<br><div>and Enable Do Not Track</div>";
-        install.onclick = function(){
-          if(browser == 'Chrome'){
-            event.preventDefault();
-            chrome.webstore.install(url, function(){}, function(){onChromeInstallFailure(url)});
-          }
-        }
-        return install;
-      }
 
       function other_link(browser, url){
         var other = document.createElement('p');
@@ -247,71 +235,6 @@
         return {browser: browser, platform: platform};
       }
 
-      // this function is mirrored by get_tool_recommendation in util.py.  if you change it here, make sure it's changed there as well.
-      function prepare_install_button(detection){
-        var firefox_url = document.querySelector('#badger-firefox').href;
-        var chrome_url = document.querySelector('#badger-chrome').href;
-        var opera_url = document.querySelector('#badger-opera').href;
-        var badger_download = document.getElementById('badger-download');
-        var tool_recommendation = document.getElementById('tool-recommendation');
-        var platform = detection.platform;
-        var browser = detection.browser;
-        badger_download.innerHTML = "";
-        badger_download.setAttribute('javascript', 'enabled');
-        // firefox
-        if(platform == 'desktop'){
-          if(browser == 'firefox'){
-            badger_download.onclick = function(){
-              window.location = firefox_url;
-            };
-            badger_download.appendChild(install_link('Firefox', firefox_url));
-            badger_download.parentNode.insertBefore(other_link('Opera', opera_url),badger_download.nextSibling);
-            badger_download.parentNode.insertBefore(other_link('Chrome', chrome_url),badger_download.nextSibling);
-          }
-          // chrome
-          else if(browser == 'chrome'){
-            badger_download.onclick = function(){
-              window.location = chrome_url;
-            };
-            badger_download.appendChild(install_link('Chrome', chrome_url));
-            badger_download.parentNode.insertBefore(other_link('Opera', opera_url),badger_download.nextSibling);
-            badger_download.parentNode.insertBefore(other_link('Firefox', firefox_url),badger_download.nextSibling);
-          } else if(browser == 'opera') {
-            badger_download.onclick = function(){
-              window.location = opera_url;
-            };
-            badger_download.appendChild(install_link('Opera', opera_url));
-            badger_download.parentNode.insertBefore(other_link('Chrome', chrome_url),badger_download.nextSibling);
-            badger_download.parentNode.insertBefore(other_link('Firefox', firefox_url),badger_download.nextSibling);
-          } else if(browser == 'ie'){
-            badger_download.style.display = "none";
-            tool_recommendation.href = "http://windows.microsoft.com/en-us/internet-explorer/use-tracking-protection#ie=ie-11";
-            tool_recommendation.innerHTML = "adding tracker protection lists EasyList and EasyPrivacy";
-          } else {
-            badger_download.style.display = "none";
-          }
-        } else if(platform == 'ios') {
-          if(browser == 'safari'){
-            badger_download.style.display = "none";
-            tool_recommendation.href = "https://itunes.apple.com/us/app/disconnect-best-blocking-award/id935480186?mt=8";
-            tool_recommendation.innerHTML = "Disconnect";
-          } else {
-            badger_download.style.display = "none";
-            tool_recommendation.href = "https://itunes.apple.com/us/app/disconnect-privacy-pro-entire/id1057771839?mt=8";
-            tool_recommendation.innerHTML = "Disconnect Privacy Pro";
-          }
-        } else if(platform == 'android'){
-          if(browser == 'firefox'){
-            badger_download.style.display = "none";
-            tool_recommendation.href = "https://addons.mozilla.org/en-US/android/addon/ublock-origin/";
-            tool_recommendation.innerHTML = "uBlock Origin";
-          } else {
-            badger_download.style.display = "none";
-            tool_recommendation.href = "https://disconnect.me/mobile/disconnect-mobile/sideload";
-            tool_recommendation.innerHTML = "Disconnect";
-          }
-        }
-      }
 
       function record_results(){
         var req = new XMLHttpRequest();
@@ -403,7 +326,7 @@
             } else {
               summary_sentence.innerHTML += " <strong>installing extra protections</strong>.  Privacy Badger isn't available for your browser / OS, but <a id='tool-recommendation' target='_blank'></a> may work for you.";
             }
-            summary_sentence.innerHTML += download_links;
+
 
             prepare_install_button(detection);
           }
