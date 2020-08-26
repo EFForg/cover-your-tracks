@@ -269,9 +269,9 @@ p.tracker_results {
 /* privacy page */
 
 #privacy, #about, #self-defense {
-  margin:0 auto;
+  margin: 0 auto;
   text-align:left;
-  width:500px
+  width: 500px
 }
 
 #privacy h2, #about h2 {
@@ -424,54 +424,6 @@ label#acceptable_ads sup{
   border: 2px solid black;
   color: white;
   text-decoration: none;
-}
-
-#buttons {
-  border-collapse: separate;
-  border-spacing: 0;
-  display: table;
-  width: 100%;
-}
-
-#buttons .row {
-  margin: 0 auto;
-}
-
-#buttons .row a#kcarterlink {
-  border-radius: 6px;
-  display: block;
-  font-size: 28px;
-  font-weight: 800;
-  margin: 0 auto;
-  padding: 1rem 0 0;
-  text-align: center;
-  transition: .16s background-color;
-  width: 100%;
-}
-
-#buttons .row a#kcarterlink:hover,
-div#results-wrapper #buttons .row a#kcarterlink:hover {
-  background-color: #f46f00;
-  border-color: #f46f00;
-}
-
-
-div#results-wrapper #buttons .row a#kcarterlink {
-  border: 2px solid #f58528;
-  font-size: 21px;
-  height: auto;
-  line-height: 1;
-  margin: 0 auto;
-  max-width: calc(100% - 32px);
-  padding: 16px 12px;
-  text-align: center;
-  width: 300px;
-}
-
-@media screen and (max-width: 579px) {
-  div#results-wrapper #buttons .row a#kcarterlink {
-    font-size: 18px;
-  }
 }
 
 .tooltip-inner {
