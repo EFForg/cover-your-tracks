@@ -11,31 +11,25 @@
   {% endif %}
   <p>The measurements we used to obtain this result are listed below. You can <a href="about">read more about our methodology, statistical results, and some defenses against fingerprinting here</a>.</p>
 </div>
-<table id="results">
-  <tr>
-    <th>Browser Characteristic</th>
-    <th>bits of identifying information</th>
-    <th>one in <i><font face=times new roman,times,serif>x</font></i> browsers have this value</th>
-    <th>value</th>
-  </tr>
+<div id="results">
+  <h3>Browser Characteristics</h3>
   {% for key, label in labels.items(): %}
-    <tr>
-      <td>{{ label }}</td>
-      <td>
-        <center>
-          {{ uniqueness[key]['bits'] }}
-        </center>
-      </td>
-      <td>
-        <center>
+    <div>
+      <div><strong>{{ label }}</strong></div>
+      <div>{{ whorls[key] }}</div>
+
+      <br/>
+      <div>
+          bits of identifying information: <em>{{ uniqueness[key]['bits'] }}</em>
+      </div>
+      <div>
           {% if uniqueness[key]['one_in_x'] == -1 %}
-            <span class='ii'>N/A</span>
+            one in <i><font face=times new roman,times,serif>x</font></i> browsers have this value: <span class='ii'>N/A</span>
           {% else %}
-            {{ uniqueness[key]['one_in_x'] }}
+            one in <i><font face=times new roman,times,serif>x</font></i> browsers have this value:<em>{{ uniqueness[key]['one_in_x'] }}</em>
           {% endif %}
-        </center>
-      </td>
-      <td><font size='-2'>{{ whorls[key] }}</font></td>
-    </tr>
+      </div>
+    </div>
+    <hr/>
   {% endfor %}
-</table>
+</div>
