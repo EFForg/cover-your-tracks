@@ -78,7 +78,7 @@ h1 {
     height: 36px;
   }
 
-  #header .banner .bar .title {
+  #header .banner .bar .attribution {
     font-size: 7px;
     line-height: 1.6;
     max-width: 50%;
@@ -98,7 +98,7 @@ h1 {
     top: 10px;
   }
 
-  #header .banner img.title {
+  #header .banner img.attribution {
     height: 57px;
     width: 250px;
   }
@@ -119,43 +119,22 @@ h1 {
 
 #header .banner .bar  img.logo {
   height: 13px;
+  padding: 0 0.25rem;
 }
 
-#header .banner .bar  .title {
-  color: #f58528;
+#header .banner .bar .attribution {
+  color: white;
   font-size: 16px;
+  margin-left: 1rem;
   position: relative;
   text-transform: uppercase;
   top: 0.5rem;
 }
 
-#header .banner .bar .title a {
+#header .banner .bar .attribution a {
   font-weight: normal;
 }
 
-#header .banner .bar  .donate {
-  background-color: #f58528;
-  border-radius: 4px;
-  color: black;
-  cursor: pointer;
-  float: right;
-  font-size: 12px;
-  font-weight: 800;
-  height: 21px;
-  line-height: 22px;
-  outline: none;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  top: 0.5rem;
-  margin-left: 1rem;
-  transition: .16s background-color;
-  width: 87px;
-}
-
-#header .banner .bar  .donate:hover {
-  background-color: #f46f00;
-}
 
 #header .banner .subtitle {
   color: black;
@@ -164,10 +143,18 @@ h1 {
   margin: 6px 0 0;
 }
 
-iframe {
-  border: none;
+#header .banner .title-area {
+  display: flex;
+  margin-left: 1rem;
 }
 
+#header .banner .title-area .site-title {
+  width: 75%;
+}
+
+#header .banner .title-area .nav {
+  width: 25%;
+}
 /* content */
 
 #content {
@@ -181,6 +168,10 @@ iframe {
 .column-left {
   margin: 1rem 1rem 1rem 0;
   width: 30%;
+}
+
+iframe {
+  border: none;
 }
 
 /* individual pages */
