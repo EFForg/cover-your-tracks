@@ -12,17 +12,21 @@
   <p>The measurements we used to obtain this result are listed below. You can <a href="about">read more about our methodology, statistical results, and some defenses against fingerprinting here</a>.</p>
 </div>
 <div id="results">
-  <h3>Browser Characteristics</h3>
+  <h3>Your Results</h3>
+  <div>
+    <span class="button-style">default view</span>
+    <span class="button-style">detailed view</span>
+  </div>
   {% for key, label in labels.items(): %}
     <div>
       <div><strong>{{ label }}</strong></div>
       <div>{{ whorls[key] }}</div>
 
       <br/>
-      <div>
+      <div class="detailed">
           bits of identifying information: <em>{{ uniqueness[key]['bits'] }}</em>
       </div>
-      <div>
+      <div class="detailed">
           {% if uniqueness[key]['one_in_x'] == -1 %}
             one in <i><font face=times new roman,times,serif>x</font></i> browsers have this value: <span class='ii'>N/A</span>
           {% else %}
