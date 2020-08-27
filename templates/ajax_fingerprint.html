@@ -18,11 +18,13 @@
     <span id="detailed-button" class="button-style">detailed view</span>
   </div>
   {% for key, label in labels.items(): %}
-    <div>
-      <div><strong>{{ label }}</strong></div>
-      <div>{{ whorls[key] }}</div>
+    <div class="results-table">
+      <h4>{{ label }}</h4>
+      <div class="default">{{ whorls[key] }}</div>
 
       <br/>
+      <div class="text detailed">
+      </div>
       <div class="detailed">
           bits of identifying information: <em>{{ uniqueness[key]['bits'] }}</em>
       </div>
