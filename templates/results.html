@@ -12,12 +12,12 @@
 
 {% block body %}
   <div id='results-wrapper'>
-    <div class="column-left">
+    <aside>
       <p>
        Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.  Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.
       </p>
-    </div>
-    <div class="column-right">
+    </aside>
+    <div class="main-section">
       <p>
         How well are you protected against non-consensual Web tracking? After analyzing your browser and add-ons, the answer is ...
       </p>
@@ -352,4 +352,5 @@
     window.onunload=function() {};
   </script>
   <script src="/static/zig.js" type='text/javascript'></script>
+  <script src="/static/results.js" type='text/javascript'></script>
 {% endblock %}

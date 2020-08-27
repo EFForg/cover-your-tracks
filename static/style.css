@@ -160,12 +160,12 @@ h1 {
 #content {
   margin: 1rem;
 }
-.column-right {
+.main-section {
   margin: 1rem 0 1rem 1rem;
   width: 70%;
 }
 
-.column-left {
+aside {
   margin: 1rem 1rem 1rem 0;
   width: 30%;
 }
@@ -192,7 +192,7 @@ div#self-defense {
   margin: 0 auto;
 }
 
-#front .column-right {
+#front .main-section {
   background-image: url("/static/images/wireframe-flock.png");
   background-size: cover;
 }

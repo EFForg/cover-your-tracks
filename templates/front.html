@@ -9,7 +9,7 @@
 
 {% block body %}
   <div id="front">
-    <div class="column-left">
+    <aside>
     <p>
       Panopticlick determines how unique—and trackable—your browser is.
     </p>
@@ -30,8 +30,8 @@
 
     <a href="/learn" class="button-style">Learn More About Fingerprinting</a>
 
-    </div>
-    <div class="column-right">
+    </aside>
+    <div class="main-section">
     </div>
   </div>
   <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['ad_server'] }}/clear-cookies?random={{ cb }}'></iframe>
