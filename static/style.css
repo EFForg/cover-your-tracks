@@ -206,65 +206,7 @@ p#disclaimer {
 .testing {
   display: flex;
 }
-/* results page */
 
-table#results {
-  font-size:12px;
-  font-family:helvetica, sans;
-  border:1px solid gray;
-  background-color:#f0f0f0;
-  border-collapse:collapse;
-  border-spacing:2px;
-  margin:50px auto 0;
-  max-width:900px
-}
-
-th {
-  text-align:center;
-  border:1px solid gray;
-  padding:2px
-}
-
-td {
-  vertical-align:center;
-  text-align:center;
-  border:1px solid gray;
-  padding:2px
-}
-
-
-table#results font[size="-2"] {
-    word-break: break-all;
-}
-
-table#results.tracker_results {
-    margin: 10px auto;
-}
-
-p.tracker_results {
-  font-size: 12px;
-}
-
-@media screen and (max-width: 579px) {
-  table#results {
-    font-size: 8px;
-  }
-
-  table#results font {
-    font-size: inherit;
-  }
-}
-
-
-.var {
-  font-weight:700
-}
-
-.entropy {
-  margin:0 auto;
-  text-align:justify;
-  width:500px;
-}
 
 /* privacy page */
 
