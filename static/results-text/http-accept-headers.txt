@@ -1,0 +1,3 @@
+<h5>What is this?</h5>
+<p>The Accepts header gives the browser a chance to tell the server which format it wants for a resource. By giving a list of options this content negotiation happens in a single request. One of the key design goals of the HTTP spec is to minimize back-and-forth communication. [better explanation for this needed] </p>
+<h5>What kind of information is gathered?</h5>

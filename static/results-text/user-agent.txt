@@ -1,4 +1,4 @@
 <h5>What is this?</h5>
-<p class="detailed">A user agent is software that retrieves, renders and facilitates end user interaction with web content–in other words, it does the hard work of talking to a computer on your behalf. In the context of your browser, this involves sending requests for content whenever you visit a website.</p>
+<p>A user agent is software that retrieves, renders and facilitates end user interaction with web content–in other words, it does the hard work of talking to a computer on your behalf. In the context of your browser, this involves sending requests for content whenever you visit a website.</p>
 <h5>What kind of information is gathered?</h5>
-<p class="detailed"> Trackers can get the name and version of whichever browser you’re using, along with the name/version of your operating system.</p>
+<p> Trackers can get the name and version of whichever browser you’re using, along with the name/version of your operating system.</p>
