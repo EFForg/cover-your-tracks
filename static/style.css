@@ -51,6 +51,7 @@ a img {
 }
 
 
+
 h1 {
   font-size: 48px;
   font-weight: 600;
@@ -58,6 +59,11 @@ h1 {
   text-transform: uppercase;
 }
 
+h1 span {
+  /* Tracks of Cover Your Tracks */
+  font-size: 79px;
+  line-height: 48px
+}
 .wrapper {
   margin: 0 auto;
   max-width: 1200px;
@@ -66,6 +72,10 @@ h1 {
 
 #header a {
   outline: none;
+}
+
+#header a:hover {
+  text-decoration: none;
 }
 
 #header .banner {
@@ -152,8 +162,21 @@ h1 {
   width: 75%;
 }
 
-#header .banner .title-area .nav {
+/* nav */
+
+#header nav {
   width: 25%;
+}
+
+#header nav ul {
+  list-style-type: none;
+  margin: 2.2rem 0;
+  width: 100%;
+}
+
+#header nav ul li{
+  display: inline-block;
+  padding: 0 1rem 0 0;
 }
 /* content */
 
@@ -193,8 +216,10 @@ div#self-defense {
 }
 
 #front .main-section {
-  background-image: url("/static/images/wireframe-flock.png");
-  background-size: cover;
+  background-image: url("/static/images/home-image.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 
