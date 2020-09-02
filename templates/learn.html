@@ -3,14 +3,14 @@
 {% block body %}
   <div id="learn">
     <aside>
-      <h3>Tracking and Fingerprinting</h3>
+      <h3>Short intro to tracking and fingerprinting</h3>
       <p>Every time you visit a website, your browser leaves behind  little bits of information about itself. These bits, when combined, form a distinct picture or fingerprint of your browser.</p>
 
       <p>Even with cookies disabled, trackers can use browser fingerprints to track users across the web.</p>
 
       <p>Some browsers have better protections against fingerprinting than others, and browser addons can be used to mitigate the harms of fingerprinting and block trackers.</p>
 
-      <h3>What’s a fingerprint?</h3>
+      <h3>What is a digital fingerprint?</h3>
       <p>Fingerprinting is the process whereby a remote site or service gathers little bits of information about a user's browser.  This includes information the browser delivers in a request to the website, as well as further information the website can determine by using JavaScript on the page. A tracking site can  stitch  those pieces together to form a unique picture, or "fingerprint," of the user's device.</p>
 
       <h3>What is a tracker?</h3>
@@ -22,13 +22,28 @@
       </p>
     </aside>
     <div class="main-section">
-      <h3>Use the buttons to test different levels of protection</h3>
+      <h3>This section of the site lets you test how Cover Your Tracks “sees” your browser. Adjust the sliders to turn various settings on and off and observe how they increase or decrease your fingerprint. </h3>
       <div class="slide-container">
-        <h5>Adblocker installed</h5>
+        <h5>Tracker blocker</h5>
+        <p>When you block trackers, you prevent tracking companies from reading your browser fingerprint.  Advanced adversaries may still be able to read your fingerprint, though.</p>
+        <label>installed/not installed</label>
+        <br/>
         <input type="range" min="1" max="2" value="1" class="slider" >
         <br/>
         <br/>
-        <h5>Javascript enabled</h5>
+        <h5>Javascript</h5>
+        <p>When you turn JavaScript off, trackers aren’t able to determine much of the information which is used to determine your browser fingerprint. This means that your browser looks a lot less distinct, and more protected!</p>
+        <label>enabled/not enabled</label><br/>
+        <input type="range" min="1" max="2" value="1" class="slider" >
+        <br/>
+        <br/>
+        <h5>Using a fingerprint-resistant browser</h5>
+        <p>Some browsers have fingerprinting protection built in. The way this is implemented varies from browser to browser, but generally these protections make your browser fingerprint either less unique or less consistent. This means trackers have a harder time following your usage of the web. </p>
+        <label>yes/no</label><br/>
+        <input type="range" min="1" max="2" value="1" class="slider" >
+        <h5>Changed browser settings from defaults</h5>
+        <p>Generally, changing browser settings from their defaults will result in a more unique (and thus more trackable) browser.</p>
+        <label>yes/no</label><br/>
         <input type="range" min="1" max="2" value="1" class="slider" >
       </div>
     </div>
