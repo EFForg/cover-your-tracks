@@ -122,8 +122,10 @@ def fingerprint_generic(ajax_request, provide_additional_info=False):
     # detect server whorls, merge with client whorls
     server_whorls_v2 = FingerprintAgent(request).detect_server_whorls()
     whorls_v2 = server_whorls_v2.copy()
+    randomized_results = 0
     if ajax_request:
         data = json.loads(request.data)
+        randomized_results = data['randomized_results']
         for i in data['v2'].keys():
             whorls_v2[i] = str(data['v2'][i])
 
@@ -145,6 +147,7 @@ def fingerprint_generic(ajax_request, provide_additional_info=False):
                              group=group,
                              labels=FingerprintHelper.whorl_v2_names,
                              whorls=whorls_v2,
+                             randomized_results=randomized_results,
                              uniqueness=uniqueness)
 
     if ajax_request:

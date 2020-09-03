@@ -1,6 +1,8 @@
 <br>
 <div class='entropy' style='text-align:center border:1px'>
-  {% if matching == 1: %}
+  {% if randomized_results >= 4: %}
+    <p>Your browser fingerprint <strong>has been randomized</strong> among the {{ total_formatted }} tested in the past 45 days. Although sophisticated adversaries may still able to track you to some extent, randomization provides a very strong protection against tracking companies trying to fingerprint your browser.</p>
+  {% elif matching == 1: %}
     <p>Your browser fingerprint <strong>appears to be unique</strong> among the {{ total_formatted }} tested in the past 45 days.</p>
   {% else %}
     <p>Within our dataset of {{ sample_string }} visitors tested in the past 45 days, {% if group > 100 %}only {% endif %}<strong>one in {{ group }} browsers have the same fingerprint as yours.</strong></p>

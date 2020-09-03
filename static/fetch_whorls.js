@@ -178,25 +178,29 @@ function retry_post() {
 }
 
 function fetch_client_whorls(){
-  var callback = function(results){
-    success = 1;
-    json_results = JSON.parse(results);
-    if(typeof trackerTest != 'undefined' && trackerTest){
-      $('#fingerprintTable').html(json_results.markup);
-      // the below is somewhat arbitrary.  we may want to have the result
-      // determined by entropy rather than matches in the future
-      // * note: if this logic changes, change in results-nojs route too.
-      if(json_results.matching == 1){
-        $('#fp_status').html(fp_status_str['no_unique']);
-      } else if(json_results.matching <= 20){
-        $('#fp_status').html(fp_status_str['no']);
-      } else if(json_results.matching <= 100){
-        $('#fp_status').html(fp_status_str['partial']);
+  var callback = function(randomized_results){
+    return function(results){
+      success = 1;
+      json_results = JSON.parse(results);
+      if(typeof trackerTest != 'undefined' && trackerTest){
+        $('#fingerprintTable').html(json_results.markup);
+        // the below is somewhat arbitrary.  we may want to have the result
+        // determined by entropy rather than matches in the future
+        // * note: if this logic changes, change in results-nojs route too.
+        if(randomized_results >= 4){
+          $('#fp_status').html(fp_status_str['almost_yes']);
+        } else if(json_results.matching == 1){
+          $('#fp_status').html(fp_status_str['no_unique']);
+        } else if(json_results.matching <= 10){
+          $('#fp_status').html(fp_status_str['no']);
+        } else if(json_results.matching <= 50){
+          $('#fp_status').html(fp_status_str['partial']);
+        } else {
+          $('#fp_status').html(fp_status_str['yes']);
+        }
       } else {
-        $('#fp_status').html(fp_status_str['yes']);
+        $('#content .content-background').html(json_results.markup);
       }
-    } else {
-      $('#content .content-background').html(json_results.markup);
     }
   };
 
@@ -280,29 +284,35 @@ function fetch_client_whorls(){
     // send to server for logging / calculating
     // and fetch results
 
+    let randomized_results = 0;
     if (typeof(fpi_whorls) != "undefined") {
-      if (fpi_whorls['v2']['audio'] != whorls_v2['audio']) {
+      if (fpi_whorls['v2']['audio'] != whorls_v2['audio'] && fpi_whorls['v2']['audio'] != "permission denied") {
         whorls_v2['audio'] = "randomized by first party domain";
+        randomized_results++;
       }
-      if (fpi_whorls['v2']['canvas_hash_v2'] != whorls_v2['canvas_hash_v2']) {
+      if (fpi_whorls['v2']['canvas_hash_v2'] != whorls_v2['canvas_hash_v2'] && fpi_whorls['v2']['canvas_hash_v2'] != "permission denied") {
         whorls_v2['canvas_hash_v2'] = "randomized by first party domain";
+        randomized_results++;
       }
-      if (fpi_whorls['v2']['webgl_hash_v2'] != whorls_v2['webgl_hash_v2']) {
+      if (fpi_whorls['v2']['webgl_hash_v2'] != whorls_v2['webgl_hash_v2'] && fpi_whorls['v2']['webgl_hash_v2'] != "permission denied") {
         whorls_v2['webgl_hash_v2'] = "randomized by first party domain";
+        randomized_results++;
       }
-      if (fpi_whorls['v2']['plugins'] != whorls_v2['plugins']) {
+      if (fpi_whorls['v2']['plugins'] != whorls_v2['plugins'] && fpi_whorls['v2']['plugins'] != "permission denied") {
         whorls_v2['plugins'] = "randomized by first party domain";
+        randomized_results++;
       }
-      if (fpi_whorls['v2']['hardware_concurrency'] != whorls_v2['hardware_concurrency']) {
+      if (fpi_whorls['v2']['hardware_concurrency'] != whorls_v2['hardware_concurrency'] && fpi_whorls['v2']['hardware_concurrency'] != "permission denied") {
         whorls_v2['hardware_concurrency'] = "randomized";
+        randomized_results++;
       }
     }
 
     $.post({
       url: "/ajax-fingerprint",
-      data: JSON.stringify({v2: whorls_v2}),
+      data: JSON.stringify({v2: whorls_v2, randomized_results}),
       contentType: 'application/json',
-      success: callback,
+      success: callback(randomized_results),
       dataType: "html"
     });
   }
