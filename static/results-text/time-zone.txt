@@ -1,0 +1,6 @@
+<h4>What is this?</h4>
+<p>A string which indicates your time zone, like ‘America/Los_Angeles’.</p>
+<h4>What kind of information is gathered?</h4>
+<p>
+This offers some degree of granular insight into your browser, especially if you live in a time zone without many users.
+</p>

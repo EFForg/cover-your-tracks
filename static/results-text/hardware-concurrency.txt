@@ -1,0 +1,6 @@
+<h4>What is this?</h4>
+<p>The number of CPU cores in your current machine.
+</p>
+<h4>What kind of information is gathered?</h4>
+<p>This can provide some additional information when combined with other fingerprinting metrics, but is not identifying on its own.
+</p>

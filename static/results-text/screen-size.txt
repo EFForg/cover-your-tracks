@@ -1,0 +1,6 @@
+<h4>What is this?</h4>
+<p>The dimensions and color depth of your current browser viewport.
+</p>
+<h4>What kind of information is gathered?</h4>
+<p>This can supplement other information when it is not enough to identify your browser, but it is often too ‘brittle’ of a metric to be usable by trackers.  For instance, a user may change their browser dimensions often.
+</p>

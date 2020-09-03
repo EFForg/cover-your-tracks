@@ -1,0 +1,6 @@
+<h4>What is this?</h4>
+<p>A web header which is usually either not delivered at all, or set to ‘1’.
+</p>
+<h4>What kind of information is gathered?</h4>
+<p>Browsers which set the DNT header to ‘1’ are fairly rare, and this can be an identifying metric.  However, this should be left as the default for your browser.
+</p>

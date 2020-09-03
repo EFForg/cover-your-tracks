@@ -1,0 +1,6 @@
+<h4>What is this?</h4>
+<p>Whether cookies are enabled can be determined with or without the use of JavaScript.</p>
+<h4>What kind of information is gathered?</h4>
+<p>
+Whether cookies are enabled or not provides a single bit of information: either ‘true’ or ‘false.’  However, it can be far more identifying when combined with other details if, for instance, you are the only one using your browser who also has cookies disabled.
+</p>

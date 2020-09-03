@@ -1,0 +1,6 @@
+<h4>What is this?</h4>
+<p>The number of touch points on your device.
+</p>
+<h4>What kind of information is gathered?</h4>
+<p>If you are using a mobile device, this may be very identifying.  This depends on the hardware particularities of your device.
+</p>

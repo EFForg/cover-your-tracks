@@ -1,0 +1,6 @@
+<h4>What is this?</h4>
+<p>The WebGL Vendor and renderer is directly queryable using JavaScript.
+</p>
+<h4>What kind of information is gathered?</h4>
+<p>Provides some level of granularity, depending on how unique your video card is.
+</p>

@@ -1,4 +1,6 @@
-<h5>What is this?</h5>
-<p>A user agent is software that retrieves, renders and facilitates end user interaction with web content–in other words, it does the hard work of talking to a computer on your behalf. In the context of your browser, this involves sending requests for content whenever you visit a website.</p>
-<h5>What kind of information is gathered?</h5>
-<p> Trackers can get the name and version of whichever browser you’re using, along with the name/version of your operating system.</p>
+<h4>What is this?</h4>
+<p>The User-Agent string is a web header(TOOLTIP?) which identifies the browser and version to the web server.  Traditionally, this has allowed web developers to better tailor content and design to a specific user experience.</p>
+<h4>What kind of information is gathered?</h4>
+<p>
+This information can be very specific, and <em>if customized</em> can single-handedly identify a specific user’s browser.
+</p>

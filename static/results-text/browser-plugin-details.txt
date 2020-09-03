@@ -1,0 +1,4 @@
+<h4>What is this?</h4>
+<p>Browser plugins are distinct from addons in that they can often be discovered by a simple JavaScript query.  </p>
+<h4>How is this used in your fingerprint?</h4>
+<p>Browser plugins have been phased out over the past years, and usually hold little identifying information.</p>

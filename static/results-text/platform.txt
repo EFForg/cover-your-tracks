@@ -1,0 +1,6 @@
+<h4>What is this?</h4>
+<p>Your operating system and CPU architecture, directly queryable using JavaScript.
+</p>
+<h4>What kind of information is gathered?</h4>
+<p>This can either be very unique or very commonplace, depending on your particular machine.
+</p>

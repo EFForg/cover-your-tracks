@@ -1,0 +1,6 @@
+<h4>What is this?</h4>
+<p>The amount of memory on your current machine, rounded to the nearest GB.
+</p>
+<h4>What kind of information is gathered?</h4>
+<p>Like hardware concurrency, this is useful when combined with other metrics, but is not identifying on its own.
+</p>

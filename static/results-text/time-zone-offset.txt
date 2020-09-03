@@ -1,0 +1,7 @@
+Time Zone Offset
+<h4>What is this?</h4>
+<p>A number which indicates the current difference between your time and GMT, in minutes.
+</p>
+<h4>What kind of information is gathered?</h4>
+<p>This does not always change in step with the ‘time zone’ metric.  This can provide more insight particularly in areas that are unique in the way they observe daylight savings time.
+</p>

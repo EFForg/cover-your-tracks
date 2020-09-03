@@ -1,0 +1,6 @@
+<h4>What is this?</h4>
+<p>Like cookies, SuperCookies use browser storage to store and later retrieve unique identifiers. Unlike cookies, SuperCookies often require JavaScript and make it harder to delete these identifiers.</p>
+<h4>What kind of information is gathered?</h4>
+<p>
+SuperCookies are often stored in browser plugins like Flash and SilverLight.  The usage of these plugins has decreased over time, making them less effective.  However, over time trackers have found new ways to store data in the browser without using cookies.
+</p>
