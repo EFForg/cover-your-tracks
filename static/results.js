@@ -108,10 +108,15 @@ $(document).ready(function(){
       }
     });
     $('.detailed').hide();
+    $('#default-button').addClass('active');
     $('#default-button').on( 'click', function(e) {
+      $('#default-button').addClass('active');
+      $('#detailed-button').removeClass('active');
       $('.detailed').hide();
     });
     $('#detailed-button').on( 'click', function(e) {
+      $('#detailed-button').addClass('active');
+      $('#default-button').removeClass('active');
       $('.detailed').show();
     });
   }, 2000);

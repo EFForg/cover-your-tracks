@@ -1,15 +1,19 @@
-/* colors
+/* colors:
 
 */
 
-/* toc:
-/* base styles
+/* table of contents:
+** fonts
+** base styles
 ** header
+** nav
 ** content
 ** footer
 ** individual pages
-** various custom elements (tooltips, badger-download)
+** various custom elements (tooltips etc)
 */
+
+/* fonts */
 @font-face {
   font-family: 'Lato';
   src: url('/static/fonts/Lato-Regular.ttf') format('truetype');
@@ -29,7 +33,7 @@
   font-style: normal;
 }
 
-
+/* base styles */
 body {
   font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
   font-size: 16px;
@@ -64,10 +68,13 @@ h1 span {
   font-size: 79px;
   line-height: 48px
 }
+
 .wrapper {
   margin: 0 auto;
   max-width: 1200px;
 }
+
+
 /* header */
 
 #header a {
@@ -83,7 +90,7 @@ h1 span {
 }
 
 
-@media screen and (max-width: 579px) { /* mobile styles */
+@media screen and (max-width: 768px) { /* mobile styles */
   #header .banner .bar  {
     height: 36px;
   }
@@ -145,7 +152,6 @@ h1 span {
   font-weight: normal;
 }
 
-
 #header .banner .subtitle {
   color: black;
   font-size: 27px;
@@ -163,7 +169,6 @@ h1 span {
 }
 
 /* nav */
-
 #header nav {
   width: 25%;
 }
@@ -178,8 +183,8 @@ h1 span {
   display: inline-block;
   padding: 0 1rem 0 0;
 }
-/* content */
 
+/* content */
 #content {
   margin: 1rem;
 }
@@ -198,7 +203,6 @@ iframe {
 }
 
 /* individual pages */
-
 div#about,
 div#learn,
 div#front,
@@ -210,7 +214,6 @@ div#self-defense {
 }
 
 /* front page */
-
 #front {
   margin: 0 auto;
 }
@@ -227,6 +230,7 @@ p#disclaimer {
   text-align:center;
   margin:0
 }
+
 /* testing page */
 .testing {
   display: flex;
@@ -234,7 +238,6 @@ p#disclaimer {
 
 
 /* privacy page */
-
 #privacy, #about, #self-defense {
   margin: 0 auto;
   text-align:left;
@@ -257,8 +260,8 @@ div#results-wrapper .row{
 table#results.tracker_results{
   margin-top: 10px;
 }
-/* footer */
 
+/* footer */
 #footer {
   margin-top:20px
 }
@@ -345,7 +348,8 @@ label#acceptable_ads sup{
   text-decoration: none;
   transition: all 0.2s;
 }
-.button-style:hover {
+.button-style:hover,
+.button-style.active {
   background: black;
   border: 2px solid black;
   color: white;
