@@ -204,27 +204,29 @@ function fetch_client_whorls(){
     }
   };
 
+  const determine_randomized = function(run_1, run_2, catch_string, randomized_result) {
+    try {
+      const run_1_result = run_1();
+      const run_2_result = run_2();
+      if(run_1_result == run_2_result){
+        return run_1_result;
+      } else {
+        return randomized_result || "randomized";
+      }
+    } catch(ex) {
+      return catch_string || "undetermined";
+    }
+  }
+
   // fetch client-side vars
   var whorls_v2 = new Object();
 
   // this is a backup plan
   setTimeout("retry_post()",1100);
 
-  try {
-    whorls_v2['plugins'] = identify_plugins();
-  } catch(ex) {
-    whorls_v2['plugins'] = "permission denied";
-  }
-
   // Do not catch exceptions here because the async Flash applet will raise
   // them until it is ready.  Instead, if Flash is present, the retry timeout
   // will cause us to try again until it returns something meaningful.
-
-  try { 
-    whorls_v2['timezone'] = new Date().getTimezoneOffset();
-  } catch(ex) {
-    whorls_v2['timezone'] = "permission denied";
-  }
 
   try {
     whorls_v2['video'] = screen.width+"x"+screen.height+"x"+screen.colorDepth;
@@ -234,10 +236,23 @@ function fetch_client_whorls(){
 
   whorls_v2['language'] = navigator.language;
   whorls_v2['platform'] = navigator.platform;
-  whorls_v2['supercookies_v2'] = test_dom_storage() + test_ie_userdata() + test_open_database() + test_indexed_db();
   whorls_v2['cpu_class'] = navigator.cpuClass || "N/A";
   whorls_v2['hardware_concurrency'] = navigator.hardwareConcurrency || "N/A";
   whorls_v2['device_memory'] = navigator.deviceMemory || "N/A";
+  whorls_v2['supercookies_v2'] = determine_randomized(
+    () => test_dom_storage() + test_ie_userdata() + test_open_database() + test_indexed_db(),
+    () => test_dom_storage() + test_ie_userdata() + test_open_database() + test_indexed_db(),
+  );
+  whorls_v2['timezone'] = determine_randomized(
+    () => new Date().getTimezoneOffset(),
+    () => new Date().getTimezoneOffset(),
+    "permission_denied",
+  );
+  whorls_v2['plugins'] = determine_randomized(
+    () => identify_plugins(),
+    () => identify_plugins(),
+    "permission_denied",
+  );
 
   let post_idle_callback = function(components, components_second_run){
     let components_hash = {};
@@ -250,36 +265,36 @@ function fetch_client_whorls(){
       components_second_run_hash[component.key] = component.value;
     }
 
-    try {
-      let canvas_hash_v2_1 = Fingerprint2_new.x64hash128(JSON.stringify(components_hash['canvas']), 31);
-      let canvas_hash_v2_2 = Fingerprint2_new.x64hash128(JSON.stringify(components_second_run_hash['canvas']), 31);
-      if(canvas_hash_v2_1 == canvas_hash_v2_2){
-        whorls_v2['canvas_hash_v2'] = canvas_hash_v2_1;
-      } else {
-        whorls_v2['canvas_hash_v2'] = "randomized";
-      }
-    } catch(ex) {
-      whorls_v2['canvas_hash_v2'] = "undetermined";
-    }
+    whorls_v2['canvas_hash_v2'] = determine_randomized(
+      () => Fingerprint2_new.x64hash128(JSON.stringify(components_hash['canvas']), 31),
+      () => Fingerprint2_new.x64hash128(JSON.stringify(components_second_run_hash['canvas']), 31),
+    );
+    whorls_v2['webgl_hash_v2'] = determine_randomized(
+      () => Fingerprint2_new.x64hash128(JSON.stringify(components_hash['webgl']), 31),
+      () => Fingerprint2_new.x64hash128(JSON.stringify(components_second_run_hash['webgl']), 31),
+    );
+    whorls_v2['fonts_v2'] = determine_randomized(
+      () => get_fonts(components_hash['fonts']),
+      () => get_fonts(components_second_run_hash['fonts']),
+    );
+    whorls_v2['audio'] = determine_randomized(
+      () => components_hash['audio'],
+      () => components_second_run_hash['audio'],
+    );
+    whorls_v2['touch_support'] = determine_randomized(
+      () => get_touch_support(components_hash['touchSupport']),
+      () => get_touch_support(components_second_run_hash['touchSupport']),
+    );
+    whorls_v2['timezone_string'] = determine_randomized(
+      () => components_hash['timezone'],
+      () => components_second_run_hash['timezone'],
+    );
+    whorls_v2['webgl_vendor_renderer'] = determine_randomized(
+      () => components_hash['webglVendorAndRenderer'],
+      () => components_second_run_hash['webglVendorAndRenderer'],
+    );
 
-    try {
-      let webgl_hash_v2_1 = Fingerprint2_new.x64hash128(JSON.stringify(components_hash['webgl']), 31);
-      let webgl_hash_v2_2 = Fingerprint2_new.x64hash128(JSON.stringify(components_second_run_hash['webgl']), 31);
-      if(webgl_hash_v2_1 == webgl_hash_v2_2){
-        whorls_v2['webgl_hash_v2'] = webgl_hash_v2_1;
-      } else {
-        whorls_v2['webgl_hash_v2'] = "randomized";
-      }
-    } catch(ex) {
-      whorls_v2['webgl_hash_v2'] = "undetermined";
-    }
-
-    whorls_v2['touch_support'] = get_touch_support(components_hash['touchSupport']);
-    whorls_v2['timezone_string'] = components_hash['timezone'];
     whorls_v2['ad_block'] = components_hash['adBlock'];
-    whorls_v2['audio'] = components_hash['audio'];
-    whorls_v2['webgl_vendor_renderer'] = components_hash['webglVendorAndRenderer'];
-    whorls_v2['fonts_v2'] = get_fonts(components_hash['fonts']);
 
     // send to server for logging / calculating
     // and fetch results
