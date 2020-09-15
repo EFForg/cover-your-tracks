@@ -251,7 +251,7 @@ function fetch_client_whorls(){
   whorls_v2['plugins'] = determine_randomized(
     () => identify_plugins(),
     () => identify_plugins(),
-    "permission_denied",
+    "permission denied",
   );
 
   let post_idle_callback = function(components, components_second_run){
@@ -301,15 +301,15 @@ function fetch_client_whorls(){
 
     let randomized_results = 0;
     if (typeof(fpi_whorls) != "undefined") {
-      if (fpi_whorls['v2']['audio'] != whorls_v2['audio'] && fpi_whorls['v2']['audio'] != "permission denied") {
+      if (fpi_whorls['v2']['audio'] != whorls_v2['audio'] && fpi_whorls['v2']['audio'] != "undetermined") {
         whorls_v2['audio'] = "randomized by first party domain";
         randomized_results++;
       }
-      if (fpi_whorls['v2']['canvas_hash_v2'] != whorls_v2['canvas_hash_v2'] && fpi_whorls['v2']['canvas_hash_v2'] != "permission denied") {
+      if (fpi_whorls['v2']['canvas_hash_v2'] != whorls_v2['canvas_hash_v2'] && fpi_whorls['v2']['canvas_hash_v2'] != "undetermined") {
         whorls_v2['canvas_hash_v2'] = "randomized by first party domain";
         randomized_results++;
       }
-      if (fpi_whorls['v2']['webgl_hash_v2'] != whorls_v2['webgl_hash_v2'] && fpi_whorls['v2']['webgl_hash_v2'] != "permission denied") {
+      if (fpi_whorls['v2']['webgl_hash_v2'] != whorls_v2['webgl_hash_v2'] && fpi_whorls['v2']['webgl_hash_v2'] != "undetermined") {
         whorls_v2['webgl_hash_v2'] = "randomized by first party domain";
         randomized_results++;
       }
@@ -317,7 +317,7 @@ function fetch_client_whorls(){
         whorls_v2['plugins'] = "randomized by first party domain";
         randomized_results++;
       }
-      if (fpi_whorls['v2']['hardware_concurrency'] != whorls_v2['hardware_concurrency'] && fpi_whorls['v2']['hardware_concurrency'] != "permission denied") {
+      if (fpi_whorls['v2']['hardware_concurrency'] != whorls_v2['hardware_concurrency']) {
         whorls_v2['hardware_concurrency'] = "randomized";
         randomized_results++;
       }
