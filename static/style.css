@@ -32,6 +32,13 @@ blue-light: #86BCD1;
  font-stretch: 100%;
 }
 
+/*@font-face {
+ font-family: 'WorkSans';
+ src: '/static/fonts/static/WorkSans-Bold.ttf' format('truetype');
+ font-weight: normal;
+ font-style: normal;
+}*/
+
 /* base styles */
 body {
   background: #F5EFEB;
@@ -64,7 +71,7 @@ a img {
 
 h1 {
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 900;
   margin-bottom: 0;
   text-transform: uppercase;
 }
@@ -99,43 +106,6 @@ h1 span {
   margin-bottom: 2rem;
 }
 
-
-@media screen and (max-width: 768px) { /* mobile styles */
-  .header .banner .bar  {
-    height: 36px;
-  }
-
-  .header .banner .bar .attribution {
-    font-size: 7px;
-    line-height: 1.6;
-    max-width: 50%;
-    min-width: auto;
-    padding-left: 22px;
-    top: 12px;
-    width: 180px;
-  }
-
-  .header .banner .bar  .donate {
-    margin-right: 10px;
-    top: 10px;
-  }
-
-  .header .banner .bar .logo {
-    left: 10px;
-    top: 10px;
-  }
-
-  .header .banner img.attribution {
-    height: 57px;
-    width: 250px;
-  }
-
-  .header .banner .subtitle {
-    font-size: 15px;
-  }
-}
-
-@media screen and (min-width: 768px) { /*desktop*/
 .header .banner .bar  {
   background-color: black;
   display: flex;
@@ -169,9 +139,11 @@ h1 span {
   margin: 6px 0 0;
 }
 
+
 .header .banner .title-area {
   display: flex;
-  margin-left: 1rem;
+  align-items: flex-end;
+  margin-left: 5rem;
 }
 
 .header .banner .title-area .site-title {
@@ -180,6 +152,7 @@ h1 span {
 
 /* nav */
 .header nav {
+  padding-bottom: 0.5rem;
   width: 25%;
 }
 
@@ -191,7 +164,8 @@ h1 span {
 
 .header nav ul li {
   display: inline-block;
-  padding: 0 1rem 0 0;
+  font-size: 1rem;
+  padding: 0 5rem 0 0;
 }
 
 #home .header nav a {
@@ -204,7 +178,7 @@ h1 span {
 
 /* content */
 .content {
-  margin: 1rem;
+  margin: 1rem 1rem 1rem 5rem;
 }
 .main-section {
   margin: 1rem 0 1rem 1rem;
@@ -212,7 +186,6 @@ h1 span {
 }
 
 aside {
-  margin: 1rem 1rem 1rem 0;
   width: 20%;
 }
 
@@ -287,27 +260,37 @@ table#results.tracker_results{
 }
 
 /* footer */
-#footer {
-  margin-top:20px
+footer {
+  display: block;
+  margin: 2rem 1rem 0 5rem;
 }
 
-#footer img.logo {
+footer img.logo {
   height: 40px;
   margin: 22px auto 6px;
   outline: none;
 }
 
 
-#footer .links {
+footer .links {
   margin: 18px auto 0;
 }
 
-#footer .links a {
+footer a {
+  border: none;
+}
+
+footer .links a {
+  color: #DECA54;
   display: inline-block;
   font-size: 13px;
   font-weight: 800;
-  padding: 0 7px 7px;
+  padding: 0 1rem 2rem 0;
   text-transform: uppercase;
+}
+
+footer .links a:hover {
+  border: none;
 }
 
 small#center {
@@ -357,27 +340,30 @@ label#acceptable_ads sup{
 
 /* various elements */
 .button-style {
-  background: gray;
-  border: 2px solid gray;
-  border-radius: 18px;
+  background: #F5EFEB;
+  border: 2px solid #F5EFEB;
+  border-radius: 8px;
+  box-shadow: 0 2px gray;
   clear: both;
-  color: black;
+  color: #1E3A29;
   cursor: pointer;
   display: inline-block;
   font-size: 1rem;
-  font-weight: 700;
-  margin: 1rem auto;
-  max-width: 23rem;
-  padding: 0.3rem 1rem;
+  font-weight: 800;
+  margin: 1rem 0;
+  padding: 1rem 1rem;
   text-align: center;
   text-decoration: none;
+  text-transform: uppercase;
   transition: all 0.2s;
+  width: 80%;
 }
 .button-style:hover,
 .button-style.active {
-  background: black;
-  border: 2px solid black;
-  color: white;
+  background: #1E3A29;
+  border: 2px solid #1E3A29;
+  box-shadow: 0 2px black;
+  color: #F5EFEB;
   text-decoration: none;
 }
 
@@ -403,4 +389,43 @@ label#acceptable_ads sup{
   font-weight: bold;
   color: #a00;
   font-size: 80%;
+}
+
+@media screen and (max-width: 768px) { /* mobile styles */
+  .header .banner .bar  {
+    height: 36px;
+  }
+
+  .header .banner .bar .attribution {
+    font-size: 7px;
+    line-height: 1.6;
+    max-width: 50%;
+    min-width: auto;
+    padding-left: 22px;
+    top: 12px;
+    width: 180px;
+  }
+
+  .header .banner .bar  .donate {
+    margin-right: 10px;
+    top: 10px;
+  }
+
+  .header .banner .bar .logo {
+    left: 10px;
+    top: 10px;
+  }
+
+  .header .banner img.attribution {
+    height: 57px;
+    width: 250px;
+  }
+
+  .header .banner .subtitle {
+    font-size: 15px;
+  }
+
+  .content {
+    margin-left: 1rem;
+  }
 }
