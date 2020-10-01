@@ -45,7 +45,7 @@ body {
   background: #F5EFEB;
   color: #2E243F;
   font-family: 'WorkSans', Helvetica, Arial, Verdana, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   margin: 0;
   text-align: left;
@@ -142,11 +142,15 @@ h1 span {
 
 
 .header .banner .title-area {
-  display: flex;
   align-items: flex-end;
+  border-bottom: 1px solid #D3473D;
+  display: flex;
   margin-left: 5rem;
+  padding: 0 0 1rem;
 }
-
+#home .header .banner .title-area {
+  border-bottom: none;
+}
 .header .banner .title-area .site-title {
   width: 75%;
 }
@@ -169,8 +173,16 @@ h1 span {
   padding: 0 5rem 0 0;
 }
 
-#home .header nav a {
+.header nav a {
+  color: #2E243F;
   border-bottom: none;
+}
+
+.header nav a:hover {
+  border-bottom: 1px solid #2E243F;
+}
+
+#home .header nav a {
   color: white;
 }
 #home .header nav a:hover {
@@ -182,8 +194,12 @@ h1 span {
   margin: 1rem 1rem 1rem 5rem;
 }
 .main-section {
-  margin: 1rem 0 1rem 1rem;
-  width: 80%;
+  margin: 0;
+  width: 100%;
+}
+
+.main-section .banner {
+  width: 100%;
 }
 
 aside {
@@ -257,17 +273,18 @@ iframe {
 /* individual pages */
 div#about,
 div#learn,
-div#front,
 div#privacy,
 div#results-wrapper,
 div#self-defense {
-  display: flex;
-  width: auto;
+
 }
 
 /* front page */
+
 #front {
+  display: flex;
   margin: 0 auto;
+  width: auto;
 }
 
 #front .main-section {
@@ -275,12 +292,24 @@ div#self-defense {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  margin: 1rem 0 1rem 1rem;
+  width: 80%;
 }
 
 
 p#disclaimer {
   text-align:center;
   margin:0
+}
+
+/* learn */
+
+#learn .slider-container {
+  display: flex;
+}
+
+#learn .slider-column {
+  width: 50%;
 }
 
 /* testing page */
