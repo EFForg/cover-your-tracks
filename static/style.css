@@ -32,11 +32,18 @@
   font-weight: 800;
   font-style: normal;
 }
+@font-face {
+ font-family: 'WorkSans';
+ src: '/static/fonts/WorkSans-VariableFont_wght.ttf' format('truetype-variations');
+ font-weight: 300 800;
+ font-stretch: 100%;
+}
 
 /* base styles */
 body {
-  font-family: 'Lato', Helvetica, Arial, Verdana, sans-serif;
+  font-family: 'WorkSans', Helvetica, Arial, Verdana, sans-serif;
   font-size: 16px;
+  font-weight: 400;
   text-align: left;
 }
 
