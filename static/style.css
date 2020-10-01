@@ -1,5 +1,15 @@
 /* colors:
 
+green-light: #4D8061
+green:  #305D42 // background
+green-dark: #1E3A29;
+beige: #F5EFEB;
+red:  #D3473D;
+yellow: #DECA54;
+yellow-dark: #F6AD0F;
+plum: #2E243F;// text
+blue-light: #86BCD1;
+
 */
 
 /* table of contents:
@@ -14,24 +24,7 @@
 */
 
 /* fonts */
-@font-face {
-  font-family: 'Lato';
-  src: url('/static/fonts/Lato-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Lato';
-  src: url('/static/fonts/Lato-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Lato';
-  src: url('/static/fonts/Lato-Black.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-}
+
 @font-face {
  font-family: 'WorkSans';
  src: '/static/fonts/WorkSans-VariableFont_wght.ttf' format('truetype-variations');
@@ -41,33 +34,43 @@
 
 /* base styles */
 body {
+  background: #F5EFEB;
+  color: #2E243F;
   font-family: 'WorkSans', Helvetica, Arial, Verdana, sans-serif;
   font-size: 16px;
   font-weight: 400;
+  margin: 0;
   text-align: left;
 }
 
+body#home {
+  background: #305D42;
+}
 a {
-  color: #f58528;
+  border-bottom: 1px solid #1E3A29;
+  color: #1E3A29;
   font-weight: 700;
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+  border-bottom: 1px solid #2E243F;;
+  color: #2E243F;;
 }
 
 a img {
   border: 0;
 }
 
-
-
 h1 {
   font-size: 48px;
   font-weight: 600;
   margin-bottom: 0;
   text-transform: uppercase;
+}
+
+#home h1 {
+  color: white;
 }
 
 h1 span {
@@ -77,32 +80,32 @@ h1 span {
 }
 
 .wrapper {
+  background: transparent;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1440px;
 }
-
 
 /* header */
 
-#header a {
+.header a {
   outline: none;
 }
 
-#header a:hover {
+.header a:hover {
   text-decoration: none;
 }
 
-#header .banner {
+.header .banner {
   margin-bottom: 2rem;
 }
 
 
 @media screen and (max-width: 768px) { /* mobile styles */
-  #header .banner .bar  {
+  .header .banner .bar  {
     height: 36px;
   }
 
-  #header .banner .bar .attribution {
+  .header .banner .bar .attribution {
     font-size: 7px;
     line-height: 1.6;
     max-width: 50%;
@@ -112,28 +115,28 @@ h1 span {
     width: 180px;
   }
 
-  #header .banner .bar  .donate {
+  .header .banner .bar  .donate {
     margin-right: 10px;
     top: 10px;
   }
 
-  #header .banner .bar .logo {
+  .header .banner .bar .logo {
     left: 10px;
     top: 10px;
   }
 
-  #header .banner img.attribution {
+  .header .banner img.attribution {
     height: 57px;
     width: 250px;
   }
 
-  #header .banner .subtitle {
+  .header .banner .subtitle {
     font-size: 15px;
   }
 }
 
 @media screen and (min-width: 768px) { /*desktop*/
-#header .banner .bar  {
+.header .banner .bar  {
   background-color: black;
   display: flex;
   height: 2.4rem;
@@ -141,12 +144,12 @@ h1 span {
   width: 100%;
 }
 
-#header .banner .bar  img.logo {
+.header .banner .bar  img.logo {
   height: 13px;
   padding: 0 0.25rem;
 }
 
-#header .banner .bar .attribution {
+.header .banner .bar .attribution {
   color: white;
   font-size: 16px;
   margin-left: 1rem;
@@ -155,54 +158,69 @@ h1 span {
   top: 0.5rem;
 }
 
-#header .banner .bar .attribution a {
+.header .banner .bar .attribution a {
   font-weight: normal;
 }
 
-#header .banner .subtitle {
+.header .banner .subtitle {
   color: black;
   font-size: 27px;
   font-weight: bold;
   margin: 6px 0 0;
 }
 
-#header .banner .title-area {
+.header .banner .title-area {
   display: flex;
   margin-left: 1rem;
 }
 
-#header .banner .title-area .site-title {
+.header .banner .title-area .site-title {
   width: 75%;
 }
 
 /* nav */
-#header nav {
+.header nav {
   width: 25%;
 }
 
-#header nav ul {
+.header nav ul {
   list-style-type: none;
   margin: 2.2rem 0;
   width: 100%;
 }
 
-#header nav ul li{
+.header nav ul li {
   display: inline-block;
   padding: 0 1rem 0 0;
 }
 
+#home .header nav a {
+  border-bottom: none;
+  color: white;
+}
+#home .header nav a:hover {
+  border-bottom: 1px solid white;
+}
+
 /* content */
-#content {
+.content {
   margin: 1rem;
 }
 .main-section {
   margin: 1rem 0 1rem 1rem;
-  width: 70%;
+  width: 80%;
 }
 
 aside {
   margin: 1rem 1rem 1rem 0;
-  width: 30%;
+  width: 20%;
+}
+
+#home aside {
+    background: #DECA54;
+    padding: 2rem;
+    border: 1px solid #DECA54;
+    border-radius: 1rem;
 }
 
 iframe {

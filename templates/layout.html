@@ -15,10 +15,11 @@
     <script src="/static/automatically-resize-footer.js" async></script>
     {% block head %}{% endblock %}
   </head>
-  <body>
-    <div class="wrapper">
+
     {% block header %}
-      <div id="header">
+    <body>
+      <div class="wrapper">
+      <div class="header">
         <div class="banner">
           <div class="bar">
             <div class="attribution">A Project By
@@ -45,7 +46,7 @@
       </div>
       {% endblock %}
 
-      <div id="content">
+      <div class="content">
           {% block body %}{% endblock %}
       </div>
 
