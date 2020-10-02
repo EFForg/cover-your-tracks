@@ -49,6 +49,11 @@ h1 {
     font-size: 79px;
     line-height: 48px; }
 
+h5 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase; }
+
 #front h1 {
   color: white; }
 
@@ -194,6 +199,86 @@ iframe {
 [type="checkbox"]:checked + label:after {
   opacity: 1;
   transform: scale(1); }
+
+/* 'sliders' */
+input[type=range] {
+  background: #F5EFEB;
+  margin: 1.5rem 0;
+  -webkit-appearance: none;
+  width: 5rem; }
+
+input[type=range]:focus {
+  outline: none; }
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: #4D8061;
+  border-radius: 1rem;
+  border: 0.2px solid #4D8061;
+  cursor: pointer;
+  height: 2rem;
+  width: 5rem; }
+
+input[type=range]::-webkit-slider-thumb {
+  background: #1E3A29;
+  border: 1px solid #1E3A29;
+  border-radius: 1rem;
+  cursor: pointer;
+  height: 2rem;
+  margin-top: 0;
+  -webkit-appearance: none;
+  width: 2rem; }
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #4D8061; }
+
+input[type=range]::-moz-range-track {
+  background: #4D8061;
+  border-radius: 1rem;
+  border: 0.2px solid #4D8061;
+  cursor: pointer;
+  height: 2rem;
+  width: 5rem; }
+
+input[type=range]::-moz-range-thumb {
+  background: #1E3A29;
+  border: 1px solid #1E3A29;
+  border-radius: 1rem;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem; }
+
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 1rem 0;
+  color: transparent;
+  cursor: pointer;
+  height: 2rem;
+  width: 5rem; }
+
+input[type=range]::-ms-fill-lower {
+  background: #4D8061;
+  border: 0.2px solid #4D8061;
+  border-radius: 1rem; }
+
+input[type=range]::-ms-fill-upper {
+  background: #1E3A29;
+  border: 0.2px solid #1E3A29;
+  border-radius: 1rem; }
+
+input[type=range]::-ms-thumb {
+  background: #1E3A29;
+  border: 1px solid #1E3A29;
+  border-radius: 3px;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem; }
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #4D8061; }
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #4D8061; }
 
 /* individual pages */
 /* home page */
