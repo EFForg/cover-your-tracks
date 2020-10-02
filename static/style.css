@@ -25,7 +25,7 @@ body {
   margin: 0;
   text-align: left; }
 
-body#home {
+body#front {
   background: #305D42; }
 
 a {
@@ -49,7 +49,7 @@ h1 {
     font-size: 79px;
     line-height: 48px; }
 
-#home h1 {
+#front h1 {
   color: white; }
 
 .wrapper {
@@ -94,7 +94,7 @@ h1 {
     margin-left: 5rem;
     padding: 0 0 1rem; }
 
-#home .header .banner .title-area {
+#front .header .banner .title-area {
   border-bottom: none; }
 
 .header .banner .title-area .site-title {
@@ -118,9 +118,9 @@ h1 {
     .header nav a:hover {
       border-bottom: 1px solid #2E243F; }
 
-#home .header nav a {
+#front .header nav a {
   color: white; }
-  #home .header nav a:hover {
+  #front .header nav a:hover {
     border-bottom: 1px solid white; }
 
 /* content */
@@ -136,7 +136,7 @@ h1 {
 aside {
   width: 20%; }
 
-#home aside {
+#front aside {
   background: #DECA54;
   padding: 2rem;
   border: 1px solid #DECA54;
@@ -196,12 +196,11 @@ iframe {
   transform: scale(1); }
 
 /* individual pages */
-/* front page */
-#front {
+/* home page */
+#front .content {
   display: flex;
-  margin: 0 auto;
   width: auto; }
-  #front .main-section {
+  #front .content .main-section {
     background-image: url("/static/images/home-image.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -214,7 +213,7 @@ p#disclaimer {
   margin: 0; }
 
 /* learn */
-#learn slider-container {
+#learn .slider-container {
   display: flex; }
 #learn .slider-column {
   width: 50%; }
@@ -358,32 +357,32 @@ label#acceptable_ads sup {
   /* mobile styles */
   .header .banner .bar {
     height: 36px; }
-
-  .header .banner .bar .attribution {
-    font-size: 7px;
-    line-height: 1.6;
-    max-width: 50%;
-    min-width: auto;
-    padding-left: 22px;
-    top: 12px;
-    width: 180px; }
-
-  .header .banner .bar .donate {
-    margin-right: 10px;
-    top: 10px; }
-
-  .header .banner .bar .logo {
-    left: 10px;
-    top: 10px; }
-
-  .header .banner img.attribution {
-    height: 57px;
-    width: 250px; }
-
+    .header .banner .bar .attribution {
+      font-size: 7px;
+      line-height: 1.6;
+      max-width: 50%;
+      min-width: auto;
+      padding-left: 22px;
+      top: 12px;
+      width: 180px; }
+    .header .banner .bar .donate {
+      margin-right: 10px;
+      top: 10px; }
+    .header .banner .bar .logo {
+      left: 10px;
+      top: 10px; }
+    .header .banner .bar img.attribution {
+      height: 57px;
+      width: 250px; }
+  .header .banner .title-area {
+    display: block;
+    margin: 0; }
+    .header .banner .title-area .site-title {
+      width: 100%; }
   .header .banner .subtitle {
     font-size: 15px; }
 
   .content {
-    margin-left: 1rem; } }
+    margin: 0; } }
 
 /*# sourceMappingURL=style.css.map */

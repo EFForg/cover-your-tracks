@@ -43,9 +43,9 @@ body {
   text-align: left;
 }
 
-body#home {
-    background: $green;
-  }
+body#front {
+  background: $green;
+}
 
 a {
   border-bottom: 1px solid $green-dark;
@@ -74,7 +74,7 @@ h1 {
   }
 }
 
-#home h1 {
+#front h1 {
   color: white;
 }
 
@@ -134,7 +134,7 @@ h1 {
   }
 }
 
-#home .header .banner .title-area {
+#front .header .banner .title-area {
   border-bottom: none;
 }
 .header .banner .title-area .site-title {
@@ -166,7 +166,7 @@ h1 {
   }
 }
 
-#home .header nav a {
+#front .header nav a {
   color: white;
   &:hover {
     border-bottom: 1px solid white;
@@ -189,7 +189,7 @@ aside {
   width: 20%;
 }
 
-#home aside {
+#front aside {
   background: $yellow;
   padding: 2rem;
   border: 1px solid $yellow;
@@ -262,11 +262,10 @@ div#self-defense {
 
 }
 
-/* front page */
+/* home page */
 
-#front {
+#front .content {
   display: flex;
-  margin: 0 auto;
   width: auto;
   .main-section {
     background-image: url("/static/images/home-image.png");
@@ -286,7 +285,7 @@ p#disclaimer {
 /* learn */
 
 #learn {
-  slider-container {
+  .slider-container {
     display: flex;
   }
 
@@ -299,7 +298,6 @@ p#disclaimer {
 .testing {
   display: flex;
 }
-
 
 /* privacy page */
 #privacy, #about, #self-defense {
@@ -352,7 +350,6 @@ footer {
     }
   }
 }
-
 
 small#center {
   margin:0 60px
@@ -453,40 +450,45 @@ label#acceptable_ads sup{
 }
 
 @media screen and (max-width: $mobile) { /* mobile styles */
-  .header .banner .bar  {
-    height: 36px;
-  }
+  .header .banner {
+    .bar  {
+      height: 36px;
+      .attribution {
+        font-size: 7px;
+        line-height: 1.6;
+        max-width: 50%;
+        min-width: auto;
+        padding-left: 22px;
+        top: 12px;
+        width: 180px;
+      }
+      .donate {
+        margin-right: 10px;
+        top: 10px;
+      }
+      .logo {
+        left: 10px;
+        top: 10px;
+      }
+      img.attribution {
+        height: 57px;
+        width: 250px;
+      }
+    }
+    .title-area {
+      display: block;
+      margin: 0;
+      .site-title {
+        width: 100%;
+      }
+    }
+    .subtitle {
+      font-size: 15px;
+    }
 
-  .header .banner .bar .attribution {
-    font-size: 7px;
-    line-height: 1.6;
-    max-width: 50%;
-    min-width: auto;
-    padding-left: 22px;
-    top: 12px;
-    width: 180px;
-  }
-
-  .header .banner .bar  .donate {
-    margin-right: 10px;
-    top: 10px;
-  }
-
-  .header .banner .bar .logo {
-    left: 10px;
-    top: 10px;
-  }
-
-  .header .banner img.attribution {
-    height: 57px;
-    width: 250px;
-  }
-
-  .header .banner .subtitle {
-    font-size: 15px;
   }
 
   .content {
-    margin-left: 1rem;
+    margin: 0;
   }
 }
