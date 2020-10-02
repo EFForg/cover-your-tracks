@@ -1,0 +1,492 @@
+// variables
+$green-light: #4D8061;
+$green:  #305D42; // background
+$green-dark: #1E3A29;
+$beige: #F5EFEB;
+$red:  #D3473D;
+$yellow: #DECA54;
+$yellow-dark: #F6AD0F;
+$plum: #2E243F;// text
+$blue-light: #86BCD1;
+
+$mobile: 768px;
+
+/* table of contents:
+** fonts
+** base styles
+** header
+** nav
+** content
+** form elements
+** footer
+** individual pages
+** various custom elements (tooltips etc)
+*/
+
+/* fonts */
+
+@font-face {
+  font-family: 'WorkSans';
+  src: '/static/fonts/WorkSans-VariableFont_wght.ttf' format('truetype-variations');
+  font-weight: 300 800;
+  font-stretch: 100%;
+}
+
+/* base styles */
+body {
+  background: $beige;
+  color: $plum;
+  font-family: 'WorkSans', Helvetica, Arial, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+}
+
+body#home {
+    background: $green;
+  }
+
+a {
+  border-bottom: 1px solid $green-dark;
+  color: $green-dark;
+  font-weight: 700;
+  text-decoration: none;
+  &:hover {
+    border-bottom: 1px solid $plum;;
+    color: $plum;;
+  }
+
+  img {
+    border: 0;
+  }
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  span {
+    /* Tracks of Cover Your Tracks */
+    font-size: 79px;
+    line-height: 48px
+  }
+}
+
+#home h1 {
+  color: white;
+}
+
+.wrapper {
+  background: transparent;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+/* header */
+
+.header {
+  a {
+    outline: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .banner {
+    margin-bottom: 2rem;
+    .bar  {
+      background-color: black;
+      display: flex;
+      height: 2.4rem;
+      margin: 0 auto;
+      width: 100%;
+      img.logo {
+        height: 13px;
+        padding: 0 0.25rem;
+      }
+      .attribution {
+        color: white;
+        font-size: 16px;
+        margin-left: 1rem;
+        position: relative;
+        text-transform: uppercase;
+        top: 0.5rem;
+        a {
+          font-weight: normal;
+        }
+      }
+    }
+    .subtitle {
+      color: black;
+      font-size: 27px;
+      font-weight: bold;
+      margin: 6px 0 0;
+    }
+    .title-area {
+      align-items: flex-end;
+      border-bottom: 1px solid $red;
+      display: flex;
+      margin-left: 5rem;
+      padding: 0 0 1rem;
+    }
+  }
+}
+
+#home .header .banner .title-area {
+  border-bottom: none;
+}
+.header .banner .title-area .site-title {
+  width: 75%;
+}
+
+/* nav */
+.header {
+  nav {
+    padding-bottom: 0.5rem;
+    width: 25%;
+    ul {
+      list-style-type: none;
+      margin: 2.2rem 0;
+      width: 100%;
+      li {
+        display: inline-block;
+        font-size: 1rem;
+        padding: 0 5rem 0 0;
+      }
+    }
+    a {
+      color: $plum;
+      border-bottom: none;
+      &:hover {
+        border-bottom: 1px solid $plum;
+      }
+    }
+  }
+}
+
+#home .header nav a {
+  color: white;
+  &:hover {
+    border-bottom: 1px solid white;
+  }
+}
+
+/* content */
+.content {
+  margin: 1rem 1rem 1rem 5rem;
+}
+.main-section {
+  margin: 0;
+  width: 100%;
+  .banner {
+    width: 100%;
+  }
+}
+
+aside {
+  width: 20%;
+}
+
+#home aside {
+  background: $yellow;
+  padding: 2rem;
+  border: 1px solid $yellow;
+  border-radius: 1rem;
+}
+
+iframe {
+  border: none;
+}
+
+/* form elements */
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  background: $beige;
+  border: 1px solid $green-dark;
+  box-shadow: none;
+  display: block;
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 1.25em;
+  width: 1.25em;
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  border: 1px solid gray;
+  background-image: url("/static/images/check.svg");
+  background-position: center;
+  background-size: 31px;
+  content: '';
+  width: 1.25em;
+  height: 1.25em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition:background-color 0.1s linear;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* individual pages */
+div#about,
+div#learn,
+div#privacy,
+div#results-wrapper,
+div#self-defense {
+
+}
+
+/* front page */
+
+#front {
+  display: flex;
+  margin: 0 auto;
+  width: auto;
+  .main-section {
+    background-image: url("/static/images/home-image.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 1rem 0 1rem 1rem;
+    width: 80%;
+  }
+}
+
+p#disclaimer {
+  text-align:center;
+  margin:0
+}
+
+/* learn */
+
+#learn {
+  slider-container {
+    display: flex;
+  }
+
+  .slider-column {
+    width: 50%;
+  }
+}
+
+/* testing page */
+.testing {
+  display: flex;
+}
+
+
+/* privacy page */
+#privacy, #about, #self-defense {
+  margin: 0 auto;
+  text-align:left;
+  width: 500px
+}
+
+#privacy h2, #about h2 {
+  margin: 0;
+}
+
+/* results page */
+div#results-wrapper {
+  display: flex;
+  margin: 0 auto;
+}
+div#results-wrapper .row{
+  margin: 16px auto 0;
+}
+
+table#results.tracker_results{
+  margin-top: 10px;
+}
+
+/* footer */
+footer {
+  display: block;
+  margin: 2rem 1rem 0 5rem;
+  img.logo {
+    height: 40px;
+    margin: 22px auto 6px;
+    outline: none;
+  }
+  .links {
+    margin: 18px auto 0;
+  }
+  a {
+    border: none;
+  }
+  .links a {
+    color: $yellow;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 0 1rem 2rem 0;
+    text-transform: uppercase;
+    &:hover {
+      border: none;
+    }
+  }
+}
+
+
+small#center {
+  margin:0 60px
+}
+
+#ad_status, #tracker_status, #dnt_status{
+  vertical-align: middle;
+}
+.complimentary_text{
+  display: inline-block;
+  position: relative;
+  top: -3px;
+}
+.test_label{
+  text-align: left;
+}
+.tracker_results td{
+  padding: 5px;
+}
+#summary_sentence{
+  font-size: inherit;
+  font-weight: normal;
+  margin: 0 0 24px;
+}
+
+p#summary_sentence .other_link{
+  text-align: center;
+  margin: 0px;
+}
+
+label#acceptable_ads{
+  display: block;
+  margin-top: 10px;
+}
+label#acceptable_ads sup{
+  color: blue;
+  text-decoration: underline;
+  font-size: 70%;
+}
+.ui-tooltip-content{
+  text-align: left;
+}
+#acceptable_ads_tr{
+  display: none;
+}
+
+/* various elements */
+.button-style {
+  background: $beige;
+  border: 2px solid $beige;
+  border-radius: 8px;
+  box-shadow: 0 2px gray;
+  clear: both;
+  color: $green-dark;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 1rem 0;
+  padding: 1rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  width: 80%;
+}
+.button-style:hover,
+.button-style.active {
+  background: $green-dark;
+  border: 2px solid $green-dark;
+  box-shadow: 0 2px black;
+  color: $beige;
+  text-decoration: none;
+}
+
+.tooltip-inner {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px;
+  width: 300px;
+  margin-right: 10px;
+}
+.tooltip.bs-tooltip-left .arrow:before {
+  border-top-color: #333;
+}
+
+
+.fingerprint-thanks {
+  padding: 32px 0 0;
+}
+
+.ii{
+  font-weight: bold;
+  color: #a00;
+  font-size: 80%;
+}
+
+@media screen and (max-width: $mobile) { /* mobile styles */
+  .header .banner .bar  {
+    height: 36px;
+  }
+
+  .header .banner .bar .attribution {
+    font-size: 7px;
+    line-height: 1.6;
+    max-width: 50%;
+    min-width: auto;
+    padding-left: 22px;
+    top: 12px;
+    width: 180px;
+  }
+
+  .header .banner .bar  .donate {
+    margin-right: 10px;
+    top: 10px;
+  }
+
+  .header .banner .bar .logo {
+    left: 10px;
+    top: 10px;
+  }
+
+  .header .banner img.attribution {
+    height: 57px;
+    width: 250px;
+  }
+
+  .header .banner .subtitle {
+    font-size: 15px;
+  }
+
+  .content {
+    margin-left: 1rem;
+  }
+}
