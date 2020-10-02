@@ -1,57 +1,55 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <div id="learn">
-    <!--aside>
-      <h3>Short intro to tracking and fingerprinting</h3>
-      <p>Every time you visit a website, your browser leaves behind  little bits of information about itself. These bits, when combined, form a distinct picture or fingerprint of your browser.</p>
+<div id="learn">
+  <!--aside>
+  <h3>Short intro to tracking and fingerprinting</h3>
+  <p>Every time you visit a website, your browser leaves behind  little bits of information about itself. These bits, when combined, form a distinct picture or fingerprint of your browser.</p>
 
-      <p>Even with cookies disabled, trackers can use browser fingerprints to track users across the web.</p>
+  <p>Even with cookies disabled, trackers can use browser fingerprints to track users across the web.</p>
 
-      <p>Some browsers have better protections against fingerprinting than others, and browser addons can be used to mitigate the harms of fingerprinting and block trackers.</p>
+  <p>Some browsers have better protections against fingerprinting than others, and browser addons can be used to mitigate the harms of fingerprinting and block trackers.</p>
 
-      <h3>What is a digital fingerprint?</h3>
-      <p>Fingerprinting is the process whereby a remote site or service gathers little bits of information about a user's browser.  This includes information the browser delivers in a request to the website, as well as further information the website can determine by using JavaScript on the page. A tracking site can  stitch  those pieces together to form a unique picture, or "fingerprint," of the user's device.</p>
+  <h3>What is a digital fingerprint?</h3>
+  <p>Fingerprinting is the process whereby a remote site or service gathers little bits of information about a user's browser.  This includes information the browser delivers in a request to the website, as well as further information the website can determine by using JavaScript on the page. A tracking site can  stitch  those pieces together to form a unique picture, or "fingerprint," of the user's device.</p>
 
-      <h3>What is a tracker?</h3>
-      <p>
-        Most online tracking happens via cookies. Cookies make possible "stateful" user interfaces such as user accounts and logins, multi-page forms, or online shopping carts. But they also allow sites to store a unique ID in your browser, and therefore to track you—and if a company is present on multiple websites, it can track your visits to each of those sites. Fingerprinting can be used for the same purpose, but uses a different technology to track users. In other words, a company can use cookies and fingerprints to construct a detailed overview of users' activity. Many people feel this is an invasion of their privacy, and want to be able to block, limit or delete their cookies in order to regain control of their browser.
-      </p>
-      <h3>What's the difference?</h3>
-      <p>Cookies store information with the browser in a way that can be cleared by the user.  You can delete your cookies. You can’t delete your fingerprint. Cookie tracking is the virtual equivalent of a bird band or other animal tracking device. While it’s accurate and effective, it can ultimately be lost or removed.  Imagine a bird losing the band or chewing it off—this is equivalent to a user clearing their cookies. Fingerprinting follows a similar mode of operation, but uses more permanent, unchangeable identifiers such as hardware specifications and browser settings. This is equivalent to tracking a bird by its song or feather markings.
-      </p>
-    </aside-->
-    <div class="main-section">
-      <img class="banner" src="/static/images/learn.png">
-      <p>Every time you visit a website, your browser leaves behind little bits of information about itself. When combined, these bits form a distinct picture or fingerprint of your browser. Even with cookies disabled, trackers can use browser fingerprints to track users across the web. Some browsers have better protections against fingerprinting than others, and browser add-ons can be used to mitigate the harms of fingerprinting and block trackers.</p>
+  <h3>What is a tracker?</h3>
+  <p>
+  Most online tracking happens via cookies. Cookies make possible "stateful" user interfaces such as user accounts and logins, multi-page forms, or online shopping carts. But they also allow sites to store a unique ID in your browser, and therefore to track you—and if a company is present on multiple websites, it can track your visits to each of those sites. Fingerprinting can be used for the same purpose, but uses a different technology to track users. In other words, a company can use cookies and fingerprints to construct a detailed overview of users' activity. Many people feel this is an invasion of their privacy, and want to be able to block, limit or delete their cookies in order to regain control of their browser.
+</p>
+<h3>What's the difference?</h3>
+<p>Cookies store information with the browser in a way that can be cleared by the user.  You can delete your cookies. You can’t delete your fingerprint. Cookie tracking is the virtual equivalent of a bird band or other animal tracking device. While it’s accurate and effective, it can ultimately be lost or removed.  Imagine a bird losing the band or chewing it off—this is equivalent to a user clearing their cookies. Fingerprinting follows a similar mode of operation, but uses more permanent, unchangeable identifiers such as hardware specifications and browser settings. This is equivalent to tracking a bird by its song or feather markings.
+</p>
+</aside-->
+<div class="main-section">
+  <img class="banner" src="/static/images/learn.png">
+  <p>Every time you visit a website, your browser leaves behind little bits of information about itself. When combined, these bits form a distinct picture or fingerprint of your browser. Even with cookies disabled, trackers can use browser fingerprints to track users across the web. Some browsers have better protections against fingerprinting than others, and browser add-ons can be used to mitigate the harms of fingerprinting and block trackers.</p>
 
-      <h4>Test out how some of these affect your fingerprint by adjusting the switches:</h4>
+  <h4>Test out how some of these affect your fingerprint by adjusting the switches:</h4>
 
-      <div class="slider-container">
-        <div class="slider-column">
-        <h5>Tracker blocker</h5>
-        <p>When you block trackers, you prevent tracking companies from reading your browser fingerprint.  Advanced adversaries may still be able to read your fingerprint, though.</p>
-        <label>installed/not installed</label>
-        <br/>
-        <input type="range" min="1" max="2" value="1" class="slider" >
-        <br/>
-        <br/>
-        <h5>Javascript</h5>
-        <p>When you turn JavaScript off, trackers aren’t able to determine much of the information which is used to determine your browser fingerprint. This means that your browser looks a lot less distinct, and more protected!</p>
-        <label>enabled/not enabled</label><br/>
-        <input type="range" min="1" max="2" value="1" class="slider" >
-        </div>
-        <div class="slider-column">
-        <h5>Using a fingerprint-resistant browser</h5>
-        <p>Some browsers have fingerprinting protection built in. The way this is implemented varies from browser to browser, but generally these protections make your browser fingerprint either less unique or less consistent. This means trackers have a harder time following your usage of the web. </p>
-        <label>yes/no</label><br/>
-        <input type="range" min="1" max="2" value="1" class="slider" >
-        <h5>Changed browser settings from defaults</h5>
-        <p>Generally, changing browser settings from their defaults will result in a more unique (and thus more trackable) browser.</p>
-        <label>yes/no</label><br/>
-        <input type="range" min="1" max="2" value="1" class="slider" >
-        </div>
-      </div>
+  <div class="slider-container">
+    <div class="slider-column">
+      <h5>Browser Setting</h5>
+      <p>Generally, changing browser settings from their defaults will result in a more unique (and thus more trackable) browser.</p>
+      <label>yes/no</label><br/>
+      <input type="range" min="1" max="2" value="1" class="slider" >
+      <h5>Browsers with Built-In Tracking Protection</h5>
+      <p>Some browsers have fingerprinting protection built in. The way this is implemented varies from browser to browser, but generally these protections make your browser fingerprint either less unique or less consistent. This means trackers have a harder time following your usage of the web. </p>
+      <label>yes/no</label><br/>
+      <input type="range" min="1" max="2" value="1" class="slider" >
+    </div>
+    <div class="slider-column">
+      <h5>Content Blocker</h5>
+      <p>When you block trackers, you prevent tracking companies from reading your browser fingerprint.  Advanced adversaries may still be able to read your fingerprint, though.</p>
+      <label>installed/not installed</label>
+      <br/>
+      <input type="range" min="1" max="2" value="1" class="slider" >
+      <h5>Javascript</h5>
+      <p>When you turn JavaScript off, trackers aren’t able to determine much of the information which is used to determine your browser fingerprint. This means that your browser looks a lot less distinct, and more protected!</p>
+      <label>enabled/not enabled</label><br/>
+      <input type="range" min="1" max="2" value="1" class="slider" >
     </div>
   </div>
+</div>
+</div>
 {% endblock %}
