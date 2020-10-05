@@ -333,8 +333,7 @@ p#disclaimer {
 /* privacy page */
 #privacy, #about, #self-defense {
   margin: 0 auto;
-  text-align: left;
-  width: 500px; }
+  text-align: left; }
 
 #privacy h2, #about h2 {
   margin: 0; }
@@ -363,7 +362,7 @@ footer {
   footer a {
     border: none; }
   footer .links a {
-    color: #DECA54;
+    color: #2E243F;
     display: inline-block;
     font-size: 13px;
     font-weight: 800;
@@ -371,6 +370,9 @@ footer {
     text-transform: uppercase; }
     footer .links a:hover {
       border: none; }
+
+#front footer .links a {
+  color: #DECA54; }
 
 small#center {
   margin: 0 60px; }
