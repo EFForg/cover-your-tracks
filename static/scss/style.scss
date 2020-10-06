@@ -63,6 +63,7 @@ a {
 }
 
 h1 {
+  color: $green;
   font-size: 48px;
   font-weight: 900;
   margin-bottom: 0;
@@ -74,8 +75,24 @@ h1 {
   }
 }
 
+a h1:hover {
+  color: $plum;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
 h3 {
   font-weight: 800;
+}
+h4 {
+  color: $green;
+  font-weight: 800;
+  margin: 3rem 0 0.5rem;
+  text-transform: uppercase;
 }
 h5 {
   font-size: 1.2rem;
@@ -128,7 +145,7 @@ h5 {
         }
       }
     }
-    .subtitle {
+    .tagline {
       color: black;
       font-size: 27px;
       font-weight: bold;
@@ -176,7 +193,8 @@ h5 {
   }
 }
 
-#front .header nav a {
+#front .header nav a,
+#testing .header nav a {
   color: white;
   &:hover {
     border-bottom: 1px solid white;
@@ -196,6 +214,7 @@ h5 {
 }
 
 aside {
+  min-width: 300px;
   width: 22%;
 }
 
@@ -344,14 +363,6 @@ input[type=range]:focus::-ms-fill-upper {
   background: $green-light;
 }
 /* individual pages */
-div#about,
-div#learn,
-div#privacy,
-div#results-wrapper,
-div#self-defense {
-
-}
-
 /* home page */
 
 #front .content {
@@ -410,8 +421,23 @@ p#disclaimer {
 }
 
 /* testing page */
-.testing {
-  display: flex;
+body#testing {
+  background: $green-dark;
+  color: $beige;
+  h1,
+  .tagline,
+  nav {
+    color: $beige;
+  }
+  h2 {
+    color: $yellow;
+    font-size: 48px;
+  }
+  .testing {
+    margin: 5rem auto;
+    max-width: 60%;
+  }
+
 }
 
 /* privacy page */
@@ -425,16 +451,47 @@ p#disclaimer {
 }
 
 /* results page */
-div#results-wrapper {
+#results-wrapper {
   display: flex;
   margin: 0 auto;
-}
-div#results-wrapper .row{
-  margin: 16px auto 0;
-}
+  .row {
+    margin: 16px auto 0;
+  }
+  aside {
+    h4:first-child {
+      margin-top: 1rem;
+    }
+  }
 
-table#results.tracker_results{
-  margin-top: 10px;
+  .main-section {
+    margin: 0 0 0 5rem;
+  }
+
+
+  table#results.tracker_results{
+    margin: 2rem 0;
+    border-collapse: collapse;
+
+    td, th {
+      border: 1px solid $red;
+      padding: 0.5rem;
+      text-align: left;
+    }
+  }
+
+  #showFingerprintLink2 { // link for detailed view
+    border: 1px solid $red;
+    border-radius: 3px;
+    color: $red;
+    display: block; 
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    a, a:hover {
+      color: $red;
+      text-decoration: none;
+    }
+  }
 }
 
 /* footer */
@@ -465,7 +522,8 @@ footer {
   }
 }
 
-#front footer .links a {
+#front footer .links a,
+#testing footer .links a {
   color: $yellow;
 }
 
@@ -600,7 +658,7 @@ label#acceptable_ads sup{
         width: 100%;
       }
     }
-    .subtitle {
+    .tagline {
       font-size: 15px;
     }
 

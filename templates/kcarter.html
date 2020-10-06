@@ -7,20 +7,17 @@
   <script src="static/fp2.js" type="text/javascript"></script>
   {% include 'dist/fp2.html' %}
   <script src="static/fetch_first_party_isolated_whorls.js" type="text/javascript"></script>
+  <body id="testing">
 {% endblock %}
 
 {% block body %}
   <div class="testing">
-    <aside>
-      <p>
-       Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.  Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.Cool information about the testing process, fingerprinting, etc.
-      </p>
-    </aside>
    <div class="main-section">
-    <p>
-      ... Testing your browser. How well does it protect you from tracking? ...<br>
+    <h2>
+      Testing your browser<br>
       <img src='/static/images/ajax-loader.gif' alt='loading...'>
-    </p>
+    </h2>
+    <p>This is an EFF project that allows you to understand how easy is to identify and track your browser based on how it appears to websites. </p>
     <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;"></iframe>
     <iframe id="t" style="position:absolute;left:0px;bottom:0px;height:1px;width:1px;"></iframe>
     <iframe id="dnt" style="position:absolute;left:0px;bottom:0px;height:1px;width:1px;"></iframe>
