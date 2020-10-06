@@ -467,9 +467,13 @@ body#testing {
     margin: 0 0 0 5rem;
   }
 
-  h4.indicate {
-    color: $red;
+  h3.indicate {
+    color: $plum;
+    font-weight: 600;
     text-transform: none;
+    span {
+      color: $red;
+    }
   }
 
   table#results.tracker_results{
@@ -486,7 +490,7 @@ body#testing {
   #showFingerprintLink2 { // link for detailed view
     border: 1px solid $red;
     border-radius: 3px;
-    color: $plum;
+    color: $red;
     display: block;
     font-size: 0.9rem;
     margin: 1rem 0;

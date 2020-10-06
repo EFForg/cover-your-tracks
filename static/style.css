@@ -378,9 +378,12 @@ body#testing {
     margin-top: 1rem; }
   #results-wrapper .main-section {
     margin: 0 0 0 5rem; }
-  #results-wrapper h4.indicate {
-    color: #D3473D;
+  #results-wrapper h3.indicate {
+    color: #2E243F;
+    font-weight: 600;
     text-transform: none; }
+    #results-wrapper h3.indicate span {
+      color: #D3473D; }
   #results-wrapper table#results.tracker_results {
     margin: 2rem 0;
     border-collapse: collapse; }
@@ -391,7 +394,7 @@ body#testing {
   #results-wrapper #showFingerprintLink2 {
     border: 1px solid #D3473D;
     border-radius: 3px;
-    color: #2E243F;
+    color: #D3473D;
     display: block;
     font-size: 0.9rem;
     margin: 1rem 0;
