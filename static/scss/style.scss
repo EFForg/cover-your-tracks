@@ -467,6 +467,10 @@ body#testing {
     margin: 0 0 0 5rem;
   }
 
+  h4.indicate {
+    color: $red;
+    text-transform: none;
+  }
 
   table#results.tracker_results{
     margin: 2rem 0;
@@ -482,11 +486,14 @@ body#testing {
   #showFingerprintLink2 { // link for detailed view
     border: 1px solid $red;
     border-radius: 3px;
-    color: $red;
-    display: block; 
+    color: $plum;
+    display: block;
     font-size: 0.9rem;
     margin: 1rem 0;
     padding: 1rem;
+    span {
+      color: $red;
+    }
     a, a:hover {
       color: $red;
       text-decoration: none;

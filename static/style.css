@@ -378,6 +378,9 @@ body#testing {
     margin-top: 1rem; }
   #results-wrapper .main-section {
     margin: 0 0 0 5rem; }
+  #results-wrapper h4.indicate {
+    color: #D3473D;
+    text-transform: none; }
   #results-wrapper table#results.tracker_results {
     margin: 2rem 0;
     border-collapse: collapse; }
@@ -388,11 +391,13 @@ body#testing {
   #results-wrapper #showFingerprintLink2 {
     border: 1px solid #D3473D;
     border-radius: 3px;
-    color: #D3473D;
+    color: #2E243F;
     display: block;
     font-size: 0.9rem;
     margin: 1rem 0;
     padding: 1rem; }
+    #results-wrapper #showFingerprintLink2 span {
+      color: #D3473D; }
     #results-wrapper #showFingerprintLink2 a, #results-wrapper #showFingerprintLink2 a:hover {
       color: #D3473D;
       text-decoration: none; }
