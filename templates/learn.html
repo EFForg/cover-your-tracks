@@ -14,21 +14,21 @@
       <div class="slider-column">
         <div class="slider-block">
           <div class="range">
-            <input type="range" min="1" max="2" value="1" class="slider" >
-            <label>defaults</label>
+            <input type="range" id="defaults-input" min="1" max="2" value="1" class="slider" >
+            <output id="defaults-output">yes</output>
           </div>
           <div class="slider-desc">
-            <h5>Browser Setting</h5>
+            <h5>Changed browser settings from defaults</h5>
             <p>Generally, changing browser settings from their defaults will result in a more unique (and thus more trackable) browser.</p>
           </div>
         </div>
         <div class="slider-block">
           <div class="range">
-            <input type="range" min="1" max="2" value="1" class="slider" >
-            <label>using</label>
+            <input type="range" id="resistant-input" min="1" max="2" value="1" class="slider" >
+            <output id="resistant-output">yes</output>
           </div>
           <div class="slider-desc">
-            <h5>Browsers with Built-In Tracking Protection</h5>
+            <h5>Using a fingerprint-resistant browser</h5>
             <p>Some browsers have fingerprinting protection built in. The way this is implemented varies from browser to browser, but generally these protections make your browser fingerprint either less unique or less consistent. This means trackers have a harder time following your usage of the web. </p>
           </div>
         </div>
@@ -36,12 +36,8 @@
       <div class="slider-column">
         <div class="slider-block">
           <div class="range">
-            <input type="range" id="trackerInput" min="1" max="2" value="1" class="slider" oninput="trackerOutput.value = trackerInput.value">
-            <output id="trackerOutput"></output>
-            <label>installed</label>
-
-            <!--input type="range" name="ageInputName" id="ageInputId" value="24" min="1" max="100" oninput="ageOutputId.value = ageInputId.value">
-  <output name="ageOutputName" id="ageOutputId">24</output-->
+            <input type="range" id="tracker-input" min="1" max="2" value="1" class="slider" >
+            <output id="tracker-output">installed</output>
           </div>
           <div class="slider-desc">
             <h5>Tracker Blocker</h5>
@@ -50,8 +46,8 @@
         </div>
         <div class="slider-block">
           <div class="range">
-            <input type="range" min="1" max="2" value="1" class="slider" >
-            <label>enabled</label>
+            <input type="range" min="1" max="2" value="1" class="slider" id="js-input" >
+            <output id="js-output">enabled</output>
           </div>
         <div class="slider-desc">
             <h5>Javascript</h5>
