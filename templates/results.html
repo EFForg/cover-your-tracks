@@ -25,9 +25,9 @@
       </p>
     </aside>
     <div class="main-section">
-      <h4 class="indicate">
+      <h3 class="indicate">
         Our tests indicate that you have
-      <span id='summary_sentence'></span></h4>
+      <span id='summary_sentence'></span></h3>
 
       <table class='tracker_results' id='results'>
         <tbody>
@@ -317,13 +317,13 @@
             }
             detection = detect_browser_and_platform();
 
-            if(detection.platform == 'desktop' && (detection.browser == "chrome" || detection.browser == "firefox" || detection.browser == "opera")){
-              summary_sentence.innerHTML += " <strong>installing EFF's Privacy Badger</strong>.";
-            } else if(detection.platform == 'desktop' && detection.browser != "ie") {
-              summary_sentence.innerHTML += " switching to a browser or OS that offers better protections.";
-            } else {
-              summary_sentence.innerHTML += " <strong>installing extra protections</strong>.  Privacy Badger isn't available for your browser / OS, but <a id='tool-recommendation' target='_blank'></a> may work for you.";
-            }
+            //if(detection.platform == 'desktop' && (detection.browser == "chrome" || detection.browser == "firefox" || detection.browser == "opera")){
+              //summary_sentence.innerHTML += " <strong>installing EFF's Privacy Badger</strong>.";
+            //} else if(detection.platform == 'desktop' && detection.browser != "ie") {
+          //    summary_sentence.innerHTML += " switching to a browser or OS that offers better protections.";
+            //} else {
+            //  summary_sentence.innerHTML += " <strong>installing extra protections</strong>.  Privacy Badger isn't available for your browser / OS, but <a id='tool-recommendation' target='_blank'></a> may work for you.";
+          //  }
 
 
             prepare_install_button(detection);
