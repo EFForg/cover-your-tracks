@@ -168,14 +168,14 @@ hr {
 .header {
   nav {
     padding-bottom: 0.5rem;
-    width: 25%;
+    width: 30%;
     ul {
       list-style-type: none;
       margin: 2.2rem 0;
       width: 100%;
       li {
         display: inline-block;
-        font-size: 1rem;
+        font-size: 1.2rem;
         padding: 0 5rem 0 0;
       }
     }
@@ -357,7 +357,7 @@ input[type=range]:focus::-ms-fill-upper {
   background: $green;
 
   h1 {
-    color: white;
+    color: $beige;
   }
 
   .header .banner .title-area {
@@ -365,18 +365,17 @@ input[type=range]:focus::-ms-fill-upper {
   }
 
   .header nav a {
-    color: white;
+    color: $beige;
     &:hover {
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid $beige;
     }
   }
 
   aside {
     background: $yellow;
-    padding: 2rem;
+    padding: 3.5rem 3rem;
     border: 1px solid $yellow;
     border-radius: 1rem;
-
     hr {
       overflow: visible; /* For IE */
       padding: 0;

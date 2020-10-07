@@ -126,14 +126,14 @@ hr {
 /* nav */
 .header nav {
   padding-bottom: 0.5rem;
-  width: 25%; }
+  width: 30%; }
   .header nav ul {
     list-style-type: none;
     margin: 2.2rem 0;
     width: 100%; }
     .header nav ul li {
       display: inline-block;
-      font-size: 1rem;
+      font-size: 1.2rem;
       padding: 0 5rem 0 0; }
   .header nav a {
     color: #2E243F;
@@ -298,13 +298,13 @@ input[type=range]:focus::-ms-fill-upper {
 #front {
   background: #305D42; }
   #front h1 {
-    color: white; }
+    color: #F5EFEB; }
   #front .header .banner .title-area {
     border-bottom: none; }
   #front .header nav a {
-    color: white; }
+    color: #F5EFEB; }
     #front .header nav a:hover {
-      border-bottom: 1px solid white; }
+      border-bottom: 1px solid #F5EFEB; }
   #front aside {
     background: #DECA54;
     padding: 3.5rem 3rem;
