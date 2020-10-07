@@ -100,7 +100,7 @@ h5 {
 }
 
 hr {
-  color: $red;
+  border-top: 1px solid $red;
 }
 
 .wrapper {
@@ -419,8 +419,11 @@ input[type=range]:focus::-ms-fill-upper {
         width: 20%;
       }
       output {
+        display: block;
         font-size: 0.9rem;
         font-weight: 600;
+        width: 6rem;
+
       }
       .slider-desc {
         width: 75%;

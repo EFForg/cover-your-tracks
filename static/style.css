@@ -74,7 +74,7 @@ h5 {
   text-transform: uppercase; }
 
 hr {
-  color: #D3473D; }
+  border-top: 1px solid #D3473D; }
 
 .wrapper {
   background: transparent;
@@ -341,8 +341,10 @@ input[type=range]:focus::-ms-fill-upper {
     #learn .slider-column .slider-block .range {
       width: 20%; }
     #learn .slider-column .slider-block output {
+      display: block;
       font-size: 0.9rem;
-      font-weight: 600; }
+      font-weight: 600;
+      width: 6rem; }
     #learn .slider-column .slider-block .slider-desc {
       width: 75%; }
 #learn .definitions {
