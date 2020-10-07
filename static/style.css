@@ -565,32 +565,42 @@ label#acceptable_ads sup {
 
 @media screen and (max-width: 768px) {
   /* mobile styles */
-  .header .banner .bar {
-    height: 36px; }
-    .header .banner .bar .attribution {
-      font-size: 7px;
-      line-height: 1.6;
-      max-width: 50%;
-      min-width: auto;
-      padding-left: 22px;
-      top: 12px;
-      width: 180px; }
-    .header .banner .bar .donate {
-      margin-right: 10px;
-      top: 10px; }
-    .header .banner .bar .logo {
-      left: 10px;
-      top: 10px; }
-    .header .banner .bar img.attribution {
-      height: 57px;
-      width: 250px; }
-  .header .banner .title-area {
-    display: block;
-    margin: 0; }
-    .header .banner .title-area .site-title {
+  .header .banner {
+    margin-bottom: 0; }
+    .header .banner .bar {
+      height: 36px; }
+      .header .banner .bar .attribution {
+        font-size: 0.7rem;
+        top: 12px;
+        width: 100%; }
+      .header .banner .bar .donate {
+        margin-right: 10px;
+        top: 10px; }
+      .header .banner .bar .logo {
+        left: 10px;
+        top: 10px; }
+      .header .banner .bar img.attribution {
+        height: 57px;
+        width: 250px; }
+    .header .banner .title-area {
+      display: block;
+      margin: 0; }
+      .header .banner .title-area .site-title {
+        width: 100%; }
+    .header .banner .tagline {
+      font-size: 15px; }
+    .header .banner nav {
+      padding: 0;
       width: 100%; }
-  .header .banner .tagline {
-    font-size: 15px; }
+
+  .content {
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 97%; }
+
+  footer {
+    margin: 0 auto;
+    width: 97%; }
 
   #front .title-area {
     margin: 0 auto;
@@ -598,18 +608,11 @@ label#acceptable_ads sup {
     #front .title-area h1 span {
       font-size: 48px;
       line-height: inherit; }
-  #front .content {
-    flex-wrap: wrap;
+  #front .content aside {
     margin: 0 auto;
-    width: 97%; }
-    #front .content aside {
-      margin: 0 auto;
-      min-width: 0;
-      width: 98%; }
-    #front .content .main-section {
-      display: none; }
-
-  .content {
-    margin: 0; } }
+    min-width: 0;
+    width: 98%; }
+  #front .content .main-section {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */

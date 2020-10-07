@@ -704,16 +704,13 @@ label#acceptable_ads sup{
 
 @media screen and (max-width: $mobile) { /* mobile styles */
   .header .banner {
+    margin-bottom: 0;
     .bar  {
       height: 36px;
       .attribution {
-        font-size: 7px;
-        line-height: 1.6;
-        max-width: 50%;
-        min-width: auto;
-        padding-left: 22px;
+        font-size: 0.7rem;
         top: 12px;
-        width: 180px;
+        width: 100%;
       }
       .donate {
         margin-right: 10px;
@@ -738,9 +735,20 @@ label#acceptable_ads sup{
     .tagline {
       font-size: 15px;
     }
-
+    nav {
+      padding: 0;
+      width: 100%;
+    }
   }
-
+  .content {
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 97%;
+  }
+  footer {
+    margin: 0 auto;
+    width: 97%;
+  }
   #front {
     .title-area {
       margin: 0 auto;
@@ -752,9 +760,6 @@ label#acceptable_ads sup{
     }
 
     .content {
-      flex-wrap: wrap;
-      margin: 0 auto;
-      width: 97%;
       aside {
         margin: 0 auto;
         min-width: 0;
@@ -765,7 +770,5 @@ label#acceptable_ads sup{
       }
     }
   }
-  .content {
-    margin: 0;
-  }
+
 }
