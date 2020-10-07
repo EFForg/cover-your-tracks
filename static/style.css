@@ -102,9 +102,10 @@ hr {
       font-size: 16px;
       margin-left: 1rem;
       position: relative;
-      text-transform: uppercase;
-      top: 0.5rem; }
+      top: 0.7rem; }
       .header .banner .bar .attribution a {
+        color: white;
+        border-bottom: 1px solid white;
         font-weight: normal; }
   .header .banner .tagline {
     color: black;
@@ -508,10 +509,10 @@ label#acceptable_ads sup {
   clear: both;
   color: #1E3A29;
   cursor: pointer;
-  display: inline-block;
+  display: block;
   font-size: 1rem;
   font-weight: 800;
-  margin: 1rem 0;
+  margin: 1rem auto;
   padding: 1rem 1rem;
   text-align: center;
   text-decoration: none;
