@@ -307,7 +307,7 @@ input[type=range]:focus::-ms-fill-upper {
       border-bottom: 1px solid white; }
   #front aside {
     background: #DECA54;
-    padding: 2rem;
+    padding: 3.5rem 3rem;
     border: 1px solid #DECA54;
     border-radius: 1rem; }
     #front aside hr {
