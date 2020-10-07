@@ -136,9 +136,10 @@ hr {
         font-size: 16px;
         margin-left: 1rem;
         position: relative;
-        text-transform: uppercase;
-        top: 0.5rem;
+        top: 0.7rem;
         a {
+          color: white;
+          border-bottom: 1px solid white;
           font-weight: normal;
         }
       }
@@ -188,7 +189,6 @@ hr {
   }
 }
 
-#front .header nav a,
 #testing .header nav a {
   color: white;
   &:hover {
@@ -376,8 +376,26 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 2rem;
     border: 1px solid $yellow;
     border-radius: 1rem;
-  }
 
+    hr {
+      overflow: visible; /* For IE */
+      padding: 0;
+      border: none;
+      border-top: medium double $green;
+      color: $green;
+      text-align: center;
+      margin: 2.5rem 0 0;
+      &:after {
+        content: "★";
+        display: inline-block;
+        position: relative;
+        top: -0.8rem;
+        font-size: 1.3rem;
+        padding: 0 0.5em;
+        background: $yellow;
+      }
+    }
+  }
   .content {
     display: flex;
     width: auto;
@@ -637,10 +655,10 @@ label#acceptable_ads sup{
   clear: both;
   color: $green-dark;
   cursor: pointer;
-  display: inline-block;
+  display: block;
   font-size: 1rem;
   font-weight: 800;
-  margin: 1rem 0;
+  margin: 1rem auto;
   padding: 1rem 1rem;
   text-align: center;
   text-decoration: none;

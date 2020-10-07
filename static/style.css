@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* table of contents:
 ** fonts
 ** base styles
@@ -140,10 +141,8 @@ hr {
     .header nav a:hover {
       border-bottom: 1px solid #2E243F; }
 
-#front .header nav a,
 #testing .header nav a {
   color: white; }
-  #front .header nav a:hover,
   #testing .header nav a:hover {
     border-bottom: 1px solid white; }
 
@@ -311,6 +310,23 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 2rem;
     border: 1px solid #DECA54;
     border-radius: 1rem; }
+    #front aside hr {
+      overflow: visible;
+      /* For IE */
+      padding: 0;
+      border: none;
+      border-top: medium double #305D42;
+      color: #305D42;
+      text-align: center;
+      margin: 2.5rem 0 0; }
+      #front aside hr:after {
+        content: "★";
+        display: inline-block;
+        position: relative;
+        top: -0.8rem;
+        font-size: 1.3rem;
+        padding: 0 0.5em;
+        background: #DECA54; }
   #front .content {
     display: flex;
     width: auto; }
