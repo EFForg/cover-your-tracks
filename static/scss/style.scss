@@ -80,22 +80,24 @@ a h1:hover {
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 900;
   margin-bottom: 0;
   text-transform: uppercase;
 }
 h3 {
+  font-size: 30px;
   font-weight: 800;
 }
 h4 {
   color: $green;
+  font-size: 26px;
   font-weight: 800;
   margin: 3rem 0 0.5rem;
   text-transform: uppercase;
 }
 h5 {
-  font-size: 1.2rem;
+  font-size: 20px;
   font-weight: 800;
   margin: 1.5rem 0 1rem;
   text-transform: uppercase;
@@ -386,6 +388,9 @@ p#disclaimer {
 /* learn */
 
 #learn {
+  h4 {
+    text-transform: none;
+  }
   .spectrum img {
     width: 100%;
   }
@@ -405,6 +410,10 @@ p#disclaimer {
       justify-content: space-between;
       .range {
         width: 20%;
+      }
+      output {
+        font-size: 0.9rem;
+        font-weight: 600;
       }
       .slider-desc {
         width: 75%;
@@ -476,6 +485,9 @@ body#testing {
     }
   }
 
+  h4, h5 {
+    text-transform: none;
+  }
   table#results.tracker_results{
     margin: 2rem 0;
     border-collapse: collapse;
@@ -502,6 +514,20 @@ body#testing {
       color: $red;
       text-decoration: none;
     }
+  }
+  #default-button {
+    background: $yellow-dark;
+    border: 1px solid $yellow-dark;
+    box-shadow: none;
+    color: $plum;
+    width: 200px;
+  }
+  #detailed-button {
+    background: $red;
+    border: 1px solid $red;
+    box-shadow: none;
+    color: $plum;
+    width: 200px;
   }
 }
 

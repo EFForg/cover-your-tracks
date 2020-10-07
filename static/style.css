@@ -54,22 +54,24 @@ a h1:hover {
   color: #2E243F; }
 
 h2 {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 900;
   margin-bottom: 0;
   text-transform: uppercase; }
 
 h3 {
+  font-size: 30px;
   font-weight: 800; }
 
 h4 {
   color: #305D42;
+  font-size: 26px;
   font-weight: 800;
   margin: 3rem 0 0.5rem;
   text-transform: uppercase; }
 
 h5 {
-  font-size: 1.2rem;
+  font-size: 20px;
   font-weight: 800;
   margin: 1.5rem 0 1rem;
   text-transform: uppercase; }
@@ -321,6 +323,8 @@ p#disclaimer {
   margin: 0; }
 
 /* learn */
+#learn h4 {
+  text-transform: none; }
 #learn .spectrum img {
   width: 100%; }
 #learn .slider-container,
@@ -337,6 +341,9 @@ p#disclaimer {
     justify-content: space-between; }
     #learn .slider-column .slider-block .range {
       width: 20%; }
+    #learn .slider-column .slider-block output {
+      font-size: 0.9rem;
+      font-weight: 600; }
     #learn .slider-column .slider-block .slider-desc {
       width: 75%; }
 #learn .definitions {
@@ -384,6 +391,8 @@ body#testing {
     text-transform: none; }
     #results-wrapper h3.indicate span {
       color: #D3473D; }
+  #results-wrapper h4, #results-wrapper h5 {
+    text-transform: none; }
   #results-wrapper table#results.tracker_results {
     margin: 2rem 0;
     border-collapse: collapse; }
@@ -404,6 +413,18 @@ body#testing {
     #results-wrapper #showFingerprintLink2 a, #results-wrapper #showFingerprintLink2 a:hover {
       color: #D3473D;
       text-decoration: none; }
+  #results-wrapper #default-button {
+    background: #F6AD0F;
+    border: 1px solid #F6AD0F;
+    box-shadow: none;
+    color: #2E243F;
+    width: 200px; }
+  #results-wrapper #detailed-button {
+    background: #D3473D;
+    border: 1px solid #D3473D;
+    box-shadow: none;
+    color: #2E243F;
+    width: 200px; }
 
 /* footer */
 footer {
