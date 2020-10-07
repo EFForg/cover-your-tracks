@@ -306,22 +306,21 @@ input[type=range]:focus::-ms-fill-upper {
     border: 1px solid #DECA54;
     border-radius: 1rem; }
     #front aside hr {
-      overflow: visible;
-      /* For IE */
-      padding: 0;
       border: none;
       border-top: medium double #305D42;
       color: #305D42;
-      text-align: center;
-      margin: 2.5rem 0 0; }
+      margin: 2.5rem 0 0;
+      overflow: visible;
+      padding: 0;
+      text-align: center; }
       #front aside hr:after {
+        background: #DECA54;
         content: "★";
         display: inline-block;
+        font-size: 1.3rem;
         position: relative;
         top: -0.8rem;
-        font-size: 1.3rem;
-        padding: 0 0.5em;
-        background: #DECA54; }
+        padding: 0 0.5em; }
   #front .content {
     display: flex;
     width: auto; }
@@ -412,11 +411,17 @@ input[type=range]:focus::-ms-fill-upper {
     text-transform: none; }
   #results-wrapper table#results.tracker_results {
     margin: 2rem 0;
-    border-collapse: collapse; }
+    border-collapse: separate; }
     #results-wrapper table#results.tracker_results td, #results-wrapper table#results.tracker_results th {
       border: 1px solid #D3473D;
+      font-weight: 600;
       padding: 0.5rem;
       text-align: left; }
+    #results-wrapper table#results.tracker_results td:nth-child(2) {
+      text-align: center; }
+  #results-wrapper .complimentary_text {
+    color: #F5EFEB;
+    text-align: center; }
   #results-wrapper #showFingerprintLink2 {
     border: 1px solid #D3473D;
     border-radius: 3px;
@@ -479,11 +484,6 @@ small#center {
 
 #ad_status, #tracker_status, #dnt_status {
   vertical-align: middle; }
-
-.complimentary_text {
-  display: inline-block;
-  position: relative;
-  top: -3px; }
 
 .test_label {
   text-align: left; }

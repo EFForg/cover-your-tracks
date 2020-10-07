@@ -370,21 +370,21 @@ input[type=range]:focus::-ms-fill-upper {
     border: 1px solid $yellow;
     border-radius: 1rem;
     hr {
-      overflow: visible; /* For IE */
-      padding: 0;
       border: none;
       border-top: medium double $green;
       color: $green;
-      text-align: center;
       margin: 2.5rem 0 0;
+      overflow: visible;
+      padding: 0;
+      text-align: center;
       &:after {
+        background: $yellow;
         content: "★";
         display: inline-block;
+        font-size: 1.3rem;
         position: relative;
         top: -0.8rem;
-        font-size: 1.3rem;
         padding: 0 0.5em;
-        background: $yellow;
       }
     }
   }
@@ -517,13 +517,22 @@ input[type=range]:focus::-ms-fill-upper {
 
   table#results.tracker_results{
     margin: 2rem 0;
-    border-collapse: collapse;
+    border-collapse: separate;
 
     td, th {
       border: 1px solid $red;
+      font-weight: 600;
       padding: 0.5rem;
       text-align: left;
     }
+    td:nth-child(2) {
+      text-align: center;
+    }
+
+  }
+  .complimentary_text{
+    color: $beige;
+    text-align: center;
   }
 
   #showFingerprintLink2 { // link for detailed view
@@ -606,11 +615,7 @@ small#center {
 #ad_status, #tracker_status, #dnt_status{
   vertical-align: middle;
 }
-.complimentary_text{
-  display: inline-block;
-  position: relative;
-  top: -3px;
-}
+
 .test_label{
   text-align: left;
 }
