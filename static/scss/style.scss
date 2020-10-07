@@ -189,13 +189,6 @@ hr {
   }
 }
 
-#testing .header nav a {
-  color: white;
-  &:hover {
-    border-bottom: 1px solid white;
-  }
-}
-
 /* content */
 .content {
   margin: 1rem 1rem 1rem 5rem;
@@ -457,7 +450,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 /* testing page */
-body#testing {
+#testing {
   background: $green-dark;
   color: $beige;
   h1,
@@ -468,6 +461,12 @@ body#testing {
   h2 {
     color: $yellow;
     font-size: 48px;
+  }
+  .header nav a {
+    color: $beige;
+    &:hover {
+      border-bottom: 1px solid $beige;
+    }
   }
   .testing {
     margin: 5rem auto;

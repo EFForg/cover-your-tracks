@@ -141,11 +141,6 @@ hr {
     .header nav a:hover {
       border-bottom: 1px solid #2E243F; }
 
-#testing .header nav a {
-  color: white; }
-  #testing .header nav a:hover {
-    border-bottom: 1px solid white; }
-
 /* content */
 .content {
   margin: 1rem 1rem 1rem 5rem; }
@@ -371,17 +366,21 @@ input[type=range]:focus::-ms-fill-upper {
     width: 50%; }
 
 /* testing page */
-body#testing {
+#testing {
   background: #1E3A29;
   color: #F5EFEB; }
-  body#testing h1,
-  body#testing .tagline,
-  body#testing nav {
+  #testing h1,
+  #testing .tagline,
+  #testing nav {
     color: #F5EFEB; }
-  body#testing h2 {
+  #testing h2 {
     color: #DECA54;
     font-size: 48px; }
-  body#testing .testing {
+  #testing .header nav a {
+    color: #F5EFEB; }
+    #testing .header nav a:hover {
+      border-bottom: 1px solid #F5EFEB; }
+  #testing .testing {
     margin: 5rem auto;
     max-width: 60%; }
 
