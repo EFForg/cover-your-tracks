@@ -64,7 +64,7 @@ h3 {
   font-weight: 800; }
 
 h4 {
-  color: #305D42;
+  color: #2E243F;
   font-size: 26px;
   font-weight: 800;
   margin: 3rem 0 0.5rem;
@@ -75,6 +75,9 @@ h5 {
   font-weight: 800;
   margin: 1.5rem 0 1rem;
   text-transform: uppercase; }
+
+hr {
+  color: #D3473D; }
 
 #front h1 {
   color: white; }
@@ -413,18 +416,23 @@ body#testing {
     #results-wrapper #showFingerprintLink2 a, #results-wrapper #showFingerprintLink2 a:hover {
       color: #D3473D;
       text-decoration: none; }
+  #results-wrapper .button-style {
+    box-shadow: none;
+    color: #2E243F;
+    width: 200px; }
+    #results-wrapper .button-style:hover {
+      border-color: #2E243F;
+      color: white; }
   #results-wrapper #default-button {
     background: #F6AD0F;
-    border: 1px solid #F6AD0F;
-    box-shadow: none;
-    color: #2E243F;
-    width: 200px; }
+    border: 1px solid #F6AD0F; }
   #results-wrapper #detailed-button {
     background: #D3473D;
-    border: 1px solid #D3473D;
-    box-shadow: none;
-    color: #2E243F;
-    width: 200px; }
+    border: 1px solid #D3473D; }
+  #results-wrapper #default-button.button-style.active,
+  #results-wrapper #detailed-button.button-style.active {
+    border-color: #2E243F;
+    color: white; }
 
 /* footer */
 footer {

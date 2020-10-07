@@ -90,7 +90,7 @@ h3 {
   font-weight: 800;
 }
 h4 {
-  color: $green;
+  color: $plum;
   font-size: 26px;
   font-weight: 800;
   margin: 3rem 0 0.5rem;
@@ -101,6 +101,10 @@ h5 {
   font-weight: 800;
   margin: 1.5rem 0 1rem;
   text-transform: uppercase;
+}
+
+hr {
+  color: $red;
 }
 
 #front h1 {
@@ -488,6 +492,7 @@ body#testing {
   h4, h5 {
     text-transform: none;
   }
+
   table#results.tracker_results{
     margin: 2rem 0;
     border-collapse: collapse;
@@ -515,19 +520,27 @@ body#testing {
       text-decoration: none;
     }
   }
-  #default-button {
-    background: $yellow-dark;
-    border: 1px solid $yellow-dark;
+  .button-style {
     box-shadow: none;
     color: $plum;
     width: 200px;
+    &:hover {
+      border-color: $plum;
+      color: white;
+    }
+  }
+  #default-button {
+    background: $yellow-dark;
+    border: 1px solid $yellow-dark;
   }
   #detailed-button {
     background: $red;
     border: 1px solid $red;
-    box-shadow: none;
-    color: $plum;
-    width: 200px;
+  }
+  #default-button.button-style.active,
+  #detailed-button.button-style.active {
+    border-color: $plum;
+    color: white;
   }
 }
 
