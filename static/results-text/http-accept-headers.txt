@@ -1,6 +1,6 @@
-<h4>What is this?</h4>
+<h5>What is this?</h5>
 <p>
 Accept is a web header(TOOLTIP?) that is used to let the server know what types of content the browser is able to handle.  For example, a server can choose to deliver a CSV if XML is not handled by the browser.
 </p>
-<h4>What kind of information is gathered?</h4>
+<h5>What kind of information is gathered?</h5>
 <p>This information can be fairly unique, and varies from browser to browser.  However, this string doesn’t tend to change much over time, and can remain constant through many versions of the same browser.</p>

@@ -1,6 +1,6 @@
-<h4>What is this?</h4>
+<h5>What is this?</h5>
 <p>A complex set of shapes, colors, and UTF characters is rendered to a canvas element using JavaScript.  This canvas is then serialized and hashed to provide the canvas fingerprint metric.
 </p>
-<h4>What kind of information is gathered?</h4>
+<h5>What kind of information is gathered?</h5>
 <p>This is a complex and highly reliable fingerprinting metric.  Little changes in video card hardware, OS-level video drivers, and fonts installed will result in slightly different images being rendered to the canvas.  Although different from one computer to the next, these settings are consistent enough on a single machine to provide a good—and highly identifying—fingerprinting metric.
 </p>

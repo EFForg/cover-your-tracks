@@ -1,6 +1,6 @@
-<h4>What is this?</h4>
+<h5>What is this?</h5>
 <p>Very similar to Canvas Fingerprint above, but uses WebGL instead.
 </p>
-<h4>What kind of information is gathered?</h4>
+<h5>What kind of information is gathered?</h5>
 <p>Similar to Canvas Fingerprint, little changes to your hardware and software will lead to a unique WebGL fingerprint. Usually, only the Canvas Fingerprint or WebGL fingerprint is necessary to know, since they are highly linked. This is similar to knowing someone’s birthday falls in September this year - you’ll know it will fall in the same month next year too, so it doesn’t give you any new information.  Either piece of information will do.
 </p>
