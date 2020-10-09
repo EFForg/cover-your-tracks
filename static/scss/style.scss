@@ -1,3 +1,9 @@
+//@charset "utf-8";
+
+//@import
+//'_learn-animation'
+//;
+
 // variables
 $green-light: #4D8061;
 $green:  #305D42; // background
@@ -21,6 +27,8 @@ $mobile: 768px;
 ** footer
 ** individual pages
 ** various custom elements (tooltips etc)
+** learn animation
+** mobile styles
 */
 
 /* fonts */
@@ -738,17 +746,24 @@ label#acceptable_ads sup{
     nav {
       padding: 0;
       width: 100%;
+      ul {
+        margin: 0.5rem 0;
+      }
     }
   }
   .content {
     flex-wrap: wrap;
     margin: 0 auto;
     width: 97%;
+    .main-section {
+      width: 100%;
+    }
   }
   footer {
     margin: 0 auto;
     width: 97%;
   }
+ // individual pages
   #front {
     .title-area {
       margin: 0 auto;
@@ -758,7 +773,6 @@ label#acceptable_ads sup{
         line-height: inherit;
       }
     }
-
     .content {
       aside {
         margin: 0 auto;
@@ -770,5 +784,17 @@ label#acceptable_ads sup{
       }
     }
   }
-
+  #results-wrapper {
+    flex-wrap: wrap;
+    .main-section {
+      margin: 0 3px;
+      #results {
+        .results-buttons {
+          background: $beige;
+          position: sticky;
+          top: 0;
+        }
+      }
+    }
+  }
 }

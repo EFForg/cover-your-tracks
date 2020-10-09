@@ -1,0 +1,222 @@
+.animation {
+  /* these variables are configurable! */
+  --path-height: 400px;
+  --path-width: 150px;
+  --foot-spread: calc(var(--path-width) * 0.3);
+  --animation-duration: 8s;
+  --footprint-width: 50px;
+  --footprint-height: 50px;
+  display: block;
+  height: 500px;
+  width: 100%;
+}
+
+.footprints {
+  padding: 20px;
+  width: var(--path-width);
+  height: var(--path-height);
+  position: absolute;
+  display: inline-block;
+  /* each .footprints can define individual values
+     to vary up the groups */
+  --timing-offset: 0s;
+  --TOTAL-STEPS: 8;
+  /* start to work with 4 feet TODO */
+  --MAX-FEET: 2;
+  --TOTAL-STEPS-PER-FOOT: calc(var(--TOTAL-STEPS) / var(--MAX-FEET));
+  /* this is the timing between each step. with 8 total steps,
+     do not change this */
+  --step-interval-delay: calc(var(--animation-duration) / var(--TOTAL-STEPS));
+}
+
+.footprints > .foot {
+  opacity: 0;
+  width: var(--footprint-width);
+  height: var(--footprint-height);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  animation: var(--animation-duration) walking infinite;
+  /* timing offset, should be different for each group to appear
+     more cluttered */
+  --timing-offset: 0s;
+  /* how many "steps" up */
+  --step-counter: 0;
+  /* how much the foot should be rotated on the Y axis -- use for mirroring images */
+  --y-rotation: 0deg;
+  /* scale */
+  --scale: unset;
+  /* distance from center X to offset per foot */
+  --foot-x-offset: 0px;
+  /* distance from center X to offset per foot */
+  --foot-y-offset: 0px;
+  /* distance between each "step"; this would be
+     every other left foot, for example, since the second
+     left foot step is actually another .foot element */
+  --step-distance: calc(var(--path-height) / var(--TOTAL-STEPS-PER-FOOT));
+  /* the footprints are left aligned; center them horizontally */
+  --translate-x: calc(
+    calc(var(--footprint-width) * -0.5) + var(--foot-x-offset)
+  );
+  /* UP is negative Y */
+  --translate-y: calc(
+    var(--foot-y-offset) +
+    calc(-1 * calc(var(--step-distance) * var(--step-counter)))
+  );
+
+  transform: scale(var(--scale, 1)) translate(var(--translate-x), var(--translate-y)) rotateY(var(--y-rotation));
+}
+
+/* left foot */
+.footprints > .foot:nth-child(1) {
+  /* background-color: blue; */
+  animation-delay: var(--timing-offset);
+  --foot-x-offset: calc(var(--foot-spread) * -1);
+  --foot-y-offset: 0px;
+}
+
+/* right foot */
+.footprints > .foot:nth-child(2) {
+  /* background-color: red; */
+  animation-delay: calc(var(--timing-offset) + var(--step-interval-delay));
+  --y-rotation: 180deg; /* mirror left foot */
+  --foot-x-offset: var(--foot-spread);
+  --foot-y-offset: calc(var(--path-height) / -8);
+}
+
+/* second left foot */
+/* NOT YET WORKING */
+.footprints > .foot:nth-child(3) {
+  animation-delay: calc(
+    calc(var(--step-interval-delay) * 2) + var(--timing-offset)
+  );
+  --foot-x-offset: var(--foot-spread);
+  --foot-y-offset: calc(var(--path-height) / 4);
+}
+
+/* second right foot */
+/* NOT YET WORKING */
+.footprints > .foot:nth-child(4) {
+  animation-delay: calc(
+    calc(var(--step-interval-delay) * 3) + var(--timing-offset)
+  );
+  --y-rotation: 180deg; /* mirror left foot */
+  --foot-x-offset: var(--foot-spread);
+  --foot-y-offset: calc(calc(var(--path-height) / 8) * 3);
+}
+
+@keyframes walking {
+  0% { opacity: 0; --step-counter: 0;}
+  13% { opacity: 1; }
+  /* repeat --step-counter declaration so that
+   it does *NOT* interpolate between keyframes */
+  25% { opacity: 0; --step-counter: 0; }
+  26% { opacity: 0; --step-counter: 1; }
+  38% { opacity: 1; }
+  50% { opacity: 0; --step-counter: 1; }
+  51% { opacity: 0; --step-counter: 2; }
+  63% { opacity: 1; }
+  75% { opacity: 0; --step-counter: 2; }
+  76% { opacity: 0; --step-counter: 3; }
+  88% { opacity: 1; }
+  100% { opacity: 0; --step-counter: 3; }
+}
+
+/* define different background images here,
+    allow the `x-img` attribute to set the background-image */
+.footprints[x-img="deer"] > .foot {
+  background-image: url("/static/svg/CYT_deer.svg");
+    --scale: 2;
+}
+.footprints[x-img="raccoon"] > .foot {
+    background-image: url(./SVGs/CYT_raccoon.svg);
+}
+.footprints[x-img="raccoonfoot"] > .foot {
+    background-image: url(./SVGs/CYT_raccoonfoot.svg);
+    --scale: 1.5;
+}
+.footprints[x-img="hoof"] {
+    --path-height: 600px;
+    --path-width: 300px
+}
+.footprints[x-img="hoof"] > .foot {
+    background-image: url(./SVGs/CYT_hoof.svg);
+    --scale: 4;
+}
+.footprints[x-img="antelope"] > .foot {
+    background-image: url(./SVGs/CYT_antelope.svg);
+    --scale: 2.5;
+}
+.footprints[x-img="bird"] > .foot {
+    background-image: url(./SVGs/CYT_bird.svg);
+}
+.footprints[x-img="fox"] > .foot {
+    background-image: url(./SVGs/CYT_fox.svg);
+}
+.footprints[x-img="dog"] > .foot {
+    background-image: url(./SVGs/CYT_dog.svg);
+}
+
+
+/* these are just styling the 4 example footprint groups.
+   Giving them messy offsets and durations to create the illusion
+   of chaos. */
+.footprints:nth-child(1) {
+  transform: rotate(9deg) scale(1.5);
+  /* use --timing-offset to indicate its start time, creating an offset with other footprints */
+  --timing-offset: 1.7s;
+  /* the length of the full animation loop */
+  --animation-duration: 6s;
+}
+.footprints:nth-child(2) {
+    transform: rotate(-30deg);
+}
+/* can target specific elements however, with specific attributes or classes */
+.footprints:nth-child(3) {
+    transform: rotate(16deg);
+  --timing-offset: 0.9s;
+  --animation-duration: 4.5s;
+}
+.footprints[first-deer] {
+  transform: translate(400px) rotate(30deg);
+  --timing-offset: 2s;
+  --animation-duration: 7s;
+}
+.footprints[first-raccoon] {
+  transform: translate(600px, 80px) rotate(12deg);
+  --timing-offset: 2s;
+  --animation-duration: 7s;
+}
+.footprints[first-raccoonfoot] {
+  transform: translate(600px, 300px) rotate(12deg);
+  --timing-offset: 2s;
+  --animation-duration: 7s;
+}
+.footprints[first-hoof] {
+  transform: translate(800px) rotate(-50deg);
+  --timing-offset: 4s;
+  --animation-duration: 7s;
+}
+.footprints[first-antelope] {
+  transform: translate(300px, 180px) rotate(-15deg);
+  --timing-offset: 3s;
+  --animation-duration: 5s;
+}
+.footprints[first-bird] {
+  transform: translate(300px) rotate(12deg);
+  --timing-offset: .5s;
+  --animation-duration: 4s;
+  --foot-spread: 16px;
+}
+.footprints[first-fox] {
+  transform: translate(475px) rotate(12deg);
+  --timing-offset: 1s;
+  --animation-duration: 7s;
+}
+.footprints[first-dog] {
+  transform: translate(100px);
+  --timing-offset: .7s;
+  --animation-duration: 5s;
+}

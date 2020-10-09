@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #86bcd1;
+      }
+    </style>
+  </defs>
+  <title>CYT_animation</title>
+  <g id="SVGs">
+    <g id="bird">
+      <polygon class="cls-1" points="94.1 124.93 105.02 11.91 107.47 12.07 103.77 125.56 94.1 124.93"/>
+      <polygon class="cls-1" points="95.06 128.15 45.58 55.97 47.54 54.5 102.81 122.34 95.06 128.15"/>
+      <polygon class="cls-1" points="95.46 121.87 159 61.69 160.76 63.4 102.41 128.62 95.46 121.87"/>
+      <polygon class="cls-1" points="104.06 121.09 96.05 189 93.6 188.84 94.39 120.47 104.06 121.09"/>
+    </g>
+  </g>
+</svg>

@@ -3,13 +3,47 @@
 {% block body %}
 <div id="learn">
   <div class="main-section">
-    <img class="banner" src="/static/images/learn.png">
     <p>Every time you visit a website, your browser leaves behind little bits of information about itself. When combined, these bits form a distinct picture or fingerprint of your browser. Even with cookies disabled, trackers can use browser fingerprints to track users across the web. Some browsers have better protections against fingerprinting than others, and browser add-ons can be used to mitigate the harms of fingerprinting and block trackers.</p>
-
     <div class="spectrum">
-      <img src="/static/images/spectrum.png" alt="spectrum from more invisible to more unique">
       <h4>This section of the site lets you test how Panopticlick “sees” your browser. Adjust the sliders to turn various settings on and off and observe how they increase or decrease your fingerprint. </h4>
+      <img src="/static/images/spectrum.png" alt="spectrum from more invisible to more unique">
     </div>
+    <div class="animation">
+      <div class="footprints" x-img="deer" first-deer>
+        <div class="foot"></div>
+        <div class="foot"></div>
+      </div>
+      <div class="footprints" x-img="raccoon" first-raccoon>
+        <div class="foot"></div>
+        <div class="foot"></div>
+      </div>
+      <div class="footprints" x-img="raccoonfoot" first-raccoonfoot>
+        <div class="foot"></div>
+        <div class="foot"></div>
+      </div>
+      <div class="footprints" x-img="hoof" first-hoof>
+        <div class="foot"></div>
+        <div class="foot"></div>
+      </div>
+      <div class="footprints" x-img="antelope" first-antelope>
+        <div class="foot"></div>
+        <div class="foot"></div>
+      </div>
+      <div class="footprints" x-img="bird" first-bird>
+        <div class="foot"></div>
+        <div class="foot"></div>
+      </div>
+      <div class="footprints" x-img="fox" first-fox>
+        <div class="foot"></div>
+        <div class="foot"></div>
+      </div>
+      <div class="footprints" x-img="dog" first-dog>
+        <div class="foot"></div>
+        <div class="foot"></div>
+      </div>
+    </div>
+
+
     <div class="slider-container">
       <div class="slider-column">
         <div class="slider-block">
@@ -49,7 +83,7 @@
             <input type="range" min="1" max="2" value="1" class="slider" id="js-input" >
             <output id="js-output">enabled</output>
           </div>
-        <div class="slider-desc">
+          <div class="slider-desc">
             <h5>Javascript</h5>
             <p>When you turn JavaScript off, trackers aren’t able to determine much of the information which is used to determine your browser fingerprint. This means that your browser looks a lot less distinct, and more protected!</p>
           </div>
@@ -57,9 +91,9 @@
       </div>
     </div>
     <div class="definitions">
-        <div class="image">
-          <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
-        </div>
+      <div class="image">
+        <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
+      </div>
       <div class="text">
         <h3>Short intro to tracking and fingerprinting</h3>
         <p>Every time you visit a website, your browser leaves behind  little bits of information about itself. These bits, when combined, form a distinct picture or <a href="https://ssd.eff.org/en/module/what-fingerprinting" target="_blank">fingerprint</a> of your browser.</p>
@@ -71,8 +105,8 @@
       </div>
 
       <div class="text">
-      <h3>What is a digital fingerprint?</h3>
-      <p>Fingerprinting is the process whereby a remote site or service gathers little bits of information about a user's browser.  This includes information the browser delivers in a request to the website, as well as further information the website can determine by using JavaScript on the page. A tracking site can  stitch  those pieces together to form a unique picture, or "fingerprint," of the user's device.</p>
+        <h3>What is a digital fingerprint?</h3>
+        <p>Fingerprinting is the process whereby a remote site or service gathers little bits of information about a user's browser.  This includes information the browser delivers in a request to the website, as well as further information the website can determine by using JavaScript on the page. A tracking site can  stitch  those pieces together to form a unique picture, or "fingerprint," of the user's device.</p>
       </div>
       <div class="image">
         <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
@@ -81,15 +115,15 @@
         <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
       </div>
       <div class="text">
-      <h3>What is a tracker?</h3>
-      <p>
-        Most online tracking happens via cookies. Cookies make possible "stateful" user interfaces such as user accounts and logins, multi-page forms, or online shopping carts. But they also allow sites to store a unique ID in your browser, and therefore to track you—and if a company is present on multiple websites, it can track your visits to each of those sites. Fingerprinting can be used for the same purpose, but uses a different technology to track users. In other words, a company can use cookies and fingerprints to construct a detailed overview of users' activity. Many people feel this is an invasion of their privacy, and want to be able to block, limit or delete their cookies in order to regain control of their browser.
-      </p>
+        <h3>What is a tracker?</h3>
+        <p>
+          Most online tracking happens via cookies. Cookies make possible "stateful" user interfaces such as user accounts and logins, multi-page forms, or online shopping carts. But they also allow sites to store a unique ID in your browser, and therefore to track you—and if a company is present on multiple websites, it can track your visits to each of those sites. Fingerprinting can be used for the same purpose, but uses a different technology to track users. In other words, a company can use cookies and fingerprints to construct a detailed overview of users' activity. Many people feel this is an invasion of their privacy, and want to be able to block, limit or delete their cookies in order to regain control of their browser.
+        </p>
       </div>
       <div class="text">
-      <h3>What's the difference?</h3>
-      <p>Cookies store information with the browser in a way that can be cleared by the user.  You can delete your cookies. You can’t delete your fingerprint. Cookie tracking is the virtual equivalent of a bird band or other animal tracking device. While it’s accurate and effective, it can ultimately be lost or removed.  Imagine a bird losing the band or chewing it off—this is equivalent to a user clearing their cookies. Fingerprinting follows a similar mode of operation, but uses more permanent, unchangeable identifiers such as hardware specifications and browser settings. This is equivalent to tracking a bird by its song or feather markings.
-      </p>
+        <h3>What's the difference?</h3>
+        <p>Cookies store information with the browser in a way that can be cleared by the user.  You can delete your cookies. You can’t delete your fingerprint. Cookie tracking is the virtual equivalent of a bird band or other animal tracking device. While it’s accurate and effective, it can ultimately be lost or removed.  Imagine a bird losing the band or chewing it off—this is equivalent to a user clearing their cookies. Fingerprinting follows a similar mode of operation, but uses more permanent, unchangeable identifiers such as hardware specifications and browser settings. This is equivalent to tracking a bird by its song or feather markings.
+        </p>
       </div>
       <div class="image">
         <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
