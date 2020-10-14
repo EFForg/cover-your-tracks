@@ -7,6 +7,9 @@ $(document).ready(function(){
   var defaultsOutput  = document.getElementById('defaults-output');
   var resistantInput = document.getElementById('resistant-input');
   var resistantOutput  = document.getElementById('resistant-output');
+  // hide racoon prints
+  $('.footprints[first-raccoon]').hide();
+  $('.footprints[first-raccoonfoot]').hide();
   trackerInput.onchange = function(){
      if (trackerInput.value == '1') {
        trackerOutput.value = "installed"
@@ -22,18 +25,26 @@ $(document).ready(function(){
      }
   }
   defaultsInput.onchange = function(){
-     if (defaultsInput.value == '1') {
-       defaultsOutput.value = "yes"
-     } else {
-       defaultsOutput.value = "no"
-     }
-  }
-  resistantInput.onchange = function(){
-     if (resistantInput.value == '1') {
-       resistantOutput.value = "yes"
-     } else {
-       resistantOutput.value = "no"
-     }
-  }
+   if (defaultsInput.value == '1') {
+     defaultsOutput.value = "no"
+     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg);')
+     $('.footprints[x-img="fox"]:nth-child(3)' ).show();
+   } else {
+     defaultsOutput.value = "yes"
+     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/CYT_deer.svg)');
+     $('.footprints[x-img="fox"]:nth-child(3)' ).hide();
+   }
+}
+resistantInput.onchange = function(){
+   if (resistantInput.value == '1') {
+     resistantOutput.value = "no"
+      $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+     $('.footprints[x-img="fox"]:nth-child(5)' ).show();
+   } else {
+     resistantOutput.value = "yes"
+     $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/CYT_hoof.svg)');
+    $('.footprints[x-img="fox"]:nth-child(5)' ).hide();
+   }
+}
 
 });

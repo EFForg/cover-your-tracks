@@ -1,14 +1,20 @@
 .animation {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 600px;
+
+
+  --STEP-COUNT: 8;
+
   /* these variables are configurable! */
   --path-height: 400px;
   --path-width: 150px;
-  --foot-spread: calc(var(--path-width) * 0.3);
-  --animation-duration: 8s;
+  --foot-spread: calc(var(--path-width) * 0.2);
+  --animation-duration: 5s;
+  --step-delay: 0.5s;
   --footprint-width: 50px;
   --footprint-height: 50px;
-  display: block;
-  height: 500px;
-  width: 100%;
 }
 
 .footprints {
@@ -18,18 +24,11 @@
   position: absolute;
   display: inline-block;
   /* each .footprints can define individual values
-     to vary up the groups */
+  to vary up the groups */
   --timing-offset: 0s;
-  --TOTAL-STEPS: 8;
-  /* start to work with 4 feet TODO */
-  --MAX-FEET: 2;
-  --TOTAL-STEPS-PER-FOOT: calc(var(--TOTAL-STEPS) / var(--MAX-FEET));
-  /* this is the timing between each step. with 8 total steps,
-     do not change this */
-  --step-interval-delay: calc(var(--animation-duration) / var(--TOTAL-STEPS));
 }
 
-.footprints > .foot {
+.footprints>.foot {
   opacity: 0;
   width: var(--footprint-width);
   height: var(--footprint-height);
@@ -38,131 +37,198 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  animation: var(--animation-duration) walking infinite;
-  /* timing offset, should be different for each group to appear
-     more cluttered */
-  --timing-offset: 0s;
-  /* how many "steps" up */
-  --step-counter: 0;
+  /* should be overwritten by nth-child selectors */
+  --foot-index: 0;
   /* how much the foot should be rotated on the Y axis -- use for mirroring images */
   --y-rotation: 0deg;
   /* scale */
   --scale: unset;
   /* distance from center X to offset per foot */
   --foot-x-offset: 0px;
-  /* distance from center X to offset per foot */
-  --foot-y-offset: 0px;
-  /* distance between each "step"; this would be
-     every other left foot, for example, since the second
-     left foot step is actually another .foot element */
-  --step-distance: calc(var(--path-height) / var(--TOTAL-STEPS-PER-FOOT));
+  /* distance between each "step" */
+  --step-distance: calc(var(--path-height) / var(--STEP-COUNT));
   /* the footprints are left aligned; center them horizontally */
-  --translate-x: calc(
-    calc(var(--footprint-width) * -0.5) + var(--foot-x-offset)
-  );
+  --translate-x: calc(calc(var(--footprint-width) * -0.5) + var(--foot-x-offset));
   /* UP is negative Y */
-  --translate-y: calc(
-    var(--foot-y-offset) +
-    calc(-1 * calc(var(--step-distance) * var(--step-counter)))
-  );
-
+  --translate-y: calc(-1 * calc(var(--step-distance) * var(--foot-index)));
   transform: scale(var(--scale, 1)) translate(var(--translate-x), var(--translate-y)) rotateY(var(--y-rotation));
+
+  animation: var(--animation-duration) walking infinite;
+  animation-delay: calc(var(--timing-offset) + calc(var(--step-delay) * var(--foot-index)));
+  animation-timing-function: ease-in;
 }
 
-/* left foot */
-.footprints > .foot:nth-child(1) {
-  /* background-color: blue; */
-  animation-delay: var(--timing-offset);
+.footprints>.foot:nth-child(1) {
+  --foot-index: 1;
+}
+
+.footprints>.foot:nth-child(2) {
+  --foot-index: 2;
+}
+
+.footprints>.foot:nth-child(3) {
+  --foot-index: 3;
+}
+
+.footprints>.foot:nth-child(4) {
+  --foot-index: 4;
+}
+
+.footprints>.foot:nth-child(5) {
+  --foot-index: 5;
+}
+
+.footprints>.foot:nth-child(6) {
+  --foot-index: 6;
+}
+
+.footprints>.foot:nth-child(7) {
+  --foot-index: 7;
+}
+
+.footprints>.foot:nth-child(8) {
+  --foot-index: 8;
+}
+
+
+/* left feet */
+.footprints>.foot:nth-child(2n+1) {
   --foot-x-offset: calc(var(--foot-spread) * -1);
-  --foot-y-offset: 0px;
 }
 
-/* right foot */
-.footprints > .foot:nth-child(2) {
-  /* background-color: red; */
-  animation-delay: calc(var(--timing-offset) + var(--step-interval-delay));
-  --y-rotation: 180deg; /* mirror left foot */
+/* right feet */
+.footprints>.foot:nth-child(2n) {
+  --y-rotation: 180deg;
+  /* mirror left foot */
   --foot-x-offset: var(--foot-spread);
-  --foot-y-offset: calc(var(--path-height) / -8);
-}
-
-/* second left foot */
-/* NOT YET WORKING */
-.footprints > .foot:nth-child(3) {
-  animation-delay: calc(
-    calc(var(--step-interval-delay) * 2) + var(--timing-offset)
-  );
-  --foot-x-offset: var(--foot-spread);
-  --foot-y-offset: calc(var(--path-height) / 4);
-}
-
-/* second right foot */
-/* NOT YET WORKING */
-.footprints > .foot:nth-child(4) {
-  animation-delay: calc(
-    calc(var(--step-interval-delay) * 3) + var(--timing-offset)
-  );
-  --y-rotation: 180deg; /* mirror left foot */
-  --foot-x-offset: var(--foot-spread);
-  --foot-y-offset: calc(calc(var(--path-height) / 8) * 3);
 }
 
 @keyframes walking {
-  0% { opacity: 0; --step-counter: 0;}
-  13% { opacity: 1; }
-  /* repeat --step-counter declaration so that
-   it does *NOT* interpolate between keyframes */
-  25% { opacity: 0; --step-counter: 0; }
-  26% { opacity: 0; --step-counter: 1; }
-  38% { opacity: 1; }
-  50% { opacity: 0; --step-counter: 1; }
-  51% { opacity: 0; --step-counter: 2; }
-  63% { opacity: 1; }
-  75% { opacity: 0; --step-counter: 2; }
-  76% { opacity: 0; --step-counter: 3; }
-  88% { opacity: 1; }
-  100% { opacity: 0; --step-counter: 3; }
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
 }
 
-/* define different background images here,
-    allow the `x-img` attribute to set the background-image */
-.footprints[x-img="deer"] > .foot {
-  background-image: url("/static/svg/CYT_deer.svg");
-    --scale: 2;
-}
-.footprints[x-img="raccoon"] > .foot {
-    background-image: url(./SVGs/CYT_raccoon.svg);
-}
-.footprints[x-img="raccoonfoot"] > .foot {
-    background-image: url(./SVGs/CYT_raccoonfoot.svg);
-    --scale: 1.5;
-}
-.footprints[x-img="hoof"] {
-    --path-height: 600px;
-    --path-width: 300px
-}
-.footprints[x-img="hoof"] > .foot {
-    background-image: url(./SVGs/CYT_hoof.svg);
-    --scale: 4;
-}
-.footprints[x-img="antelope"] > .foot {
-    background-image: url(./SVGs/CYT_antelope.svg);
-    --scale: 2.5;
-}
-.footprints[x-img="bird"] > .foot {
-    background-image: url(./SVGs/CYT_bird.svg);
+/* THIS IS WHERE THE INDIVIDUAL SVGs and their SPECIFIED ANIMATIONS LIVE! define different background images here, allow the `x-img` attribute to set the background-image */
+
+/* ************************************************ */
+
+/*.footprints {
+fill: #ff0077; */
 }
 .footprints[x-img="fox"] > .foot {
-    background-image: url(./SVGs/CYT_fox.svg);
+  background-image: url("/static/svg/CYT_fox.svg");
+
 }
-.footprints[x-img="dog"] > .foot {
-    background-image: url(./SVGs/CYT_dog.svg);
+.footprints[x-img="fox"] {
+  transform: translate(50px, 60px) rotate(24deg) scale(2);
+  --timing-offset: 1s;
+  --animation-duration: 7s;
 }
+/* ************************************************ */
+
+.footprints[x-img="fox"] > .foot {
+  background-image: url("/static/svg/fox-gray.svg");
+}
+
+.footprints[x-img="fox"]:nth-child(1) > .foot {
+  background-image: url("/static/svg/CYT_fox.svg");
+}
+.footprints[x-img="fox"]:nth-child(2) {
+  transform: translate(370px, 50px) rotate(10deg) scale(1.5);
+  --timing-offset: 3s;
+  --animation-duration: 7s;
+}
+/* ************************************************ */
+
+.footprints[x-img="fox"]:nth-child(3) {
+  transform: translate(640px, 60px) rotate(24deg) scale(3);
+  --timing-offset: 5s;
+  --animation-duration: 7s;
+}
+/* ************************************************ */
+
+.footprints[x-img="fox"]:nth-child(4) {
+  transform: translate(50px, 60px) rotate(-30deg) scale(1);
+  --timing-offset: 5s;
+  --animation-duration: 7s;
+}
+
+.footprints[x-img="fox"]:nth-child(5) {
+  transform: translate(150px, 60px) rotate(-50deg) scale(1);
+  --timing-offset: 7s;
+  --animation-duration: 7s;
+}
+
+.footprints[x-img="fox"]:nth-child(6) {
+  transform: translate(250px, 60px) rotate(-60deg) scale(1);
+  --timing-offset: 9s;
+  --animation-duration: 7s;
+}
+
+.footprints[x-img="fox"]:nth-child(7) {
+  transform: translate(350px, 60px) rotate(40deg) scale(1);
+  --timing-offset: 11s;
+  --animation-duration: 7s;
+}
+/* ************************************************ */
+
+/* these are just styling the 4 example footprint groups.
+Giving them messy offsets and durations to create the illusion
+of chaos. */
+
+.footprints:nth-child(2) {
+  transform: rotate(-30deg);
+}
+.footprints:nth-child(3) {
+  transform: rotate(16deg);
+  --timing-offset: 0.9s;
+  --animation-duration: 4.5s;
+}
+
+.footprints[first-raccoon] {
+  transform: translate(600px) rotate(12deg);
+  --timing-offset: 2s;
+  --animation-duration: 7s;
+}
+.footprints[first-raccoonfoot] {
+  transform: translate(600px, 160px) rotate(12deg);
+  --timing-offset: 4s;
+  --animation-duration: 7s;
+}
+
+.footprints[first-fox] {
+  transform: translate(400px) rotate(12deg);
+  --timing-offset: 2s;
+  --animation-duration: 7s;
+}
+
+
+.footprints[x-img="raccoon"] > .foot {
+  background-image: url("/static/svg/CYT_raccoon.svg");
+}
+.footprints[x-img="raccoonfoot"] > .foot {
+  background-image: url("/static/svg/CYT_raccoonfoot.svg");
+  --scale: 1.5;
+}
+
 
 
 /* these are just styling the 4 example footprint groups.
-   Giving them messy offsets and durations to create the illusion
-   of chaos. */
+Giving them messy offsets and durations to create the illusion
+of chaos. */
 .footprints:nth-child(1) {
   transform: rotate(9deg) scale(1.5);
   /* use --timing-offset to indicate its start time, creating an offset with other footprints */
@@ -171,19 +237,15 @@
   --animation-duration: 6s;
 }
 .footprints:nth-child(2) {
-    transform: rotate(-30deg);
+  transform: rotate(-30deg);
 }
 /* can target specific elements however, with specific attributes or classes */
 .footprints:nth-child(3) {
-    transform: rotate(16deg);
+  transform: rotate(16deg);
   --timing-offset: 0.9s;
   --animation-duration: 4.5s;
 }
-.footprints[first-deer] {
-  transform: translate(400px) rotate(30deg);
-  --timing-offset: 2s;
-  --animation-duration: 7s;
-}
+
 .footprints[first-raccoon] {
   transform: translate(600px, 80px) rotate(12deg);
   --timing-offset: 2s;
@@ -194,29 +256,16 @@
   --timing-offset: 2s;
   --animation-duration: 7s;
 }
-.footprints[first-hoof] {
-  transform: translate(800px) rotate(-50deg);
-  --timing-offset: 4s;
-  --animation-duration: 7s;
-}
-.footprints[first-antelope] {
-  transform: translate(300px, 180px) rotate(-15deg);
-  --timing-offset: 3s;
-  --animation-duration: 5s;
-}
-.footprints[first-bird] {
-  transform: translate(300px) rotate(12deg);
-  --timing-offset: .5s;
-  --animation-duration: 4s;
-  --foot-spread: 16px;
-}
-.footprints[first-fox] {
+
+
+.footprints[first-fox]{
   transform: translate(475px) rotate(12deg);
   --timing-offset: 1s;
   --animation-duration: 7s;
 }
-.footprints[first-dog] {
-  transform: translate(100px);
-  --timing-offset: .7s;
-  --animation-duration: 5s;
+
+
+.slider-column {
+  position: relative;
+  z-index: 10;
 }
