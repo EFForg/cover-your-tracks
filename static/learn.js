@@ -27,10 +27,12 @@ $(document).ready(function(){
   defaultsInput.onchange = function(){
    if (defaultsInput.value == '1') {
      defaultsOutput.value = "no"
-     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg);')
+     alert('non');
+     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
      $('.footprints[x-img="fox"]:nth-child(3)' ).show();
    } else {
      defaultsOutput.value = "yes"
+     alert('oui');
      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/CYT_deer.svg)');
      $('.footprints[x-img="fox"]:nth-child(3)' ).hide();
    }
