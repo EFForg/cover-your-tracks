@@ -10,20 +10,7 @@ $(document).ready(function(){
   // hide racoon prints
   $('.footprints[first-raccoon]').hide();
   $('.footprints[first-raccoonfoot]').hide();
-  trackerInput.onchange = function(){
-     if (trackerInput.value == '1') {
-       trackerOutput.value = "installed"
-     } else {
-       trackerOutput.value = "not installed"
-     }
-  }
-  jsInput.onchange = function(){
-     if (jsInput.value == '1') {
-       jsOutput.value = "enabled"
-     } else {
-       jsOutput.value = "not enabled"
-     }
-  }
+
   defaultsInput.onchange = function(){
    if (defaultsInput.value == '1') {
      defaultsOutput.value = "no"
@@ -60,11 +47,15 @@ trackerInput.onchange = function(){
 jsInput.onchange = function(){
    if (jsInput.value == '1') {
      jsOutput.value = "not enabled"
-      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+      $('.footprints[first-raccoon]').hide();
+      $('.footprints[first-raccoonfoot]').hide();
+      $('.footprints[x-img="fox"]:nth-child(2)' ).show();
      $('.footprints[x-img="fox"]:nth-child(5)' ).show();
    } else {
      jsOutput.value = "enabled"
-     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/CYT_raccoon.svg)');
+     $('.footprints[first-raccoon]').show();
+     $('.footprints[first-raccoonfoot]').show();
+     $('.footprints[x-img="fox"]:nth-child(2)' ).hide();
     $('.footprints[x-img="fox"]:nth-child(5)' ).hide();
    }
 }

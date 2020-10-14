@@ -188,14 +188,21 @@ fill: #ff0077; */
   --animation-duration: 7s;
 }
 
+/* raccoon feet */
+.footprints[x-img="raccoon"] > .foot {
+  background-image: url("/static/svg/CYT_raccoon.svg");
+}
+.footprints[x-img="raccoonfoot"] > .foot {
+  background-image: url("/static/svg/CYT_raccoonfoot.svg");
+}
 .footprints[first-raccoon] {
   transform: translate(600px, 80px) rotate(12deg);
-  --timing-offset: 2s;
+  --timing-offset: 0s;
   --animation-duration: 7s;
 }
 .footprints[first-raccoonfoot] {
-  transform: translate(600px, 300px) rotate(12deg);
-  --timing-offset: 2s;
+  transform: translate(600px, 200px) rotate(12deg);
+  --timing-offset: 0s;
   --animation-duration: 7s;
 }
 
