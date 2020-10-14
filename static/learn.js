@@ -27,24 +27,44 @@ $(document).ready(function(){
   defaultsInput.onchange = function(){
    if (defaultsInput.value == '1') {
      defaultsOutput.value = "no"
-     alert('non');
      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-     $('.footprints[x-img="fox"]:nth-child(3)' ).show();
+     $('.footprints[x-img="fox"]:nth-child(8)' ).show();
    } else {
      defaultsOutput.value = "yes"
-     alert('oui');
      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/CYT_deer.svg)');
-     $('.footprints[x-img="fox"]:nth-child(3)' ).hide();
+     $('.footprints[x-img="fox"]:nth-child(8)' ).hide();
    }
 }
 resistantInput.onchange = function(){
    if (resistantInput.value == '1') {
      resistantOutput.value = "no"
       $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-     $('.footprints[x-img="fox"]:nth-child(5)' ).show();
+     $('.footprints[x-img="fox"]:nth-child(7)' ).show();
    } else {
      resistantOutput.value = "yes"
-     $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/CYT_hoof.svg)');
+     $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/CYT_bird.svg)');
+    $('.footprints[x-img="fox"]:nth-child(7)' ).hide();
+   }
+}
+trackerInput.onchange = function(){
+   if (trackerInput.value == '1') {
+     trackerOutput.value = "not installed"
+      $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+     $('.footprints[x-img="fox"]:nth-child(6)' ).show();
+   } else {
+     trackerOutput.value = "installed"
+     $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/CYT_hoof.svg)');
+    $('.footprints[x-img="fox"]:nth-child(6)' ).hide();
+   }
+}
+jsInput.onchange = function(){
+   if (jsInput.value == '1') {
+     jsOutput.value = "not enabled"
+      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+     $('.footprints[x-img="fox"]:nth-child(5)' ).show();
+   } else {
+     jsOutput.value = "enabled"
+     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/CYT_raccoon.svg)');
     $('.footprints[x-img="fox"]:nth-child(5)' ).hide();
    }
 }

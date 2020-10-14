@@ -188,7 +188,6 @@ fill: #ff0077; */
   --animation-duration: 7s;
 }
 
-
 .footprints[first-raccoon] {
   transform: translate(600px, 80px) rotate(12deg);
   --timing-offset: 2s;
