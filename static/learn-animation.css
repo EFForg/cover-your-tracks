@@ -133,11 +133,7 @@ fill: #ff0077; */
   background-image: url("/static/svg/CYT_fox.svg");
 
 }
-.footprints[x-img="fox"] {
-  transform: translate(50px, 60px) rotate(24deg) scale(2);
-  --timing-offset: 1s;
-  --animation-duration: 7s;
-}
+
 /* ************************************************ */
 
 .footprints[x-img="fox"] > .foot {
@@ -147,6 +143,13 @@ fill: #ff0077; */
 .footprints[x-img="fox"]:nth-child(1) > .foot {
   background-image: url("/static/svg/CYT_fox.svg");
 }
+
+.footprints[first-fox]{
+  transform: translate(475px, 200px) rotate(12deg);
+  --timing-offset: 0s;
+  --animation-duration: 7s;
+}
+
 .footprints[x-img="fox"]:nth-child(2) {
   transform: translate(370px, 50px) rotate(10deg) scale(1.5);
   --timing-offset: 3s;
@@ -162,90 +165,29 @@ fill: #ff0077; */
 /* ************************************************ */
 
 .footprints[x-img="fox"]:nth-child(4) {
-  transform: translate(50px, 60px) rotate(-30deg) scale(1);
+  transform: translate(50px, 200px) rotate(-30deg) scale(1);
   --timing-offset: 5s;
   --animation-duration: 7s;
 }
 
 .footprints[x-img="fox"]:nth-child(5) {
-  transform: translate(150px, 60px) rotate(-50deg) scale(1);
-  --timing-offset: 7s;
+  transform: translate(800px, 200px) rotate(20deg) scale(1);
+  --timing-offset: 1s;
   --animation-duration: 7s;
 }
 
 .footprints[x-img="fox"]:nth-child(6) {
-  transform: translate(250px, 60px) rotate(-60deg) scale(1);
-  --timing-offset: 9s;
+  transform: translate(650px, 200px) rotate(10deg) scale(1);
+  --timing-offset: 3s;
   --animation-duration: 7s;
 }
 
 .footprints[x-img="fox"]:nth-child(7) {
   transform: translate(350px, 60px) rotate(40deg) scale(1);
-  --timing-offset: 11s;
-  --animation-duration: 7s;
-}
-/* ************************************************ */
-
-/* these are just styling the 4 example footprint groups.
-Giving them messy offsets and durations to create the illusion
-of chaos. */
-
-.footprints:nth-child(2) {
-  transform: rotate(-30deg);
-}
-.footprints:nth-child(3) {
-  transform: rotate(16deg);
-  --timing-offset: 0.9s;
-  --animation-duration: 4.5s;
-}
-
-.footprints[first-raccoon] {
-  transform: translate(600px) rotate(12deg);
-  --timing-offset: 2s;
-  --animation-duration: 7s;
-}
-.footprints[first-raccoonfoot] {
-  transform: translate(600px, 160px) rotate(12deg);
-  --timing-offset: 4s;
+  --timing-offset: 5s;
   --animation-duration: 7s;
 }
 
-.footprints[first-fox] {
-  transform: translate(400px) rotate(12deg);
-  --timing-offset: 2s;
-  --animation-duration: 7s;
-}
-
-
-.footprints[x-img="raccoon"] > .foot {
-  background-image: url("/static/svg/CYT_raccoon.svg");
-}
-.footprints[x-img="raccoonfoot"] > .foot {
-  background-image: url("/static/svg/CYT_raccoonfoot.svg");
-  --scale: 1.5;
-}
-
-
-
-/* these are just styling the 4 example footprint groups.
-Giving them messy offsets and durations to create the illusion
-of chaos. */
-.footprints:nth-child(1) {
-  transform: rotate(9deg) scale(1.5);
-  /* use --timing-offset to indicate its start time, creating an offset with other footprints */
-  --timing-offset: 1.7s;
-  /* the length of the full animation loop */
-  --animation-duration: 6s;
-}
-.footprints:nth-child(2) {
-  transform: rotate(-30deg);
-}
-/* can target specific elements however, with specific attributes or classes */
-.footprints:nth-child(3) {
-  transform: rotate(16deg);
-  --timing-offset: 0.9s;
-  --animation-duration: 4.5s;
-}
 
 .footprints[first-raccoon] {
   transform: translate(600px, 80px) rotate(12deg);
@@ -257,14 +199,6 @@ of chaos. */
   --timing-offset: 2s;
   --animation-duration: 7s;
 }
-
-
-.footprints[first-fox]{
-  transform: translate(475px) rotate(12deg);
-  --timing-offset: 1s;
-  --animation-duration: 7s;
-}
-
 
 .slider-column {
   position: relative;
