@@ -139,6 +139,24 @@
   background-image: url("/static/svg/fox-red.svg");
 }
 
+.footprints[x-img="fox"]:nth-child(2) > .foot,
+.footprints[x-img="fox"]:nth-child(3) > .foot {
+  background-image: url("/static/svg/antelope.svg");
+}
+.footprints[x-img="fox"]:nth-child(4) > .foot,
+.footprints[x-img="fox"]:nth-child(5) > .foot {
+  background-image: url("/static/svg/bird.svg");
+}
+.footprints[x-img="fox"]:nth-child(6) > .foot,
+.footprints[x-img="fox"]:nth-child(7) > .foot {
+  background-image: url("/static/svg/deer.svg");
+}
+
+.footprints[x-img="fox"]:nth-child(8) > .foot,
+.footprints[x-img="fox"]:nth-child(9) > .foot {
+  background-image: url("/static/svg/dog.svg");
+}
+
 .footprints[x-img="fox"]:nth-child(1) > .you {
   margin-top: 10rem;
   position: relative;

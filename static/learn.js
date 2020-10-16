@@ -21,10 +21,6 @@ $(document).ready(function(){
   }
   redToGray();
 
-  // hide racoon prints
-  $('.footprints[first-raccoon]').hide();
-  $('.footprints[first-raccoonfoot]').hide();
-
   defaultsInput.onchange = function(){
    if (defaultsInput.value == '1') {
      defaultsOutput.value = "no"
