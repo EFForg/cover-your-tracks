@@ -130,7 +130,7 @@
 
 /* ************************************************ */
 
-
+/* set initial svgs */
 .footprints[x-img="fox"] > .foot {
   background-image: url("/static/svg/fox-gray.svg");
 }
@@ -157,6 +157,15 @@
   background-image: url("/static/svg/hoof.svg");
 }
 
+
+/* set positions */
+
+.tracker-text {
+  display: none;
+  postion: relative;
+  margin: 20rem auto 0;
+  width: 200px;
+}
 .footprints[x-img="fox"]:nth-child(1) > .you {
   margin-top: 14rem;
   position: relative;

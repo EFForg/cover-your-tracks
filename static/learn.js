@@ -48,21 +48,21 @@ resistantInput.onchange = function(){
 trackerInput.onchange = function(){
    if (trackerInput.value == '1') {
      trackerOutput.value = "not installed"
-      $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-     $('.footprints[x-img="fox"]:nth-child(6)' ).show();
+    $('.footprints').show();
+    $('.tracker-text').fadeOut(1000);
    } else {
      trackerOutput.value = "installed"
-     $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/hoof.svg)');
-    $('.footprints[x-img="fox"]:nth-child(6)' ).hide();
+      $('.footprints').hide();
+      $('.tracker-text').fadeIn(1000);
    }
 }
 jsInput.onchange = function(){
    if (jsInput.value == '1') {
-     jsOutput.value = "not enabled"
+     jsOutput.value = "enabled"
       $('.footprints[x-img="fox"]:nth-child(2)' ).show();
      $('.footprints[x-img="fox"]:nth-child(5)' ).show();
    } else {
-     jsOutput.value = "enabled"
+     jsOutput.value = "not enabled"
      $('.footprints[x-img="fox"]:nth-child(2)' ).hide();
     $('.footprints[x-img="fox"]:nth-child(5)' ).hide();
    }
