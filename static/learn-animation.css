@@ -6,7 +6,7 @@
   height: 600px;
 
 
-  --STEP-COUNT: 8;
+  --STEP-COUNT: 10;
 
   /* these variables are configurable! */
   --path-height: 400px;
@@ -91,6 +91,10 @@
   --foot-index: 8;
 }
 
+.footprints>.foot:nth-child(9) {
+  --foot-index: 9;
+}
+
 
 /* left feet */
 .footprints>.foot:nth-child(2n+1) {
@@ -126,26 +130,22 @@
 
 /* ************************************************ */
 
-/*.footprints {
-fill: #ff0077; */
-}
-.footprints[x-img="fox"] > .foot {
-  background-image: url("/static/svg/CYT_fox.svg");
-
-}
-
-/* ************************************************ */
 
 .footprints[x-img="fox"] > .foot {
   background-image: url("/static/svg/fox-gray.svg");
 }
 
 .footprints[x-img="fox"]:nth-child(1) > .foot {
-  background-image: url("/static/svg/CYT_fox.svg");
+  background-image: url("/static/svg/fox-red.svg");
+}
+
+.footprints[x-img="fox"]:nth-child(1) > .you {
+  margin-top: 10rem;
+  position: relative;
 }
 
 .footprints[first-fox]{
-  transform: translate(475px, 200px) rotate(12deg);
+  transform: translate(400px, 0px) rotate(12deg);
   --timing-offset: 0s;
   --animation-duration: 7s;
 }
@@ -172,7 +172,7 @@ fill: #ff0077; */
 
 .footprints[x-img="fox"]:nth-child(5) {
   transform: translate(800px, 200px) rotate(20deg) scale(1);
-  --timing-offset: 1s;
+  --timing-offset: 3s;
   --animation-duration: 7s;
 }
 
@@ -184,7 +184,7 @@ fill: #ff0077; */
 
 .footprints[x-img="fox"]:nth-child(7) {
   transform: translate(350px, 60px) rotate(40deg) scale(1);
-  --timing-offset: 5s;
+  --timing-offset: 7s;
   --animation-duration: 7s;
 }
 

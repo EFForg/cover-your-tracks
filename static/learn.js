@@ -7,6 +7,20 @@ $(document).ready(function(){
   var defaultsOutput  = document.getElementById('defaults-output');
   var resistantInput = document.getElementById('resistant-input');
   var resistantOutput  = document.getElementById('resistant-output');
+  // hide all prints except "you" for 5 seconds
+  $('.footprints').hide();
+  $('.footprints[first-fox]').show();
+  $('.footprints[x-img="fox"]').delay(5000).fadeIn(4000);
+  // change "you" from red to gray
+  // $('.footprints[x-img="fox"]:nth-child(1)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+  function redToGray() {
+    setTimeout(function(){
+      $('.footprints[x-img="fox"]:nth-child(1)  > .foot').css('background-image','url(/static/svg/fox-gray.svg)');
+      $('.footprints[x-img="fox"]:nth-child(1)  > .you').fadeOut(1000);
+    },4000);
+  }
+  redToGray();
+
   // hide racoon prints
   $('.footprints[first-raccoon]').hide();
   $('.footprints[first-raccoonfoot]').hide();
