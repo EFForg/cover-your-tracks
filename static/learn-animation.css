@@ -154,11 +154,11 @@
 
 .footprints[x-img="fox"]:nth-child(8) > .foot,
 .footprints[x-img="fox"]:nth-child(9) > .foot {
-  background-image: url("/static/svg/dog.svg");
+  background-image: url("/static/svg/hoof.svg");
 }
 
 .footprints[x-img="fox"]:nth-child(1) > .you {
-  margin-top: 10rem;
+  margin-top: 14rem;
   position: relative;
 }
 
@@ -176,7 +176,7 @@
 /* ************************************************ */
 
 .footprints[x-img="fox"]:nth-child(3) {
-  transform: translate(640px, 60px) rotate(24deg) scale(3);
+  transform: translate(640px, 60px) rotate(24deg);
   --timing-offset: 5s;
   --animation-duration: 7s;
 }
@@ -201,7 +201,18 @@
 }
 
 .footprints[x-img="fox"]:nth-child(7) {
-  transform: translate(350px, 60px) rotate(40deg) scale(1);
+  transform: translate(0px, 60px) rotate(40deg) scale(1);
+  --timing-offset: 7s;
+  --animation-duration: 7s;
+}
+.footprints[x-img="fox"]:nth-child(8) {  // hooves
+  transform: translate(500px, 60px) rotate(-40deg) scale(3);
+  --timing-offset: 7s;
+  --animation-duration: 7s;
+}
+
+.footprints[x-img="fox"]:nth-child(9) {
+  transform: translate(30px, 60px) rotate(40deg) scale(2);
   --timing-offset: 7s;
   --animation-duration: 7s;
 }
@@ -215,7 +226,7 @@
 }
 .footprints[first-raccoon] {
   transform: translate(600px, 80px) rotate(12deg);
-  --timing-offset: 0s;
+  --timing-offset: 2s;
   --animation-duration: 7s;
 }
 .footprints[first-raccoonfoot] {

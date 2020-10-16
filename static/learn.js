@@ -11,8 +11,10 @@ $(document).ready(function(){
   $('.footprints').hide();
   $('.footprints[first-fox]').show();
   $('.footprints[x-img="fox"]').delay(5000).fadeIn(4000);
+  $('.footprints[x-img="raccoon"]').delay(5000).fadeIn(4000);
+  $('.footprints[x-img="raccoonfoot"]').delay(5000).fadeIn(4000);
   // change "you" from red to gray
-  // $('.footprints[x-img="fox"]:nth-child(1)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+
   function redToGray() {
     setTimeout(function(){
       $('.footprints[x-img="fox"]:nth-child(1)  > .foot').css('background-image','url(/static/svg/fox-gray.svg)');
@@ -57,14 +59,10 @@ trackerInput.onchange = function(){
 jsInput.onchange = function(){
    if (jsInput.value == '1') {
      jsOutput.value = "not enabled"
-      $('.footprints[first-raccoon]').hide();
-      $('.footprints[first-raccoonfoot]').hide();
       $('.footprints[x-img="fox"]:nth-child(2)' ).show();
      $('.footprints[x-img="fox"]:nth-child(5)' ).show();
    } else {
      jsOutput.value = "enabled"
-     $('.footprints[first-raccoon]').show();
-     $('.footprints[first-raccoonfoot]').show();
      $('.footprints[x-img="fox"]:nth-child(2)' ).hide();
     $('.footprints[x-img="fox"]:nth-child(5)' ).hide();
    }
