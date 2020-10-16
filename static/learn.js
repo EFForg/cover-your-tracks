@@ -32,7 +32,7 @@ $(document).ready(function(){
      $('.footprints[x-img="fox"]:nth-child(8)' ).show();
    } else {
      defaultsOutput.value = "yes"
-     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/CYT_deer.svg)');
+     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
      $('.footprints[x-img="fox"]:nth-child(8)' ).hide();
    }
 }
@@ -43,7 +43,7 @@ resistantInput.onchange = function(){
      $('.footprints[x-img="fox"]:nth-child(7)' ).show();
    } else {
      resistantOutput.value = "yes"
-     $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/CYT_bird.svg)');
+     $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
     $('.footprints[x-img="fox"]:nth-child(7)' ).hide();
    }
 }
@@ -54,7 +54,7 @@ trackerInput.onchange = function(){
      $('.footprints[x-img="fox"]:nth-child(6)' ).show();
    } else {
      trackerOutput.value = "installed"
-     $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/CYT_hoof.svg)');
+     $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/hoof.svg)');
     $('.footprints[x-img="fox"]:nth-child(6)' ).hide();
    }
 }

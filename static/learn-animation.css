@@ -190,10 +190,10 @@
 
 /* raccoon feet */
 .footprints[x-img="raccoon"] > .foot {
-  background-image: url("/static/svg/CYT_raccoon.svg");
+  background-image: url("/static/svg/raccoon.svg");
 }
 .footprints[x-img="raccoonfoot"] > .foot {
-  background-image: url("/static/svg/CYT_raccoonfoot.svg");
+  background-image: url("/static/svg/raccoonfoot.svg");
 }
 .footprints[first-raccoon] {
   transform: translate(600px, 80px) rotate(12deg);
