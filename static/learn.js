@@ -27,11 +27,16 @@ $(document).ready(function(){
    if (defaultsInput.value == '1') {
      defaultsOutput.value = "no"
      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-     $('.footprints[x-img="fox"]:nth-child(8)' ).show();
+     $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+     $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+     $('.footprints[x-img="fox"]:nth-child(5)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+
    } else {
      defaultsOutput.value = "yes"
-     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
-     $('.footprints[x-img="fox"]:nth-child(8)' ).hide();
+     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/antelope.svg)');
+     $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/antelope.svg)');
+     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
+     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
    }
 }
 resistantInput.onchange = function(){
@@ -59,12 +64,16 @@ trackerInput.onchange = function(){
 jsInput.onchange = function(){
    if (jsInput.value == '1') {
      jsOutput.value = "enabled"
-      $('.footprints[x-img="fox"]:nth-child(2)' ).show();
-     $('.footprints[x-img="fox"]:nth-child(5)' ).show();
+     $('.footprints[x-img="fox"]:nth-child(6)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
+     $('.footprints[x-img="fox"]:nth-child(7)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
+     $('.footprints[x-img="fox"]:nth-child(8)  > .foot' ).css('background-image','url(/static/svg/hoof.svg)');
+     $('.footprints[x-img="fox"]:nth-child(9)  > .foot' ).css('background-image','url(/static/svg/hoof.svg)');
    } else {
      jsOutput.value = "not enabled"
-     $('.footprints[x-img="fox"]:nth-child(2)' ).hide();
-    $('.footprints[x-img="fox"]:nth-child(5)' ).hide();
+     $('.footprints[x-img="fox"]:nth-child(6)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+     $('.footprints[x-img="fox"]:nth-child(7)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+     $('.footprints[x-img="fox"]:nth-child(8)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+     $('.footprints[x-img="fox"]:nth-child(9)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
    }
 }
 
