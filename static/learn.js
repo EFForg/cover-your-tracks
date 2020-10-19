@@ -24,7 +24,7 @@ $(document).ready(function(){
   redToGray();
 
   defaultsInput.onchange = function(){
-    if (defaultsInput.value == '1') {
+    if (defaultsInput.value == '2') {
       defaultsOutput.value = "no"
       $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
       $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
@@ -35,8 +35,8 @@ $(document).ready(function(){
       defaultsOutput.value = "yes"
       $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/antelope.svg)');
       $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/antelope.svg)');
-      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
-      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
+      $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
+      $('.footprints[x-img="fox"]:nth-child(5)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
     }
   }
   resistantInput.onchange = function(){
@@ -46,7 +46,7 @@ $(document).ready(function(){
         $('.footprints[x-img="fox"]:nth-child(6)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
         $('.footprints[x-img="fox"]:nth-child(7)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
       }
-      else if (defaultsInput.value == '1') {
+      else if (defaultsInput.value == '2') {
         $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
         $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
       }
@@ -56,7 +56,7 @@ $(document).ready(function(){
         $('.footprints[x-img="fox"]:nth-child(6)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
         $('.footprints[x-img="fox"]:nth-child(7)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
       }
-      else if (defaultsInput.value == '1') {
+      else if (defaultsInput.value == '2') {
         $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
         $('.footprints[x-img="fox"]:nth-child(5)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
       }

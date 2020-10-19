@@ -213,7 +213,7 @@
   --animation-duration: 7s;
 }
 .footprints[x-img="fox"]:nth-child(8) {  /* horse */
-  transform: translate(700px, 60px) rotate(-40deg) scale(2);
+  transform: translate(700px, 60px) rotate(-20deg) scale(2);
   --timing-offset: 4s;
   --animation-duration: 7s;
 }
