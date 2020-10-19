@@ -221,9 +221,9 @@ input[type=range]:focus {
   outline: none; }
 
 input[type=range]::-webkit-slider-runnable-track {
-  background: #4D8061;
+  background: #F5EFEB;
   border-radius: 1rem;
-  border: 0.2px solid #4D8061;
+  border: 1px solid #1E3A29;
   cursor: pointer;
   height: 2rem;
   width: 5rem; }
@@ -239,12 +239,12 @@ input[type=range]::-webkit-slider-thumb {
   width: 2rem; }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #4D8061; }
+  background: #F5EFEB; }
 
 input[type=range]::-moz-range-track {
-  background: #4D8061;
+  background: #F5EFEB;
   border-radius: 1rem;
-  border: 0.2px solid #4D8061;
+  border: 1px solid #1E3A29;
   cursor: pointer;
   height: 2rem;
   width: 5rem; }
@@ -285,10 +285,10 @@ input[type=range]::-ms-thumb {
   width: 2rem; }
 
 input[type=range]:focus::-ms-fill-lower {
-  background: #4D8061; }
+  background: #F5EFEB; }
 
 input[type=range]:focus::-ms-fill-upper {
-  background: #4D8061; }
+  background: #F5EFEB; }
 
 /* individual pages */
 /* front/home page */
