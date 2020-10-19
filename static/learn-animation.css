@@ -1,11 +1,6 @@
 .animation {
-  display: block;
-  margin-left: 5rem;
-  position: relative;
-  width: 100%;
+  width: 65%;
   height: 600px;
-
-
   --STEP-COUNT: 10;
 
   /* these variables are configurable! */

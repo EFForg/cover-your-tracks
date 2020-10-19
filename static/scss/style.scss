@@ -419,7 +419,8 @@ input[type=range]:focus::-ms-fill-upper {
   .spectrum img {
     width: 100%;
   }
-  .slider-container,
+
+  .interactive,
   .definitions {
     display: flex;
     border-bottom: 1px solid $red;
@@ -428,26 +429,29 @@ input[type=range]:focus::-ms-fill-upper {
     width: 100%;
   }
 
-  .slider-column {
-    width: 40%;
-    .slider-block {
-      display: flex;
-      justify-content: space-between;
-      .range {
-        width: 20%;
-      }
-      output {
-        display: block;
-        font-size: 0.9rem;
-        font-weight: 600;
-        width: 6rem;
+  .slider-container {
+    width: 30%;
+  }
 
-      }
-      .slider-desc {
-        width: 75%;
-      }
+  .slider-block {
+    display: flex;
+    width: 100%;
+    .range {
+      width: 20%;
+    }
+    output {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      width: 6rem;
+
+    }
+    .slider-desc {
+      margin-left: 1rem;
+      width: 75%;
     }
   }
+
   .definitions {
     flex-wrap: wrap;
     .text,
@@ -763,7 +767,7 @@ label#acceptable_ads sup{
     margin: 0 auto;
     width: 97%;
   }
- // individual pages
+  // individual pages
   #front {
     .title-area {
       margin: 0 auto;

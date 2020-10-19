@@ -9,6 +9,8 @@
 ** footer
 ** individual pages
 ** various custom elements (tooltips etc)
+** learn animation
+** mobile styles
 */
 /* fonts */
 @font-face {
@@ -337,27 +339,28 @@ input[type=range]:focus::-ms-fill-upper {
   text-transform: none; }
 #learn .spectrum img {
   width: 100%; }
-#learn .slider-container,
+#learn .interactive,
 #learn .definitions {
   display: flex;
   border-bottom: 1px solid #D3473D;
   justify-content: space-between;
   padding: 2rem 0;
   width: 100%; }
-#learn .slider-column {
-  width: 40%; }
-  #learn .slider-column .slider-block {
-    display: flex;
-    justify-content: space-between; }
-    #learn .slider-column .slider-block .range {
-      width: 20%; }
-    #learn .slider-column .slider-block output {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      width: 6rem; }
-    #learn .slider-column .slider-block .slider-desc {
-      width: 75%; }
+#learn .slider-container {
+  width: 30%; }
+#learn .slider-block {
+  display: flex;
+  width: 100%; }
+  #learn .slider-block .range {
+    width: 20%; }
+  #learn .slider-block output {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    width: 6rem; }
+  #learn .slider-block .slider-desc {
+    margin-left: 1rem;
+    width: 75%; }
 #learn .definitions {
   flex-wrap: wrap; }
   #learn .definitions .text,
