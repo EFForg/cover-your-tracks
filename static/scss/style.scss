@@ -715,43 +715,48 @@ label#acceptable_ads sup{
 }
 
 @media screen and (max-width: $mobile) { /* mobile styles */
-  .header .banner {
-    margin-bottom: 0;
-    .bar  {
-      height: 36px;
-      .attribution {
-        font-size: 0.7rem;
-        top: 12px;
+  .header {
+    margin: 0 auto;
+    width: 100%;
+    .banner {
+      margin-bottom: 0;
+      .bar  {
+        height: 36px;
+        .attribution {
+          font-size: 0.7rem;
+          top: 12px;
+          width: 100%;
+        }
+        .donate {
+          margin-right: 10px;
+          top: 10px;
+        }
+        .logo {
+          left: 10px;
+          top: 10px;
+        }
+        img.attribution {
+          height: 57px;
+          width: 250px;
+        }
+      }
+      .title-area {
+        display: block;
+        margin: 0 auto;
+        width: 97%;
+        .site-title {
+          width: 100%;
+        }
+      }
+      .tagline {
+        font-size: 15px;
+      }
+      nav {
+        padding: 0;
         width: 100%;
-      }
-      .donate {
-        margin-right: 10px;
-        top: 10px;
-      }
-      .logo {
-        left: 10px;
-        top: 10px;
-      }
-      img.attribution {
-        height: 57px;
-        width: 250px;
-      }
-    }
-    .title-area {
-      display: block;
-      margin: 0;
-      .site-title {
-        width: 100%;
-      }
-    }
-    .tagline {
-      font-size: 15px;
-    }
-    nav {
-      padding: 0;
-      width: 100%;
-      ul {
-        margin: 0.5rem 0;
+        ul {
+          margin: 0.5rem 0;
+        }
       }
     }
   }
@@ -788,6 +793,54 @@ label#acceptable_ads sup{
       }
     }
   }
+  #learn {
+
+    .animation {
+      display: none;
+    }
+    .interactive,
+    .definitions {
+      padding: 1rem 0;
+    }
+
+    .slider-container {
+      width: 100%;
+    }
+
+    .slider-block {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .range {
+        margin-left: 1rem;
+        width: 97%;
+      }
+      output {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        width: 6rem;
+
+      }
+      .slider-desc {
+        width: 97%;
+      }
+    }
+
+    .definitions {
+      display: block;
+      width: 100%;
+      .text,
+      .image {
+        width: 100%;
+        img {
+          margin: 0 auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+
   #results-wrapper {
     flex-wrap: wrap;
     .main-section {

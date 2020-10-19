@@ -568,35 +568,39 @@ label#acceptable_ads sup {
 
 @media screen and (max-width: 768px) {
   /* mobile styles */
-  .header .banner {
-    margin-bottom: 0; }
-    .header .banner .bar {
-      height: 36px; }
-      .header .banner .bar .attribution {
-        font-size: 0.7rem;
-        top: 12px;
+  .header {
+    margin: 0 auto;
+    width: 100%; }
+    .header .banner {
+      margin-bottom: 0; }
+      .header .banner .bar {
+        height: 36px; }
+        .header .banner .bar .attribution {
+          font-size: 0.7rem;
+          top: 12px;
+          width: 100%; }
+        .header .banner .bar .donate {
+          margin-right: 10px;
+          top: 10px; }
+        .header .banner .bar .logo {
+          left: 10px;
+          top: 10px; }
+        .header .banner .bar img.attribution {
+          height: 57px;
+          width: 250px; }
+      .header .banner .title-area {
+        display: block;
+        margin: 0 auto;
+        width: 97%; }
+        .header .banner .title-area .site-title {
+          width: 100%; }
+      .header .banner .tagline {
+        font-size: 15px; }
+      .header .banner nav {
+        padding: 0;
         width: 100%; }
-      .header .banner .bar .donate {
-        margin-right: 10px;
-        top: 10px; }
-      .header .banner .bar .logo {
-        left: 10px;
-        top: 10px; }
-      .header .banner .bar img.attribution {
-        height: 57px;
-        width: 250px; }
-    .header .banner .title-area {
-      display: block;
-      margin: 0; }
-      .header .banner .title-area .site-title {
-        width: 100%; }
-    .header .banner .tagline {
-      font-size: 15px; }
-    .header .banner nav {
-      padding: 0;
-      width: 100%; }
-      .header .banner nav ul {
-        margin: 0.5rem 0; }
+        .header .banner nav ul {
+          margin: 0.5rem 0; }
 
   .content {
     flex-wrap: wrap;
@@ -621,6 +625,38 @@ label#acceptable_ads sup {
     width: 98%; }
   #front .content .main-section {
     display: none; }
+
+  #learn .animation {
+    display: none; }
+  #learn .interactive,
+  #learn .definitions {
+    padding: 1rem 0; }
+  #learn .slider-container {
+    width: 100%; }
+  #learn .slider-block {
+    display: flex;
+    flex-direction: column;
+    width: 100%; }
+    #learn .slider-block .range {
+      margin-left: 1rem;
+      width: 97%; }
+    #learn .slider-block output {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      width: 6rem; }
+    #learn .slider-block .slider-desc {
+      width: 97%; }
+  #learn .definitions {
+    display: block;
+    width: 100%; }
+    #learn .definitions .text,
+    #learn .definitions .image {
+      width: 100%; }
+      #learn .definitions .text img,
+      #learn .definitions .image img {
+        margin: 0 auto;
+        width: 100%; }
 
   #results-wrapper {
     flex-wrap: wrap; }
