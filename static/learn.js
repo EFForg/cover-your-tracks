@@ -24,57 +24,69 @@ $(document).ready(function(){
   redToGray();
 
   defaultsInput.onchange = function(){
-   if (defaultsInput.value == '1') {
-     defaultsOutput.value = "no"
-     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-     $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-     $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-     $('.footprints[x-img="fox"]:nth-child(5)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-
-   } else {
-     defaultsOutput.value = "yes"
-     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/antelope.svg)');
-     $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/antelope.svg)');
-     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
-     $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
-   }
-}
-resistantInput.onchange = function(){
-   if (resistantInput.value == '1') {
-     resistantOutput.value = "no"
+    if (defaultsInput.value == '1') {
+      defaultsOutput.value = "no"
+      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+      $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
       $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-     $('.footprints[x-img="fox"]:nth-child(7)' ).show();
-   } else {
-     resistantOutput.value = "yes"
-     $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
-    $('.footprints[x-img="fox"]:nth-child(7)' ).hide();
-   }
-}
-trackerInput.onchange = function(){
-   if (trackerInput.value == '1') {
-     trackerOutput.value = "not installed"
-    $('.footprints').show();
-    $('.tracker-text').fadeOut(1000);
-   } else {
-     trackerOutput.value = "installed"
+      $('.footprints[x-img="fox"]:nth-child(5)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+
+    } else {
+      defaultsOutput.value = "yes"
+      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/antelope.svg)');
+      $('.footprints[x-img="fox"]:nth-child(3)  > .foot' ).css('background-image','url(/static/svg/antelope.svg)');
+      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
+      $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
+    }
+  }
+  resistantInput.onchange = function(){
+    if (resistantInput.value == '1') {
+      resistantOutput.value = "no"
+      if (jsInput.value == '1') {
+        $('.footprints[x-img="fox"]:nth-child(6)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
+        $('.footprints[x-img="fox"]:nth-child(7)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
+      }
+      else if (defaultsInput.value == '1') {
+        $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
+        $('.footprints[x-img="fox"]:nth-child(2)  > .foot' ).css('background-image','url(/static/svg/bird.svg)');
+      }
+    } else {
+      resistantOutput.value = "yes"
+      if (jsInput.value == '1') {
+        $('.footprints[x-img="fox"]:nth-child(6)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+        $('.footprints[x-img="fox"]:nth-child(7)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+      }
+      else if (defaultsInput.value == '1') {
+        $('.footprints[x-img="fox"]:nth-child(4)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+        $('.footprints[x-img="fox"]:nth-child(5)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+      }
+    }
+  }
+  trackerInput.onchange = function(){
+    if (trackerInput.value == '1') {
+      trackerOutput.value = "not installed"
+      $('.footprints').show();
+      $('.tracker-text').fadeOut(1000);
+    } else {
+      trackerOutput.value = "installed"
       $('.footprints').hide();
       $('.tracker-text').fadeIn(1000);
-   }
-}
-jsInput.onchange = function(){
-   if (jsInput.value == '1') {
-     jsOutput.value = "enabled"
-     $('.footprints[x-img="fox"]:nth-child(6)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
-     $('.footprints[x-img="fox"]:nth-child(7)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
-     $('.footprints[x-img="fox"]:nth-child(8)  > .foot' ).css('background-image','url(/static/svg/hoof.svg)');
-     $('.footprints[x-img="fox"]:nth-child(9)  > .foot' ).css('background-image','url(/static/svg/hoof.svg)');
-   } else {
-     jsOutput.value = "not enabled"
-     $('.footprints[x-img="fox"]:nth-child(6)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-     $('.footprints[x-img="fox"]:nth-child(7)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-     $('.footprints[x-img="fox"]:nth-child(8)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-     $('.footprints[x-img="fox"]:nth-child(9)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
-   }
-}
+    }
+  }
+  jsInput.onchange = function(){
+    if (jsInput.value == '1') {
+      jsOutput.value = "enabled"
+      $('.footprints[x-img="fox"]:nth-child(6)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
+      $('.footprints[x-img="fox"]:nth-child(7)  > .foot' ).css('background-image','url(/static/svg/deer.svg)');
+      $('.footprints[x-img="fox"]:nth-child(8)  > .foot' ).css('background-image','url(/static/svg/horse.svg)');
+      $('.footprints[x-img="fox"]:nth-child(9)  > .foot' ).css('background-image','url(/static/svg/horse.svg)');
+    } else {
+      jsOutput.value = "not enabled"
+      $('.footprints[x-img="fox"]:nth-child(6)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+      $('.footprints[x-img="fox"]:nth-child(7)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+      $('.footprints[x-img="fox"]:nth-child(8)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+      $('.footprints[x-img="fox"]:nth-child(9)  > .foot' ).css('background-image','url(/static/svg/fox-gray.svg)');
+    }
+  }
 
 });
