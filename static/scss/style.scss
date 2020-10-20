@@ -294,10 +294,10 @@ input[type=range]::-webkit-slider-thumb {
   border: 1px solid $green-dark;
   border-radius: 1rem;
   cursor: pointer;
-  height: 2rem;
+  height: 1.9rem;
   margin-top: 0;
   -webkit-appearance: none;
-  width: 2rem;
+  width: 1.9rem;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: $beige;
@@ -307,7 +307,7 @@ input[type=range]::-moz-range-track {
   border-radius: 1rem;
   border: 1px solid $green-dark;
   cursor: pointer;
-  height: 2rem;
+  height: 1.9rem;
   width: 5rem;
 }
 input[type=range]::-moz-range-thumb {
@@ -315,8 +315,8 @@ input[type=range]::-moz-range-thumb {
   border: 1px solid $green-dark;
   border-radius: 1rem;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
+  height: 1.9rem;
+  width: 1.9rem;
 }
 input[type=range]::-ms-track {
   background: transparent;
@@ -324,7 +324,7 @@ input[type=range]::-ms-track {
   border-width: 1rem 0;
   color: transparent;
   cursor: pointer;
-  height: 2rem;
+  height: 1.9rem;
   width: 5rem;
 }
 input[type=range]::-ms-fill-lower {
@@ -342,8 +342,8 @@ input[type=range]::-ms-thumb {
   border: 1px solid $green-dark;
   border-radius: 3px;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
+  height: 1.9rem;
+  width: 1.9rem;
 }
 input[type=range]:focus::-ms-fill-lower {
   background: $beige;
