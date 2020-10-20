@@ -105,7 +105,7 @@ hr {
       font-size: 16px;
       margin-left: 1rem;
       position: relative;
-      top: 0.7rem; }
+      top: 0.9rem; }
       .header .banner .bar .attribution a {
         color: white;
         border-bottom: 1px solid white;
@@ -119,6 +119,7 @@ hr {
     align-items: flex-end;
     border-bottom: 1px solid #D3473D;
     display: flex;
+    justify-content: flex-end;
     margin-left: 5rem;
     padding: 0 0 1rem; }
 
@@ -127,11 +128,12 @@ hr {
 
 /* nav */
 .header nav {
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.2rem;
+  margin-left: 10%;
   width: 30%; }
   .header nav ul {
     list-style-type: none;
-    margin: 2.2rem 0;
+    margin: 0;
     width: 100%; }
     .header nav ul li {
       display: inline-block;
@@ -407,6 +409,7 @@ input[type=range]:focus::-ms-fill-upper {
   #results-wrapper h3.indicate {
     color: #2E243F;
     font-weight: 600;
+    margin-top: 1rem;
     text-transform: none; }
     #results-wrapper h3.indicate span {
       color: #D3473D; }
@@ -508,8 +511,6 @@ label#acceptable_ads {
   margin-top: 10px; }
 
 label#acceptable_ads sup {
-  color: blue;
-  text-decoration: underline;
   font-size: 70%; }
 
 .ui-tooltip-content {
