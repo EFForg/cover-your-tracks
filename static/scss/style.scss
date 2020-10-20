@@ -165,19 +165,19 @@ hr {
       justify-content: flex-end;
       margin-left: 5rem;
       padding: 0 0 1rem;
+      width: 92%;
     }
   }
 }
 
 .header .banner .title-area .site-title {
-  width: 75%;
+  width: 80%;
 }
 
 /* nav */
 .header {
   nav {
     padding-bottom: 0.2rem;
-    margin-left: 10%;
     width: 30%;
     ul {
       list-style-type: none;
@@ -186,7 +186,7 @@ hr {
       li {
         display: inline-block;
         font-size: 1.2rem;
-        padding: 0 5rem 0 0;
+        padding: 0 0 0 5rem;
       }
     }
     a {
@@ -721,14 +721,10 @@ label#acceptable_ads sup{
   h4,
   h5 {
     text-transform: capitalize;
-    transform: scaleX(0.9) scaleY(0.9);
-  }
-
-  h1 {
-    transform: scaleX(0.9) scaleY(0.9);
   }
 
   .header {
+    box-sizing: border-box;
     margin: 0 auto;
     width: auto;
     .banner {
@@ -737,6 +733,7 @@ label#acceptable_ads sup{
         height: 36px;
         .attribution {
           font-size: 0.7rem;
+          margin-left: 3px;
           top: 12px;
           width: 100%;
         }
@@ -754,11 +751,13 @@ label#acceptable_ads sup{
         }
       }
       .title-area {
+        align-items: flex-start;
         flex-direction: column;
+        justify-content: flex-start;
         margin: 0 auto;
         width: 97%;
         .site-title {
-          width: 100%;
+          width: 97%;
         }
       }
       .tagline {
@@ -769,11 +768,21 @@ label#acceptable_ads sup{
         width: 100%;
         ul {
           margin: 0.5rem 0;
+          padding: 0;
+          width: 97%;
+          li {
+            padding: 0 1rem 0 0;
+          }
         }
       }
     }
   }
+  aside {
+    box-sizing: border-box;
+    width: 100%;
+  }
   .content {
+    box-sizing: border-box;
     flex-wrap: wrap;
     margin: 1rem auto;
     width: 97%;
@@ -782,6 +791,7 @@ label#acceptable_ads sup{
     }
   }
   footer {
+    box-sizing: border-box;
     margin: 0 auto;
     width: 97%;
   }
@@ -796,11 +806,14 @@ label#acceptable_ads sup{
       }
     }
     .content {
+      align-content: center;
+      flex-direction: column;
+      margin: 0 auto;
       width: 97%;
       aside {
         margin: 0 auto;
         min-width: 0;
-        width: 98%;
+        padding: 1rem;
       }
       .main-section {
         display: none;
@@ -868,6 +881,7 @@ label#acceptable_ads sup{
           background: $beige;
           position: sticky;
           top: 0;
+          z-index: 10;
         }
       }
     }
