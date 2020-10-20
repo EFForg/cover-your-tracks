@@ -284,20 +284,20 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-runnable-track {
   background: $beige;
   border-radius: 1rem;
-  border: 1px solid $green-dark;
+  border: 2px solid $green;
   cursor: pointer;
   height: 2rem;
   width: 5rem;
 }
 input[type=range]::-webkit-slider-thumb {
-  background: $green-dark;
-  border: 1px solid $green-dark;
+  background: $green;
+  border: 2px solid $green;
   border-radius: 1rem;
   cursor: pointer;
-  height: 1.9rem;
+  height: 1.8rem;
   margin-top: 0;
   -webkit-appearance: none;
-  width: 1.9rem;
+  width: 1.8rem;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: $beige;
@@ -305,18 +305,18 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 input[type=range]::-moz-range-track {
   background: $beige;
   border-radius: 1rem;
-  border: 1px solid $green-dark;
+  border: 2px solid $green;
   cursor: pointer;
-  height: 1.9rem;
+  height: 1.8rem;
   width: 5rem;
 }
 input[type=range]::-moz-range-thumb {
-  background: $green-dark;
-  border: 1px solid $green-dark;
+  background: $green;
+  border: 2px solid $green;
   border-radius: 1rem;
   cursor: pointer;
-  height: 1.9rem;
-  width: 1.9rem;
+  height: 1.8rem;
+  width: 1.8rem;
 }
 input[type=range]::-ms-track {
   background: transparent;
@@ -324,7 +324,7 @@ input[type=range]::-ms-track {
   border-width: 1rem 0;
   color: transparent;
   cursor: pointer;
-  height: 1.9rem;
+  height: 1.8rem;
   width: 5rem;
 }
 input[type=range]::-ms-fill-lower {
@@ -333,17 +333,17 @@ input[type=range]::-ms-fill-lower {
   border-radius: 1rem;
 }
 input[type=range]::-ms-fill-upper {
-  background: $green-dark;
-  border: 0.2px solid $green-dark;
+  background: $green;
+  border: 0.2px solid $green;
   border-radius: 1rem;
 }
 input[type=range]::-ms-thumb {
-  background: $green-dark;
-  border: 1px solid $green-dark;
+  background: $green;
+  border: 2px solid $green;
   border-radius: 3px;
   cursor: pointer;
-  height: 1.9rem;
-  width: 1.9rem;
+  height: 1.8rem;
+  width: 1.8rem;
 }
 input[type=range]:focus::-ms-fill-lower {
   background: $beige;
