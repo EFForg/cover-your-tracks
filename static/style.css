@@ -570,7 +570,7 @@ label#acceptable_ads sup {
   /* mobile styles */
   .header {
     margin: 0 auto;
-    width: 100%; }
+    width: auto; }
     .header .banner {
       margin-bottom: 0; }
       .header .banner .bar {
@@ -589,6 +589,7 @@ label#acceptable_ads sup {
           height: 57px;
           width: 250px; }
       .header .banner .title-area {
+        flex-direction: column;
         margin: 0 auto;
         width: 97%; }
         .header .banner .title-area .site-title {
@@ -651,12 +652,14 @@ label#acceptable_ads sup {
   #learn .definitions {
     display: block;
     width: 100%; }
-    #learn .definitions .text,
     #learn .definitions .image {
+      display: none; }
+    #learn .definitions .text,
+    #learn .definitions .image:first-child {
+      display: block;
       width: 100%; }
       #learn .definitions .text img,
-      #learn .definitions .image img {
-        margin: 0 auto;
+      #learn .definitions .image:first-child img {
         width: 100%; }
 
   #results-wrapper {
