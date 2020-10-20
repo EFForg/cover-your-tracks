@@ -715,9 +715,21 @@ label#acceptable_ads sup{
 }
 
 @media screen and (max-width: $mobile) { /* mobile styles */
+  h2,
+  h3,
+  h4,
+  h5 {
+    text-transform: capitalize;
+    transform: scaleX(0.9) scaleY(0.9);
+  }
+
+  h1 {
+    transform: scaleX(0.9) scaleY(0.9);
+  }
+
   .header {
     margin: 0 auto;
-    width: 100%;
+    width: auto;
     .banner {
       margin-bottom: 0;
       .bar  {
@@ -741,6 +753,7 @@ label#acceptable_ads sup{
         }
       }
       .title-area {
+        flex-direction: column;
         margin: 0 auto;
         width: 97%;
         .site-title {
@@ -761,7 +774,7 @@ label#acceptable_ads sup{
   }
   .content {
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 1rem auto;
     width: 97%;
     .main-section {
       width: 100%;
@@ -830,16 +843,20 @@ label#acceptable_ads sup{
     .definitions {
       display: block;
       width: 100%;
-      .text,
       .image {
+        display: none;
+      }
+      .text,
+      .image:first-child {
+        display: block;
         width: 100%;
         img {
-          margin: 0 auto;
           width: 100%;
         }
       }
     }
   }
+
 
   #results-wrapper {
     flex-wrap: wrap;

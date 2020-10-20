@@ -568,6 +568,16 @@ label#acceptable_ads sup {
 
 @media screen and (max-width: 768px) {
   /* mobile styles */
+  h2,
+  h3,
+  h4,
+  h5 {
+    text-transform: capitalize;
+    transform: scaleX(0.9) scaleY(0.9); }
+
+  h1 {
+    transform: scaleX(0.9) scaleY(0.9); }
+
   .header {
     margin: 0 auto;
     width: auto; }
@@ -604,7 +614,7 @@ label#acceptable_ads sup {
 
   .content {
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 1rem auto;
     width: 97%; }
     .content .main-section {
       width: 100%; }
