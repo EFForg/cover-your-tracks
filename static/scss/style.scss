@@ -741,7 +741,6 @@ label#acceptable_ads sup{
         }
       }
       .title-area {
-        display: block;
         margin: 0 auto;
         width: 97%;
         .site-title {
@@ -783,6 +782,7 @@ label#acceptable_ads sup{
       }
     }
     .content {
+      width: 97%;
       aside {
         margin: 0 auto;
         min-width: 0;
@@ -793,8 +793,8 @@ label#acceptable_ads sup{
       }
     }
   }
-  #learn {
 
+  #learn {
     .animation {
       display: none;
     }

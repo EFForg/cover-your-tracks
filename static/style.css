@@ -589,7 +589,6 @@ label#acceptable_ads sup {
           height: 57px;
           width: 250px; }
       .header .banner .title-area {
-        display: block;
         margin: 0 auto;
         width: 97%; }
         .header .banner .title-area .site-title {
@@ -619,12 +618,14 @@ label#acceptable_ads sup {
     #front .title-area h1 span {
       font-size: 48px;
       line-height: inherit; }
-  #front .content aside {
-    margin: 0 auto;
-    min-width: 0;
-    width: 98%; }
-  #front .content .main-section {
-    display: none; }
+  #front .content {
+    width: 97%; }
+    #front .content aside {
+      margin: 0 auto;
+      min-width: 0;
+      width: 98%; }
+    #front .content .main-section {
+      display: none; }
 
   #learn .animation {
     display: none; }
