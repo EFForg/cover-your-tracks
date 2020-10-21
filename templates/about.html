@@ -12,7 +12,7 @@
       <li><a href="#browser-fingerprinting">What is browser fingerprinting?</a></li>
       <li><a href="#do-not-track">What is Do Not Track?</a></li>
     </ul>
-    <h3> <strong>Panopticlick is a research project designed to better uncover
+    <h3> <strong>Cover Your Tracks is a research project designed to better uncover
         the tools and techniques of online trackers and test the efficacy of
         privacy add-ons.</strong>
     </h3>
@@ -22,15 +22,15 @@
     </p>
 
     <p>
-      In 2010, EFF launched Panopticlick, a research project to investigate how unique each browser is. We gathered information about the configuration and version information from your operating system, your browser, and your plug-ins, and compared it to our database of many other Internet users' configurations. Then, we generated a uniqueness score — letting you see how easily identifiable you might be as you surf the web.
+      In 2010, EFF launched Cover Your Tracks, a research project to investigate how unique each browser is. We gathered information about the configuration and version information from your operating system, your browser, and your plug-ins, and compared it to our database of many other Internet users' configurations. Then, we generated a uniqueness score — letting you see how easily identifiable you might be as you surf the web.
     </p>
 
     <p>
-      In 2015, we upgraded Panopticlick with a new feature: tracker blocker testing. Million of Internet users are using privacy add-ons and other tools to block trackers, including tools like AdBlock, Ghostery and Disconnect. But how well do these add-ons actually protect users from invasive tracking?
+      In 2015, we upgraded Cover Your Tracks with a new feature: tracker blocker testing. Million of Internet users are using privacy add-ons and other tools to block trackers, including tools like AdBlock, Ghostery and Disconnect. But how well do these add-ons actually protect users from invasive tracking?
     </p>
 
     <p>
-      <strong>Our new version of Panopticlick researches both</strong>. We analyze how well you are protected against online tracking by checking the privacy protections you have in place. The test simulates loading of a visible ad that performs tracking, an invisible script that performs tracking, and a site that looks superficially like a tracker but actually has committed to honor Do Not Track.
+      <strong>Our new version of Cover Your Tracks researches both</strong>. We analyze how well you are protected against online tracking by checking the privacy protections you have in place. The test simulates loading of a visible ad that performs tracking, an invisible script that performs tracking, and a site that looks superficially like a tracker but actually has committed to honor Do Not Track.
     </p>
 
     <p>
@@ -42,11 +42,11 @@
     </p>
 
     <p>
-      Running tests on Panopticlick both gives you this information about your own browser, and also helps EFF use statistical methods to evaluate the capabilities of Internet tracking and advertising companies, and the best forms of protection against tracking without consent.
+      Running tests on Cover Your Tracks both gives you this information about your own browser, and also helps EFF use statistical methods to evaluate the capabilities of Internet tracking and advertising companies, and the best forms of protection against tracking without consent.
     </p>
 
     <p>
-      A paper reporting the early statistical results of this 2010 Panopticlick experiment is available: How Unique Is Your Browser?, Proceedings of the Privacy Enhancing Technologies Symposium (PETS 2010), Springer Lecture Notes in Computer Science. <a href="https://panopticlick.eff.org/static/browser-uniqueness.pdf">https://panopticlick.eff.org/browser-uniqueness.pdf</a>
+      A paper reporting the early statistical results of this 2010 Cover Your Tracks experiment is available: How Unique Is Your Browser?, Proceedings of the Privacy Enhancing Technologies Symposium (PETS 2010), Springer Lecture Notes in Computer Science. <a href="https://panopticlick.eff.org/static/browser-uniqueness.pdf">https://panopticlick.eff.org/browser-uniqueness.pdf</a>
     </p>
 
 
@@ -54,7 +54,7 @@
     <h2>Methodology:</h2>
 
     <p>
-      The results of Panopticlick use several simulated tracking domains to trigger tracker blockers.  Some blockers (such as Adblock Plus or Ghostery) are triggered by URL parameters that match ads or tracking beacons.  Other blockers (such as AdAway or Disconnect) match on a per-domain basis, and we strive to have our test domains included in such tools’ lists.  Still other blockers (such as our own Privacy Badger) use a heuristic approach, blocking the inclusion of trackers by detecting their use across domains.
+      The results of Cover Your Tracks use several simulated tracking domains to trigger tracker blockers.  Some blockers (such as Adblock Plus or Ghostery) are triggered by URL parameters that match ads or tracking beacons.  Other blockers (such as AdAway or Disconnect) match on a per-domain basis, and we strive to have our test domains included in such tools’ lists.  Still other blockers (such as our own Privacy Badger) use a heuristic approach, blocking the inclusion of trackers by detecting their use across domains.
     </p>
 
     <p>
@@ -80,7 +80,7 @@
     </p>
 
     <p>
-      In addition to tracker blocking, Panopticlick measures the uniqueness of your browser. We anonymously log the following information, and compare it to a database of many other Internet users' configurations that we’ve observed recently:
+      In addition to tracker blocking, Cover Your Tracks measures the uniqueness of your browser. We anonymously log the following information, and compare it to a database of many other Internet users' configurations that we’ve observed recently:
     </p>
 
     <ul>
@@ -103,7 +103,7 @@
     </p>
 
     <p>
-      When you load a web page, you will automatically broadcast certain information about your browser to the website you are visiting &mdash; as well as to any trackers embedded within the site (such as those that serve advertisements). The site you are visiting may choose to analyze your browser using JavaScript, Flash and other methods (just like Panopticlick does). It may look for what types of fonts you have installed, the language you’ve set, the add-ons you’ve installed, and other factors. The site may then create a type of profile of you, tied to this pattern of characteristics associated with your browser, rather than tied to a specific tracking cookie.
+      When you load a web page, you will automatically broadcast certain information about your browser to the website you are visiting &mdash; as well as to any trackers embedded within the site (such as those that serve advertisements). The site you are visiting may choose to analyze your browser using JavaScript, Flash and other methods (just like Cover Your Tracks does). It may look for what types of fonts you have installed, the language you’ve set, the add-ons you’ve installed, and other factors. The site may then create a type of profile of you, tied to this pattern of characteristics associated with your browser, rather than tied to a specific tracking cookie.
     </p>
 
     <p>
@@ -158,7 +158,7 @@
     <h3>Use the Tor Browser</h3>
 
     <p>
-      The Tor Project has spent considerable effort trying to "standardize" various browser characteristics like the User Agent string, in order to prevent them from being used to track Tor users. In response to Panopticlick and other fingerprinting experiments, the <a href='https://www.torproject.org/projects/torbrowser.html.en'>Tor Browser</a> now includes patches to prevent font fingerprinting (by restricting which fonts websites can use) and Canvas fingerprinting (by detecting reads to HTML5 Canvas objects and asking users to approve them).   The Tor Browser can also be configured to aggressively block JavaScript. Taken together, these measures make the Tor Browser a strong defense against fingerprinting. Unfortunately, browsing through Tor is currently a lot slower than browsing without it.
+      The Tor Project has spent considerable effort trying to "standardize" various browser characteristics like the User Agent string, in order to prevent them from being used to track Tor users. In response to Cover Your Tracks and other fingerprinting experiments, the <a href='https://www.torproject.org/projects/torbrowser.html.en'>Tor Browser</a> now includes patches to prevent font fingerprinting (by restricting which fonts websites can use) and Canvas fingerprinting (by detecting reads to HTML5 Canvas objects and asking users to approve them).   The Tor Browser can also be configured to aggressively block JavaScript. Taken together, these measures make the Tor Browser a strong defense against fingerprinting. Unfortunately, browsing through Tor is currently a lot slower than browsing without it.
     </p>
 
     <h3>Disable JavaScript</h3>
