@@ -382,7 +382,11 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 3.5rem 3rem;
     border: 1px solid $yellow;
     border-radius: 1rem;
-    hr {
+    .button-style {
+      margin-bottom: 2rem;
+      margin-top: 1.5rem;
+    }
+    hr {  // the cool line with the star in the middle
       border: none;
       border-top: medium double $green;
       color: $green;

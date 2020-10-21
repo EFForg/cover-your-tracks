@@ -312,6 +312,9 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 3.5rem 3rem;
     border: 1px solid #DECA54;
     border-radius: 1rem; }
+    #front aside .button-style {
+      margin-bottom: 2rem;
+      margin-top: 1.5rem; }
     #front aside hr {
       border: none;
       border-top: medium double #305D42;
