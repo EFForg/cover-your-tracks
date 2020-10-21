@@ -121,34 +121,33 @@
   }
 }
 
-/* THIS IS WHERE THE INDIVIDUAL SVGs and their SPECIFIED ANIMATIONS LIVE! define different background images here, allow the `x-img` attribute to set the background-image */
-
 /* ************************************************ */
 
 /* set initial svgs */
-.footprints[x-img="fox"] > .foot {
-  background-image: url("/static/svg/fox-gray.svg");
-}
 
-.footprints[x-img="fox"]:nth-child(1) > .foot {
+
+.footprints:nth-child(1) > .foot {
   background-image: url("/static/svg/fox-red.svg");
 }
 
-.footprints[x-img="fox"]:nth-child(2) > .foot,
-.footprints[x-img="fox"]:nth-child(3) > .foot {
+.footprints:nth-child(2) > .foot,
+.footprints:nth-child(3) > .foot {
   background-image: url("/static/svg/antelope.svg");
 }
-.footprints[x-img="fox"]:nth-child(4) > .foot,
-.footprints[x-img="fox"]:nth-child(5) > .foot {
+.footprints:nth-child(4) > .foot,
+.footprints:nth-child(5) > .foot {
   background-image: url("/static/svg/bird.svg");
 }
-.footprints[x-img="fox"]:nth-child(6) > .foot,
-.footprints[x-img="fox"]:nth-child(7) > .foot {
+.footprints:nth-child(6) > .foot,
+.footprints:nth-child(7) > .foot {
   background-image: url("/static/svg/deer.svg");
 }
 
-.footprints[x-img="fox"]:nth-child(8) > .foot,
-.footprints[x-img="fox"]:nth-child(9) > .foot {
+.footprints:nth-child(8) > .foot {
+  background-image: url("/static/svg/dog.svg");
+}
+
+.footprints:nth-child(9) > .foot {
   background-image: url("/static/svg/horse.svg");
 }
 
@@ -161,7 +160,7 @@
   margin: 20rem auto -20rem;
   width: 20rem;
 }
-.footprints[x-img="fox"]:nth-child(1) > .you {
+.footprints:nth-child(1) > .you {
   margin-top: 14rem;
   position: relative;
 }
@@ -172,49 +171,49 @@
   --animation-duration: 7s;
 }
 
-.footprints[x-img="fox"]:nth-child(2) { /*antelope*/
-  transform: translate(370px, 50px) rotate(10deg) scale(1.5);
+.footprints:nth-child(2) { /*antelope*/
+  transform: translate(270px, 50px) rotate(10deg) scale(1.5);
   --timing-offset: 1s;
   --animation-duration: 7s;
 }
 
-.footprints[x-img="fox"]:nth-child(3) {
-  transform: translate(640px, 60px) rotate(24deg);
+.footprints:nth-child(3) {
+  transform: translate(440px, 60px) rotate(24deg);
   --timing-offset: 1s;
   --animation-duration: 7s;
 }
 
-.footprints[x-img="fox"]:nth-child(4) {/* bird */
+.footprints:nth-child(4) {/* bird */
   transform: translate(50px, 200px) rotate(-30deg) scale(1);
   --timing-offset: 2s;
   --animation-duration: 7s;
 }
 
-.footprints[x-img="fox"]:nth-child(5) {
-  transform: translate(800px, 200px) rotate(20deg) scale(1);
+.footprints:nth-child(5) {
+  transform: translate(500px, 200px) rotate(20deg) scale(1);
   --timing-offset: 2s;
   --animation-duration: 7s;
 }
 
-.footprints[x-img="fox"]:nth-child(6) {/*deer*/
-  transform: translate(650px, 200px) rotate(10deg) scale(1);
+.footprints:nth-child(6) {/*deer*/
+  transform: translate(450px, 200px) rotate(10deg) scale(1.5);
   --timing-offset: 3s;
   --animation-duration: 7s;
 }
 
-.footprints[x-img="fox"]:nth-child(7) {
-  transform: translate(0px, 60px) rotate(40deg) scale(1);
+.footprints:nth-child(7) {
+  transform: translate(100px, 60px) rotate(40deg) scale(1);
   --timing-offset: 3s;
   --animation-duration: 7s;
 }
-.footprints[x-img="fox"]:nth-child(8) {  /* horse */
-  transform: translate(700px, 60px) rotate(-20deg) scale(2);
+.footprints:nth-child(8) {  /* dog */
+  transform: translate(700px, 60px) rotate(-20deg) scale(1);
   --timing-offset: 4s;
   --animation-duration: 7s;
 }
 
-.footprints[x-img="fox"]:nth-child(9) {
-  transform: translate(100px, 60px) rotate(30deg) scale(2);
+.footprints:nth-child(9) { /* horse */
+  transform: translate(200px, 60px) rotate(30deg) scale(2);
   --timing-offset: 4s;
   --animation-duration: 7s;
 }

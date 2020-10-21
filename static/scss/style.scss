@@ -382,6 +382,7 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 3.5rem 3rem;
     border: 1px solid $yellow;
     border-radius: 1rem;
+    z-index: 10;
     .button-style {
       margin-bottom: 0rem;
       margin-top: 1.5rem;
@@ -412,10 +413,6 @@ input[type=range]:focus::-ms-fill-upper {
     display: flex;
     width: auto;
     .main-section {
-      background-image: url("/static/images/home-image.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
       margin: 1rem 0 1rem 1rem;
       width: 78%;
     }
