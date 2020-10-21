@@ -159,6 +159,9 @@ aside {
   min-width: 300px;
   width: 22%; }
 
+.mobile-aside {
+  display: none; }
+
 iframe {
   border: none; }
 
@@ -404,6 +407,8 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 16px auto 0; }
   #results-wrapper aside h4:first-child {
     margin-top: 1rem; }
+  #results-wrapper .mobile-aside {
+    display: none; }
   #results-wrapper .main-section {
     margin: 0 0 0 5rem; }
   #results-wrapper h3.indicate {
@@ -688,6 +693,10 @@ label#acceptable_ads sup {
 
   #results-wrapper {
     flex-wrap: wrap; }
+    #results-wrapper aside {
+      display: none; }
+    #results-wrapper .mobile-aside {
+      display: block; }
     #results-wrapper .main-section {
       margin: 0 3px; }
       #results-wrapper .main-section #results .results-buttons {

@@ -13,16 +13,7 @@
 {% block body %}
   <div id='results-wrapper'>
     <aside>
-      <h4>How to read your report</h4>
-      <p>
-       When we test your browser, you’ll see how well you are being protected from trackers and browser fingerprinting.  Most trackers can be blocked by browser addons or by browsers that have protection against trackers built in.  Some of the sneakiest trackers will still be able to perform browser fingerprinting.  That’s why it’s important to see both results.  We will also offer recommendations on what you can do to protect yourself.
-      </p>
-      <h4>How can trackers track you?</h4>
-      <p>Trackers use a variety of methods to track users.  Most often, this includes tracking cookies, but it can also include browser fingerprinting, which is a sneakier way to track users and makes it harder for users to regain control of their browsers.</p>
-      <h4>How can I use my results to be more anonymous?</h4>
-      <p>
-        Your results may indicate that you are easily identifiable, or that you aren’t currently blocking trackers.  We recommend you use a tracker blocker like <a href="https://www.eff.org/pb" target="_blank">Privacy Badger</a> or use a browser that has fingerprinting protection built in.
-      </p>
+    {% include '_results_aside.html' %}
     </aside>
     <div class="main-section">
       <h3 class="indicate">
@@ -54,7 +45,11 @@
           </tr>
         </tbody>
       </table>
+
      <a id='showFingerprintLink2' href='#fingerprintTable'>Still wondering how fingerprinting works? Click here for more info! </a>
+     <div class="mobile-aside">
+       {% include '_results_aside.html' %}
+     </div>
      <p class="tracker_results">Note: because tracking techniques are complex, subtle, and constantly evolving, Panopticlick does not measure all forms of tracking and protection.</p>
      <div id='fingerprintTable'></div>
      <div id="buttons">

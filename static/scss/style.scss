@@ -215,6 +215,9 @@ aside {
   min-width: 300px;
   width: 22%;
 }
+.mobile-aside {
+  display: none;
+}
 
 iframe {
   border: none;
@@ -510,6 +513,9 @@ input[type=range]:focus::-ms-fill-upper {
     h4:first-child {
       margin-top: 1rem;
     }
+  }
+  .mobile-aside {
+    display: none;
   }
 
   .main-section {
@@ -874,6 +880,12 @@ label#acceptable_ads sup{
 
   #results-wrapper {
     flex-wrap: wrap;
+    aside {
+      display: none;
+    }
+    .mobile-aside {
+      display: block;
+    }
     .main-section {
       margin: 0 3px;
       #results {
