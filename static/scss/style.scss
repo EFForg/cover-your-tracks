@@ -153,7 +153,7 @@ hr {
       }
     }
     .tagline {
-      color: $yellow;
+      color: $plum;
       font-size: 27px;
       font-weight: bold;
       margin: 6px 0 0;
@@ -366,8 +366,13 @@ input[type=range]:focus::-ms-fill-upper {
     color: $beige;
   }
 
-  .header .banner .title-area {
-    border-bottom: none;
+  .header .banner {
+    .title-area {
+      border-bottom: none;
+    }
+    .tagline {
+      color: $yellow;
+    }
   }
 
   .header nav a {
@@ -415,6 +420,11 @@ input[type=range]:focus::-ms-fill-upper {
     .main-section {
       margin: 1rem 0 1rem 1rem;
       width: 78%;
+    }
+  }
+  footer {
+    .footer-logo {
+      background-image: url("/static/images/eff-logo-lockup.svg");
     }
   }
 }
@@ -466,6 +476,10 @@ input[type=range]:focus::-ms-fill-upper {
     .text,
     .image {
       width: 50%;
+      img {
+        margin: 0 auto;
+        width: 100%;
+      }
     }
   }
 }
@@ -493,7 +507,11 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 5rem auto;
     max-width: 60%;
   }
-
+  footer {
+    .footer-logo {
+      background-image: url("/static/images/eff-logo-lockup.svg");
+    }
+  }
 }
 
 /* privacy page */
@@ -604,10 +622,12 @@ input[type=range]:focus::-ms-fill-upper {
 footer {
   display: block;
   margin: 2rem 1rem 0 5rem;
-  img.logo {
+  .footer-logo {
+    background-image: url("/static/images/eff-logo-lockup-black.svg");
+    background-repeat: no-repeat;
     height: 40px;
-    margin: 22px auto 6px;
-    outline: none;
+    margin: 22px 0 6px;
+    width: 200px;;
   }
   .links {
     margin: 18px auto 0;
@@ -620,7 +640,7 @@ footer {
     display: inline-block;
     font-size: 13px;
     font-weight: 800;
-    padding: 0 1rem 2rem 0;
+    padding: 0 1rem 1rem 0;
     text-transform: uppercase;
     &:hover {
       border: none;
@@ -802,7 +822,7 @@ label#acceptable_ads sup{
   }
   footer {
     box-sizing: border-box;
-    margin: 0 auto;
+    margin: 3rem auto 2rem;
     width: 97%;
   }
   // individual pages
@@ -880,8 +900,12 @@ label#acceptable_ads sup{
       }
     }
   }
-
-
+  #testing {
+    .testing {
+      margin: 0 auto;
+      max-width: 100%;
+    }
+  }
   #results-wrapper {
     flex-wrap: wrap;
     aside {

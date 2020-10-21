@@ -111,7 +111,7 @@ hr {
         border-bottom: 1px solid white;
         font-weight: normal; }
   .header .banner .tagline {
-    color: #DECA54;
+    color: #2E243F;
     font-size: 27px;
     font-weight: bold;
     margin: 6px 0 0; }
@@ -303,6 +303,8 @@ input[type=range]:focus::-ms-fill-upper {
     color: #F5EFEB; }
   #front .header .banner .title-area {
     border-bottom: none; }
+  #front .header .banner .tagline {
+    color: #DECA54; }
   #front .header nav a {
     color: #F5EFEB; }
     #front .header nav a:hover {
@@ -340,6 +342,8 @@ input[type=range]:focus::-ms-fill-upper {
     #front .content .main-section {
       margin: 1rem 0 1rem 1rem;
       width: 78%; }
+  #front footer .footer-logo {
+    background-image: url("/static/images/eff-logo-lockup.svg"); }
 
 /* learn */
 #learn h4 {
@@ -373,6 +377,10 @@ input[type=range]:focus::-ms-fill-upper {
   #learn .definitions .text,
   #learn .definitions .image {
     width: 50%; }
+    #learn .definitions .text img,
+    #learn .definitions .image img {
+      margin: 0 auto;
+      width: 100%; }
 
 /* testing page */
 #testing {
@@ -392,6 +400,8 @@ input[type=range]:focus::-ms-fill-upper {
   #testing .testing {
     margin: 5rem auto;
     max-width: 60%; }
+  #testing footer .footer-logo {
+    background-image: url("/static/images/eff-logo-lockup.svg"); }
 
 /* privacy page */
 #privacy, #about, #self-defense {
@@ -470,10 +480,12 @@ input[type=range]:focus::-ms-fill-upper {
 footer {
   display: block;
   margin: 2rem 1rem 0 5rem; }
-  footer img.logo {
+  footer .footer-logo {
+    background-image: url("/static/images/eff-logo-lockup-black.svg");
+    background-repeat: no-repeat;
     height: 40px;
-    margin: 22px auto 6px;
-    outline: none; }
+    margin: 22px 0 6px;
+    width: 200px; }
   footer .links {
     margin: 18px auto 0; }
   footer a {
@@ -483,7 +495,7 @@ footer {
     display: inline-block;
     font-size: 13px;
     font-weight: 800;
-    padding: 0 1rem 2rem 0;
+    padding: 0 1rem 1rem 0;
     text-transform: uppercase; }
     footer .links a:hover {
       border: none; }
@@ -638,7 +650,7 @@ label#acceptable_ads sup {
 
   footer {
     box-sizing: border-box;
-    margin: 0 auto;
+    margin: 3rem auto 2rem;
     width: 97%; }
 
   #front .title-area {
@@ -692,6 +704,10 @@ label#acceptable_ads sup {
       #learn .definitions .text img,
       #learn .definitions .image:first-child img {
         width: 100%; }
+
+  #testing .testing {
+    margin: 0 auto;
+    max-width: 100%; }
 
   #results-wrapper {
     flex-wrap: wrap; }
