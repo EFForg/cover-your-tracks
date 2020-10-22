@@ -124,8 +124,6 @@
 /* ************************************************ */
 
 /* set initial svgs */
-
-
 .footprints:nth-child(1) > .foot {
   background-image: url("/static/svg/fox-red.svg");
 }
@@ -154,68 +152,57 @@
 
 /* set positions */
 
-.tracker-text {
-  display: none;
-  position: relative;
-  margin: 20rem auto -20rem;
-  width: 20rem;
-}
-.footprints:nth-child(1) > .you {
-  margin-top: 14rem;
-  position: relative;
-}
-
 .footprints[first-fox]{
   transform: translate(400px, 0px) rotate(12deg);
   --timing-offset: 0s;
-  --animation-duration: 7s;
+  --animation-duration: 5s;
 }
 
 .footprints:nth-child(2) { /*antelope*/
-  transform: translate(270px, 50px) rotate(10deg) scale(1.5);
-  --timing-offset: 1s;
-  --animation-duration: 7s;
+  transform: translate(0px, 50px) rotate(10deg) scale(1.2);
+  --timing-offset: 2s;
+  --animation-duration: 15s;
 }
 
 .footprints:nth-child(3) {
   transform: translate(440px, 60px) rotate(24deg);
-  --timing-offset: 1s;
-  --animation-duration: 7s;
+  --timing-offset: 2s;
+  --animation-duration: 15s;
 }
 
 .footprints:nth-child(4) {/* bird */
-  transform: translate(50px, 200px) rotate(-30deg) scale(1);
-  --timing-offset: 2s;
-  --animation-duration: 7s;
+  transform: translate(50px, 200px) rotate(-30deg) scale(1.2);
+  --timing-offset: 4s;
+  --animation-duration: 3s;
 }
 
 .footprints:nth-child(5) {
   transform: translate(500px, 200px) rotate(20deg) scale(1);
-  --timing-offset: 2s;
-  --animation-duration: 7s;
+  --timing-offset: 4s;
+  --animation-duration: 3s;
 }
 
 .footprints:nth-child(6) {/*deer*/
-  transform: translate(450px, 200px) rotate(10deg) scale(1.5);
-  --timing-offset: 3s;
-  --animation-duration: 7s;
+  transform: translate(450px, 200px) rotate(10deg) scale(1.2);
+  --timing-offset: 7s;
+  --animation-duration: 9s;
 }
 
 .footprints:nth-child(7) {
   transform: translate(100px, 60px) rotate(40deg) scale(1);
-  --timing-offset: 3s;
-  --animation-duration: 7s;
+  --timing-offset: 5s;
+  --animation-duration: 9s;
 }
 .footprints:nth-child(8) {  /* dog */
-  transform: translate(700px, 60px) rotate(-20deg) scale(1);
-  --timing-offset: 4s;
+  transform: translate(700px, 60px) rotate(20deg) scale(1.1);
+  --timing-offset: 8s;
   --animation-duration: 7s;
 }
 
 .footprints:nth-child(9) { /* horse */
   transform: translate(200px, 60px) rotate(30deg) scale(2);
-  --timing-offset: 4s;
-  --animation-duration: 7s;
+  --timing-offset: 1s;
+  --animation-duration: 15s;
 }
 
 /* raccoon feet */
@@ -226,14 +213,14 @@
   background-image: url("/static/svg/raccoonfoot.svg");
 }
 .footprints[first-raccoon] {
-  transform: translate(600px, 80px) rotate(12deg);
-  --timing-offset: 0s;
-  --animation-duration: 7s;
+  transform: translate(600px, 80px) rotate(-20deg);
+  --timing-offset: 5s;
+  --animation-duration: 11s;
 }
 .footprints[first-raccoonfoot] {
-  transform: translate(600px, 200px) rotate(12deg);
-  --timing-offset: 0s;
-  --animation-duration: 7s;
+  transform: translate(600px, 200px) rotate(-20deg) scale(1.3);
+  --timing-offset: 5s;
+  --animation-duration: 11s;
 }
 
 .slider-column {
