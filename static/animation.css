@@ -6,7 +6,7 @@
   /* these variables are configurable! */
   --path-height: 400px;
   --path-width: 150px;
-  --foot-spread: calc(var(--path-width) * 0.2);
+  --foot-spread: calc(var(--path-width) * 0.25);
   --animation-duration: 5s;
   --step-delay: 0.5s;
   --footprint-width: 50px;
@@ -177,7 +177,7 @@
 }
 
 .footprints:nth-child(5) {
-  transform: translate(500px, 200px) rotate(20deg) scale(1);
+  transform: translate(500px, 0px) rotate(20deg) scale(1);
   --timing-offset: 4s;
   --animation-duration: 3s;
 }
@@ -213,7 +213,7 @@
   background-image: url("/static/svg/raccoonfoot.svg");
 }
 .footprints[first-raccoon] {
-  transform: translate(600px, 80px) rotate(-20deg);
+  transform: translate(550px, 80px) rotate(-20deg);
   --timing-offset: 5s;
   --animation-duration: 11s;
 }
