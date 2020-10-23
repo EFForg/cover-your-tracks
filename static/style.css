@@ -103,13 +103,20 @@ hr {
     .header .banner .bar .attribution {
       color: white;
       font-size: 16px;
-      margin-left: 1rem;
+      padding-left: 5rem;
       position: relative;
-      top: 0.9rem; }
+      margin: 0 auto;
+      max-width: 1440px;
+      top: 0.9rem;
+      width: 100%; }
       .header .banner .bar .attribution a {
         color: white;
         border-bottom: 1px solid white;
         font-weight: normal; }
+      @media screen and (min-width: 1440px) {
+        .header .banner .bar .attribution {
+          /* large screen */
+          padding-left: 7rem; } }
   .header .banner .tagline {
     color: #2E243F;
     font-size: 27px;

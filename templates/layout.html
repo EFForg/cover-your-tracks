@@ -19,7 +19,7 @@
 
     {% block header %}
     <body>
-      <div class="wrapper">
+
       <div class="header">
         <div class="banner">
           <div class="bar">
@@ -27,6 +27,7 @@
               <img class="logo" src="/static/images/eff-logo-red.svg" alt="EFF logo">A Project of the <a href="https://www.eff.org/">Electronic Frontier Foundation</a>
             </div>
           </div>
+          <div class="wrapper">
           <div class="title-area">
             <div class="site-title">
               <a href="https://panopticlick.eff.org">
@@ -43,10 +44,11 @@
               </ul>
             </nav>
         </div>
+      </div>
         </div>
       </div>
       {% endblock %}
-
+<div class="wrapper">
       <div class="content">
           {% block body %}{% endblock %}
       </div>
