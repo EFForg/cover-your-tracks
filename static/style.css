@@ -103,7 +103,7 @@ hr {
     .header .banner .bar .attribution {
       color: white;
       font-size: 16px;
-      padding-left: 5rem;
+      padding-left: 6%;
       position: relative;
       margin: 0 auto;
       max-width: 1440px;
@@ -116,7 +116,7 @@ hr {
       @media screen and (min-width: 1440px) {
         .header .banner .bar .attribution {
           /* large screen */
-          padding-left: 7rem; } }
+          padding-left: 7%; } }
   .header .banner .tagline {
     color: #2E243F;
     font-size: 27px;
@@ -127,12 +127,12 @@ hr {
     border-bottom: 1px solid #D3473D;
     display: flex;
     justify-content: flex-end;
-    margin-left: 5rem;
+    margin: 0 auto;
     padding: 0 0 1rem;
     width: 92%; }
-
-.header .banner .title-area .site-title {
-  width: 80%; }
+    .header .banner .title-area .site-title {
+      margin-left: 1rem;
+      width: 70%; }
 
 /* nav */
 .header nav {
@@ -145,7 +145,7 @@ hr {
     .header nav ul li {
       display: inline-block;
       font-size: 1.2rem;
-      padding: 0 0 0 5rem; }
+      padding: 0 0 0 25%; }
   .header nav a {
     color: #2E243F;
     border-bottom: none; }
@@ -630,9 +630,9 @@ label#acceptable_ads sup {
         margin: 0 auto;
         width: 97%; }
         .header .banner .title-area .site-title {
-          width: 97%; }
+          margin-left: 0; }
       .header .banner .tagline {
-        font-size: 15px; }
+        font-size: 22px; }
       .header .banner nav {
         padding: 0;
         width: 100%; }
