@@ -315,16 +315,6 @@
             }
             detection = detect_browser_and_platform();
 
-            //if(detection.platform == 'desktop' && (detection.browser == "chrome" || detection.browser == "firefox" || detection.browser == "opera")){
-              //summary_sentence.innerHTML += " <strong>installing EFF's Privacy Badger</strong>.";
-            //} else if(detection.platform == 'desktop' && detection.browser != "ie") {
-          //    summary_sentence.innerHTML += " switching to a browser or OS that offers better protections.";
-            //} else {
-            //  summary_sentence.innerHTML += " <strong>installing extra protections</strong>.  Privacy Badger isn't available for your browser / OS, but <a id='tool-recommendation' target='_blank'></a> may work for you.";
-          //  }
-
-
-            prepare_install_button(detection);
           }
           document.getElementById('buttons').style.display = 'block';
         }
@@ -358,4 +348,5 @@
   </script>
   <script src="/static/zig.js" type='text/javascript'></script>
   <script src="/static/results.js" type='text/javascript'></script>
+
 {% endblock %}
