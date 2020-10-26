@@ -603,6 +603,9 @@ input[type=range]:focus::-ms-fill-upper {
     border-color: $plum;
     color: white;
   }
+  .detailed {
+    font-weight: 600;
+  }
 }
 
 /* footer */

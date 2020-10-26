@@ -468,6 +468,8 @@ input[type=range]:focus::-ms-fill-upper {
   #results-wrapper #detailed-button.button-style.active {
     border-color: #2E243F;
     color: white; }
+  #results-wrapper .detailed {
+    font-weight: 600; }
 
 /* footer */
 footer {
