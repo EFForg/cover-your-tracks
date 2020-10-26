@@ -1,4 +1,5 @@
 $(document).ready(function(){
+// $('select').selectmenu();
   setTimeout(function(){
   $('.results-table h4').each(function(i){
     function getText(file,self) {
@@ -119,5 +120,13 @@ $(document).ready(function(){
       $('#default-button').removeClass('active');
       $('.detailed').show();
     });
+      var dropDownValue = document.getElementById("characteristic");
+        console.log(dropDownValue);
+        dropDownValue.onchange = function() {
+          if (this.selectedIndex !== 0) {
+            window.location.href = this.value;
+          }
+        };
   }, 2000);
+
 });
