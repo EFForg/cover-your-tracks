@@ -357,37 +357,23 @@ input[type=range]:focus::-ms-fill-upper {
   text-transform: none; }
 #learn .spectrum img {
   width: 100%; }
-#learn .interactive,
 #learn .definitions {
   display: flex;
   border-bottom: 1px solid #D3473D;
   justify-content: space-between;
   padding: 2rem 0;
   width: 100%; }
-#learn .slider-container {
-  width: 30%; }
-#learn .slider-block {
-  display: flex;
-  width: 100%; }
-  #learn .slider-block .range {
-    width: 20%; }
-  #learn .slider-block output {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    width: 6rem; }
-  #learn .slider-block .slider-desc {
-    margin-left: 1rem;
-    width: 75%; }
 #learn .definitions {
   flex-wrap: wrap; }
-  #learn .definitions .text,
-  #learn .definitions .image {
+  #learn .definitions .left {
+    width: 30%; }
+    #learn .definitions .left h3 {
+      margin-top: 0.5rem; }
+  #learn .definitions .right {
+    width: 67%; }
+  #learn .definitions img {
+    margin: 0 auto;
     width: 50%; }
-    #learn .definitions .text img,
-    #learn .definitions .image img {
-      margin: 0 auto;
-      width: 100%; }
 
 /* testing page */
 #testing {
@@ -683,33 +669,18 @@ label#acceptable_ads sup {
   #learn .interactive,
   #learn .definitions {
     padding: 1rem 0; }
-  #learn .slider-container {
-    width: 100%; }
-  #learn .slider-block {
-    display: flex;
-    flex-direction: column;
-    width: 100%; }
-    #learn .slider-block .range {
-      margin-left: 1rem;
-      width: 97%; }
-    #learn .slider-block output {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      width: 6rem; }
-    #learn .slider-block .slider-desc {
-      width: 97%; }
   #learn .definitions {
     display: block;
     width: 100%; }
-    #learn .definitions .image {
-      display: none; }
-    #learn .definitions .text,
-    #learn .definitions .image:first-child {
+    #learn .definitions .left,
+    #learn .definitions .right {
+      width: 100%; }
+    #learn .definitions .left:first-child,
+    #learn .definitions .right:first-child {
       display: block;
       width: 100%; }
-      #learn .definitions .text img,
-      #learn .definitions .image:first-child img {
+      #learn .definitions .left:first-child img,
+      #learn .definitions .right:first-child img {
         width: 100%; }
 
   #testing .testing {

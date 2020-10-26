@@ -445,7 +445,6 @@ input[type=range]:focus::-ms-fill-upper {
     width: 100%;
   }
 
-  .interactive,
   .definitions {
     display: flex;
     border-bottom: 1px solid $red;
@@ -454,38 +453,20 @@ input[type=range]:focus::-ms-fill-upper {
     width: 100%;
   }
 
-  .slider-container {
-    width: 30%;
-  }
-
-  .slider-block {
-    display: flex;
-    width: 100%;
-    .range {
-      width: 20%;
-    }
-    output {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      width: 6rem;
-
-    }
-    .slider-desc {
-      margin-left: 1rem;
-      width: 75%;
-    }
-  }
-
   .definitions {
     flex-wrap: wrap;
-    .text,
-    .image {
-      width: 50%;
-      img {
-        margin: 0 auto;
-        width: 100%;
+    .left {
+      width: 30%;
+      h3 {
+        margin-top: 0.5rem;
       }
+    }
+    .right {
+      width: 67%;
+    }
+    img {
+      margin: 0 auto;
+      width: 50%;
     }
   }
 }
@@ -866,38 +847,16 @@ label#acceptable_ads sup{
       padding: 1rem 0;
     }
 
-    .slider-container {
-      width: 100%;
-    }
-
-    .slider-block {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      .range {
-        margin-left: 1rem;
-        width: 97%;
-      }
-      output {
-        display: block;
-        font-size: 0.9rem;
-        font-weight: 600;
-        width: 6rem;
-
-      }
-      .slider-desc {
-        width: 97%;
-      }
-    }
-
     .definitions {
       display: block;
       width: 100%;
-      .image {
-        display: none;
+      .left,
+      .right {
+        width: 100%;
       }
-      .text,
-      .image:first-child {
+
+      .left:first-child,
+      .right:first-child {
         display: block;
         width: 100%;
         img {
