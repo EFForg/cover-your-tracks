@@ -13,13 +13,19 @@
 </div>
 <div id="results">
   <h3>Your Results</h3>
-  <div>
+  <div class="results-buttons">
     <span id="default-button" class="button-style">default view</span>
     <span id="detailed-button" class="button-style">detailed view</span>
   </div>
+  <label for="teams">Results Drop Down</label>
+      <select id="teams">
+  {% for key, label in labels.items(): %}
+        <option value="{{ label }}">{{ label }}</option>
+  {% endfor %}
+      </select>
   {% for key, label in labels.items(): %}
     <div class="results-table">
-      <h4>{{ label }}</h4>
+      <h4 id="{{ label }}">{{ label }}</h4>
       <div class="default">{{ whorls[key] }}</div>
 
       <br/>
