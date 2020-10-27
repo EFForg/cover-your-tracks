@@ -5,11 +5,7 @@
 {% endblock %}
 
 {% block body %}
-
-<div id="learn">
-  <a href="/kcarter-nojs" class="button-style" id="kcarterlink" >Test Your Browser</a>
-  <input type='checkbox' checked='checked'id="real" />
-  <label id='acceptable_ads' for="real"><strong>Test with a real tracking company</strong> <sup id='whats-this'><a href="">what's this?</a></sup></label>
+<body id="learn">
   <div class="main-section">
     <div class="definitions">
       <div class="left">
@@ -62,7 +58,6 @@
     </div>
 
   </div>
-</div>
 
 <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['ad_server'] }}/clear-cookies?random={{ cb }}'></iframe>
 <iframe id="t" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['tracker_server'] }}/clear-cookies?random={{ cb }}'></iframe>

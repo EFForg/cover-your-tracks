@@ -142,6 +142,8 @@ hr {
     list-style-type: none;
     margin: 0;
     width: 100%; }
+    .header nav ul li.test-nav {
+      display: none; }
     .header nav ul li {
       display: inline-block;
       font-size: 1.2rem;
@@ -353,6 +355,31 @@ input[type=range]:focus::-ms-fill-upper {
     background-image: url("/static/images/eff-logo-lockup.svg"); }
 
 /* learn */
+#learn .site-title {
+  width: 50%; }
+#learn .header nav {
+  width: 50%; }
+  #learn .header nav ul {
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end; }
+    #learn .header nav ul li {
+      display: inline;
+      padding: 0;
+      width: 25%; }
+    #learn .header nav ul li.test-nav {
+      width: 50%;
+      display: inline; }
+      #learn .header nav ul li.test-nav a#kcarterlink.button-style {
+        background: #DECA54;
+        box-shadow: none;
+        color: #1E3A29;
+        margin: 0;
+        width: 200px; }
+        #learn .header nav ul li.test-nav a#kcarterlink.button-style:hover {
+          background: #1E3A29;
+          box-shadow: none;
+          color: white; }
 #learn h4 {
   text-transform: none; }
 #learn .spectrum img {
@@ -666,13 +693,24 @@ label#acceptable_ads sup {
     #front .content .main-section {
       display: none; }
 
-  #learn .animation {
-    display: none; }
-  #learn .interactive,
-  #learn .definitions {
-    padding: 1rem 0; }
+  #learn .header .site-title {
+    width: 100%; }
+  #learn .header nav {
+    width: 100%; }
+    #learn .header nav ul {
+      flex-wrap: wrap; }
+      #learn .header nav ul li {
+        display: inline;
+        padding: 0;
+        width: 50%; }
+      #learn .header nav ul li.test-nav {
+        width: 100%;
+        display: inline; }
+        #learn .header nav ul li.test-nav a#kcarterlink.button-style {
+          margin: 2rem 0 1rem; }
   #learn .definitions {
     display: block;
+    padding: 1rem 0;
     width: 100%; }
     #learn .definitions .left,
     #learn .definitions .right {

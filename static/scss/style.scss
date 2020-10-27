@@ -189,6 +189,9 @@ hr {
       list-style-type: none;
       margin: 0;
       width: 100%;
+      li.test-nav {
+        display: none;
+      }
       li {
         display: inline-block;
         font-size: 1.2rem;
@@ -438,6 +441,38 @@ input[type=range]:focus::-ms-fill-upper {
 /* learn */
 
 #learn {
+  .site-title {
+    width: 50%;
+  }
+  .header nav {
+    width: 50%;
+    ul {
+      align-items: flex-end;
+      display: flex;
+      justify-content: flex-end;
+      li {
+        display: inline;
+        padding: 0;
+        width: 25%;
+      }
+      li.test-nav {
+        width: 50%;;
+        display: inline;
+        a#kcarterlink.button-style {
+          background: $yellow;
+          box-shadow: none;
+          color: $green-dark;
+          margin: 0;
+          width: 200px;
+          &:hover {
+            background: $green-dark;
+            box-shadow: none;
+            color: white;
+          }
+        }
+      }
+    }
+  }
   h4 {
     text-transform: none;
   }
@@ -842,16 +877,33 @@ label#acceptable_ads sup{
   }
 
   #learn {
-    .animation {
-      display: none;
-    }
-    .interactive,
-    .definitions {
-      padding: 1rem 0;
+    .header {
+      .site-title {
+        width: 100%;
+      }
+      nav {
+        width: 100%;
+        ul {
+          flex-wrap: wrap;
+          li {
+            display: inline;
+            padding: 0;
+            width: 50%;
+          }
+          li.test-nav {
+            width: 100%;
+            display: inline;
+            a#kcarterlink.button-style {
+              margin: 2rem 0 1rem;
+            }
+          }
+        }
+      }
     }
 
     .definitions {
       display: block;
+      padding: 1rem 0;
       width: 100%;
       .left,
       .right {
