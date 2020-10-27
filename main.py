@@ -100,6 +100,12 @@ def index():
                            third_party_trackers=config.third_party_trackers,
                            cb=cb)
 
+@app.route("/learn")
+def learn():
+    cb = random()
+    return render_template('learn.html',
+                           third_party_trackers=config.third_party_trackers,
+                           cb=cb)
 
 @app.route("/fingerprint-js")
 @app.route("/fingerprint")
@@ -442,9 +448,7 @@ def privacy_3_0():
 def about():
     return render_template('about.html', title="About")
 
-@app.route("/learn")
-def learn():
-    return render_template('learn.html', title="Learn")
+
 
 @app.route("/faq")
 def faq():
