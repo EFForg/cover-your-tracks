@@ -17,9 +17,9 @@
     <span id="default-button" class="button-style">default view</span>
     <span id="detailed-button" class="button-style">detailed view</span>
   </div>
+  <label for="characteristic">Select a characteristic</label>
       <select id="characteristic">
         {% for key, label in labels.items(): %}
-        <option value="0">Select a characteristic</option>
         <option value="#{{ label }}">{{ label }}</option>
         {% endfor %}
       </select>

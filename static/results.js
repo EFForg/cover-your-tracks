@@ -1,17 +1,16 @@
 $(document).ready(function(){
-// $('select').selectmenu();
   setTimeout(function(){
-  $('.results-table h4').each(function(i){
-    function getText(file,self) {
-      $.ajax({
-        url : file,
-        context: self,
-        dataType: "text",
-        success : function (data) {
-          self.parent().find(".text").html(data);
-        }
-      })
-    }
+    $('.results-table h4').each(function(i){
+      function getText(file,self) {
+        $.ajax({
+          url : file,
+          context: self,
+          dataType: "text",
+          success : function (data) {
+            self.parent().find(".text").html(data);
+          }
+        })
+      }
       if ($(this).html().includes('User Agent')) {
         var filename = '/static/results-text/user-agent.txt';
         var selfname = $(this);
@@ -120,13 +119,11 @@ $(document).ready(function(){
       $('#default-button').removeClass('active');
       $('.detailed').show();
     });
-      var dropDownValue = document.getElementById("characteristic");
-        console.log(dropDownValue);
-        dropDownValue.onchange = function() {
-          if (this.selectedIndex !== 0) {
-            window.location.href = this.value;
-          }
-        };
+    $('select').selectmenu();  // select which characteristic to go to
+    $('#characteristic').on('selectmenuchange', function() {
+    var char = $( "#characteristic option:selected" ).text();
+    window.location.href = '#'+ char;
+});
   }, 2000);
 
 });

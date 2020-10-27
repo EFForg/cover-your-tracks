@@ -740,5 +740,98 @@ label#acceptable_ads sup {
         position: sticky;
         top: 0;
         z-index: 10; } }
+.ui-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  outline: 0; }
+
+.ui-selectmenu-menu {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none; }
+  .ui-selectmenu-menu .ui-menu {
+    overflow: auto;
+    overflow-x: hidden;
+    padding-bottom: 1px; }
+    .ui-selectmenu-menu .ui-menu .ui-selectmenu-optgroup {
+      font-size: 1em;
+      font-weight: bold;
+      line-height: 1.5;
+      padding: 2px 0.4em;
+      margin: 0.5em 0 0 0;
+      height: auto;
+      border: 0; }
+
+.ui-selectmenu-open {
+  display: block; }
+
+.ui-selectmenu-text {
+  display: block;
+  margin-right: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.ui-selectmenu-button.ui-button {
+  text-align: left;
+  white-space: nowrap;
+  width: 14em; }
+
+.ui-selectmenu-icon.ui-icon {
+  float: right;
+  margin-top: 0; }
+
+.ui-icon {
+  width: 16px;
+  height: 16px; }
+
+.ui-widget-content {
+  background: white; }
+
+.ui-selectmenu-text {
+  display: inline-block; }
+
+.ui-selectmenu-button {
+  background: #fff;
+  border: 0.13rem solid #1E3A29;
+  border-radius: 0;
+  color: #1E3A29;
+  display: inline-block;
+  padding: 0.3rem 0 0 0.5rem;
+  position: relative; }
+  .ui-selectmenu-button .ui-icon {
+    background-size: 65%;
+    background-image: url("/static/images/arrow-right.svg");
+    background-position: left;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 1px;
+    top: 5px; }
+  .ui-selectmenu-button:hover .ui-icon {
+    background-size: 100%;
+    background-image: url("/static/images/arrow-down.svg");
+    right: 3px; }
+
+.ui-menu .ui-menu-item {
+  padding-left: 0.6rem; }
+  .ui-menu .ui-menu-item a {
+    border: none;
+    color: #1E3A29;
+    font-size: .8em;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.4em 2.1em 0.4em 1em; }
+.ui-menu .ui-menu-item .ui-state-focus {
+  border: 0.01rem solid #4D8061;
+  border-radius: 0;
+  background: #4D8061;
+  color: #1E3A29; }
+
+.ui-selectmenu-menu .ui-menu {
+  max-height: 65vh; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,114 @@
+// from jquery-ui.css
+.ui-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  outline: 0;
+}
+.ui-selectmenu-menu {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+
+  .ui-menu {
+    overflow: auto;
+    overflow-x: hidden;
+    padding-bottom: 1px;
+
+    .ui-selectmenu-optgroup {
+      font-size: 1em;
+      font-weight: bold;
+      line-height: 1.5;
+      padding: 2px 0.4em;
+      margin: 0.5em 0 0 0;
+      height: auto;
+      border: 0;
+    }
+  }
+}
+.ui-selectmenu-open {
+  display: block;
+}
+.ui-selectmenu-text {
+  display: block;
+  margin-right: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ui-selectmenu-button.ui-button {
+  text-align: left;
+  white-space: nowrap;
+  width: 14em;
+}
+.ui-selectmenu-icon.ui-icon {
+  float: right;
+  margin-top: 0;
+}
+
+.ui-icon {
+  width: 16px;
+  height: 16px;
+}
+
+// EFF-specific stylings
+
+.ui-widget-content {
+  background: white;
+}
+.ui-selectmenu-text {
+  display: inline-block;
+}
+.ui-selectmenu-button {
+  background: #fff;
+  border: .13rem solid $green-dark;
+  border-radius:0;
+  color: $green-dark;
+  display: inline-block;
+  padding: 0.3rem 0 0 0.5rem;
+  position: relative;
+
+  .ui-icon {
+    background-size: 65%;
+    background-image: url("/static/images/arrow-right.svg");
+    background-position: left;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 1px;
+    top: 5px;
+  }
+
+  &:hover .ui-icon {
+    background-size: 100%;
+    background-image: url("/static/images/arrow-down.svg");
+    right: 3px;
+  }
+}
+
+.ui-menu {
+  .ui-menu-item {
+    padding-left: 0.6rem;
+    a {
+      border: none;
+      color: $green-dark;
+      font-size: .8em;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 0.4em 2.1em 0.4em 1em;
+    }
+  }
+
+  .ui-menu-item .ui-state-focus  {
+    border: .01rem solid $green-light;
+    border-radius: 0;
+    background: $green-light;
+    color: $green-dark;
+  }
+}
+
+.ui-selectmenu-menu .ui-menu {
+  max-height: 65vh;
+}

@@ -1,8 +1,4 @@
-//@charset "utf-8";
-
-//@import
-//'_learn-animation'
-//;
+@charset "utf-8";
 
 // variables
 $green-light: #4D8061;
@@ -947,3 +943,8 @@ label#acceptable_ads sup{
     }
   }
 }
+
+
+@import
+'_selectmenu'
+;
