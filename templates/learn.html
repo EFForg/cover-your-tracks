@@ -3,7 +3,38 @@
 {% block head %}
   <script src="static/front.js" type="text/javascript"></script>
 {% endblock %}
+{% block header %}
+<body>
 
+  <div class="header">
+    <div class="banner">
+      <div class="bar">
+        <div class="attribution">
+          <img class="logo" src="/static/images/eff-logo-red.svg" alt="EFF logo">A Project of the <a href="https://www.eff.org/">Electronic Frontier Foundation</a>
+        </div>
+      </div>
+      <div class="wrapper">
+      <div class="title-area">
+        <div class="site-title">
+          <a href="https://panopticlick.eff.org">
+            <h1>Cover Your <br/><span>Tracks</span></h1>
+          </a>
+          <div class="tagline">
+            See how trackers view your browser
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li class="test-nav"><a href="/kcarter-nojs" class="button-style" id="kcarterlink" >Test Your Browser</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </nav>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
 {% block body %}
 <body id="learn">
   <div class="main-section">
