@@ -478,25 +478,24 @@ input[type=range]:focus::-ms-fill-upper {
     #results-wrapper #showFingerprintLink2 a, #results-wrapper #showFingerprintLink2 a:hover {
       color: #D3473D;
       text-decoration: none; }
-  #results-wrapper .button-style {
-    box-shadow: none;
-    color: #2E243F;
-    width: 200px; }
-    #results-wrapper .button-style:hover {
-      border-color: #2E243F;
-      color: white; }
-  #results-wrapper #default-button {
-    background: #F6AD0F;
-    border: 1px solid #F6AD0F; }
+  #results-wrapper .results-buttons {
+    display: flex; }
+  #results-wrapper #default-button,
   #results-wrapper #detailed-button {
-    background: #D3473D;
-    border: 1px solid #D3473D; }
+    background: #F5EFEB;
+    box-shadow: none;
+    color: #1E3A29;
+    border: 1px solid #1E3A29;
+    margin: 1rem 1rem 0 0;
+    width: 50%; }
   #results-wrapper #default-button.button-style.active,
   #results-wrapper #detailed-button.button-style.active {
-    border-color: #2E243F;
-    color: white; }
+    background: #4D8061;
+    color: #F5EFEB; }
   #results-wrapper .detailed {
     font-weight: 600; }
+  #results-wrapper .text.detailed {
+    font-weight: 400; }
 
 /* footer */
 footer {
@@ -735,11 +734,20 @@ label#acceptable_ads sup {
       display: block; }
     #results-wrapper .main-section {
       margin: 0 3px; }
+      #results-wrapper .main-section #results .selectmenu {
+        display: block;
+        z-index: 10; }
       #results-wrapper .main-section #results .results-buttons {
         background: #F5EFEB;
         position: sticky;
         top: 0;
-        z-index: 10; } }
+        z-index: 1; } }
+.selectmenu {
+  display: none; }
+  .selectmenu label {
+    font-style: italic;
+    display: block; }
+
 .ui-menu {
   list-style: none;
   padding: 0;
@@ -753,7 +761,8 @@ label#acceptable_ads sup {
   position: absolute;
   top: 0;
   left: 0;
-  display: none; }
+  display: none;
+  z-index: 10; }
   .ui-selectmenu-menu .ui-menu {
     overflow: auto;
     overflow-x: hidden;
@@ -790,13 +799,13 @@ label#acceptable_ads sup {
   height: 16px; }
 
 .ui-widget-content {
-  background: white; }
+  background: #F5EFEB; }
 
 .ui-selectmenu-text {
   display: inline-block; }
 
 .ui-selectmenu-button {
-  background: #fff;
+  background: #F5EFEB;
   border: 0.13rem solid #1E3A29;
   border-radius: 0;
   color: #1E3A29;

@@ -13,16 +13,19 @@
 </div>
 <div id="results">
   <h3>Your Results</h3>
-  <div class="results-buttons">
-    <span id="default-button" class="button-style">default view</span>
-    <span id="detailed-button" class="button-style">detailed view</span>
-  </div>
+  <div class="selectmenu">
   <label for="characteristic">Select a characteristic</label>
       <select id="characteristic">
         {% for key, label in labels.items(): %}
         <option value="#{{ label }}">{{ label }}</option>
         {% endfor %}
       </select>
+  </div>
+  <div class="results-buttons">
+    <span id="default-button" class="button-style">default view</span>
+    <span id="detailed-button" class="button-style">detailed view</span>
+  </div>
+
   {% for key, label in labels.items(): %}
     <div class="results-table">
       <h4 id="{{ label }}" name="{{ label }}">{{ label }}</h4>

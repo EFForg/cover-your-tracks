@@ -1,4 +1,12 @@
 // from jquery-ui.css
+.selectmenu {
+  display: none; // only for mobile
+  label {
+    font-style: italic;
+    display: block;
+  }
+}
+
 .ui-menu {
   list-style: none;
   padding: 0;
@@ -13,6 +21,7 @@
   top: 0;
   left: 0;
   display: none;
+  z-index: 10; // in front of the default/detailed buttons
 
   .ui-menu {
     overflow: auto;
@@ -57,13 +66,13 @@
 // EFF-specific stylings
 
 .ui-widget-content {
-  background: white;
+  background: $beige;
 }
 .ui-selectmenu-text {
   display: inline-block;
 }
 .ui-selectmenu-button {
-  background: #fff;
+  background: $beige;
   border: .13rem solid $green-dark;
   border-radius:0;
   color: $green-dark;

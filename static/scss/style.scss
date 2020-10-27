@@ -612,30 +612,29 @@ input[type=range]:focus::-ms-fill-upper {
       text-decoration: none;
     }
   }
-  .button-style {
-    box-shadow: none;
-    color: $plum;
-    width: 200px;
-    &:hover {
-      border-color: $plum;
-      color: white;
-    }
+  .results-buttons {
+    display: flex;
   }
-  #default-button {
-    background: $yellow-dark;
-    border: 1px solid $yellow-dark;
-  }
+  #default-button,
   #detailed-button {
-    background: $red;
-    border: 1px solid $red;
+    background: $beige;
+    box-shadow: none;
+    color: $green-dark;
+    border: 1px solid $green-dark;
+    margin: 1rem 1rem 0 0;
+    width: 50%;
   }
+
   #default-button.button-style.active,
   #detailed-button.button-style.active {
-    border-color: $plum;
-    color: white;
+    background: $green-light;
+    color: $beige;
   }
   .detailed {
     font-weight: 600;
+  }
+  .text.detailed {
+    font-weight: 400;
   }
 }
 
@@ -933,11 +932,15 @@ label#acceptable_ads sup{
     .main-section {
       margin: 0 3px;
       #results {
+        .selectmenu {
+          display: block;
+          z-index: 10;
+        }
         .results-buttons {
           background: $beige;
           position: sticky;
           top: 0;
-          z-index: 10;
+          z-index: 1;
         }
       }
     }
