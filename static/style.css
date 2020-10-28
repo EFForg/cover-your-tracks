@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* table of contents:
 ** fonts
 ** base styles
@@ -112,8 +111,9 @@ hr {
       width: 90%; }
       .header .banner .bar .attribution a {
         color: white;
-        border-bottom: 1px solid white;
-        font-weight: normal; }
+        font-weight: 600; }
+        .header .banner .bar .attribution a:hover {
+          border-bottom: 1px solid white; }
       @media screen and (min-width: 1440px) {
         .header .banner .bar .attribution {
           /* large screen */
@@ -321,7 +321,7 @@ input[type=range]:focus::-ms-fill-upper {
       border-bottom: 1px solid #F5EFEB; }
   #front aside {
     background: #DECA54;
-    padding: 3.5rem 3rem;
+    padding: 2.5rem 3rem;
     border: 1px solid #DECA54;
     border-radius: 1rem;
     z-index: 10; }
@@ -329,23 +329,18 @@ input[type=range]:focus::-ms-fill-upper {
       margin-bottom: 0rem;
       margin-top: 1.5rem; }
     #front aside label#acceptable_ads {
+      font-size: 14px;
       margin-left: 1rem; }
+      #front aside label#acceptable_ads a {
+        border-bottom: none; }
     #front aside hr {
       border: none;
-      border-top: medium double #305D42;
+      border-top: 1px solid #305D42;
       color: #305D42;
       margin: 2.5rem 0 0;
       overflow: visible;
       padding: 0;
       text-align: center; }
-      #front aside hr:after {
-        background: #DECA54;
-        content: "★";
-        display: inline-block;
-        font-size: 1.3rem;
-        position: relative;
-        top: -1rem;
-        padding: 0 0.5em; }
   #front .content {
     display: flex;
     width: auto; }
@@ -405,11 +400,11 @@ input[type=range]:focus::-ms-fill-upper {
 
 /* testing page */
 #testing {
-  background: #1E3A29;
+  background: #305D42;
   color: #F5EFEB; }
-  #testing h1,
-  #testing .tagline,
-  #testing nav {
+  #testing .tagline {
+    color: #DECA54; }
+  #testing h1 {
     color: #F5EFEB; }
   #testing h2 {
     color: #DECA54;
@@ -505,9 +500,9 @@ footer {
   footer .footer-logo {
     background-image: url("/static/images/eff-logo-lockup-black.svg");
     background-repeat: no-repeat;
-    height: 40px;
-    margin: 22px 0 6px;
-    width: 200px; }
+    height: 55px;
+    margin: 3rem 0 1rem;
+    width: auto; }
   footer .links {
     margin: 18px auto 0; }
   footer a {
@@ -543,16 +538,15 @@ small#center {
   font-weight: normal;
   margin: 0 0 24px; }
 
-p#summary_sentence .other_link {
-  text-align: center;
-  margin: 0px; }
-
 label#acceptable_ads {
   display: block;
   margin-top: 10px; }
-
-label#acceptable_ads sup {
-  font-size: 70%; }
+  label#acceptable_ads sup a {
+    background: #1E3A29;
+    border: 1px solid #1E3A29;
+    border-radius: 15px;
+    color: #F5EFEB;
+    padding: 1px 3px; }
 
 .ui-tooltip-content {
   text-align: left; }
@@ -578,7 +572,7 @@ label#acceptable_ads sup {
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.2s;
-  width: 80%; }
+  width: 60%; }
 
 .button-style:hover,
 .button-style.active {

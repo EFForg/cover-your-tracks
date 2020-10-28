@@ -147,8 +147,10 @@ hr {
         width: 90%;
         a {
           color: white;
-          border-bottom: 1px solid white;
-          font-weight: normal;
+          font-weight: 600;
+          &:hover {
+            border-bottom: 1px solid white;
+          }
         }
         @media screen and (min-width: 1440px) { /* large screen */
           padding: 0 8% 0 7%;
@@ -390,7 +392,7 @@ input[type=range]:focus::-ms-fill-upper {
 
   aside {
     background: $yellow;
-    padding: 3.5rem 3rem;
+    padding: 2.5rem 3rem;
     border: 1px solid $yellow;
     border-radius: 1rem;
     z-index: 10;
@@ -399,25 +401,20 @@ input[type=range]:focus::-ms-fill-upper {
       margin-top: 1.5rem;
     }
     label#acceptable_ads {
+      font-size: 14px;
       margin-left: 1rem;
+      a {
+        border-bottom: none;
+      }
     }
-    hr {  // the cool line with the star in the middle
+    hr {
       border: none;
-      border-top: medium double $green;
+      border-top: 1px solid $green;
       color: $green;
       margin: 2.5rem 0 0;
       overflow: visible;
       padding: 0;
       text-align: center;
-      &:after {
-        background: $yellow;
-        content: "★";
-        display: inline-block;
-        font-size: 1.3rem;
-        position: relative;
-        top: -1rem;
-        padding: 0 0.5em;
-      }
     }
   }
   .content {
@@ -505,11 +502,12 @@ input[type=range]:focus::-ms-fill-upper {
 
 /* testing page */
 #testing {
-  background: $green-dark;
+  background: $green;
   color: $beige;
-  h1,
-  .tagline,
-  nav {
+  .tagline {
+    color: $yellow;
+  }
+  h1 {
     color: $beige;
   }
   h2 {
@@ -646,9 +644,9 @@ footer {
   .footer-logo {
     background-image: url("/static/images/eff-logo-lockup-black.svg");
     background-repeat: no-repeat;
-    height: 40px;
-    margin: 22px 0 6px;
-    width: 200px;;
+    height: 55px;
+    margin: 3rem 0 1rem;
+    width: auto;
   }
   .links {
     margin: 18px auto 0;
@@ -674,6 +672,7 @@ footer {
   color: $yellow;
 }
 
+
 small#center {
   margin:0 60px
 }
@@ -694,18 +693,20 @@ small#center {
   margin: 0 0 24px;
 }
 
-p#summary_sentence .other_link{
-  text-align: center;
-  margin: 0px;
-}
-
 label#acceptable_ads{
   display: block;
   margin-top: 10px;
+  sup{
+    a {
+      background: $green-dark;
+      border: 1px solid $green-dark;
+      border-radius: 15px;
+      color: $beige;
+      padding: 1px 3px;
+    }
+  }
 }
-label#acceptable_ads sup{
-  font-size: 70%;
-}
+
 .ui-tooltip-content{
   text-align: left;
 }
@@ -731,7 +732,7 @@ label#acceptable_ads sup{
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.2s;
-  width: 80%;
+  width: 60%;
 }
 .button-style:hover,
 .button-style.active {
