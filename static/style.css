@@ -451,16 +451,15 @@ input[type=range]:focus::-ms-fill-upper {
     text-transform: none; }
   #results-wrapper table#results.tracker_results {
     margin: 2rem 0;
-    border-collapse: separate; }
+    border-collapse: collapse; }
     #results-wrapper table#results.tracker_results td, #results-wrapper table#results.tracker_results th {
-      border: 1px solid #D3473D;
+      border: 1px solid #2E243F;
       font-weight: 600;
       padding: 0.5rem;
       text-align: left; }
     #results-wrapper table#results.tracker_results td:nth-child(2) {
       text-align: center; }
   #results-wrapper .complimentary_text {
-    color: #F5EFEB;
     text-align: center; }
   #results-wrapper #showFingerprintLink2 {
     border: 1px solid #D3473D;

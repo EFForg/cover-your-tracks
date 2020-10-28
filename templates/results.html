@@ -138,9 +138,9 @@
             document.getElementById(metric + '_status').innerHTML = status_str[results[metric]];
           }
         }
-        $('.yes').parent().css('background', '#305D42');
-        $('.no').parent().css('background', '#D3473D');
-        $('.partial').parent().css('background', '#F6AD0F');
+        $('.yes').parent().css('border-', '3px solid #305D42');
+        $('.no').css('border-bottom', '3px solid #D3473D');
+        $('.partial').css('border-bottom', '3px solid #F6AD0F');
       }
 
       var counter = 0;
