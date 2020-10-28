@@ -577,15 +577,18 @@ input[type=range]:focus::-ms-fill-upper {
   }
 
   h4, h5 {
-    text-transform: none;
+    color: $green;
+    font-weight: 800;
+    text-transform: uppercase;
   }
 
   table#results.tracker_results{
     margin: 2rem 0;
-    border-collapse: separate;
+    border-collapse: collapse;
 
     td, th {
-      border: 1px solid $red;
+      background: #e6e6e6;
+      border: 1px solid $beige;
       font-weight: 600;
       padding: 0.5rem;
       text-align: left;
@@ -596,20 +599,20 @@ input[type=range]:focus::-ms-fill-upper {
 
   }
   .complimentary_text{
-    color: $beige;
     text-align: center;
   }
 
   #showFingerprintLink2 { // link for detailed view
-    border: 1px solid $red;
+    background: $green;
+    border: 1px solid $green-dark;
     border-radius: 3px;
-    color: $red;
+    color: white;
     display: block;
     font-size: 0.9rem;
     margin: 1rem 0;
     padding: 1rem;
     span {
-      color: $red;
+      color: $green;
     }
     a, a:hover {
       color: $red;
@@ -631,7 +634,7 @@ input[type=range]:focus::-ms-fill-upper {
 
   #default-button.button-style.active,
   #detailed-button.button-style.active {
-    background: $green-light;
+    background: $green;
     color: $beige;
   }
   .detailed {
@@ -940,6 +943,7 @@ label#acceptable_ads{
     .main-section {
       margin: 0 3px;
       #results {
+        margin-top: 3rem;
         .selectmenu {
           display: block;
           z-index: 10;

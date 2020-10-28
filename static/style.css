@@ -734,14 +734,16 @@ label#acceptable_ads {
       display: block; }
     #results-wrapper .main-section {
       margin: 0 3px; }
-      #results-wrapper .main-section #results .selectmenu {
-        display: block;
-        z-index: 10; }
-      #results-wrapper .main-section #results .results-buttons {
-        background: #F5EFEB;
-        position: sticky;
-        top: 0;
-        z-index: 1; } }
+      #results-wrapper .main-section #results {
+        margin-top: 3rem; }
+        #results-wrapper .main-section #results .selectmenu {
+          display: block;
+          z-index: 10; }
+        #results-wrapper .main-section #results .results-buttons {
+          background: #F5EFEB;
+          position: sticky;
+          top: 0;
+          z-index: 1; } }
 .selectmenu label {
   font-style: italic;
   display: block; }
