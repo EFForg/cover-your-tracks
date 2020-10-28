@@ -97,7 +97,7 @@ hr {
     margin: 0 auto;
     width: 100%; }
     .header .banner .bar img.logo {
-      height: 13px;
+      height: 20px;
       padding: 0 0.25rem; }
     .header .banner .bar .wrapper {
       width: 100%; }
@@ -434,6 +434,7 @@ input[type=range]:focus::-ms-fill-upper {
   #results-wrapper aside h4:first-child {
     margin-top: 1rem; }
   #results-wrapper aside p {
+    color: #305D42;
     font-size: 14px; }
   #results-wrapper .mobile-aside {
     display: none; }
