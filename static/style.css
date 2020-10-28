@@ -448,12 +448,15 @@ input[type=range]:focus::-ms-fill-upper {
     #results-wrapper h3.indicate span {
       color: #D3473D; }
   #results-wrapper h4, #results-wrapper h5 {
-    text-transform: none; }
+    color: #305D42;
+    font-weight: 800;
+    text-transform: uppercase; }
   #results-wrapper table#results.tracker_results {
     margin: 2rem 0;
     border-collapse: collapse; }
     #results-wrapper table#results.tracker_results td, #results-wrapper table#results.tracker_results th {
-      border: 1px solid #2E243F;
+      background: #e6e6e6;
+      border: 1px solid #F5EFEB;
       font-weight: 600;
       padding: 0.5rem;
       text-align: left; }
@@ -462,15 +465,16 @@ input[type=range]:focus::-ms-fill-upper {
   #results-wrapper .complimentary_text {
     text-align: center; }
   #results-wrapper #showFingerprintLink2 {
-    border: 1px solid #D3473D;
+    background: #305D42;
+    border: 1px solid #1E3A29;
     border-radius: 3px;
-    color: #D3473D;
+    color: white;
     display: block;
     font-size: 0.9rem;
     margin: 1rem 0;
     padding: 1rem; }
     #results-wrapper #showFingerprintLink2 span {
-      color: #D3473D; }
+      color: #305D42; }
     #results-wrapper #showFingerprintLink2 a, #results-wrapper #showFingerprintLink2 a:hover {
       color: #D3473D;
       text-decoration: none; }
@@ -486,7 +490,7 @@ input[type=range]:focus::-ms-fill-upper {
     width: 50%; }
   #results-wrapper #default-button.button-style.active,
   #results-wrapper #detailed-button.button-style.active {
-    background: #4D8061;
+    background: #305D42;
     color: #F5EFEB; }
   #results-wrapper .detailed {
     font-weight: 600; }
@@ -738,11 +742,9 @@ label#acceptable_ads {
         position: sticky;
         top: 0;
         z-index: 1; } }
-.selectmenu {
-  display: none; }
-  .selectmenu label {
-    font-style: italic;
-    display: block; }
+.selectmenu label {
+  font-style: italic;
+  display: block; }
 
 .ui-menu {
   list-style: none;
