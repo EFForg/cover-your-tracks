@@ -64,7 +64,7 @@ h3 {
 
 h4 {
   color: #2E243F;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 800;
   margin: 3rem 0 0.5rem;
   text-transform: uppercase; }
@@ -99,25 +99,22 @@ hr {
     .header .banner .bar img.logo {
       height: 13px;
       padding: 0 0.25rem; }
+    .header .banner .bar .wrapper {
+      width: 100%; }
     .header .banner .bar .attribution {
       color: white;
       display: flex;
       font-size: 16px;
       justify-content: space-between;
       position: relative;
-      margin: 0 auto;
+      margin: 0 2rem 0 5rem;
       max-width: 1440px;
-      top: 0.9rem;
-      width: 90%; }
+      top: 0.9rem; }
       .header .banner .bar .attribution a {
         color: white;
         font-weight: 600; }
         .header .banner .bar .attribution a:hover {
           border-bottom: 1px solid white; }
-      @media screen and (min-width: 1440px) {
-        .header .banner .bar .attribution {
-          /* large screen */
-          padding: 0 8% 0 7%; } }
   .header .banner .tagline {
     color: #2E243F;
     font-size: 27px;
@@ -128,11 +125,9 @@ hr {
     border-bottom: 1px solid #D3473D;
     display: flex;
     justify-content: flex-end;
-    margin: 0 auto;
-    padding: 0 0 1rem;
-    width: 92%; }
+    margin: 0 1rem 1rem 5rem;
+    padding: 0 0 1rem; }
     .header .banner .title-area .site-title {
-      margin-left: 1rem;
       width: 70%; }
 
 /* nav */
@@ -157,7 +152,7 @@ hr {
 
 /* content */
 .content {
-  margin: 1rem 1rem 1rem 5rem; }
+  margin: 1rem 2rem 1rem 5rem; }
 
 .main-section {
   margin: 0;
@@ -433,8 +428,13 @@ input[type=range]:focus::-ms-fill-upper {
   margin: 0 auto; }
   #results-wrapper .row {
     margin: 16px auto 0; }
+  #results-wrapper aside h4 {
+    color: #305D42;
+    font-size: 20px; }
   #results-wrapper aside h4:first-child {
     margin-top: 1rem; }
+  #results-wrapper aside p {
+    font-size: 14px; }
   #results-wrapper .mobile-aside {
     display: none; }
   #results-wrapper .main-section {

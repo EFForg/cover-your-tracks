@@ -91,7 +91,7 @@ h3 {
 }
 h4 {
   color: $plum;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 800;
   margin: 3rem 0 0.5rem;
   text-transform: uppercase;
@@ -135,25 +135,24 @@ hr {
         height: 13px;
         padding: 0 0.25rem;
       }
+      .wrapper {
+        width: 100%;
+      }
       .attribution {
         color: white;
         display: flex;
         font-size: 16px;
         justify-content: space-between;
         position: relative;
-        margin: 0 auto;
+        margin: 0 2rem 0 5rem;
         max-width: 1440px;
         top: 0.9rem;
-        width: 90%;
         a {
           color: white;
           font-weight: 600;
           &:hover {
             border-bottom: 1px solid white;
           }
-        }
-        @media screen and (min-width: 1440px) { /* large screen */
-          padding: 0 8% 0 7%;
         }
       }
     }
@@ -168,11 +167,9 @@ hr {
       border-bottom: 1px solid $red;
       display: flex;
       justify-content: flex-end;
-      margin: 0 auto;
+      margin: 0 1rem 1rem 5rem;
       padding: 0 0 1rem;
-      width: 92%;
       .site-title {
-        margin-left: 1rem;
         width: 70%;
       }
     }
@@ -209,7 +206,7 @@ hr {
 
 /* content */
 .content {
-  margin: 1rem 1rem 1rem 5rem;
+  margin: 1rem 2rem 1rem 5rem;
 }
 .main-section {
   margin: 0;
@@ -549,8 +546,15 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 16px auto 0;
   }
   aside {
+    h4 {
+      color: $green;
+      font-size: 20px
+    }
     h4:first-child {
       margin-top: 1rem;
+    }
+    p {
+      font-size: 14px;
     }
   }
   .mobile-aside {
