@@ -71,11 +71,16 @@ h4 {
 h5 {
   font-size: 20px;
   font-weight: 800;
-  margin: 1.5rem 0 1rem;
+  margin: 1.5rem 0 0.5rem;
   text-transform: uppercase; }
 
+p {
+  margin-bottom: 1.25rem;
+  margin-top: 0.5rem; }
+
 hr {
-  border-top: 1px solid #D3473D; }
+  border-top: 1px solid #D3473D;
+  margin-top: 2rem; }
 
 .wrapper {
   background: transparent;
@@ -363,13 +368,12 @@ input[type=range]:focus::-ms-fill-upper {
       display: inline; }
       #learn .header nav ul li.test-nav a#kcarterlink.button-style {
         background: #DECA54;
-        box-shadow: none;
+        border: 2px solid #1E3A29;
         color: #1E3A29;
         margin: 0;
         width: 200px; }
         #learn .header nav ul li.test-nav a#kcarterlink.button-style:hover {
           background: #1E3A29;
-          box-shadow: none;
           color: white; }
 #learn h4 {
   text-transform: none; }
@@ -452,6 +456,9 @@ input[type=range]:focus::-ms-fill-upper {
     color: #305D42;
     font-weight: 800;
     text-transform: uppercase; }
+  #results-wrapper p.tracker_results {
+    font-size: 14px;
+    font-style: italic; }
   #results-wrapper table#results.tracker_results {
     margin: 2rem 0;
     border-collapse: collapse; }
@@ -471,7 +478,6 @@ input[type=range]:focus::-ms-fill-upper {
     border-radius: 3px;
     color: white;
     display: block;
-    font-size: 0.9rem;
     margin: 1rem 0;
     padding: 1rem; }
     #results-wrapper #showFingerprintLink2 span {
@@ -562,9 +568,8 @@ label#acceptable_ads {
 /* various elements */
 .button-style {
   background: #F5EFEB;
-  border: 2px solid #F5EFEB;
+  border: 2px solid #305D42;
   border-radius: 8px;
-  box-shadow: 0 2px gray;
   clear: both;
   color: #1E3A29;
   cursor: pointer;
@@ -583,7 +588,6 @@ label#acceptable_ads {
 .button-style.active {
   background: #1E3A29;
   border: 2px solid #1E3A29;
-  box-shadow: 0 2px black;
   color: #F5EFEB;
   text-decoration: none; }
 
@@ -827,7 +831,7 @@ label#acceptable_ads {
     right: 3px; }
 
 .ui-menu .ui-menu-item {
-  padding-left: 0.6rem; }
+  padding: 0.5rem 0 0 0.5rem; }
   .ui-menu .ui-menu-item a {
     border: none;
     color: #1E3A29;

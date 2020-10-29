@@ -98,12 +98,18 @@ h4 {
 h5 {
   font-size: 20px;
   font-weight: 800;
-  margin: 1.5rem 0 1rem;
+  margin: 1.5rem 0 0.5rem;
   text-transform: uppercase;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  margin-top: 0.5rem;
 }
 
 hr {
   border-top: 1px solid $red;
+  margin-top: 2rem;
 }
 
 .wrapper {
@@ -451,13 +457,12 @@ input[type=range]:focus::-ms-fill-upper {
         display: inline;
         a#kcarterlink.button-style {
           background: $yellow;
-          box-shadow: none;
+          border: 2px solid $green-dark;
           color: $green-dark;
           margin: 0;
           width: 200px;
           &:hover {
             background: $green-dark;
-            box-shadow: none;
             color: white;
           }
         }
@@ -583,6 +588,11 @@ input[type=range]:focus::-ms-fill-upper {
     text-transform: uppercase;
   }
 
+  p.tracker_results {
+    font-size: 14px;
+    font-style: italic;
+  }
+
   table#results.tracker_results{
     margin: 2rem 0;
     border-collapse: collapse;
@@ -609,7 +619,6 @@ input[type=range]:focus::-ms-fill-upper {
     border-radius: 3px;
     color: white;
     display: block;
-    font-size: 0.9rem;
     margin: 1rem 0;
     padding: 1rem;
     span {
@@ -726,9 +735,8 @@ label#acceptable_ads{
 /* various elements */
 .button-style {
   background: $beige;
-  border: 2px solid $beige;
+  border: 2px solid $green;
   border-radius: 8px;
-  box-shadow: 0 2px gray;
   clear: both;
   color: $green-dark;
   cursor: pointer;
@@ -747,7 +755,6 @@ label#acceptable_ads{
 .button-style.active {
   background: $green-dark;
   border: 2px solid $green-dark;
-  box-shadow: 0 2px black;
   color: $beige;
   text-decoration: none;
 }
