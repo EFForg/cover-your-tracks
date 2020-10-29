@@ -635,20 +635,16 @@ footer {
       .header .banner .bar {
         height: 36px; }
         .header .banner .bar .attribution {
-          font-size: 0.7rem;
+          font-size: 0.65rem;
+          justify-content: flex-start;
           margin-left: 3px;
           padding: 0;
           top: 12px;
           width: 100%; }
-        .header .banner .bar .donate {
-          margin-right: 10px;
-          top: 10px; }
-        .header .banner .bar .logo {
+        .header .banner .bar img.logo {
+          height: 16px;
           left: 10px;
           top: 10px; }
-        .header .banner .bar img.attribution {
-          height: 57px;
-          width: 250px; }
       .header .banner .title-area {
         align-items: flex-start;
         flex-direction: column;
@@ -727,11 +723,13 @@ footer {
       margin: 0 auto;
       min-width: 0;
       padding: 1rem; }
+      #front .content aside label#acceptable_ads {
+        margin-left: 3.5rem; }
     #front .content .main-section {
       display: none; }
 
   #learn .header .site-title {
-    width: 100%; }
+    width: 97%; }
   #learn .header nav {
     width: 100%; }
     #learn .header nav ul {
@@ -748,10 +746,10 @@ footer {
   #learn .definitions {
     display: block;
     padding: 1rem 0;
-    width: 100%; }
+    width: 97%; }
     #learn .definitions .left,
     #learn .definitions .right {
-      width: 100%; }
+      width: 97%; }
     #learn .definitions .left:first-child,
     #learn .definitions .right:first-child {
       display: block;
