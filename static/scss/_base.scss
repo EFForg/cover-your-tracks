@@ -237,14 +237,13 @@ input[type=range]:focus::-ms-fill-upper {
   background: $beige;
 }
 
-
 /* various elements */
 .button-style {
   background: $beige;
-  border: 2px solid $green;
+  border: 2px solid $green-dark;
   border-radius: 8px;
   clear: both;
-  color: $green-dark;
+  color: $plum;
   cursor: pointer;
   display: block;
   font-size: 1rem;
@@ -277,7 +276,6 @@ input[type=range]:focus::-ms-fill-upper {
 .tooltip.bs-tooltip-left .arrow:before {
   border-top-color: #333;
 }
-
 
 .fingerprint-thanks {
   padding: 32px 0 0;

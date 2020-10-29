@@ -112,7 +112,6 @@ iframe {
         a#kcarterlink.button-style {
           background: $yellow;
           border: 2px solid $green-dark;
-          color: $green-dark;
           margin: 0;
           width: 200px;
           &:hover {
@@ -252,8 +251,8 @@ iframe {
     border-collapse: collapse;
 
     td, th {
-      background: #e6e6e6;
-      border: 1px solid $beige;
+      background: transparent;
+      border: 1px solid $green-dark;
       font-weight: 600;
       padding: 0.5rem;
       text-align: left;
@@ -306,6 +305,14 @@ iframe {
   }
   .text.detailed {
     font-weight: 400;
+  }
+  #buttons {
+    a#kcarterlink.button-style {
+      background: $yellow;
+      &:hover {
+        background: $green-dark;
+      }
+    }
   }
 }
 
