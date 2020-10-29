@@ -456,7 +456,8 @@ iframe {
     color: #F5EFEB; }
   #testing h2 {
     color: #DECA54;
-    font-size: 48px; }
+    font-size: 48px;
+    text-transform: uppercase; }
   #testing .header nav a {
     color: #F5EFEB; }
     #testing .header nav a:hover {
