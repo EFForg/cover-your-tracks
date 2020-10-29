@@ -1,0 +1,290 @@
+// variables
+$green-light: #4D8061;
+$green:  #305D42; // background
+$green-dark: #1E3A29;
+$beige: #F5EFEB;
+$red:  #D3473D;
+$yellow: #DECA54;
+$yellow-dark: #F6AD0F;
+$plum: #2E243F;// text
+$blue-light: #86BCD1;
+
+$mobile: 768px;
+
+/* fonts */
+
+@font-face {
+  font-family: 'WorkSans';
+  src: '/static/fonts/WorkSans-VariableFont_wght.ttf' format('truetype-variations');
+  font-weight: 300 900;
+  font-stretch: 100%;
+}
+
+/* base styles */
+body {
+  background: $beige;
+  color: $plum;
+  font-family: 'WorkSans', Helvetica, Arial, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+}
+
+a {
+  border-bottom: 1px solid $green-dark;
+  color: $green-dark;
+  font-weight: 700;
+  text-decoration: none;
+  &:hover {
+    border-bottom: 1px solid $plum;;
+    color: $plum;;
+  }
+
+  img {
+    border: 0;
+  }
+}
+
+h1 {
+  color: $green;
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  span {
+    /* Tracks of Cover Your Tracks */
+    font-size: 79px;
+    line-height: 48px
+  }
+}
+
+a h1:hover {
+  color: $plum;
+}
+
+h2 {
+  font-size: 38px;
+  font-weight: 900;
+  margin-bottom: 0;
+}
+h3 {
+  font-size: 30px;
+  font-weight: 800;
+}
+h4 {
+  color: $plum;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 3rem 0 0.5rem;
+  text-transform: uppercase;
+}
+h5 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 1.5rem 0 0.5rem;
+  text-transform: uppercase;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+hr {
+  border-top: 1px solid $red;
+  margin-top: 2rem;
+}
+
+.wrapper {
+  background: transparent;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+
+/* form elements */
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  background: $beige;
+  border: 1px solid $green-dark;
+  box-shadow: none;
+  display: block;
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 1.25em;
+  width: 1.25em;
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  border: 1px solid gray;
+  background-image: url("/static/images/check.svg");
+  background-position: center;
+  background-size: 31px;
+  content: '';
+  width: 1.25em;
+  height: 1.25em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition:background-color 0.1s linear;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 'sliders' */
+input[type=range] {
+  background: $beige;
+  margin: 1.5rem 0;
+  -webkit-appearance: none;
+  width: 5rem;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  background: $beige;
+  border-radius: 1rem;
+  border: 2px solid $green;
+  cursor: pointer;
+  height: 2rem;
+  width: 5rem;
+}
+input[type=range]::-webkit-slider-thumb {
+  background: $green;
+  border: 2px solid $green;
+  border-radius: 1rem;
+  cursor: pointer;
+  height: 1.8rem;
+  margin-top: 0;
+  -webkit-appearance: none;
+  width: 1.8rem;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: $beige;
+}
+input[type=range]::-moz-range-track {
+  background: $beige;
+  border-radius: 1rem;
+  border: 2px solid $green;
+  cursor: pointer;
+  height: 1.8rem;
+  width: 5rem;
+}
+input[type=range]::-moz-range-thumb {
+  background: $green;
+  border: 2px solid $green;
+  border-radius: 1rem;
+  cursor: pointer;
+  height: 1.8rem;
+  width: 1.8rem;
+}
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 1rem 0;
+  color: transparent;
+  cursor: pointer;
+  height: 1.8rem;
+  width: 5rem;
+}
+input[type=range]::-ms-fill-lower {
+  background: $green-light;
+  border: 0.2px solid $green-light;
+  border-radius: 1rem;
+}
+input[type=range]::-ms-fill-upper {
+  background: $green;
+  border: 0.2px solid $green;
+  border-radius: 1rem;
+}
+input[type=range]::-ms-thumb {
+  background: $green;
+  border: 2px solid $green;
+  border-radius: 3px;
+  cursor: pointer;
+  height: 1.8rem;
+  width: 1.8rem;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: $beige;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: $beige;
+}
+
+
+/* various elements */
+.button-style {
+  background: $beige;
+  border: 2px solid $green;
+  border-radius: 8px;
+  clear: both;
+  color: $green-dark;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 1rem auto;
+  padding: 1rem 1rem 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  width: 60%;
+}
+.button-style:hover,
+.button-style.active {
+  background: $green-dark;
+  border: 2px solid $green-dark;
+  color: $beige;
+  text-decoration: none;
+}
+
+.tooltip-inner {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px;
+  width: 300px;
+  margin-right: 10px;
+}
+.tooltip.bs-tooltip-left .arrow:before {
+  border-top-color: #333;
+}
+
+
+.fingerprint-thanks {
+  padding: 32px 0 0;
+}
+
+.ii{
+  font-weight: bold;
+  color: #a00;
+  font-size: 80%;
+}

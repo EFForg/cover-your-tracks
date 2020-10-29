@@ -1,0 +1,219 @@
+@media screen and (max-width: $mobile) { /* mobile styles */
+  h2,
+  h3,
+  h4,
+  h5 {
+    text-transform: capitalize;
+  }
+
+  .header {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: auto;
+    .banner {
+      margin-bottom: 0;
+      .bar  {
+        height: 36px;
+        .attribution {
+          font-size: 0.7rem;
+          margin-left: 3px;
+          padding: 0;
+          top: 12px;
+          width: 100%;
+        }
+        .donate {
+          margin-right: 10px;
+          top: 10px;
+        }
+        .logo {
+          left: 10px;
+          top: 10px;
+        }
+        img.attribution {
+          height: 57px;
+          width: 250px;
+        }
+      }
+      .title-area {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin: 0 auto;
+        width: 97%;
+        .site-title {
+          margin-left: 0;
+        }
+      }
+      .tagline {
+        font-size: 22px;
+      }
+      nav {
+        padding: 0;
+        width: 100%;
+        ul {
+          margin: 0.5rem 0;
+          padding: 0;
+          width: 97%;
+          li {
+            padding: 0 1rem 0 0;
+          }
+
+/* footer */
+footer {
+  display: block;
+  margin: 2rem 1rem 0 5rem;
+  .footer-logo {
+    background-image: url("/static/images/eff-logo-lockup-black.svg");
+    background-repeat: no-repeat;
+    height: 55px;
+    margin: 3rem 0 1rem;
+    width: auto;
+  }
+  .links {
+    margin: 18px auto 0;
+  }
+  a {
+    border: none;
+  }
+  .links a {
+    color: $plum;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 0 1rem 1rem 0;
+    text-transform: uppercase;
+    &:hover {
+      border: none;
+    }
+  }
+}
+
+#front footer .links a,
+#testing footer .links a {
+  color: $yellow;
+}
+
+        }
+      }
+    }
+  }
+  aside {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .content {
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+    width: 97%;
+    .main-section {
+      width: 100%;
+    }
+  }
+  footer {
+    box-sizing: border-box;
+    margin: 3rem auto 2rem;
+    width: 97%;
+  }
+  // individual pages
+  #front {
+    .title-area {
+      margin: 0 auto;
+      width: 97%;
+      h1 span {
+        font-size: 48px;
+        line-height: inherit;
+      }
+    }
+    .content {
+      align-content: center;
+      flex-direction: column;
+      margin: 0 auto;
+      width: 97%;
+      aside {
+        margin: 0 auto;
+        min-width: 0;
+        padding: 1rem;
+      }
+      .main-section {
+        display: none;
+      }
+    }
+  }
+
+  #learn {
+    .header {
+      .site-title {
+        width: 100%;
+      }
+      nav {
+        width: 100%;
+        ul {
+          flex-wrap: wrap;
+          li {
+            display: inline;
+            padding: 0;
+            width: 50%;
+          }
+          li.test-nav {
+            width: 100%;
+            display: inline;
+            a#kcarterlink.button-style {
+              margin: 2rem 0 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    .definitions {
+      display: block;
+      padding: 1rem 0;
+      width: 100%;
+      .left,
+      .right {
+        width: 100%;
+      }
+
+      .left:first-child,
+      .right:first-child {
+        display: block;
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  #testing {
+    .testing {
+      margin: 0 auto;
+      max-width: 100%;
+    }
+  }
+  #results-wrapper {
+    flex-wrap: wrap;
+    aside {
+      display: none;
+    }
+    .mobile-aside {
+      display: block;
+    }
+    .main-section {
+      margin: 0 3px;
+      #results {
+        margin-top: 3rem;
+        .selectmenu {
+          display: block;
+          z-index: 10;
+        }
+        .results-buttons {
+          background: $beige;
+          position: sticky;
+          top: 0;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}

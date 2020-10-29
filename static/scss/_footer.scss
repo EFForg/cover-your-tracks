@@ -1,0 +1,37 @@
+
+
+
+/* footer */
+footer {
+  display: block;
+  margin: 2rem 1rem 0 5rem;
+  .footer-logo {
+    background-image: url("/static/images/eff-logo-lockup-black.svg");
+    background-repeat: no-repeat;
+    height: 55px;
+    margin: 3rem 0 1rem;
+    width: auto;
+  }
+  .links {
+    margin: 18px auto 0;
+  }
+  a {
+    border: none;
+  }
+  .links a {
+    color: $plum;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 0 1rem 1rem 0;
+    text-transform: uppercase;
+    &:hover {
+      border: none;
+    }
+  }
+}
+
+#front footer .links a,
+#testing footer .links a {
+  color: $yellow;
+}

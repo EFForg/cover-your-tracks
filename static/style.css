@@ -1,14 +1,18 @@
 /* table of contents:
+_base.scss:
 ** fonts
 ** base styles
+** form elements
+** various custom elements (tooltips etc)
+_header.scss
 ** header
 ** nav
+_pages.scss
 ** content
-** form elements
-** footer
 ** individual pages
-** various custom elements (tooltips etc)
-** learn animation
+_footer.scss
+** footer
+_mobile.scss
 ** mobile styles
 */
 /* fonts */
@@ -86,94 +90,6 @@ hr {
   background: transparent;
   margin: 0 auto;
   max-width: 1440px; }
-
-/* header */
-.header a {
-  outline: none; }
-  .header a:hover {
-    text-decoration: none; }
-.header .banner {
-  margin-bottom: 2rem; }
-  .header .banner .bar {
-    background-color: black;
-    display: flex;
-    height: 3rem;
-    margin: 0 auto;
-    width: 100%; }
-    .header .banner .bar img.logo {
-      height: 20px;
-      padding: 0 0.25rem; }
-    .header .banner .bar .wrapper {
-      width: 100%; }
-    .header .banner .bar .attribution {
-      color: white;
-      display: flex;
-      font-size: 16px;
-      justify-content: space-between;
-      position: relative;
-      margin: 0 2rem 0 5rem;
-      max-width: 1440px;
-      top: 0.9rem; }
-      .header .banner .bar .attribution a {
-        border-bottom: none;
-        color: white;
-        font-weight: 600; }
-        .header .banner .bar .attribution a:hover {
-          border-bottom: 1px solid white; }
-  .header .banner .tagline {
-    color: #2E243F;
-    font-size: 27px;
-    font-weight: bold;
-    margin: 6px 0 0; }
-  .header .banner .title-area {
-    align-items: flex-end;
-    border-bottom: 1px solid #D3473D;
-    display: flex;
-    justify-content: flex-end;
-    margin: 0 1rem 1rem 5rem;
-    padding: 0 0 1rem; }
-    .header .banner .title-area .site-title {
-      width: 70%; }
-
-/* nav */
-.header nav {
-  padding-bottom: 0.2rem;
-  width: 30%; }
-  .header nav ul {
-    list-style-type: none;
-    margin: 0;
-    width: 100%; }
-    .header nav ul li.test-nav {
-      display: none; }
-    .header nav ul li {
-      display: inline-block;
-      font-size: 1.2rem;
-      padding: 0 0 0 25%; }
-  .header nav a {
-    color: #2E243F;
-    border-bottom: none; }
-    .header nav a:hover {
-      border-bottom: 1px solid #2E243F; }
-
-/* content */
-.content {
-  margin: 1rem 2rem 1rem 5rem; }
-
-.main-section {
-  margin: 0;
-  width: 100%; }
-  .main-section .banner {
-    width: 100%; }
-
-aside {
-  min-width: 300px;
-  width: 22%; }
-
-.mobile-aside {
-  display: none; }
-
-iframe {
-  border: none; }
 
 /* form elements */
 [type="checkbox"]:not(:checked),
@@ -304,6 +220,140 @@ input[type=range]:focus::-ms-fill-lower {
 
 input[type=range]:focus::-ms-fill-upper {
   background: #F5EFEB; }
+
+/* various elements */
+.button-style {
+  background: #F5EFEB;
+  border: 2px solid #305D42;
+  border-radius: 8px;
+  clear: both;
+  color: #1E3A29;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 1rem auto;
+  padding: 1rem 1rem 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  width: 60%; }
+
+.button-style:hover,
+.button-style.active {
+  background: #1E3A29;
+  border: 2px solid #1E3A29;
+  color: #F5EFEB;
+  text-decoration: none; }
+
+.tooltip-inner {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px;
+  width: 300px;
+  margin-right: 10px; }
+
+.tooltip.bs-tooltip-left .arrow:before {
+  border-top-color: #333; }
+
+.fingerprint-thanks {
+  padding: 32px 0 0; }
+
+.ii {
+  font-weight: bold;
+  color: #a00;
+  font-size: 80%; }
+
+/* header */
+.header a {
+  outline: none; }
+  .header a:hover {
+    text-decoration: none; }
+.header .banner {
+  margin-bottom: 2rem; }
+  .header .banner .bar {
+    background-color: black;
+    display: flex;
+    height: 3rem;
+    margin: 0 auto;
+    width: 100%; }
+    .header .banner .bar img.logo {
+      height: 20px;
+      padding: 0 0.25rem; }
+    .header .banner .bar .wrapper {
+      width: 100%; }
+    .header .banner .bar .attribution {
+      color: white;
+      display: flex;
+      font-size: 16px;
+      justify-content: space-between;
+      position: relative;
+      margin: 0 2rem 0 5rem;
+      max-width: 1440px;
+      top: 0.9rem; }
+      .header .banner .bar .attribution a {
+        border-bottom: none;
+        color: white;
+        font-weight: 600; }
+        .header .banner .bar .attribution a:hover {
+          border-bottom: 1px solid white; }
+  .header .banner .tagline {
+    color: #2E243F;
+    font-size: 27px;
+    font-weight: bold;
+    margin: 6px 0 0; }
+  .header .banner .title-area {
+    align-items: flex-end;
+    border-bottom: 1px solid #D3473D;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 1rem 1rem 5rem;
+    padding: 0 0 1rem; }
+    .header .banner .title-area .site-title {
+      width: 70%; }
+
+/* nav */
+.header nav {
+  padding-bottom: 0.2rem;
+  width: 30%; }
+  .header nav ul {
+    list-style-type: none;
+    margin: 0;
+    width: 100%; }
+    .header nav ul li.test-nav {
+      display: none; }
+    .header nav ul li {
+      display: inline-block;
+      font-size: 1.2rem;
+      padding: 0 0 0 25%; }
+  .header nav a {
+    color: #2E243F;
+    border-bottom: none; }
+    .header nav a:hover {
+      border-bottom: 1px solid #2E243F; }
+
+/* content */
+.content {
+  margin: 1rem 2rem 1rem 5rem; }
+
+.main-section {
+  margin: 0;
+  width: 100%; }
+  .main-section .banner {
+    width: 100%; }
+
+aside {
+  min-width: 300px;
+  width: 22%; }
+
+.mobile-aside {
+  display: none; }
+
+iframe {
+  border: none; }
 
 /* individual pages */
 /* front/home page */
@@ -504,34 +554,6 @@ input[type=range]:focus::-ms-fill-upper {
   #results-wrapper .text.detailed {
     font-weight: 400; }
 
-/* footer */
-footer {
-  display: block;
-  margin: 2rem 1rem 0 5rem; }
-  footer .footer-logo {
-    background-image: url("/static/images/eff-logo-lockup-black.svg");
-    background-repeat: no-repeat;
-    height: 55px;
-    margin: 3rem 0 1rem;
-    width: auto; }
-  footer .links {
-    margin: 18px auto 0; }
-  footer a {
-    border: none; }
-  footer .links a {
-    color: #2E243F;
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 800;
-    padding: 0 1rem 1rem 0;
-    text-transform: uppercase; }
-    footer .links a:hover {
-      border: none; }
-
-#front footer .links a,
-#testing footer .links a {
-  color: #DECA54; }
-
 small#center {
   margin: 0 60px; }
 
@@ -565,51 +587,33 @@ label#acceptable_ads {
 #acceptable_ads_tr {
   display: none; }
 
-/* various elements */
-.button-style {
-  background: #F5EFEB;
-  border: 2px solid #305D42;
-  border-radius: 8px;
-  clear: both;
-  color: #1E3A29;
-  cursor: pointer;
+/* footer */
+footer {
   display: block;
-  font-size: 1rem;
-  font-weight: 800;
-  margin: 1rem auto;
-  padding: 1rem 1rem;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all 0.2s;
-  width: 60%; }
+  margin: 2rem 1rem 0 5rem; }
+  footer .footer-logo {
+    background-image: url("/static/images/eff-logo-lockup-black.svg");
+    background-repeat: no-repeat;
+    height: 55px;
+    margin: 3rem 0 1rem;
+    width: auto; }
+  footer .links {
+    margin: 18px auto 0; }
+  footer a {
+    border: none; }
+  footer .links a {
+    color: #2E243F;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 0 1rem 1rem 0;
+    text-transform: uppercase; }
+    footer .links a:hover {
+      border: none; }
 
-.button-style:hover,
-.button-style.active {
-  background: #1E3A29;
-  border: 2px solid #1E3A29;
-  color: #F5EFEB;
-  text-decoration: none; }
-
-.tooltip-inner {
-  background-color: #333;
-  color: white;
-  font-weight: bold;
-  border-radius: 10px;
-  padding: 10px;
-  width: 300px;
-  margin-right: 10px; }
-
-.tooltip.bs-tooltip-left .arrow:before {
-  border-top-color: #333; }
-
-.fingerprint-thanks {
-  padding: 32px 0 0; }
-
-.ii {
-  font-weight: bold;
-  color: #a00;
-  font-size: 80%; }
+#front footer .links a,
+#testing footer .links a {
+  color: #DECA54; }
 
 @media screen and (max-width: 768px) {
   /* mobile styles */
@@ -658,9 +662,35 @@ label#acceptable_ads {
         .header .banner nav ul {
           margin: 0.5rem 0;
           padding: 0;
-          width: 97%; }
+          width: 97%;
+          /* footer */ }
           .header .banner nav ul li {
             padding: 0 1rem 0 0; }
+          .header .banner nav ul footer {
+            display: block;
+            margin: 2rem 1rem 0 5rem; }
+            .header .banner nav ul footer .footer-logo {
+              background-image: url("/static/images/eff-logo-lockup-black.svg");
+              background-repeat: no-repeat;
+              height: 55px;
+              margin: 3rem 0 1rem;
+              width: auto; }
+            .header .banner nav ul footer .links {
+              margin: 18px auto 0; }
+            .header .banner nav ul footer a {
+              border: none; }
+            .header .banner nav ul footer .links a {
+              color: #2E243F;
+              display: inline-block;
+              font-size: 13px;
+              font-weight: 800;
+              padding: 0 1rem 1rem 0;
+              text-transform: uppercase; }
+              .header .banner nav ul footer .links a:hover {
+                border: none; }
+          .header .banner nav ul #front footer .links a,
+          .header .banner nav ul #testing footer .links a {
+            color: #DECA54; }
 
   aside {
     box-sizing: border-box;

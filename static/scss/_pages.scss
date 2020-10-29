@@ -1,0 +1,352 @@
+/* content */
+.content {
+  margin: 1rem 2rem 1rem 5rem;
+}
+.main-section {
+  margin: 0;
+  width: 100%;
+  .banner {
+    width: 100%;
+  }
+}
+
+aside {
+  min-width: 300px;
+  width: 22%;
+}
+.mobile-aside {
+  display: none;
+}
+
+iframe {
+  border: none;
+}
+
+/* individual pages */
+/* front/home page */
+#front {
+  background: $green;
+
+  h1 {
+    color: $beige;
+  }
+
+  .header .banner {
+    .title-area {
+      border-bottom: none;
+    }
+    .tagline {
+      color: $yellow;
+    }
+  }
+
+  .header nav a {
+    color: $beige;
+    &:hover {
+      border-bottom: 1px solid $beige;
+    }
+  }
+
+  aside {
+    background: $yellow;
+    padding: 2.5rem 3rem;
+    border: 1px solid $yellow;
+    border-radius: 1rem;
+    z-index: 10;
+    .button-style {
+      margin-bottom: 0rem;
+      margin-top: 1.5rem;
+    }
+    label#acceptable_ads {
+      font-size: 14px;
+      margin-left: 1rem;
+      a {
+        border-bottom: none;
+      }
+    }
+    hr {
+      border: none;
+      border-top: 1px solid $green;
+      color: $green;
+      margin: 2.5rem 0 0;
+      overflow: visible;
+      padding: 0;
+      text-align: center;
+    }
+  }
+  .content {
+    display: flex;
+    width: auto;
+    .main-section {
+      margin: 1rem 0 1rem 1rem;
+      width: 78%;
+    }
+  }
+  footer {
+    .footer-logo {
+      background-image: url("/static/images/eff-logo-lockup.svg");
+    }
+  }
+}
+
+/* learn */
+
+#learn {
+  .site-title {
+    width: 50%;
+  }
+  .header nav {
+    width: 50%;
+    ul {
+      align-items: flex-end;
+      display: flex;
+      justify-content: flex-end;
+      li {
+        display: inline;
+        padding: 0;
+        width: 25%;
+      }
+      li.test-nav {
+        width: 50%;;
+        display: inline;
+        a#kcarterlink.button-style {
+          background: $yellow;
+          border: 2px solid $green-dark;
+          color: $green-dark;
+          margin: 0;
+          width: 200px;
+          &:hover {
+            background: $green-dark;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  h4 {
+    text-transform: none;
+  }
+  .spectrum img {
+    width: 100%;
+  }
+
+  .definitions {
+    display: flex;
+    border-bottom: 1px solid $red;
+    justify-content: space-between;
+    padding: 2rem 0;
+    width: 100%;
+  }
+
+  .definitions {
+    flex-wrap: wrap;
+    .left {
+      width: 30%;
+      h3 {
+        margin-top: 0.5rem;
+      }
+    }
+    .right {
+      width: 67%;
+    }
+    img {
+      margin: 0 auto;
+      width: 50%;
+    }
+  }
+}
+
+/* testing page */
+#testing {
+  background: $green;
+  color: $beige;
+  .tagline {
+    color: $yellow;
+  }
+  h1 {
+    color: $beige;
+  }
+  h2 {
+    color: $yellow;
+    font-size: 48px;
+  }
+  .header nav a {
+    color: $beige;
+    &:hover {
+      border-bottom: 1px solid $beige;
+    }
+  }
+  .testing {
+    margin: 5rem auto;
+    max-width: 60%;
+  }
+  footer {
+    .footer-logo {
+      background-image: url("/static/images/eff-logo-lockup.svg");
+    }
+  }
+}
+
+/* privacy & misc pages */
+#privacy, #about, #self-defense {
+  margin: 0 auto;
+  max-width: 768px;
+  text-align:left;
+  h1 {
+    color: $plum;
+    font-size: 43px;
+  }
+}
+
+/* results page */
+#results-wrapper {
+  display: flex;
+  margin: 0 auto;
+  .row {
+    margin: 16px auto 0;
+  }
+  aside {
+    h4 {
+      color: $green;
+      font-size: 20px
+    }
+    h4:first-child {
+      margin-top: 1rem;
+    }
+    p {
+      color: $green;
+      font-size: 14px;
+    }
+  }
+  .mobile-aside {
+    display: none;
+  }
+
+  .main-section {
+    margin: 0 0 0 5rem;
+  }
+
+  h3.indicate {
+    color: $plum;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-transform: none;
+    span {
+      color: $red;
+    }
+  }
+
+  h4, h5 {
+    color: $green;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  p.tracker_results {
+    font-size: 14px;
+    font-style: italic;
+  }
+
+  table#results.tracker_results{
+    margin: 2rem 0;
+    border-collapse: collapse;
+
+    td, th {
+      background: #e6e6e6;
+      border: 1px solid $beige;
+      font-weight: 600;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    td:nth-child(2) {
+      text-align: center;
+    }
+
+  }
+  .complimentary_text{
+    text-align: center;
+  }
+
+  #showFingerprintLink2 { // link for detailed view
+    background: $green;
+    border: 1px solid $green-dark;
+    border-radius: 3px;
+    color: white;
+    display: block;
+    margin: 1rem 0;
+    padding: 1rem;
+    span {
+      color: $green;
+    }
+    a, a:hover {
+      color: $red;
+      text-decoration: none;
+    }
+  }
+  .results-buttons {
+    display: flex;
+  }
+  #default-button,
+  #detailed-button {
+    background: $beige;
+    box-shadow: none;
+    color: $green-dark;
+    border: 1px solid $green-dark;
+    margin: 1rem 1rem 0 0;
+    width: 50%;
+  }
+
+  #default-button.button-style.active,
+  #detailed-button.button-style.active {
+    background: $green;
+    color: $beige;
+  }
+  .detailed {
+    font-weight: 600;
+  }
+  .text.detailed {
+    font-weight: 400;
+  }
+}
+
+
+small#center {
+  margin:0 60px
+}
+
+#ad_status, #tracker_status, #dnt_status{
+  vertical-align: middle;
+}
+
+.test_label{
+  text-align: left;
+}
+.tracker_results td{
+  padding: 5px;
+}
+#summary_sentence{
+  font-size: inherit;
+  font-weight: normal;
+  margin: 0 0 24px;
+}
+
+label#acceptable_ads{
+  display: block;
+  margin-top: 10px;
+  sup{
+    a {
+      background: $green-dark;
+      border: 1px solid $green-dark;
+      border-radius: 15px;
+      color: $beige;
+      padding: 1px 3px;
+    }
+  }
+}
+
+.ui-tooltip-content{
+  text-align: left;
+}
+#acceptable_ads_tr{
+  display: none;
+}
