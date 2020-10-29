@@ -83,7 +83,6 @@ h2 {
   font-size: 38px;
   font-weight: 900;
   margin-bottom: 0;
-  text-transform: uppercase;
 }
 h3 {
   font-size: 30px;
@@ -148,6 +147,7 @@ hr {
         max-width: 1440px;
         top: 0.9rem;
         a {
+          border-bottom: none;
           color: white;
           font-weight: 600;
           &:hover {
@@ -528,14 +528,15 @@ input[type=range]:focus::-ms-fill-upper {
   }
 }
 
-/* privacy page */
+/* privacy & misc pages */
 #privacy, #about, #self-defense {
   margin: 0 auto;
+  max-width: 768px;
   text-align:left;
-}
-
-#privacy h2, #about h2 {
-  margin: 0;
+  h1 {
+    color: $plum;
+    font-size: 43px;
+  }
 }
 
 /* results page */

@@ -55,8 +55,7 @@ a h1:hover {
 h2 {
   font-size: 38px;
   font-weight: 900;
-  margin-bottom: 0;
-  text-transform: uppercase; }
+  margin-bottom: 0; }
 
 h3 {
   font-size: 30px;
@@ -111,6 +110,7 @@ hr {
       max-width: 1440px;
       top: 0.9rem; }
       .header .banner .bar .attribution a {
+        border-bottom: none;
         color: white;
         font-weight: 600; }
         .header .banner .bar .attribution a:hover {
@@ -414,13 +414,14 @@ input[type=range]:focus::-ms-fill-upper {
   #testing footer .footer-logo {
     background-image: url("/static/images/eff-logo-lockup.svg"); }
 
-/* privacy page */
+/* privacy & misc pages */
 #privacy, #about, #self-defense {
   margin: 0 auto;
+  max-width: 768px;
   text-align: left; }
-
-#privacy h2, #about h2 {
-  margin: 0; }
+  #privacy h1, #about h1, #self-defense h1 {
+    color: #2E243F;
+    font-size: 43px; }
 
 /* results page */
 #results-wrapper {
