@@ -265,13 +265,13 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .tooltip-inner {
-  background-color: #333;
+  background-color: $plum;
   color: white;
   font-weight: bold;
   border-radius: 10px;
   padding: 10px;
   width: 300px;
-  margin-right: 10px;
+  margin-left: 20px;
 }
 .tooltip.bs-tooltip-left .arrow:before {
   border-top-color: #333;
