@@ -514,7 +514,7 @@ iframe {
     border-collapse: collapse; }
     #results-wrapper table#results.tracker_results td, #results-wrapper table#results.tracker_results th {
       background: transparent;
-      border: 1px solid #1E3A29;
+      border: 2px solid #4D8061;
       font-weight: 600;
       padding: 0.5rem;
       text-align: left; }
