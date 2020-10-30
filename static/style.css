@@ -580,9 +580,9 @@ label#acceptable_ads {
   label#acceptable_ads sup a {
     background: #1E3A29;
     border: 1px solid #1E3A29;
-    border-radius: 15px;
+    border-radius: 12px;
     color: #F5EFEB;
-    padding: 1px 3px; }
+    padding: 1px 6px; }
 
 .ui-tooltip-content {
   text-align: left; }
