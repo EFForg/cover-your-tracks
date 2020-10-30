@@ -17,7 +17,7 @@
         .attribution {
           font-size: 0.65rem;
           justify-content: flex-start;
-          margin-left: 3px;
+          margin-left: 10px;
           padding: 0;
           top: 12px;
           width: 100%;
@@ -114,10 +114,6 @@
     .title-area {
       margin: 0 auto;
       width: 97%;
-      h1 span {
-        font-size: 48px;
-        line-height: inherit;
-      }
     }
     .content {
       align-content: center;
@@ -129,7 +125,9 @@
         min-width: 0;
         padding: 1rem;
         label#acceptable_ads {
-          margin-left: 3.5rem;
+          display: block;
+          margin: 0.5rem auto;
+          width: 230px;
         }
       }
       .main-section {

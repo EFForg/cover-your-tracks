@@ -190,7 +190,7 @@ iframe {
 /* privacy & misc pages */
 #privacy, #about, #self-defense {
   margin: 0 auto;
-  max-width: 768px;
+  max-width: $mobile;
   text-align:left;
   h1 {
     color: $plum;

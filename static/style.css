@@ -637,7 +637,7 @@ footer {
         .header .banner .bar .attribution {
           font-size: 0.65rem;
           justify-content: flex-start;
-          margin-left: 3px;
+          margin-left: 10px;
           padding: 0;
           top: 12px;
           width: 100%; }
@@ -711,9 +711,6 @@ footer {
   #front .title-area {
     margin: 0 auto;
     width: 97%; }
-    #front .title-area h1 span {
-      font-size: 48px;
-      line-height: inherit; }
   #front .content {
     align-content: center;
     flex-direction: column;
@@ -724,7 +721,9 @@ footer {
       min-width: 0;
       padding: 1rem; }
       #front .content aside label#acceptable_ads {
-        margin-left: 3.5rem; }
+        display: block;
+        margin: 0.5rem auto;
+        width: 230px; }
     #front .content .main-section {
       display: none; }
 
