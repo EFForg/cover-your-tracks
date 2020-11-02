@@ -322,13 +322,14 @@ input[type=range]:focus::-ms-fill-upper {
   .header nav ul {
     list-style-type: none;
     margin: 0;
-    width: 100%; }
+    width: auto; }
     .header nav ul li.test-nav {
       display: none; }
     .header nav ul li {
       display: inline-block;
       font-size: 1.2rem;
-      padding: 0 0 0 25%; }
+      padding: 0;
+      width: 45%; }
   .header nav a {
     color: #2E243F;
     border-bottom: none; }
@@ -664,7 +665,8 @@ footer {
           width: 97%;
           /* footer */ }
           .header .banner nav ul li {
-            padding: 0 1rem 0 0; }
+            padding: 0 1rem 0 0;
+            width: auto; }
           .header .banner nav ul footer {
             display: block;
             margin: 2rem 1rem 0 5rem; }
