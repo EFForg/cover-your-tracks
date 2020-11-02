@@ -102,8 +102,6 @@ iframe {
       display: flex;
       justify-content: flex-end;
       li {
-        display: inline;
-        padding: 0;
         width: 25%;
       }
       li.test-nav {
@@ -113,7 +111,6 @@ iframe {
           background: $yellow;
           border: 2px solid $green-dark;
           margin: 0;
-          width: 200px;
           &:hover {
             background: $green-dark;
             color: white;

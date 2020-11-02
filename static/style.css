@@ -438,8 +438,6 @@ iframe {
     display: flex;
     justify-content: flex-end; }
     #learn .header nav ul li {
-      display: inline;
-      padding: 0;
       width: 25%; }
     #learn .header nav ul li.test-nav {
       width: 50%;
@@ -447,8 +445,7 @@ iframe {
       #learn .header nav ul li.test-nav a#kcarterlink.button-style {
         background: #DECA54;
         border: 2px solid #1E3A29;
-        margin: 0;
-        width: 200px; }
+        margin: 0; }
         #learn .header nav ul li.test-nav a#kcarterlink.button-style:hover {
           background: #1E3A29;
           color: white; }
