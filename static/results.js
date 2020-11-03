@@ -121,9 +121,12 @@ $(document).ready(function(){
     });
     $('select').selectmenu();  // select which characteristic to go to
     $('#characteristic').on('selectmenuchange', function() {
-    var char = $( "#characteristic option:selected" ).text();
-    window.location.href = '#'+ char;
-});
+      var char = $( "#characteristic option:selected" ).text();
+      console.log(char);
+      charId = document.getElementById(char);
+      var $char = $(charId);
+      $('html,body').animate({scrollTop: $char.offset().top-80},'slow');
+    });
   }, 2000);
 
 });
