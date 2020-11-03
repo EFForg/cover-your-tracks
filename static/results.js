@@ -123,7 +123,7 @@ $(document).ready(function(){
     $('#characteristic').on('selectmenuchange', function() {
       var char = $( "#characteristic option:selected" ).text();
       char = '#'+ char;
-      window.location.href = '#'+ char;
+      window.location.href = char;
     });
   }, 2000);
 
