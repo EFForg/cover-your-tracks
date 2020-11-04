@@ -311,46 +311,49 @@ iframe {
       }
     }
   }
-}
 
+  #ad_status, #tracker_status, #dnt_status{
+    vertical-align: middle;
+  }
 
-small#center {
-  margin:0 60px
-}
+  .test_label{
+    text-align: left;
+  }
+  .tracker_results td{
+    padding: 5px;
+  }
+  #summary_sentence{
+    font-size: inherit;
+    font-weight: normal;
+    margin: 0 0 24px;
+  }
 
-#ad_status, #tracker_status, #dnt_status{
-  vertical-align: middle;
-}
-
-.test_label{
-  text-align: left;
-}
-.tracker_results td{
-  padding: 5px;
-}
-#summary_sentence{
-  font-size: inherit;
-  font-weight: normal;
-  margin: 0 0 24px;
-}
-
-label#acceptable_ads{
-  display: block;
-  margin-top: 10px;
-  sup{
-    a {
-      background: $green-dark;
-      border: 1px solid $green-dark;
-      border-radius: 12px;
-      color: $beige;
-      padding: 1px 6px;
+  label#acceptable_ads{
+    display: block;
+    margin-top: 10px;
+    sup{
+      a {
+        background: $green-dark;
+        border: 1px solid $green-dark;
+        border-radius: 12px;
+        color: $beige;
+        padding: 1px 6px;
+      }
     }
+  }
+
+  .ui-tooltip-content{
+    text-align: left;
+  }
+  #acceptable_ads_tr{
+    display: none;
   }
 }
 
-.ui-tooltip-content{
-  text-align: left;
-}
-#acceptable_ads_tr{
-  display: none;
+#results-wrapper.nojs {
+  #showFingerprintLink2,
+  .selectmenu,
+  .results-buttons {
+    display: none;
+  }
 }
