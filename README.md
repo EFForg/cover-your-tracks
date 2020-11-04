@@ -1,10 +1,10 @@
-# Panopticlick
+# Cover Your Tracks (formerly Panopticlick)
 
 How Unique - and Trackable - Is Your Browser?
 
 ## Installation
 
-The easiest way to set up an instance of Panopticlick is with `docker` and `docker-compose`, but it can be installed on a host machine if desired.
+The easiest way to set up an instance of Cover Your Tracks is with `docker` and `docker-compose`, but it can be installed on a host machine if desired.
 
 ### Partial Installation on Host
 
@@ -21,7 +21,7 @@ Now, you can run
 
 ### Full Docker Installation
 
-To generate self-signed certificates for the Panopticlick hosts, cd into `examples/nginx` and run 
+To generate self-signed certificates for the Cover Your Tracks hosts, cd into `examples/nginx` and run
 
     ./generate_self_signed_certs.sh
 
@@ -67,4 +67,4 @@ This project is licensed under the Affero General Public License, version 3.  Se
 
 ## Credits
 
-This is a rewrite of the original Panopticlick codebase, developed by Peter Eckersley at the Electronic Frontier Foundation.  Currently maintained by William Budington.
+This is a rewrite of the original Cover Your Tracks codebase, developed by Peter Eckersley at the Electronic Frontier Foundation.  Currently maintained by William Budington.
