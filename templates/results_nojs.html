@@ -21,7 +21,7 @@
   <div class="main-section">
     <h3 class="indicate">
       Our tests indicate that you have
-      <span id='summary_sentence'></span></h3>
+      <span id='summary_sentence'> {{ summary_sentence|safe }}</span></h3>
 
 
       <table class='tracker_results' id='results'>
@@ -53,7 +53,7 @@
       </table>
       <a id='showFingerprintLink2' href='#fingerprintTable'>Still wondering how fingerprinting works? Click here for more info! </a>
       <p class="tracker_results">Note: because tracking techniques are complex, subtle, and constantly evolving, Panopticlick does not measure all forms of tracking and protection.</p>
-      <div id='fingerprintTable'></div>
+      <div id='fingerprintTable'>{{ fingerprint_content|safe }}</div>
       <div id="buttons">
         <div class="row">
           <a href="/kcarter" class="button-style" id="kcarterlink" title="Click here to re-test how trackable your browser is">Re-test your browser</a>
