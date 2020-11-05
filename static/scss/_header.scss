@@ -41,11 +41,12 @@
         }
       }
     }
-    .tagline {
+    h2.tagline {
       color: $plum;
       font-size: 27px;
       font-weight: bold;
       margin: 6px 0 0;
+      text-transform: none;
     }
     .title-area {
       align-items: flex-end;

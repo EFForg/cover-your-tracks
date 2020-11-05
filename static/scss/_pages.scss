@@ -162,6 +162,11 @@ iframe {
   h1 {
     color: $beige;
   }
+  h2.tagline {
+    font-size: 27px;
+    margin: 6px 0 0;
+    text-transform: none;
+  }
   h2 {
     color: $yellow;
     font-size: 48px;
