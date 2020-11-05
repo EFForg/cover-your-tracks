@@ -23,19 +23,18 @@
       <table class='tracker_results' id='results'>
         <tbody>
           <tr>
-            <td class='test_label'>Is your browser blocking tracking ads?</td>
+            <td class='test_label'>Does your browser protect you from tracking ads?</td>
             <td id='ad_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
           <tr>
-            <td class='test_label'>Is your browser blocking invisible trackers?</td>
+            <td class='test_label'>Does your browser protect you from invisible trackers?</td>
             <td id='tracker_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
           <tr id='acceptable_ads_tr'>
             <td class='test_label'>Does your blocker stop trackers that are included in the so-called <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>“acceptable ads”</a> whitelist?</td>
             <td id='acceptable_ads_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
-
-          <tr>
+          <tr id='dnt_tr'>
             <td class='test_label'>Does your browser unblock 3rd parties that promise to honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
             <td id='dnt_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
@@ -71,11 +70,11 @@
       'partial': "{% include '_partial.html' %}"
     };
     var fp_status_str = {
-      'yes'       : "{% include '_fp_yes.html' %}",
-      'almost_yes': "{% include '_fp_almost_yes.html' %}",
-      'no'        : "{% include '_fp_no.html' %}",
-      'no_unique' : "{% include '_fp_no_unique.html' %}",
-      'partial'   : "{% include '_fp_partial.html' %}"
+      'yes'       : '{% include '_fp_yes.html' %}',
+      'almost_yes': '{% include '_fp_almost_yes.html' %}',
+      'no'        : '{% include '_fp_no.html' %}',
+      'no_unique' : '{% include '_fp_no_unique.html' %}',
+      'partial'   : '{% include '_fp_partial.html' %}'
     };
 
     var fpi_whorls = JSON.parse(decodeURIComponent('{{ fpi_whorls }}'));
@@ -267,7 +266,10 @@
 
         // Only display the results of the acceptable ads test if we have at
         // least *some* protection against ads or trackers.
-        if(acceptable_ads_test && !(results['ad'] == "no" && results['tracker'] == "no")){
+        if(acceptable_ads_test &&
+          !(results['ad'] == "no" && results['tracker'] == "no") &&
+          $('#fp_status').html() == fp_status_str['partial'] &&
+          $('#fp_status').html() == fp_status_str['yes']){
           // If we don't already have a 'yes' result from Privacy Badger...
           if(results['acceptable_ads'] != 'yes'){
             results['acceptable_ads'] = 'yes';
@@ -296,6 +298,32 @@
             acceptable_ad.src = "https://media.net/favicon.ico";
           }
           $('#acceptable_ads_tr').show();
+        }
+
+        if($('#fp_status').html() == fp_status_str['partial']){
+          if(results['ad'] == 'no'){
+            results['ad'] = 'partial';
+          }
+          if(results['tracker'] == 'no'){
+            results['tracker'] = 'partial';
+          }
+          if(results['acceptable_ads'] == 'no'){
+            results['acceptable_ads'] = 'partial';
+          }
+          results['dnt'] = 'yes';
+          $('#dnt_tr').hide();
+        } else if($('#fp_status').html() == fp_status_str['yes']) {
+          if(results['ad'] == 'no' || results['ad'] == 'partial'){
+            results['ad'] = 'yes';
+          }
+          if(results['tracker'] == 'no' || results['tracker'] == 'partial'){
+            results['tracker'] = 'yes';
+          }
+          if(results['acceptable_ads'] == 'no'){
+            results['acceptable_ads'] = 'yes';
+          }
+          results['dnt'] = 'yes';
+          $('#dnt_tr').hide();
         }
 
         display_results();
