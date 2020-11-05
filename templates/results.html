@@ -313,15 +313,9 @@
           results['dnt'] = 'yes';
           $('#dnt_tr').hide();
         } else if($('#fp_status').html() == fp_status_str['yes']) {
-          if(results['ad'] == 'no' || results['ad'] == 'partial'){
-            results['ad'] = 'yes';
-          }
-          if(results['tracker'] == 'no' || results['tracker'] == 'partial'){
-            results['tracker'] = 'yes';
-          }
-          if(results['acceptable_ads'] == 'no'){
-            results['acceptable_ads'] = 'yes';
-          }
+          results['ad'] = 'yes';
+          results['tracker'] = 'yes';
+          results['acceptable_ads'] = 'yes';
           results['dnt'] = 'yes';
           $('#dnt_tr').hide();
         }

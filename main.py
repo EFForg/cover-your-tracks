@@ -332,12 +332,23 @@ def results_nojs():
 
     fingerprint_matching, fingerprint_content = fingerprint_generic(
         False, True)
-    if fingerprint_matching <= 20:
+    if fingerprint_matching <= 10:
         fingerprint_result = no
-    elif fingerprint_matching <= 100:
+    elif fingerprint_matching <= 50:
         fingerprint_result = partial
     else:
         fingerprint_result = yes
+
+    if fingerprint_result == partial:
+        if ad_result == no:
+            ad_result = partial
+        if tracker_result == no:
+            tracker_result = partial
+        dnt_result = yes
+    elif fingerprint_result == yes:
+        ad_result = yes
+        tracker_result = yes
+        dnt_result = yes
 
     retest_link = "https://" + \
         config.third_party_trackers['ad_server'] + "/clear-all-cookies-nojs"
@@ -351,6 +362,7 @@ def results_nojs():
                            tracker_result=tracker_result,
                            dnt_result=dnt_result,
                            fingerprint_result=fingerprint_result,
+                           no=no,
                            retest_link=retest_link)
 
 

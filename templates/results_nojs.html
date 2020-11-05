@@ -27,24 +27,22 @@
       <table class='tracker_results' id='results'>
         <tbody>
           <tr>
-            <td class='test_label'>Is your browser blocking tracking ads?</td>
+            <td class='test_label'>Does your browser protect you from tracking ads?</td>
             <td id='ad_status'>{{ ad_result|safe }}</td>
           </tr>
           <tr>
-            <td class='test_label'>Is your browser blocking invisible trackers?</td>
+            <td class='test_label'>Does your browser protect you from invisible trackers?</td>
             <td id='tracker_status'>{{ tracker_result|safe }}</td>
-
           </tr>
           <tr id='acceptable_ads_tr'>
             <td class='test_label'>Does your blocker stop trackers that are included in the so-called <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>“acceptable ads”</a> whitelist?</td>
-
           </tr>
-
-          <tr>
-            <td class='test_label'>Does your browser unblock 3rd parties that promise to honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
-            <td id='dnt_status'>{{ dnt_result|safe }}</td>
-
-          </tr>
+          {% if fingerprint_result == no %}
+            <tr>
+              <td class='test_label'>Does your browser unblock 3rd parties that promise to honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
+              <td id='dnt_status'>{{ dnt_result|safe }}</td>
+            </tr>
+          {% endif %}
           <tr>
             <td class='test_label'>Does your browser protect from <a id='showFingerprintLink1' href='#fingerprintTable'>fingerprinting</a>?</td>
             <td id='fp_status'>{{ fingerprint_result|safe }}</td>
