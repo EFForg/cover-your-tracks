@@ -71,10 +71,11 @@
       'partial': "{% include '_partial.html' %}"
     };
     var fp_status_str = {
-      'yes'      : "{% include '_fp_yes.html' %}",
-      'no'       : "{% include '_fp_no.html' %}",
-      'no_unique': "{% include '_fp_no_unique.html' %}",
-      'partial'  : "{% include '_fp_partial.html' %}"
+      'yes'       : "{% include '_fp_yes.html' %}",
+      'almost_yes': "{% include '_fp_almost_yes.html' %}",
+      'no'        : "{% include '_fp_no.html' %}",
+      'no_unique' : "{% include '_fp_no_unique.html' %}",
+      'partial'   : "{% include '_fp_partial.html' %}"
     };
 
     var fpi_whorls = JSON.parse(decodeURIComponent('{{ fpi_whorls }}'));
@@ -278,12 +279,16 @@
 
             var acceptable_ad = document.createElement('img');
             acceptable_ad.onload = function(){
-              results['acceptable_ads'] = 'no';
-              if(results['tracker'] == 'yes'){
-                results['tracker'] = 'partial';
-              }
-              if(results['ad'] == 'yes'){
-                results['ad'] = 'partial';
+              if(acceptable_ad.naturalHeight == 1 && acceptable_ad.naturalWidth == 1) {
+                results['acceptable_ads'] = 'yes';
+              } else {
+                results['acceptable_ads'] = 'no';
+                if(results['tracker'] == 'yes'){
+                  results['tracker'] = 'partial';
+                }
+                if(results['ad'] == 'yes'){
+                  results['ad'] = 'partial';
+                }
               }
               display_results();
               display_summary_sentence();
