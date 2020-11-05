@@ -327,11 +327,12 @@ input[type=range]:focus::-ms-fill-upper {
         font-weight: 600; }
         .header .banner .bar .attribution a:hover {
           border-bottom: 1px solid white; }
-  .header .banner .tagline {
+  .header .banner h2.tagline {
     color: #2E243F;
     font-size: 27px;
     font-weight: bold;
-    margin: 6px 0 0; }
+    margin: 6px 0 0;
+    text-transform: none; }
   .header .banner .title-area {
     align-items: flex-end;
     border-bottom: 1px solid #D3473D;
@@ -479,6 +480,10 @@ iframe {
     color: #DECA54; }
   #testing h1 {
     color: #F5EFEB; }
+  #testing h2.tagline {
+    font-size: 27px;
+    margin: 6px 0 0;
+    text-transform: none; }
   #testing h2 {
     color: #DECA54;
     font-size: 48px;

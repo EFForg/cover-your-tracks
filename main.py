@@ -452,7 +452,7 @@ def about():
 
 @app.route("/faq")
 def faq():
-    return render_template('faq.html', title="Frequently asked questions about Panopticlick")
+    return render_template('faq.html', title="Frequently asked questions about Cover Your Tracks")
 
 
 @app.route("/self-defense")
