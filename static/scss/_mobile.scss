@@ -214,3 +214,19 @@
     }
   }
 }
+
+// smaller, older phones not displaying selectmenu correctly, so removing it
+@media screen and (max-width: 375px) {
+  #results-wrapper .main-section #results #characteristic-button,
+  #results-wrapper .main-section #results .results-buttons {
+    display: none;
+  }
+
+  #results-wrapper .detailed,
+  #results-wrapper .text.detailed {
+    display: block !important;
+  }
+  #characteristic {
+    display: block !important;
+  }
+}
