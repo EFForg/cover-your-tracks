@@ -119,12 +119,18 @@ $(document).ready(function(){
       $('#default-button').removeClass('active');
       $('.detailed').show();
     });
-    //$('select').selectmenu({
-    //  'change': function () {
-    //    var val = $( "#characteristic option:selected" ).val();
-    //    window.location.href = val;
-    //  }
-    //});
+    $('select').on('change', function() {  // smaller phones
+        var val = $( "#characteristic option:selected" ).val();
+        console.log('val='+val);
+        window.location.href = val;
+    });
+     $('select').selectmenu({
+           'change': function () {
+          var val = $( "#characteristic option:selected" ).val();
+          console.log('val='+val);
+          window.location.href = val;
+        }
+      });
   }, 2000);
 
 });
