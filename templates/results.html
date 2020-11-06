@@ -85,9 +85,9 @@
       document.getElementById('fingerprintTable').style.display = "none";
       document.getElementById('buttons').style.display = "none";
 
-      var a_loads = {{ a_loads }};
-      var t_loads = {{ t_loads }};
-      var dnt_loads = {{ dnt_loads }};
+      var a_loads = Math.min({{ a_loads }}, 3);
+      var t_loads = Math.min({{ t_loads }}, 3);
+      var dnt_loads = Math.min({{ dnt_loads }}, 3);
       var acceptable_ads_test = {{ acceptable_ads_test }};
 
       if(acceptable_ads_test){
