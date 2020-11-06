@@ -36,13 +36,13 @@
       <div class="text detailed">
       </div>
       <div class="detailed">
-          bits of identifying information: <em>{{ uniqueness[key]['bits'] }}</em>
+          Bits of identifying information: <em>{{ uniqueness[key]['bits'] }}</em>
       </div>
       <div class="detailed">
           {% if uniqueness[key]['one_in_x'] == -1 %}
-            one in <i><font face=times new roman,times,serif>x</font></i> browsers have this value: <span class='ii'>N/A</span>
+            One in <i><font face=times new roman,times,serif>x</font></i> browsers have this value: <span class='ii'>N/A</span>
           {% else %}
-            one in <i><font face=times new roman,times,serif>x</font></i> browsers have this value:<em>{{ uniqueness[key]['one_in_x'] }}</em>
+            One in <i><font face=times new roman,times,serif>x</font></i> browsers have this value:<em>{{ uniqueness[key]['one_in_x'] }}</em>
           {% endif %}
       </div>
     </div>
