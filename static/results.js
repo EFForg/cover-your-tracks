@@ -126,13 +126,11 @@ $(document).ready(function(){
     //  window.location.href = char;
     //});
     $('select').selectmenu({
-    'change': function () {
-      alert('here we are');
-      var char = $( "#characteristic option:selected" ).text();
-      char = '#'+ char;
-      window.location.href = char;
-    }
-});
+      'change': function () {
+        var val = $( "#characteristic option:selected" ).val();
+        window.location.href = val;
+      }
+    });
   }, 2000);
 
 });
