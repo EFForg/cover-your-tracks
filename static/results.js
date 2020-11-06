@@ -119,11 +119,8 @@ $(document).ready(function(){
       $('#default-button').removeClass('active');
       $('.detailed').show();
     });
-    $('select').on('change', function() {  // smaller phones
-        var val = $( "#characteristic option:selected" ).val();
-        console.log('val='+val);
-        window.location.href = val;
-    });
+   // smaller phone, make table of contents
+   
      $('select').selectmenu({
            'change': function () {
           var val = $( "#characteristic option:selected" ).val();

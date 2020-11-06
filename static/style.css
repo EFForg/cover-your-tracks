@@ -539,6 +539,8 @@ iframe {
   #results-wrapper p.tracker_results {
     font-size: 14px;
     font-style: italic; }
+  #results-wrapper .toc {
+    display: none; }
   #results-wrapper table#results.tracker_results {
     margin: 2rem 0;
     border-collapse: collapse; }
@@ -808,15 +810,18 @@ footer {
           z-index: 1; } }
 @media screen and (max-width: 375px) {
   #results-wrapper .main-section #results #characteristic-button,
-  #results-wrapper .main-section #results .results-buttons {
+  #results-wrapper .main-section #results .results-buttons,
+  #results-wrapper .main-section #results .selectmenu {
     display: none; }
 
   #results-wrapper .detailed,
   #results-wrapper .text.detailed {
     display: block !important; }
 
-  #characteristic {
-    display: block !important; } }
+  #results-wrapper .toc {
+    display: block; }
+    #results-wrapper .toc a {
+      border-bottom: none; } }
 .selectmenu label {
   font-style: italic;
   display: block; }

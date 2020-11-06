@@ -14,6 +14,12 @@
   <p>The measurements we used to obtain this result are listed below. You can <a href="about">read more about our methodology, statistical results, and some defenses against fingerprinting here</a>.</p>
 </div>
 <div id="results">
+  <ul class="toc">
+    <h5>Select a characteristic</h5>
+    {% for key, label in labels.items(): %}
+    <li><a href="#{{ label }}">{{ label }}</a></li>
+    {% endfor %}
+  </ul>
   <div class="selectmenu">
   <label for="characteristic">Select a characteristic</label>
       <select id="characteristic">

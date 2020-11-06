@@ -249,6 +249,9 @@ iframe {
     font-style: italic;
   }
 
+  .toc {
+    display: none; // only show on small, older phones
+  }
   table#results.tracker_results{
     margin: 2rem 0;
     border-collapse: collapse;
