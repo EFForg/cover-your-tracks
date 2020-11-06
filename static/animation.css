@@ -128,7 +128,6 @@
   background-image: url("/static/svg/fox-red.svg");
 }
 
-.footprints:nth-child(2) > .foot,
 .footprints:nth-child(3) > .foot {
   background-image: url("/static/svg/antelope.svg");
 }
@@ -136,7 +135,7 @@
 .footprints:nth-child(5) > .foot {
   background-image: url("/static/svg/bird.svg");
 }
-.footprints:nth-child(6) > .foot,
+
 .footprints:nth-child(7) > .foot {
   background-image: url("/static/svg/deer.svg");
 }
@@ -200,7 +199,7 @@
 }
 
 .footprints:nth-child(9) { /* horse */
-  transform: translate(200px, 60px) rotate(30deg) scale(2);
+  transform: translate(200px, 150px) rotate(30deg) scale(2);
   --timing-offset: 1s;
   --animation-duration: 15s;
 }
