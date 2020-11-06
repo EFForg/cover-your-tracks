@@ -167,6 +167,13 @@ def fingerprint_generic(ajax_request, provide_additional_info=False):
 # first-party redirect route
 @app.route("/kcarter")
 def kcarter():
+    # a second load of the last first-party in the redirect cycle is needed due
+    # to changes in the way Privacy Badger checks for the existence of the DNT
+    # policy, see https://github.com/EFForg/privacybadger/issues/2708
+    try2 = False
+    if request.args.get('try2') == "true":
+        try2 = True
+
     try:
         i = config.first_party_trackers.index(request.host)
     except ValueError:
@@ -177,11 +184,15 @@ def kcarter():
         next_link = "https://" + \
             config.first_party_trackers[i + 1] + "/kcarter?"
     else:
-        last_redirect = True
-        next_link = "https://" + config.first_party_trackers[0] + "/results?"
+        if try2:
+            last_redirect = True
+            next_link = "https://" + config.first_party_trackers[0] + "/results?"
+        else:
+            next_link = "https://" + \
+                config.first_party_trackers[i] + "/kcarter?try2=true"
 
     if request.args.get('aat'):
-        next_link = next_link + "aat=" + request.args.get('aat')
+        next_link = next_link + "&aat=" + request.args.get('aat')
 
     return render_template('kcarter.html', next_link=next_link, last_redirect=last_redirect, third_party_trackers=config.third_party_trackers)
 
