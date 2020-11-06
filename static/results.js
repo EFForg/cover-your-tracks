@@ -119,12 +119,20 @@ $(document).ready(function(){
       $('#default-button').removeClass('active');
       $('.detailed').show();
     });
-    $('select').selectmenu();  // select which characteristic to go to
-    $('#characteristic').on('selectmenuchange', function() {
+    //$('select').selectmenu();  // select which characteristic to go to
+    //$('#characteristic').on('selectmenuchange', function() {
+    //  var char = $( "#characteristic option:selected" ).text();
+    //  char = '#'+ char;
+    //  window.location.href = char;
+    //});
+    $('select').selectmenu({
+    'change': function () {
+      alert('here we are');
       var char = $( "#characteristic option:selected" ).text();
       char = '#'+ char;
       window.location.href = char;
-    });
+    }
+});
   }, 2000);
 
 });
