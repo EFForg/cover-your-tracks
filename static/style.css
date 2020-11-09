@@ -808,7 +808,7 @@ footer {
           position: sticky;
           top: 0;
           z-index: 1; } }
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px), only screen and (min-device-width: 375px) and (max-device-width: 667px), only screen and (min-device-width: 360px) and (max-device-width: 640px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3), only screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
   #results-wrapper .main-section #results #characteristic-button,
   #results-wrapper .main-section #results .results-buttons,
   #results-wrapper .main-section #results .selectmenu {
