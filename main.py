@@ -253,7 +253,7 @@ def kcarting_tally_nojs():
         else:
             site_dict[u.hostname] = True
     resp = make_response(" ".join(list(site_dict.keys())))
-    resp.set_cookie('site', " ".join(list(site_dict.keys())))
+    resp.set_cookie('site', " ".join(list(site_dict.keys())), secure=True, samesite="None")
     return resp
 
 

@@ -10,7 +10,8 @@
         var date = new Date();
         date.setTime(date.getTime()+(365*24*60*60*1000));
         var expires = "; expires=0"; //+date.toGMTString();
-        document.cookie = name+"="+value+expires+"; path=/";
+        var samesite = "; SameSite=None; Secure";
+        document.cookie = name+"="+value+expires+samesite+"; path=/";
         return value;
       }
 
