@@ -119,8 +119,7 @@ $(document).ready(function(){
       $('#default-button').removeClass('active');
       $('.detailed').show();
     });
-   // smaller phone, make table of contents
-   
+   // smaller phone, make table of contents (see results template)
      $('select').selectmenu({
            'change': function () {
           var val = $( "#characteristic option:selected" ).val();

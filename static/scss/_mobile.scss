@@ -216,7 +216,19 @@
 }
 
 // smaller, older phones not displaying selectmenu correctly, so removing it
-@media screen and (max-width: 375px) {
+
+@media only screen  // iPhone 5
+  and (min-device-width: 320px)
+  and (max-device-width: 568px),
+//iPhone 6, 6S, 7, 8
+   only screen and (min-device-width: 375px)
+  and (max-device-width: 667px),
+//  Galaxy S4, S5, Note 3
+only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 640px),
+   {
+
   #results-wrapper .main-section #results #characteristic-button,
   #results-wrapper .main-section #results .results-buttons,
   #results-wrapper .main-section #results .selectmenu {
