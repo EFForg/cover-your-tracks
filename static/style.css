@@ -612,6 +612,9 @@ iframe {
   #results-wrapper #acceptable_ads_tr {
     display: none; }
 
+.back-to {
+  display: block; }
+
 #results-wrapper.nojs #showFingerprintLink2,
 #results-wrapper.nojs .selectmenu,
 #results-wrapper.nojs .results-buttons {
@@ -807,7 +810,19 @@ footer {
           background: #F5EFEB;
           position: sticky;
           top: 0;
-          z-index: 1; } }
+          z-index: 1; }
+
+  .back-to {
+    background-color: rgba(255, 255, 255, 0.9);
+    display: block;
+    font-weight: 600;
+    bottom: 0;
+    padding: 0.5rem;
+    right: 3px;
+    position: fixed;
+    z-index: 10; }
+    .back-to a {
+      border: none; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3), only screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
   #results-wrapper .main-section #results #characteristic-button,
   #results-wrapper .main-section #results .results-buttons,

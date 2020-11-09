@@ -213,6 +213,19 @@
       }
     }
   }
+  .back-to {  // back to top button
+    background-color:rgba(255, 255, 255, 0.9);
+    display: block;
+    font-weight: 600;
+    bottom: 0;
+    padding: 0.5rem;
+    right: 3px;
+    position: fixed;
+    z-index: 10;
+    a {
+      border: none;
+    }
+  }
 }
 
 // smaller, older phones not displaying selectmenu correctly, so removing it
@@ -235,7 +248,7 @@ only screen
 only screen
   and (device-width: 320px)
   and (device-height: 640px)
-  and (-webkit-device-pixel-ratio: 3) 
+  and (-webkit-device-pixel-ratio: 3)
 {
 
   #results-wrapper .main-section #results #characteristic-button,
