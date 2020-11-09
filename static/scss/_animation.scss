@@ -1,0 +1,229 @@
+$STEP-COUNT: 10;
+$path-height: 400px;
+$path-width: 150px;
+$foot-spread: $path-width * 0.2;
+$animation-duration: 5s;
+$step-delay: 0.5s;
+$footprint-width: 50px;
+$footprint-height: 50px;
+$timing-offset: 0s;
+
+.animation {
+  width: 65%;
+  height: 600px;
+}
+
+.footprints {
+  padding: 20px;
+  width: $path-width;
+  height: $path-height;
+  position: absolute;
+  display: inline-block;
+  /* each .footprints can define individual values
+  to vary up the groups */
+  $timing-offset: 0s;
+}
+
+.footprints>.foot {
+  opacity: 0;
+  width: $footprint-width;
+  height: $footprint-height;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  /* should be overwritten by nth-child selectors */
+  $foot-index: 0;
+  /* how much the foot should be rotated on the Y axis -- use for mirroring images */
+  $y-rotation: 0deg;
+  /* scale */
+  $scale: unset;
+  /* distance from center X to offset per foot */
+  $foot-x-offset: 0px;
+  /* distance between each "step" */
+  $step-distance: $path-height / $STEP-COUNT;
+  /* the footprints are left aligned; center them horizontally */
+  $translate-x: ($footprint-width * -0.5) + $foot-x-offset;
+  /* UP is negative Y */
+  $translate-y: -1 * $step-distance * $foot-index;
+  transform: scale($scale, 1) translate($translate-x, $translate-y) rotateY($y-rotation);
+
+  animation: $animation-duration walking infinite;
+  animation-delay: ($timing-offset + $step-delay) * $foot-index;
+  animation-timing-function: ease-in;
+}
+
+.footprints>.foot:nth-child(1) {
+  $foot-index: 1;
+}
+
+.footprints>.foot:nth-child(2) {
+  $foot-index: 2;
+}
+
+.footprints>.foot:nth-child(3) {
+  $foot-index: 3;
+}
+
+.footprints>.foot:nth-child(4) {
+  $foot-index: 4;
+}
+
+.footprints>.foot:nth-child(5) {
+  $foot-index: 5;
+}
+
+.footprints>.foot:nth-child(6) {
+  $foot-index: 6;
+}
+
+.footprints>.foot:nth-child(7) {
+  $foot-index: 7;
+}
+
+.footprints>.foot:nth-child(8) {
+  $foot-index: 8;
+}
+
+.footprints>.foot:nth-child(9) {
+  $foot-index: 9;
+}
+
+
+/* left feet */
+.footprints>.foot:nth-child(2n+1) {
+  $foot-x-offset: $foot-spread * -1;
+}
+
+/* right feet */
+.footprints>.foot:nth-child(2n) {
+  $y-rotation: 180deg;
+  /* mirror left foot */
+  $foot-x-offset: $foot-spread;
+}
+
+@keyframes walking {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+}
+
+/* ************************************************ */
+
+/* set initial svgs */
+.footprints:nth-child(1) > .foot {
+  background-image: url("/static/svg/fox-red.svg");
+}
+
+.footprints:nth-child(2) > .foot,
+.footprints:nth-child(3) > .foot {
+  background-image: url("/static/svg/antelope.svg");
+}
+.footprints:nth-child(4) > .foot,
+.footprints:nth-child(5) > .foot {
+  background-image: url("/static/svg/bird.svg");
+}
+.footprints:nth-child(6) > .foot,
+.footprints:nth-child(7) > .foot {
+  background-image: url("/static/svg/deer.svg");
+}
+
+.footprints:nth-child(8) > .foot {
+  background-image: url("/static/svg/dog.svg");
+}
+
+.footprints:nth-child(9) > .foot {
+  background-image: url("/static/svg/horse.svg");
+}
+
+
+/* set positions */
+
+.footprints[first-fox]{
+  transform: translate(400px, 0px) rotate(12deg);
+  $timing-offset: 0s;
+  $animation-duration: 5s;
+}
+
+.footprints:nth-child(2) { /*antelope*/
+  transform: translate(0px, 50px) rotate(10deg) scale(1.2);
+  $timing-offset: 2s;
+  $animation-duration: 15s;
+}
+
+.footprints:nth-child(3) {
+  transform: translate(440px, 60px) rotate(24deg);
+  $timing-offset: 2s;
+  $animation-duration: 15s;
+}
+
+.footprints:nth-child(4) {/* bird */
+  transform: translate(50px, 200px) rotate(-30deg) scale(1.2);
+  $timing-offset: 4s;
+  $animation-duration: 3s;
+}
+
+.footprints:nth-child(5) {
+  transform: translate(500px, 200px) rotate(20deg) scale(1);
+  $timing-offset: 4s;
+  $animation-duration: 3s;
+}
+
+.footprints:nth-child(6) {/*deer*/
+  transform: translate(450px, 200px) rotate(10deg) scale(1.2);
+  $timing-offset: 7s;
+  $animation-duration: 9s;
+}
+
+.footprints:nth-child(7) {
+  transform: translate(100px, 60px) rotate(40deg) scale(1);
+  $timing-offset: 5s;
+  $animation-duration: 9s;
+}
+.footprints:nth-child(8) {  /* dog */
+  transform: translate(700px, 60px) rotate(20deg) scale(1.1);
+  $timing-offset: 8s;
+  $animation-duration: 7s;
+}
+
+.footprints:nth-child(9) { /* horse */
+  transform: translate(200px, 60px) rotate(30deg) scale(2);
+  $timing-offset: 1s;
+  $animation-duration: 15s;
+}
+
+/* raccoon feet */
+.footprints[x-img="raccoon"] > .foot {
+  background-image: url("/static/svg/raccoon.svg");
+}
+.footprints[x-img="raccoonfoot"] > .foot {
+  background-image: url("/static/svg/raccoonfoot.svg");
+}
+.footprints[first-raccoon] {
+  transform: translate(600px, 80px) rotate(-20deg);
+  $timing-offset: 5s;
+  $animation-duration: 11s;
+}
+.footprints[first-raccoonfoot] {
+  transform: translate(600px, 200px) rotate(-20deg) scale(1.3);
+  $timing-offset: 5s;
+  $animation-duration: 11s;
+}
+
+.slider-column {
+  position: relative;
+  z-index: 10;
+}
