@@ -153,7 +153,7 @@
 }
 
 .footprints:nth-child(3) {/* bird */
-  transform: translate(600px, -150px) rotate(30deg) scale(0.7);
+  transform: translate(650px, -140px) rotate(30deg) scale(0.7);
   --timing-offset: 6s;
   --animation-duration: 5s;
 }
@@ -178,12 +178,12 @@
   background-image: url("/static/svg/raccoonfoot.svg");
 }
 .footprints[first-raccoon] {
-  transform: translate(550px, -100px) rotate(-20deg);
+  transform: translate(550px, -30px) rotate(-20deg);
   --timing-offset: 5s;
   --animation-duration: 11s;
 }
 .footprints[first-raccoonfoot] {
-  transform: translate(600px, 20px) rotate(-20deg) scale(1.3);
+  transform: translate(600px, 90px) rotate(-20deg) scale(1.3);
   --timing-offset: 5.5s;
   --animation-duration: 11s;
 }
