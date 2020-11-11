@@ -1,6 +1,7 @@
 .animation {
+  height: 400px;
   width: 65%;
-  height: 600px;
+  z-index: 0;
   --STEP-COUNT: 10;
 
   /* these variables are configurable! */
@@ -9,8 +10,8 @@
   --foot-spread: calc(var(--path-width) * 0.25);
   --animation-duration: 5s;
   --step-delay: 0.5s;
-  --footprint-width: 50px;
-  --footprint-height: 50px;
+  --footprint-width: 35px;
+  --footprint-height: 35px;
 }
 
 .footprints {
@@ -52,7 +53,7 @@
   animation: var(--animation-duration) walking infinite;
   animation-delay: calc(var(--timing-offset) + calc(var(--step-delay) * var(--foot-index)));
   animation-timing-function: ease-in;
-  animation-iteration-count: 4;
+  animation-iteration-count: 5;
 }
 
 .footprints>.foot:nth-child(1) {
@@ -140,7 +141,7 @@
 /* set positions */
 
 .footprints:nth-child(1){ /* fox */
-  transform: translate(400px, 200px) rotate(12deg);
+  transform: translate(400px, 0px) rotate(12deg);
   --timing-offset: 1s;
   --animation-duration: 7s;
 }
@@ -152,19 +153,19 @@
 }
 
 .footprints:nth-child(3) {/* bird */
-  transform: translate(700px, -200px) rotate(30deg) scale(0.7);
+  transform: translate(800px, -150px) rotate(30deg) scale(0.7);
   --timing-offset: 6s;
   --animation-duration: 5s;
 }
 
 .footprints:nth-child(4) {/*deer*/
-  transform: translate(350px, 0px) rotate(30deg) scale(1.3);
+  transform: translate(350px, 30px) rotate(30deg) scale(1.3);
   --timing-offset: 5s;
   --animation-duration: 9s;
 }
 
 .footprints:nth-child(5) { /* horse */
-  transform: translate(100px, -150px) rotate(0deg) scale(2.3);
+  transform: translate(20px, -150px) rotate(0deg) scale(2.3);
   --timing-offset: 18s;
   --animation-duration: 12s;
 }
@@ -177,12 +178,12 @@
   background-image: url("/static/svg/raccoonfoot.svg");
 }
 .footprints[first-raccoon] {
-  transform: translate(650px, 80px) rotate(-20deg);
+  transform: translate(650px, -100px) rotate(-20deg);
   --timing-offset: 5s;
   --animation-duration: 11s;
 }
 .footprints[first-raccoonfoot] {
-  transform: translate(700px, 200px) rotate(-20deg) scale(1.3);
-  --timing-offset: 5s;
+  transform: translate(700px, 20px) rotate(-20deg) scale(1.3);
+  --timing-offset: 5.5s;
   --animation-duration: 11s;
 }
