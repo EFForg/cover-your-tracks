@@ -350,16 +350,13 @@ def results_nojs():
     else:
         fingerprint_result = yes
 
-    if fingerprint_result == partial:
-        if ad_result == no:
-            ad_result = partial
-        if tracker_result == no:
-            tracker_result = partial
-        dnt_result = yes
-    elif fingerprint_result == yes:
-        ad_result = yes
-        tracker_result = yes
-        dnt_result = yes
+    if ad_result != no and tracker_result != no:
+        if fingerprint_result == partial:
+            dnt_result = yes
+        elif fingerprint_result == yes:
+            ad_result = yes
+            tracker_result = yes
+            dnt_result = yes
 
     retest_link = "https://" + \
         config.third_party_trackers['ad_server'] + "/clear-all-cookies-nojs"

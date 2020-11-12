@@ -302,24 +302,20 @@
           $('#acceptable_ads_tr').show();
         }
 
-        if($('#fp_status').html() == fp_status_str['partial']){
-          if(results['ad'] == 'no'){
-            results['ad'] = 'partial';
+        if(results['ad'] != 'no' && results['tracker'] != 'no'){
+          if($('#fp_status').html() == fp_status_str['partial']){
+            if(results['acceptable_ads'] == 'no'){
+              results['acceptable_ads'] = 'partial';
+            }
+            results['dnt'] = 'yes';
+            $('#dnt_tr').hide();
+          } else if($('#fp_status').html() == fp_status_str['yes']) {
+            results['ad'] = 'yes';
+            results['tracker'] = 'yes';
+            results['acceptable_ads'] = 'yes';
+            results['dnt'] = 'yes';
+            $('#dnt_tr').hide();
           }
-          if(results['tracker'] == 'no'){
-            results['tracker'] = 'partial';
-          }
-          if(results['acceptable_ads'] == 'no'){
-            results['acceptable_ads'] = 'partial';
-          }
-          results['dnt'] = 'yes';
-          $('#dnt_tr').hide();
-        } else if($('#fp_status').html() == fp_status_str['yes']) {
-          results['ad'] = 'yes';
-          results['tracker'] = 'yes';
-          results['acceptable_ads'] = 'yes';
-          results['dnt'] = 'yes';
-          $('#dnt_tr').hide();
         }
 
         display_results();
