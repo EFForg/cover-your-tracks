@@ -109,6 +109,9 @@ p {
   margin-bottom: 1.25rem;
   margin-top: 0.5rem; }
 
+p.center {
+  text-align: center; }
+
 hr {
   border-top: 1px solid #D3473D;
   margin-top: 2rem; }
@@ -265,14 +268,20 @@ input[type=range]:focus::-ms-fill-upper {
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.2s;
+  max-width: 300px;
   width: 60%; }
+  .button-style:hover, .button-style.active {
+    background: #1E3A29;
+    border: 2px solid #1E3A29;
+    color: #F5EFEB;
+    text-decoration: none; }
 
-.button-style:hover,
-.button-style.active {
-  background: #1E3A29;
-  border: 2px solid #1E3A29;
-  color: #F5EFEB;
-  text-decoration: none; }
+.button-style.green {
+  background: #305D42;
+  color: #F5EFEB; }
+  .button-style.green:hover, .button-style.green:active {
+    background: beige;
+    color: #1E3A29; }
 
 .tooltip-inner {
   background-color: #2E243F;

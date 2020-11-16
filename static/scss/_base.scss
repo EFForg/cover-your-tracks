@@ -15,12 +15,12 @@ $mobile: 768px;
 
 /* fonts */
 @font-face {
-font-family: 'WorkSans';
-font-style: normal;
-font-weight: 300;
-src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-Light.ttf') format('truetype');
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-Light.ttf') format('truetype');
 }
-  @font-face {
+@font-face {
   font-family: 'WorkSans';
   font-style: normal;
   font-weight: 400;
@@ -28,24 +28,24 @@ src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-Li
 }
 
 @font-face {
-font-family: 'WorkSans';
-font-style: normal;
-font-weight: 600;
-src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-SemiBold.ttf') format('truetype');
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
-font-family: 'WorkSans';
-font-style: normal;
-font-weight: 800;
-src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-Bold.ttf') format('truetype');
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-Bold.ttf') format('truetype');
 }
 
 @font-face {
-font-family: 'WorkSans';
-font-style: normal;
-font-weight: 900;
-src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-ExtraBold.ttf') format('truetype');
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-weight: 900;
+  src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-ExtraBold.ttf') format('truetype');
 }
 
 @supports (font-variation-settings: 'wdth' 115) {
@@ -291,16 +291,27 @@ input[type=range]:focus::-ms-fill-upper {
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.2s;
+  max-width: 300px;
   width: 60%;
-}
-.button-style:hover,
-.button-style.active {
-  background: $green-dark;
-  border: 2px solid $green-dark;
-  color: $beige;
-  text-decoration: none;
+
+  &:hover,
+  &.active {
+    background: $green-dark;
+    border: 2px solid $green-dark;
+    color: $beige;
+    text-decoration: none;
+  }
 }
 
+.button-style.green {
+  background: $green;
+  color: $beige;
+  &:hover,
+  &:active {
+    background: beige;
+    color: $green-dark;
+  }
+}
 .tooltip-inner {
   background-color: $plum;
   color: white;

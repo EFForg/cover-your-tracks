@@ -45,7 +45,8 @@
         </tbody>
       </table>
 
-     <a id='showFingerprintLink2' href='#fingerprintTable'>Still wondering how fingerprinting works? Click here for more info! </a>
+    <p class="center">Still wondering how fingerprinting works?</p>
+     <a class="button-style green" href='/learn'>Learn more</a>
      <div class="mobile-aside">
        {% include '_results_aside.html' %}
      </div>
@@ -81,8 +82,8 @@
 
     var fpi_whorls = JSON.parse(decodeURIComponent('{{ fpi_whorls }}'));
     window.onload = function(){
-      document.getElementById('fingerprintTable').style.display = "none";
-      document.getElementById('buttons').style.display = "none";
+      //document.getElementById('fingerprintTable').style.display = "none";
+    //  document.getElementById('buttons').style.display = "none";
 
       var a_loads = Math.min({{ a_loads }}, 3);
       var t_loads = Math.min({{ t_loads }}, 3);
@@ -95,13 +96,7 @@
 
       (function fingerprint_table_ux(){
         var showFingerprintLink1 = document.getElementById('showFingerprintLink1');
-        var showFingerprintLink2 = document.getElementById('showFingerprintLink2');
         var fingerprintTable = document.getElementById('fingerprintTable')
-
-        showFingerprintLink1.onclick = showFingerprintLink2.onclick = function(){
-          showFingerprintLink2.style.display = 'none';
-          fingerprintTable.style.display = 'block';
-        };
       })();
 
       (function load_iframes(){
