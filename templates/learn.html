@@ -44,7 +44,7 @@
           <div class="definitions">
             <div class="left">
               <h3>Every time you visit a website, your browser sends little bits of information about itself.</h3>
-                            <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
+              <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
             </div>
             <div class="right">
               <p>Every time you visit a website, your browser sends little bits of information about itself–and subsequently, about you. In the simplest model, a single third-party ad network serves ads on a number of websites, all of which must include a small snippet of embedded, invisible code that’s loaded when you visit the page. When that occurs–say you’re checking the news without a tracker blocker installed–the ad network gets a request from your computer, and suddenly has access to a concerning amount of highly individualized information. Some of it is passed along by default (for example, HTTP headers are essential to most web functionality, and broadcast your device and browser version), but much of it is extracted by third parties–ad networks, in most cases– that have embedded tracking mechanisms<sup><a href="#intro-foot">*</a></sup> across vast swaths of the internet.</p>
@@ -113,38 +113,38 @@
                   <p>Some newer browsers were built from the ground up to thwart fingerprinting, such as Brave and Tor Browser. Functionality varies from browser to browser, but they generally work by:
                     <ul>
                       <li>Making your fingerprint <strong>less unique</strong>, or</li>
-                      <li>Making your fingerprint <strong>less consistent</strong><li>
-                      </ul>
-                    </p>
-                    <p>This means trackers have a harder time following your usage of the web.
-                    </p>
-                  </div>
+                      <li>Making your fingerprint <strong>less consistent</strong></li>
+                    </ul>
+                  </p>
+                  <p>This means trackers have a harder time following your usage of the web.
+                  </p>
                 </div>
-                <div class="definitions">
-                  <div class="left">
-                    <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
-                  </div>
-                  <div class="right">
-                    <h3>Can I do anything about this?! </h3>
-                    <p>This is the part where we say “it depends”: you can’t completely block trackers, even with full protective measures. There are two main reasons for this:
-                      <ol>
-                        <li><strong>Usability:</strong> It’s an unfortunate fact that enhanced privacy often comes at the expense of functionality. For instance, if you stop your browser from loading Javascript, you stop the majority of tracking scripts, but you also likely can no longer shop, fill out forms, watch videos, or see any interactive web elements (to name a few things in a very long list of things that break without JavaScript).
+              </div>
+              <div class="definitions">
+                <div class="left">
+                  <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
+                </div>
+                <div class="right">
+                  <h3>Can I do anything about this?! </h3>
+                  <p>This is the part where we say “it depends”: you can’t completely block trackers, even with full protective measures. There are two main reasons for this:
+                    <ol>
+                      <li><strong>Usability:</strong> It’s an unfortunate fact that enhanced privacy often comes at the expense of functionality. For instance, if you stop your browser from loading Javascript, you stop the majority of tracking scripts, but you also likely can no longer shop, fill out forms, watch videos, or see any interactive web elements (to name a few things in a very long list of things that break without JavaScript).
+                        <br><br>
+                        In order to actually use the web, you may need to temporarily relax some or all of your protections–and as soon as you do, trackers notice. Your fingerprint doesn’t disappear just because its signal is usually blocked; sites and trackers just wait patiently for the bits of data that slip through whenever disabling your protection is necessary.</li>
+                        <br><br>
+                        <li><strong>Identifiable Protections:</strong> in one of the more paradoxical aspects of tracking, your protections themselves can become part of your fingerprint. So, even if you manage to block every tracking script on a page and hide your actual activity, the tracker still recognizes certain data that’s unavoidably transmitted, and links your behavioral profile to the “mystery user with a very specific combination of privacy protections installed.”
                           <br><br>
-                          In order to actually use the web, you may need to temporarily relax some or all of your protections–and as soon as you do, trackers notice. Your fingerprint doesn’t disappear just because its signal is usually blocked; sites and trackers just wait patiently for the bits of data that slip through whenever disabling your protection is necessary.</li>
-                          <br><br>
-                          <li><strong>Identifiable Protections:</strong> in one of the more paradoxical aspects of tracking, your protections themselves can become part of your fingerprint. So, even if you manage to block every tracking script on a page and hide your actual activity, the tracker still recognizes certain data that’s unavoidably transmitted, and links your behavioral profile to the “mystery user with a very specific combination of privacy protections installed.”
-                            <br><br>
-                            While we definitely encourage you to be aware of this contradictory and shady aspect of tracking, we still recommend using tracking protection the majority of the time.
-                          </li>
-                        </ol></p>
-                      </div>
+                          While we definitely encourage you to be aware of this contradictory and shady aspect of tracking, we still recommend using tracking protection the majority of the time.
+                        </li>
+                      </ol></p>
                     </div>
-
                   </div>
 
-                  <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['ad_server'] }}/clear-cookies?random={{ cb }}'></iframe>
-                  <iframe id="t" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['tracker_server'] }}/clear-cookies?random={{ cb }}'></iframe>
-                  <iframe id="dnt" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['dnt_server'] }}/clear-cookies?random={{ cb }}'></iframe>
-                  {% endblock %}
+                </div>
 
-                  {% block java %}{% endblock %}
+                <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['ad_server'] }}/clear-cookies?random={{ cb }}'></iframe>
+                <iframe id="t" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['tracker_server'] }}/clear-cookies?random={{ cb }}'></iframe>
+                <iframe id="dnt" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['dnt_server'] }}/clear-cookies?random={{ cb }}'></iframe>
+                {% endblock %}
+
+                {% block java %}{% endblock %}
