@@ -1,0 +1,4 @@
+<h5>What is this?</h5>
+<p>This metric tests to see if you have an ad blocker installed, and is either ‘True’ or ‘False,’ and may differ depending on how you block ads. </p>
+<h5>How is this used in your fingerprint?</h5>
+<p>This can add a fair amount of information about your browser fingerprint, especially if the language  is uncommon for your timezone.  Even when other fingerprinting metrics are protected by the browser or addons, spoofing the language settings can impede usability significantly. </p>

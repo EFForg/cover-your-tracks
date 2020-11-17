@@ -1,6 +1,6 @@
 <h5>What is this?</h5>
 <p>The number of touch points on your device.
 </p>
-<h5>What kind of information is gathered?</h5>
+<h5>How is this used in your fingerprint?</h5>
 <p>If you are using a mobile device, this may be very identifying.  This depends on the hardware particularities of your device.
 </p>

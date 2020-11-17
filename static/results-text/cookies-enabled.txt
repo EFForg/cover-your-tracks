@@ -1,6 +1,9 @@
 <h5>What is this?</h5>
-<p>Whether cookies are enabled can be determined with or without the use of JavaScript.</p>
-<h5>What kind of information is gathered?</h5>
+<p>Cookies are small chunks of information that websites store in your browser. They are primarily used to automatically remember things like your account login info, or what items were in your online shopping cart–in other words, they save your place. However, they can also be used to link all of your visits, searches, and other activities on a site together.</p>
+
+<p>As a metric, “cookies enabled”  is either ‘True’ or ‘False’, and means your browser allows cookies, rather than blocking them. Whether cookies are enabled can be determined with or without the use of JavaScript.
+</p>
+<h5>How is this used in your fingerprint?</h5>
 <p>
-Whether cookies are enabled or not provides a single bit of information: either ‘true’ or ‘false.’  However, it can be far more identifying when combined with other details if, for instance, you are the only one using your browser who also has cookies disabled.
+Whether cookies are enabled or not provides a single bit of information: either ‘true’ or ‘false.’  However, this feature can be far  more identifying when combined with other details.
 </p>

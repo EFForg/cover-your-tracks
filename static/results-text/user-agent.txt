@@ -1,6 +1,13 @@
 <h5>What is this?</h5>
-<p>The User-Agent string is a web header(TOOLTIP?) which identifies the browser and version to the web server.  Traditionally, this has allowed web developers to better tailor content and design to a specific user experience.</p>
-<h5>What kind of information is gathered?</h5>
+<p>A web header which relays information to the web server about:
+<ul>
+<li>
+your browser</li>
+<li>
+its version </li>
+</ul>
+</p>
+<h5>How is this used in your fingerprint?</h5>
 <p>
-This information can be very specific, and <em>if customized</em> can single-handedly identify a specific user’s browser.
+This information can be very specific, and if customized can single-handedly identify a specific user’s browser.
 </p>

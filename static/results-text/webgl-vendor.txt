@@ -1,6 +1,6 @@
 <h5>What is this?</h5>
 <p>The WebGL Vendor and renderer is directly queryable using JavaScript.
 </p>
-<h5>What kind of information is gathered?</h5>
+<h5>How is this used in your fingerprint?</h5>
 <p>Provides some level of granularity, depending on how unique your video card is.
 </p>

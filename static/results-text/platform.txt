@@ -1,6 +1,6 @@
 <h5>What is this?</h5>
 <p>Your operating system and CPU architecture, directly queryable using JavaScript.
 </p>
-<h5>What kind of information is gathered?</h5>
+<h5>How is this used in your fingerprint?</h5>
 <p>This can either be very unique or very commonplace, depending on your particular machine.
 </p>

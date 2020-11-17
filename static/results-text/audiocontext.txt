@@ -1,6 +1,6 @@
 <h5>What is this?</h5>
 <p>Similar to Canvas Fingerprint and WebGL fingerprint in the way that it is gathered.  Rather than rendering graphics, an audio sample is generated, and that audio sample is then serialized and measured to provide this fingerprint.
 </p>
-<h5>What kind of information is gathered?</h5>
+<h5>How is this used in your fingerprint?</h5>
 <p>Like Canvas Fingerprinting, this can be unique depending on your audio card and drivers, and usually will not change over time. In modern handheld devices and laptops, graphics cards and audio cards will vary depending on the model, but not between devices of the same model. For desktop machines, especially ones with customized hardware, the audio card will provide new information useful for fingerprinting.
 </p>

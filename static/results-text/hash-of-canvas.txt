@@ -1,6 +1,12 @@
 <h5>What is this?</h5>
-<p>A complex set of shapes, colors, and UTF characters is rendered to a canvas element using JavaScript.  This canvas is then serialized and hashed to provide the canvas fingerprint metric.
+<p>
+This metric is the unique identification assigned to your browser after a tracking site  performs a specific test on the HTML5 &lt;canvas&gt; element in your browser.</p>
+<p>
+ <a href='https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API'>Canvas fingerprinting.</a> is invisible to the user: a tracker can create a “canvas” in your browser, and generate a complicated collage of shapes, colors and text using JavaScript. Then, with the resulting collage, the tracker extracts data about exactly how each pixel on the canvas is rendered. The operating system, browser version, graphics card, firmware version, graphics driver version, and fonts installed on your computer all affect the final result.
+
 </p>
-<h5>What kind of information is gathered?</h5>
-<p>This is a complex and highly reliable fingerprinting metric.  Little changes in video card hardware, OS-level video drivers, and fonts installed will result in slightly different images being rendered to the canvas.  Although different from one computer to the next, these settings are consistent enough on a single machine to provide a good—and highly identifying—fingerprinting metric.
+<h5>How is this used in your fingerprint?</h5>
+<p>This is a complex and highly reliable fingerprinting metric. Canvas fingerprinting uses JavaScript, where a tracker renders a complex sequence of shapes, colors, and UTF characters to the HTML5 &lt;canvas&gt; element in your browser. This canvas is then serialized and hashed to provide the canvas fingerprint metric.
+</p>
+<p>Small changes in video card hardware, operating system-level video drivers, and fonts installed will result in slightly different images being rendered to the canvas.  Although different from one computer to the next, these settings are consistent enough on a single machine to clearly identify a user.
 </p>

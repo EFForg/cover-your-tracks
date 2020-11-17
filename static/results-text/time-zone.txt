@@ -1,6 +1,6 @@
 <h5>What is this?</h5>
-<p>A string which indicates your time zone, like ‘America/Los_Angeles’.</p>
-<h5>What kind of information is gathered?</h5>
+<p>This metric is a  string which indicates your time zone, like ‘America/Los_Angeles’.</p>
+<h5>How is this used in your fingerprint?</h5>
 <p>
-This offers some degree of granular insight into your browser, especially if you live in a time zone without many users.
+This metric can be used to figure out your general location, especially if you live in a time zone without many other users.
 </p>
