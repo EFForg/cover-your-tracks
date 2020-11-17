@@ -69,6 +69,9 @@ a {
   a img {
     border: 0; }
 
+sup a {
+  border: none; }
+
 h1 {
   color: #305D42;
   font-size: 48px;
@@ -627,8 +630,6 @@ iframe {
       padding: 1px 6px; }
   #results-wrapper .ui-tooltip-content {
     text-align: left; }
-  #results-wrapper #acceptable_ads_tr {
-    display: none; }
 
 .back-to {
   display: block; }
