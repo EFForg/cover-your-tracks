@@ -57,6 +57,15 @@
       padding: 0 0 1rem;
       .site-title {
         width: 70%;
+        a.cyt-logo {
+          background-image: url("/static/images/cyt-logo-green.svg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          border: none;
+          display: block;
+          height: 300px;
+          width: 300px;
+        }
       }
     }
   }

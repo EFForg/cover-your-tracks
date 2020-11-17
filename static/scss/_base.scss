@@ -5,7 +5,7 @@ $green-dark: #1E3A29;
 $beige: #F5EFEB;
 $red:  #D3473D;
 $yellow: #DECA54;
-$yellow-dark: #F6AD0F;
+$gold: #F6AD0F;
 $plum: #2E243F;// text
 $blue-light: #86BCD1;
 
@@ -126,6 +126,10 @@ h5 {
 p {
   margin-bottom: 1.25rem;
   margin-top: 0.5rem;
+}
+
+p.center {
+  text-align: center;
 }
 
 hr {
@@ -329,7 +333,7 @@ input[type=range]:focus::-ms-fill-upper {
   padding: 32px 0 0;
 }
 
-.ii{
+.ii {
   font-weight: bold;
   color: #a00;
   font-size: 80%;

@@ -351,6 +351,14 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 0 0 1rem; }
     .header .banner .title-area .site-title {
       width: 70%; }
+      .header .banner .title-area .site-title a.cyt-logo {
+        background-image: url("/static/images/cyt-logo-green.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: none;
+        display: block;
+        height: 300px;
+        width: 300px; }
 
 /* nav */
 .header nav {
@@ -401,8 +409,10 @@ iframe {
     color: #F5EFEB; }
   #front .header .banner .title-area {
     border-bottom: none; }
+    #front .header .banner .title-area .site-title a.cyt-logo {
+      background-image: url("/static/images/cyt-logo-gold.svg"); }
   #front .header .banner .tagline {
-    color: #DECA54; }
+    color: #F6AD0F; }
   #front .header nav a {
     color: #F5EFEB; }
     #front .header nav a:hover {
@@ -486,7 +496,7 @@ iframe {
   background: #305D42;
   color: #F5EFEB; }
   #testing .tagline {
-    color: #DECA54; }
+    color: #F6AD0F; }
   #testing h1 {
     color: #F5EFEB; }
   #testing h2.tagline {
@@ -494,7 +504,7 @@ iframe {
     margin: 6px 0 0;
     text-transform: none; }
   #testing h2 {
-    color: #DECA54;
+    color: #F6AD0F;
     font-size: 48px;
     text-transform: uppercase; }
   #testing .header nav a {
@@ -655,7 +665,7 @@ footer {
 
 #front footer .links a,
 #testing footer .links a {
-  color: #DECA54; }
+  color: #F6AD0F; }
 
 @media screen and (max-width: 768px) {
   /* mobile styles */
@@ -679,7 +689,7 @@ footer {
           margin-left: 10px;
           padding: 0;
           top: 12px;
-          width: 100%; }
+          width: auto; }
         .header .banner .bar img.logo {
           height: 16px;
           left: 10px;
@@ -693,6 +703,8 @@ footer {
         .header .banner .title-area .site-title {
           margin-left: 0;
           width: 100%; }
+          .header .banner .title-area .site-title a.cyt-logo {
+            margin: 0 auto; }
       .header .banner .tagline {
         font-size: 22px; }
       .header .banner nav {

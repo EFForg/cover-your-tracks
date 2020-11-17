@@ -20,7 +20,7 @@
           margin-left: 10px;
           padding: 0;
           top: 12px;
-          width: 100%;
+          width: auto;
         }
         img.logo {
           height: 16px;
@@ -37,6 +37,9 @@
         .site-title {
           margin-left: 0;
           width: 100%;
+          a.cyt-logo {
+            margin: 0 auto;
+          }
         }
       }
       .tagline {

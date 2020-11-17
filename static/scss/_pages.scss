@@ -34,9 +34,14 @@ iframe {
   .header .banner {
     .title-area {
       border-bottom: none;
+      .site-title {
+        a.cyt-logo {
+          background-image: url("/static/images/cyt-logo-gold.svg");
+        }
+      }
     }
     .tagline {
-      color: $yellow;
+      color: $gold;
     }
   }
 
@@ -157,7 +162,7 @@ iframe {
   background: $green;
   color: $beige;
   .tagline {
-    color: $yellow;
+    color: $gold;
   }
   h1 {
     color: $beige;
@@ -168,7 +173,7 @@ iframe {
     text-transform: none;
   }
   h2 {
-    color: $yellow;
+    color: $gold;
     font-size: 48px;
     text-transform: uppercase;
   }
