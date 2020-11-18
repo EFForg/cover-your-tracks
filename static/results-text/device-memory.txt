@@ -1,5 +1,5 @@
 <h5>What is this?</h5>
-<p>The amount of memory on your current machine, rounded to the nearest GB.
+<p>This metric notes the amount of memory on your current machine, rounded to the nearest gigabyte.
 </p>
 <h5>How is this used in your fingerprint?</h5>
 <p>Like hardware concurrency, this is useful when combined with other metrics, but is not identifying on its own.
