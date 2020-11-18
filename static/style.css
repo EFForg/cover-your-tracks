@@ -630,6 +630,8 @@ iframe {
       padding: 1px 6px; }
   #results-wrapper .ui-tooltip-content {
     text-align: left; }
+  #results-wrapper #acceptable_ads_tr {
+    display: none; }
 
 .back-to {
   display: block; }
