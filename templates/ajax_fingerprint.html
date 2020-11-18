@@ -1,25 +1,3 @@
-<p>Here’s some more  granular information we gathered about your browser. Your report includes examples of several different kinds of metrics: </p>
-
-<h5>Header metrics</h5>
-<p>Whenever you connect to a website (in our case, “<strong>https://coveryourtracks.eff.org</strong>”), your device sends a request that includes several HTTP headers. These headers contain information like your device’s language and security settings, cookies, and the referring URL (the link that you clicked on prior to arriving on the site). Header metrics are transmitted by your browser by default.</p>
-<h5>Browser metrics</h5>
-<p>Unique attributes or modifications that you’ve made to your browser. </p>
-<h5>Fingerprinting metrics</h5>
-<p>The end product of a tracker running a fingerprinting script and comparing how your device renders graphics in comparison to other users’ devices. </p>
-<h5>Hardware metrics</h5>
-<p>The permanent hardware specs of your device.</p>
-
-<p>Keep in mind: Each browser metric is highly connected to other metrics in complex ways. </p>
-
-<p>This is why we don’t recommend:
-  <ul>
-    <li>trying to change a single element of your fingerprint, </li>
-    <li>striving to get  the most common result for any individual metric.</li>
-  </ul>
-
-  <p>Let’s look at an example of how these metrics are interconnected:</p>
-
-  <p>No matter what browser you’re using, you could pretend to be using a more common browser on the web: You could modify the user-agent string to be seen as Chrome. You may think this would increase your anonymity and hide your individualized fingerprint among the millions of other Chrome users–but you will actually become more identifiable. How could choosing a more common metric make one stick out more? Because when considered in combination with other metrics, your browser will be the only one that has a user-agent of Chrome on Windows with a hardware and software profile, fonts, screen size and color depth, and platform string indicative of an iOS device.</p>
   <h3>Your Results</h3>
   <div class='entropy' style='text-align:center border:1px'>
     {% if randomized_results >= 4: %}
@@ -36,6 +14,29 @@
     <p>The measurements we used to obtain this result are listed below. You can <a href="about">read more about our methodology, statistical results, and some defenses against fingerprinting here</a>.</p>
   </div>
   <div id="results">
+    <h3>Detailed Results</h3>
+    <p>Here’s some more  granular information we gathered about your browser. Your report includes examples of several different kinds of metrics: </p>
+
+    <h5>Header metrics</h5>
+    <p>Whenever you connect to a website (in our case, “<strong>https://coveryourtracks.eff.org</strong>”), your device sends a request that includes several HTTP headers. These headers contain information like your device’s language and security settings, cookies, and the referring URL (the link that you clicked on prior to arriving on the site). Header metrics are transmitted by your browser by default.</p>
+    <h5>Browser metrics</h5>
+    <p>Unique attributes or modifications that you’ve made to your browser. </p>
+    <h5>Fingerprinting metrics</h5>
+    <p>The end product of a tracker running a fingerprinting script and comparing how your device renders graphics in comparison to other users’ devices. </p>
+    <h5>Hardware metrics</h5>
+    <p>The permanent hardware specs of your device.</p>
+
+    <p>Keep in mind: Each browser metric is highly connected to other metrics in complex ways. </p>
+
+    <p>This is why we don’t recommend:
+      <ul>
+        <li>trying to change a single element of your fingerprint, </li>
+        <li>striving to get  the most common result for any individual metric.</li>
+      </ul>
+
+      <p>Let’s look at an example of how these metrics are interconnected:</p>
+
+      <p>No matter what browser you’re using, you could pretend to be using a more common browser on the web: You could modify the user-agent string to be seen as Chrome. You may think this would increase your anonymity and hide your individualized fingerprint among the millions of other Chrome users–but you will actually become more identifiable. How could choosing a more common metric make one stick out more? Because when considered in combination with other metrics, your browser will be the only one that has a user-agent of Chrome on Windows with a hardware and software profile, fonts, screen size and color depth, and platform string indicative of an iOS device.</p>
     <ul class="toc">
       <h5>Select a characteristic</h5>
       {% for key, label in labels.items(): %}
