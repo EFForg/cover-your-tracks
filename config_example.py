@@ -7,9 +7,9 @@ sentry_dsn = None  # change if you're using sentry exception handler
 
 # database settings
 db_host = 'localhost'
-db_username = 'panopticlick'
+db_username = 'coveryourtracks'
 db_password = 'changeme'
-db_database = 'panopticlick'
+db_database = 'coveryourtracks'
 db_port = 3306
 
 # file for key material to use with hmac'ing ip addresses. 16 bytes
@@ -25,7 +25,7 @@ matomo_site_id = '1111111'
 
 # the domains for first-party trackers. order matters, only 3
 first_party_trackers = [
-    'panopticlick.eff.org',
+    'coveryourtracks.eff.org',
     'firstpartysimulator.net',
     'firstpartysimulator.org'
 ]
