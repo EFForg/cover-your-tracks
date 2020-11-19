@@ -34,9 +34,14 @@ iframe {
   .header .banner {
     .title-area {
       border-bottom: none;
+      .site-title {
+        a.cyt-logo {
+          background-image: url("/static/images/cyt-logo-gold.svg");
+        }
+      }
     }
     .tagline {
-      color: $yellow;
+      color: $gold;
     }
   }
 
@@ -156,26 +161,28 @@ iframe {
 #testing {
   background: $green;
   color: $beige;
-  .tagline {
-    color: $yellow;
-  }
-  h1 {
-    color: $beige;
-  }
   h2.tagline {
-    font-size: 27px;
+    color: $gold;
+    font-size: 1.2rem;
     margin: 6px 0 0;
     text-transform: none;
   }
   h2 {
-    color: $yellow;
+    color: $gold;
     font-size: 48px;
     text-transform: uppercase;
   }
-  .header nav a {
-    color: $beige;
-    &:hover {
-      border-bottom: 1px solid $beige;
+  .header {
+    .site-title {
+      a.cyt-logo {
+        background-image: url("/static/images/cyt-logo-gold.svg");
+      }
+    }
+    nav a {
+      color: $beige;
+      &:hover {
+        border-bottom: 1px solid $beige;
+      }
     }
   }
   .testing {

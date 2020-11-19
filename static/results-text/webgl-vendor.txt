@@ -1,6 +1,6 @@
 <h5>What is this?</h5>
-<p>The WebGL Vendor and renderer is directly queryable using JavaScript.
+<p>WebGL is a library that allows browsers to render 3D graphics. As with other graphics-based tracking methods, trackers look for any tiny differences between how your device displays 3D on the web compared to other users.
 </p>
-<h5>What kind of information is gathered?</h5>
-<p>Provides some level of granularity, depending on how unique your video card is.
+<h5>How is this used in your fingerprint?</h5>
+<p>This metric provides some level of granularity, depending on how unique your video card is. The WebGL Vendor and renderer is directly searchable using JavaScript, so trackers can access it without issue.
 </p>

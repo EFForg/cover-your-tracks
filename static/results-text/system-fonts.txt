@@ -1,7 +1,7 @@
 <h5>What is this?</h5>
-<p>The tracking site displays some text in an HTML span tag.  It then rapidly changes the style for that tag, rendering it in hundreds or thousands of known fonts.  For each of these, it determines whether the width of the span has changed from the default width when rendered in that particular font.  If it has, the tracker knows that font is installed.
+<p>To determine your system fonts, tracking sites commonly display some text in an <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span'>HTML &lt;span&gt; tag</a>.  Trackers then rapidly change the style for that span, rendering it in hundreds or thousands of known fonts. For each of these fonts, the site determines whether the width of the span has changed from the default width when rendered in that particular font. If it has, the tracker knows that font is installed.
 </p>
-<h5>What kind of information is gathered?</h5>
+<h5>How is this used in your fingerprint?</h5>
 <p>
-The list of fonts you have installed on your machine is usually fairly consistent over time.  Some browsers, like the Tor Browser, will not use OS-level fonts and only use a standard set of fonts pre-packaged with the browser. This makes it standard across all Tor Browser instances, and thus not usable as a fingerprinting metric for your particular browser. On the other hand, if you install just one font which is unusual for your particular browser, this can be a highly identifying metric.
+The list of fonts you have installed on your machine is generally consistent and linked to a particular operating system. If you install just one font which is unusual for your particular browser, this can be a highly identifying metric. 
 </p>

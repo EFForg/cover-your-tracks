@@ -1,39 +1,62 @@
-<h3>Your Results</h3>
-<div class='entropy' style='text-align:center border:1px'>
-  {% if randomized_results >= 4: %}
+  <h3>Your Results</h3>
+  <div class='entropy' style='text-align:center border:1px'>
+    {% if randomized_results >= 4: %}
     <p>Your browser fingerprint <strong>has been randomized</strong> among the {{ total_formatted }} tested in the past 45 days. Although sophisticated adversaries may still able to track you to some extent, randomization provides a very strong protection against tracking companies trying to fingerprint your browser.</p>
-  {% elif matching == 1: %}
+    {% elif matching == 1: %}
     <p>Your browser fingerprint <strong>appears to be unique</strong> among the {{ total_formatted }} tested in the past 45 days.</p>
-  {% else %}
+    {% else %}
     <p>Within our dataset of {{ sample_string }} visitors tested in the past 45 days, {% if group > 100 %}only {% endif %}<strong>one in {{ group }} browsers have the same fingerprint as yours.</strong></p>
-  {% endif %}
-  <p>Currently, we estimate that your browser has a fingerprint that conveys <strong>{% if matching == 1 %}at least {% endif %}{{ bits }} bits of identifying information.</strong></p>
-  {% if total < 10000 %}
+    {% endif %}
+    <p>Currently, we estimate that your browser has a fingerprint that conveys <strong>{% if matching == 1 %}at least {% endif %}{{ bits }} bits of identifying information.</strong></p>
+    {% if total < 10000 %}
     <p>Because our dataset is still quite small, you might want to check back later for a more accurate measurement of your browser's uniqueness.</p>
-  {% endif %}
-  <p>The measurements we used to obtain this result are listed below. You can <a href="about">read more about our methodology, statistical results, and some defenses against fingerprinting here</a>.</p>
-</div>
-<div id="results">
-  <ul class="toc">
-    <h5>Select a characteristic</h5>
-    {% for key, label in labels.items(): %}
-    <li><a href="#{{ label }}">{{ label }}</a></li>
-    {% endfor %}
-  </ul>
-  <div class="selectmenu">
-  <label for="characteristic">Select a characteristic</label>
+    {% endif %}
+    <p>The measurements we used to obtain this result are listed below. You can <a href="about">read more about our methodology, statistical results, and some defenses against fingerprinting here</a>.</p>
+  </div>
+  <div id="results">
+    <h3>Detailed Results</h3>
+    <p>Here’s some more  granular information we gathered about your browser. Your report includes examples of several different kinds of metrics: </p>
+
+    <h5>Header metrics</h5>
+    <p>Whenever you connect to a website (in our case, “<strong>https://coveryourtracks.eff.org</strong>”), your device sends a request that includes several HTTP headers. These headers contain information like your device’s language and security settings, cookies, and the referring URL (the link that you clicked on prior to arriving on the site). Header metrics are transmitted by your browser by default.</p>
+    <h5>Browser metrics</h5>
+    <p>Unique attributes or modifications that you’ve made to your browser. </p>
+    <h5>Fingerprinting metrics</h5>
+    <p>The end product of a tracker running a fingerprinting script and comparing how your device renders graphics in comparison to other users’ devices. </p>
+    <h5>Hardware metrics</h5>
+    <p>The permanent hardware specs of your device.</p>
+
+    <p>Keep in mind: Each browser metric is highly connected to other metrics in complex ways. </p>
+
+    <p>This is why we don’t recommend:
+      <ul>
+        <li>trying to change a single element of your fingerprint, </li>
+        <li>striving to get  the most common result for any individual metric.</li>
+      </ul>
+
+      <p>Let’s look at an example of how these metrics are interconnected:</p>
+
+      <p>No matter what browser you’re using, you could pretend to be using a more common browser on the web: You could modify the user-agent string to be seen as Chrome. You may think this would increase your anonymity and hide your individualized fingerprint among the millions of other Chrome users–but you will actually become more identifiable. How could choosing a more common metric make one stick out more? Because when considered in combination with other metrics, your browser will be the only one that has a user-agent of Chrome on Windows with a hardware and software profile, fonts, screen size and color depth, and platform string indicative of an iOS device.</p>
+    <ul class="toc">
+      <h5>Select a characteristic</h5>
+      {% for key, label in labels.items(): %}
+      <li><a href="#{{ label }}">{{ label }}</a></li>
+      {% endfor %}
+    </ul>
+    <div class="selectmenu">
+      <label for="characteristic">Select a characteristic</label>
       <select id="characteristic">
         {% for key, label in labels.items(): %}
         <option value="#{{ label }}">{{ label }}</option>
         {% endfor %}
       </select>
-  </div>
-  <div class="results-buttons">
-    <span id="default-button" class="button-style">default view</span>
-    <span id="detailed-button" class="button-style">detailed view</span>
-  </div>
+    </div>
+    <div class="results-buttons">
+      <span id="default-button" class="button-style">default view</span>
+      <span id="detailed-button" class="button-style">detailed view</span>
+    </div>
 
-  {% for key, label in labels.items(): %}
+    {% for key, label in labels.items(): %}
     <div class="results-table">
       <h4 id="{{ label }}" name="{{ label }}">{{ label }}</h4>
       <div class="default">{{ whorls[key] }}</div>
@@ -42,16 +65,16 @@
       <div class="text detailed">
       </div>
       <div class="detailed">
-          Bits of identifying information: <em>{{ uniqueness[key]['bits'] }}</em>
+        Bits of identifying information: <em>{{ uniqueness[key]['bits'] }}</em>
       </div>
       <div class="detailed">
-          {% if uniqueness[key]['one_in_x'] == -1 %}
-            One in <i><font face=times new roman,times,serif>x</font></i> browsers have this value: <span class='ii'>N/A</span>
-          {% else %}
-            One in <i><font face=times new roman,times,serif>x</font></i> browsers have this value:<em>{{ uniqueness[key]['one_in_x'] }}</em>
-          {% endif %}
+        {% if uniqueness[key]['one_in_x'] == -1 %}
+        One in <i><font face=times new roman,times,serif>x</font></i> browsers have this value: <span class='ii'>N/A</span>
+        {% else %}
+        One in <i><font face=times new roman,times,serif>x</font></i> browsers have this value:<em>{{ uniqueness[key]['one_in_x'] }}</em>
+        {% endif %}
       </div>
     </div>
     <hr/>
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>

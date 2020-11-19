@@ -1,6 +1,6 @@
 <h5>What is this?</h5>
-<p>The dimensions and color depth of your current browser viewport.
+<p>The dimensions of your current browser window, and its color depth (determined by your monitor).
 </p>
-<h5>What kind of information is gathered?</h5>
-<p>This can supplement other information when it is not enough to identify your browser, but it is often too ‘brittle’ of a metric to be usable by trackers.  For instance, a user may change their browser dimensions often.
+<h5>How is this used in your fingerprint?</h5>
+<p>While this metric can supplement other information, it’s often too ‘brittle’ to be usable by trackers because users can easily change their browser window dimensions.
 </p>

@@ -16,36 +16,38 @@
     {% include '_results_aside.html' %}
     </aside>
     <div class="main-section">
+      <p>Trackers use a variety of methods to identify and track users.  Most often, this includes tracking cookies, but it can also include browser fingerprinting, which is a sneakier way to track users and makes it harder for users to regain control of their browsers.</p>
       <h3 class="indicate">
         Our tests indicate that you have
       <span id='summary_sentence'></span></h3>
-
+      <h5>Is your browser:</h5>
       <table class='tracker_results' id='results'>
         <tbody>
           <tr>
-            <td class='test_label'>Does your browser protect you from tracking ads?</td>
+            <td class='test_label'>Blocking tracking ads?</td>
             <td id='ad_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
           <tr>
-            <td class='test_label'>Does your browser protect you from invisible trackers?</td>
+            <td class='test_label'>Blocking invisible trackers?</td>
             <td id='tracker_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
           <tr id='acceptable_ads_tr'>
-            <td class='test_label'>Does your blocker stop trackers that are included in the so-called <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>“acceptable ads”</a> whitelist?</td>
+            <td class='test_label'><a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>Acceptable ads?</a></td>
             <td id='acceptable_ads_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
           <tr id='dnt_tr'>
-            <td class='test_label'>Does your browser unblock 3rd parties that promise to honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
+            <td class='test_label'>Unblocking 3rd parties that honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
             <td id='dnt_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
           <tr>
-            <td class='test_label'>Does your browser protect from <a id='showFingerprintLink1' href='#fingerprintTable'>fingerprinting</a>?</td>
+            <td class='test_label'>Protecting you from <a id='showFingerprintLink1' href='#fingerprintTable'>fingerprinting</a>?</td>
             <td id='fp_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
         </tbody>
       </table>
 
-     <a id='showFingerprintLink2' href='#fingerprintTable'>Still wondering how fingerprinting works? Click here for more info! </a>
+    <p class="center">Still wondering how fingerprinting works?</p>
+     <a class="button-style green" href='/learn'>Learn more</a>
      <div class="mobile-aside">
        {% include '_results_aside.html' %}
      </div>
@@ -81,8 +83,8 @@
 
     var fpi_whorls = JSON.parse(decodeURIComponent('{{ fpi_whorls }}'));
     window.onload = function(){
-      document.getElementById('fingerprintTable').style.display = "none";
-      document.getElementById('buttons').style.display = "none";
+      //document.getElementById('fingerprintTable').style.display = "none";
+    //  document.getElementById('buttons').style.display = "none";
 
       var a_loads = Math.min({{ a_loads }}, 3);
       var t_loads = Math.min({{ t_loads }}, 3);
@@ -95,13 +97,7 @@
 
       (function fingerprint_table_ux(){
         var showFingerprintLink1 = document.getElementById('showFingerprintLink1');
-        var showFingerprintLink2 = document.getElementById('showFingerprintLink2');
         var fingerprintTable = document.getElementById('fingerprintTable')
-
-        showFingerprintLink1.onclick = showFingerprintLink2.onclick = function(){
-          showFingerprintLink2.style.display = 'none';
-          fingerprintTable.style.display = 'block';
-        };
       })();
 
       (function load_iframes(){

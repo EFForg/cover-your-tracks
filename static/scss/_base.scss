@@ -5,7 +5,7 @@ $green-dark: #1E3A29;
 $beige: #F5EFEB;
 $red:  #D3473D;
 $yellow: #DECA54;
-$yellow-dark: #F6AD0F;
+$gold: #F6AD0F;
 $plum: #2E243F;// text
 $blue-light: #86BCD1;
 
@@ -15,12 +15,12 @@ $mobile: 768px;
 
 /* fonts */
 @font-face {
-font-family: 'WorkSans';
-font-style: normal;
-font-weight: 300;
-src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-Light.ttf') format('truetype');
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-Light.ttf') format('truetype');
 }
-  @font-face {
+@font-face {
   font-family: 'WorkSans';
   font-style: normal;
   font-weight: 400;
@@ -28,24 +28,24 @@ src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-Li
 }
 
 @font-face {
-font-family: 'WorkSans';
-font-style: normal;
-font-weight: 600;
-src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-SemiBold.ttf') format('truetype');
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
-font-family: 'WorkSans';
-font-style: normal;
-font-weight: 800;
-src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-Bold.ttf') format('truetype');
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-Bold.ttf') format('truetype');
 }
 
 @font-face {
-font-family: 'WorkSans';
-font-style: normal;
-font-weight: 900;
-src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-ExtraBold.ttf') format('truetype');
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-weight: 900;
+  src: local('WorkSans'), local('WorkSans'), url('/static/fonts/static/WorkSans-ExtraBold.ttf') format('truetype');
 }
 
 @supports (font-variation-settings: 'wdth' 115) {
@@ -81,6 +81,10 @@ a {
   img {
     border: 0;
   }
+}
+
+sup a { // footnotes, endnotes
+  border: none;
 }
 
 h1 {
@@ -126,6 +130,10 @@ h5 {
 p {
   margin-bottom: 1.25rem;
   margin-top: 0.5rem;
+}
+
+p.center {
+  text-align: center;
 }
 
 hr {
@@ -291,16 +299,27 @@ input[type=range]:focus::-ms-fill-upper {
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.2s;
+  max-width: 300px;
   width: 60%;
-}
-.button-style:hover,
-.button-style.active {
-  background: $green-dark;
-  border: 2px solid $green-dark;
-  color: $beige;
-  text-decoration: none;
+
+  &:hover,
+  &.active {
+    background: $green-dark;
+    border: 2px solid $green-dark;
+    color: $beige;
+    text-decoration: none;
+  }
 }
 
+.button-style.green {
+  background: $green;
+  color: $beige;
+  &:hover,
+  &:active {
+    background: beige;
+    color: $green-dark;
+  }
+}
 .tooltip-inner {
   background-color: $plum;
   color: white;
@@ -318,7 +337,7 @@ input[type=range]:focus::-ms-fill-upper {
   padding: 32px 0 0;
 }
 
-.ii{
+.ii {
   font-weight: bold;
   color: #a00;
   font-size: 80%;

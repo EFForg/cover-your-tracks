@@ -69,6 +69,9 @@ a {
   a img {
     border: 0; }
 
+sup a {
+  border: none; }
+
 h1 {
   color: #305D42;
   font-size: 48px;
@@ -108,6 +111,9 @@ h5 {
 p {
   margin-bottom: 1.25rem;
   margin-top: 0.5rem; }
+
+p.center {
+  text-align: center; }
 
 hr {
   border-top: 1px solid #D3473D;
@@ -265,14 +271,20 @@ input[type=range]:focus::-ms-fill-upper {
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.2s;
+  max-width: 300px;
   width: 60%; }
+  .button-style:hover, .button-style.active {
+    background: #1E3A29;
+    border: 2px solid #1E3A29;
+    color: #F5EFEB;
+    text-decoration: none; }
 
-.button-style:hover,
-.button-style.active {
-  background: #1E3A29;
-  border: 2px solid #1E3A29;
-  color: #F5EFEB;
-  text-decoration: none; }
+.button-style.green {
+  background: #305D42;
+  color: #F5EFEB; }
+  .button-style.green:hover, .button-style.green:active {
+    background: beige;
+    color: #1E3A29; }
 
 .tooltip-inner {
   background-color: #2E243F;
@@ -328,10 +340,10 @@ input[type=range]:focus::-ms-fill-upper {
         .header .banner .bar .attribution a:hover {
           border-bottom: 1px solid white; }
   .header .banner h2.tagline {
-    color: #2E243F;
-    font-size: 27px;
-    font-weight: bold;
-    margin: 6px 0 0;
+    color: #1E3A29;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
     text-transform: none; }
   .header .banner .title-area {
     align-items: flex-end;
@@ -342,6 +354,15 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 0 0 1rem; }
     .header .banner .title-area .site-title {
       width: 70%; }
+      .header .banner .title-area .site-title a.cyt-logo {
+        background-image: url("/static/images/cyt-logo-green.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: none;
+        display: block;
+        height: 250px;
+        margin: 1rem 0;
+        width: 250px; }
 
 /* nav */
 .header nav {
@@ -392,8 +413,10 @@ iframe {
     color: #F5EFEB; }
   #front .header .banner .title-area {
     border-bottom: none; }
+    #front .header .banner .title-area .site-title a.cyt-logo {
+      background-image: url("/static/images/cyt-logo-gold.svg"); }
   #front .header .banner .tagline {
-    color: #DECA54; }
+    color: #F6AD0F; }
   #front .header nav a {
     color: #F5EFEB; }
     #front .header nav a:hover {
@@ -476,18 +499,17 @@ iframe {
 #testing {
   background: #305D42;
   color: #F5EFEB; }
-  #testing .tagline {
-    color: #DECA54; }
-  #testing h1 {
-    color: #F5EFEB; }
   #testing h2.tagline {
-    font-size: 27px;
+    color: #F6AD0F;
+    font-size: 1.2rem;
     margin: 6px 0 0;
     text-transform: none; }
   #testing h2 {
-    color: #DECA54;
+    color: #F6AD0F;
     font-size: 48px;
     text-transform: uppercase; }
+  #testing .header .site-title a.cyt-logo {
+    background-image: url("/static/images/cyt-logo-gold.svg"); }
   #testing .header nav a {
     color: #F5EFEB; }
     #testing .header nav a:hover {
@@ -646,7 +668,7 @@ footer {
 
 #front footer .links a,
 #testing footer .links a {
-  color: #DECA54; }
+  color: #F6AD0F; }
 
 @media screen and (max-width: 768px) {
   /* mobile styles */
@@ -670,7 +692,7 @@ footer {
           margin-left: 10px;
           padding: 0;
           top: 12px;
-          width: 100%; }
+          width: auto; }
         .header .banner .bar img.logo {
           height: 16px;
           left: 10px;
@@ -684,8 +706,11 @@ footer {
         .header .banner .title-area .site-title {
           margin-left: 0;
           width: 100%; }
+          .header .banner .title-area .site-title a.cyt-logo {
+            margin: 1rem auto; }
       .header .banner .tagline {
-        font-size: 22px; }
+        font-size: 22px;
+        margin: 0 0 2rem; }
       .header .banner nav {
         padding: 0;
         width: 100%; }

@@ -1,6 +1,7 @@
 <h5>What is this?</h5>
-<p>Your operating system and CPU architecture, directly queryable using JavaScript.
+<p>This metric includes your operating system and CPU (central processing unit) architecture and is directly searchable by trackers using JavaScript.
 </p>
-<h5>What kind of information is gathered?</h5>
-<p>This can either be very unique or very commonplace, depending on your particular machine.
+<h5>How is this used in your fingerprint?</h5>
+<p>
+This can either be very unique or very commonplace, depending on your particular machine.
 </p>

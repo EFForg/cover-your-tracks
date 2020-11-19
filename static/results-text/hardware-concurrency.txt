@@ -1,6 +1,6 @@
 <h5>What is this?</h5>
-<p>The number of CPU cores in your current machine.
+<p>This metric notes the number of CPU cores in your current machine.
 </p>
-<h5>What kind of information is gathered?</h5>
+<h5>How is this used in your fingerprint?</h5>
 <p>This can provide some additional information when combined with other fingerprinting metrics, but is not identifying on its own.
 </p>

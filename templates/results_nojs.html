@@ -19,37 +19,39 @@
     </p>
   </aside>
   <div class="main-section">
+    <p>Trackers use a variety of methods to identify and track users.  Most often, this includes tracking cookies, but it can also include browser fingerprinting, which is a sneakier way to track users and makes it harder for users to regain control of their browsers. </p>
     <h3 class="indicate">
       Our tests indicate that you have
       <span id='summary_sentence'> {{ summary_sentence|safe }}</span></h3>
 
-
+      <h5>Is your browser:</h5>
       <table class='tracker_results' id='results'>
         <tbody>
           <tr>
-            <td class='test_label'>Does your browser protect you from tracking ads?</td>
+            <td class='test_label'>Blocking tracking ads?</td>
             <td id='ad_status'>{{ ad_result|safe }}</td>
           </tr>
           <tr>
-            <td class='test_label'>Does your browser protect you from invisible trackers?</td>
+            <td class='test_label'>Blocking invisible trackers?</td>
             <td id='tracker_status'>{{ tracker_result|safe }}</td>
           </tr>
           <tr id='acceptable_ads_tr'>
-            <td class='test_label'>Does your blocker stop trackers that are included in the so-called <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>“acceptable ads”</a> whitelist?</td>
+            <td class='test_label'> <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>Acceptable ads</a> ?</td>
           </tr>
           {% if fingerprint_result == no %}
             <tr>
-              <td class='test_label'>Does your browser unblock 3rd parties that promise to honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
+              <td class='test_label'>Unblocking 3rd parties that honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
               <td id='dnt_status'>{{ dnt_result|safe }}</td>
             </tr>
           {% endif %}
           <tr>
-            <td class='test_label'>Does your browser protect from <a id='showFingerprintLink1' href='#fingerprintTable'>fingerprinting</a>?</td>
+            <td class='test_label'>Protecting you from fingerprinting?</td>
             <td id='fp_status'>{{ fingerprint_result|safe }}</td>
           </tr>
         </tbody>
       </table>
-      <a id='showFingerprintLink2' href='#fingerprintTable'>Still wondering how fingerprinting works? Click here for more info! </a>
+      <p class="center">Still wondering how fingerprinting works?</p>
+       <a class="button-style green" href='/learn'>Learn more</a>
       <p class="tracker_results">Note: because tracking techniques are complex, subtle, and constantly evolving, Cover Your Tracks does not measure all forms of tracking and protection.</p>
       <div id='fingerprintTable'>{{ fingerprint_content|safe }}</div>
       <div id="buttons">

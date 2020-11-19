@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block head %}
-  <script src="static/front.js" type="text/javascript"></script>
+<script src="static/front.js" type="text/javascript"></script>
 {% endblock %}
 {% block header %}
 <body>
@@ -13,90 +13,138 @@
           <div class="attribution">
             <img class="logo" src="/static/images/eff-logo-red.svg" alt="EFF logo">
             <span>A Project of the <a href="https://www.eff.org/">Electronic Frontier Foundation</a>
-            <span>
+              <span>
+              </div>
+            </div>
+          </div>
+          <div class="wrapper">
+            <div class="title-area">
+              <div class="site-title">
+                <a class="cyt-logo" href="/">
+                </a>
+                <h2 class="tagline">
+                  See how trackers view your browser
+                </h2>
+              </div>
+              <nav>
+                <ul>
+                  <li class="test-nav"><a href="/kcarter-nojs" class="button-style" id="kcarterlink" >Test Your Browser</a></li>
+                  <li><a href="/learn">Learn</a></li>
+                  <li><a href="/about">About</a></li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
       </div>
-      <div class="wrapper">
-      <div class="title-area">
-        <div class="site-title">
-          <a href="/">
-            <h1>Cover Your <br/><span>Tracks</span></h1>
-          </a>
-          <h2 class="tagline">
-            See how trackers view your browser
-          </h2>
-        </div>
-        <nav>
-          <ul>
-            <li class="test-nav"><a href="/kcarter-nojs" class="button-style" id="kcarterlink" >Test Your Browser</a></li>
-            <li><a href="/learn">Learn</a></li>
-            <li><a href="/about">About</a></li>
-          </ul>
-        </nav>
-    </div>
-  </div>
-</div>
-</div>
-{% endblock %}
-{% block body %}
-<body id="learn">
-  <div class="main-section">
-    <div class="definitions">
-      <div class="left">
-        <h3>Every time you visit a website, your browser leaves behind little bits of information about itself.</h3>
-      </div>
-      <div class="right">
-        <p>Some of this information is passed along by default (for example, user agent strings and HTTP headers are essential to most web functionality), but much of it is extracted by third party trackers.</p>
+      {% endblock %}
+      {% block body %}
+      <body id="learn">
+        <div class="main-section">
+          <div class="definitions">
+            <div class="left">
+              <h3>Every time you visit a website, your browser sends little bits of information about itself.</h3>
+              <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
+            </div>
+            <div class="right">
+              <p>Every time you visit a website, your browser sends little bits of information about itself–and subsequently, about you. In the simplest model, a single third-party ad network serves ads on a number of websites, all of which must include a small snippet of embedded, invisible code that’s loaded when you visit the page. When that occurs–say you’re checking the news without a tracker blocker installed–the ad network gets a request from your computer, and suddenly has access to a concerning amount of highly individualized information. Some of it is passed along by default (for example, HTTP headers are essential to most web functionality, and broadcast your device and browser version), but much of it is extracted by third parties–ad networks, in most cases– that have embedded tracking mechanisms<sup><a href="#intro-foot">*</a></sup> across vast swaths of the internet.</p>
+              <p>Because trackers are so common, they cast a wide net, and at first glance the data points they collect seem relatively mundane and disparate. But when compiled together, they form an exceptionally revealing behavioral profile that acts as a live record of your online activity, and can reveal anything from political affiliation to education level to income bracket. As long as this trove of data about you is linked back to you, your online activity will be logged. Ad networks primarily rely on two methods to maintain this link: cookie tracking, or browser fingerprinting. </p>
+              <p id="intro-foot"><sup>*</sup><small>scripts, tracking pixels, or ads containing the former. </small></p>
+              <h4>What are cookies? </h4>
+              <p>Cookies are small chunks of information that websites store in your browser. They are primarily used to automatically remember things like your account login info, or what items were in your online shopping cart–in other words, they save your place. However, they can also be used to link all of your visits, searches, and other activities on a site together. Many people feel this is an invasion of their privacy, and browsers generally allow you to block, limit or delete cookies.
+              </p>
+              <h4>What is a digital fingerprint?</h4>
+              <p>A digital fingerprint is essentially a list of characteristics that are unique to a single user, their browser, and their specific  hardware setup. This includes information the browser transmits inherently, like in an HTTP request, as well as a host of seemingly insignificant data (like screen resolution and installed fonts) gathered by tracking scripts. Tracking sites can stitch all the small pieces together to form a unique picture, or "fingerprint," of the user's device.</p>
+              <h4>What is the difference?</h4>
+              <p>Think of the small tracking devices scientists use to follow animal migration patterns, or a GPS transmitter attached to a car. As long as they’re attached to the target animal or vehicle, they are accurate and effective–but they lose all value if they’re knocked off or discarded. This is roughly how cookies behave: they track users up until the point a user deletes them. Fingerprinting follows a similar mode of operation, but uses more permanent identifiers such as hardware specifications and browser settings. This is equivalent to tracking a bird by its song or feather markings, or a car by its license plate, make, model, and color—in other words, metrics that are not so easily changed.</p>
+            </div>
+          </div>
+          <div class="definitions">
+            <div class="left">
+              <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
+            </div>
+            <div class="right">
+              <h3>Simple suggestions</h3>
+              <p>When you test your browser with Cover Your Tracks, it returns:
+                <ul>
+                  <li>a summary of your overall protection</li>
+                  <li> list of characteristics that make up your digital fingerprint </li>
+                </ul>
 
-        <p>Trackers follow your trail across the internet via the slow, steady, relentless accumulation of relatively mundane data points. In the simplest model, a single third-party ad network serves ads on a number of websites, all of which must include a small snippet of embedded, invisible code that’s scanning them all for activity. If one of these ads loads on your browser–say you’re checking the news without a tracker blocker installed–then the ad network gets a request from your computer, and then the fun begins. </p>
-        <p>The ad network is incentivized to remember you because then it can start to compile what it finds in your browser, and it will likely use one of two methods:
-        </p>
-        <h4>Cookie Tracking </h4>
-        <p>(most common, but temporary) logs and stores password information, the contents of virtual shopping carts and other stateful information</p>
-        <h4>Browser Fingerprinting </h4>
-        <p>(less common, but harder to counter) measures such granular attributes as the resolution of your screen, the specific version of software you have installed, and your time zone.</p>
-        <p>These humble parts seem disparate, but they can be combined into an exceptionally revealing whole: a sprawling behavioral profile that acts as a live record of your online activity and repository of highly personal information. This pile of data, that can reveal anything from political affiliation to education level to income bracket, is constantly updated as long as it’s linked to your browser/device; a stream of activity that only stops if interrupted. </p>
-        <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
-      </div>
-    </div>
-    <div class="definitions">
-      <div class="left">
-        <h3>Cover Your Tracks returns a list of characteristics unique to your browser and device.</h3>
-      </div>
-      <div class="right">
-        <p>We provide this information so you can see how your browser appears to trackers, with the hope that you’re empowered to determine your own balance between privacy and convenience. Luckily, this is much easier than it sounds! </p>
+                <p>We provide this information so you can see how your browser appears to trackers, with the hope that you’re empowered to determine your own balance between privacy and convenience. Luckily, this is much easier than it sounds! Here are some of the easiest ways to obscure your fingerprint:
+                </p>
 
-        <h4>Using a Tracker Blocker</h4>
-        <p>Install a tracker blocker (also known as an ad or content blocker) and watch your browsing experience get a lot more pleasant. Most tracker blockers cross reference massive lists of tracking scripts, and block any attempts at loading a match. When you block trackers, you prevent tracking companies from reading your browser fingerprint, though it may still be visible to advanced adversaries <strong>[such as?]</strong>.</p>
+                <h4>Using a Tracker Blocker</h4>
+                <p>Install a tracker blocker (also known as an ad or content blocker) and watch your browsing experience get a lot more pleasant.</p>
 
-        <h4>Activating your browser’s built-in privacy protections</h4>
-        <p>Tracking is so pervasive that all of the major browsers (Chrome, Firefox, and Safari) come with settings that disable certain tracking scripts. Turning them on or off is as simple as going into the settings menu and clicking a button, and while these protections aren’t as robust as a designated ad blocker, they are reliably effective. However, be aware that changing browser settings from their defaults will result in a more unique (and thus more trackable) browser. For more info about your specific browser, check out this article <strong>[Blacklight link]</strong> </p>
 
-        <h4>Disabling Javascript</h4>
-        <p>When you turn JavaScript off, trackers aren’t able to determine much of the information which is used to determine your browser fingerprint. This means that your browser looks a lot less distinct, and more protected!</p>
+                <p>What most tracker blockers do:
+                  <ul>
+                    <li>Cross reference massive lists of tracking scripts</li>
+                    <li>Block any attempts at loading a match</li>
+                  </ul>
+                </p>
 
-        <h4>Using a fingerprint resistant browser</h4>
-        <p>Some browsers, like Tor Browser and Brave have fingerprinting protection built in. The way this is implemented varies from browser to browser, but generally these protections make your browser fingerprint either less unique or less consistent. This means trackers have a harder time following your web usage.</p>
-      </div>
-    </div>
-    <div class="definitions">
-      <div class="left">
-        <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
-      </div>
-      <div class="right">
-        <h3>So I’m good right? </h3>
-        <p>This is the part where we say “it depends.” Unfortunately, you can’t completely block trackers, even if you’re set on taking full measures. Most of the internet breaks without Javascript, including tons of forms. Sometimes, you may want to buy things online. Your fingerprint doesn’t disappear just because you’ve blocked it from regular updates; it just waits patiently for the morsels that slip through whenever disabling your protection is necessary.</p>
+                <p>When you block trackers, you prevent tracking companies from fully reading your browser fingerprint. However, it may still be visible to more advanced tracking techniques.
+                </p>
 
-        <p>Furthermore, in one of the more counterintuitive aspects of tracking, your protections themselves are part of your fingerprint. So even if you manage to block every tracking script, trackers can still manage to link your existing profile to “mystery user with this specific combination of privacy protections installed.” </p>
-      </div>
-    </div>
+                <h4>Disabling Javascript</h4>
+                <p>What turning off JavaScript does:
+                  <ul>
+                    <li>The positive: most trackers run on Javascript, and they can’t obtain much of the information used to determine your browser fingerprint without it. Thus,  your browser looks a lot less distinct, and more protected!</li>
+                    <li>The tradeoff: disabling Javascript breaks a staggering amount of websites, and limits the functionality of many more. </li>
+                  </ul>
+                </p>
 
-  </div>
+                <h4>Changing browser settings from defaults</h4>
+                <p>
+                  Tracking is so pervasive that all of the major browsers (Chrome, Firefox, and Safari) come with settings that disable certain tracking scripts. Turning them on or off is as simple as going into the settings menu and clicking a button. </p>
 
-<iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['ad_server'] }}/clear-cookies?random={{ cb }}'></iframe>
-<iframe id="t" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['tracker_server'] }}/clear-cookies?random={{ cb }}'></iframe>
-<iframe id="dnt" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['dnt_server'] }}/clear-cookies?random={{ cb }}'></iframe>
-{% endblock %}
+                  <p>What disabling tracking scripts in your browser settings does:
+                    <ul>
+                      <li>The positive: They are reliably effective</li>
+                      <li>The tradeoff: They’re not as robust as a designated ad blocker. </li>
+                    </ul>
+                  </p>
 
-{% block java %}{% endblock %}
+                  <p>For more info about what your specific browser protects against, check out this article from Blacklight.
+                  </p>
+                  <h4>Using a fingerprint resistant browser</h4>
+                  <p>Some newer browsers were built from the ground up to thwart fingerprinting, such as Brave and Tor Browser. Functionality varies from browser to browser, but they generally work by:
+                    <ul>
+                      <li>Making your fingerprint <strong>less unique</strong>, or</li>
+                      <li>Making your fingerprint <strong>less consistent</strong></li>
+                    </ul>
+                  </p>
+                  <p>This means trackers have a harder time following your usage of the web.
+                  </p>
+                </div>
+              </div>
+              <div class="definitions">
+                <div class="left">
+                  <img src="/static/images/spot-with-tracks.png" alt="image of animal tracks">
+                </div>
+                <div class="right">
+                  <h3>Can I do anything about this?! </h3>
+                  <p>This is the part where we say “it depends”: you can’t completely block trackers, even with full protective measures. There are two main reasons for this:
+                    <ol>
+                      <li><strong>Usability:</strong> It’s an unfortunate fact that enhanced privacy often comes at the expense of functionality. For instance, if you stop your browser from loading Javascript, you stop the majority of tracking scripts, but you also likely can no longer shop, fill out forms, watch videos, or see any interactive web elements (to name a few things in a very long list of things that break without JavaScript).
+                        <br><br>
+                        In order to actually use the web, you may need to temporarily relax some or all of your protections–and as soon as you do, trackers notice. Your fingerprint doesn’t disappear just because its signal is usually blocked; sites and trackers just wait patiently for the bits of data that slip through whenever disabling your protection is necessary.</li>
+                        <br><br>
+                        <li><strong>Identifiable Protections:</strong> in one of the more paradoxical aspects of tracking, your protections themselves can become part of your fingerprint. So, even if you manage to block every tracking script on a page and hide your actual activity, the tracker still recognizes certain data that’s unavoidably transmitted, and links your behavioral profile to the “mystery user with a very specific combination of privacy protections installed.”
+                          <br><br>
+                          While we definitely encourage you to be aware of this contradictory and shady aspect of tracking, we still recommend using tracking protection the majority of the time.
+                        </li>
+                      </ol></p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <iframe id="a" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['ad_server'] }}/clear-cookies?random={{ cb }}'></iframe>
+                <iframe id="t" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['tracker_server'] }}/clear-cookies?random={{ cb }}'></iframe>
+                <iframe id="dnt" style="position:absolute;right:0px;bottom:0px;height:1px;width:1px;" src='https://{{ third_party_trackers['dnt_server'] }}/clear-cookies?random={{ cb }}'></iframe>
+                {% endblock %}
+
+                {% block java %}{% endblock %}
