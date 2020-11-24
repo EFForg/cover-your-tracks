@@ -406,7 +406,7 @@ iframe {
   border: none; }
 
 /* individual pages */
-/* front/home page */
+/* front/home page/landing page */
 #front {
   background: #305D42; }
   #front h1 {
@@ -448,7 +448,16 @@ iframe {
     width: auto; }
     #front .content .main-section {
       margin: 1rem 0 1rem 1rem;
+      position: relative;
       width: 78%; }
+      #front .content .main-section button.button-style.stop {
+        background: #4D8061;
+        color: #2E243F;
+        font-size: 14px;
+        padding: 3px;
+        position: absolute;
+        right: 0;
+        width: 100px; }
   #front footer .footer-logo {
     background-image: url("/static/images/eff-logo-lockup.svg"); }
 

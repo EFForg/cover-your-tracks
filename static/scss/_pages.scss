@@ -23,7 +23,7 @@ iframe {
 }
 
 /* individual pages */
-/* front/home page */
+/* front/home page/landing page */
 #front {
   background: $green;
 
@@ -84,7 +84,17 @@ iframe {
     width: auto;
     .main-section {
       margin: 1rem 0 1rem 1rem;
+      position: relative;
       width: 78%;
+      button.button-style.stop {
+        background: $green-light;
+        color: $plum;
+        font-size: 14px;
+        padding: 3px;
+        position: absolute;
+        right: 0;
+        width: 100px;
+      }
     }
   }
   footer {
