@@ -34,7 +34,7 @@
           <div class="wrapper">
           <div class="title-area">
             <div class="site-title">
-                <a class="cyt-logo" href="/">              
+                <a class="cyt-logo" href="/">
                 </a>
               <h2 class="tagline">
                 See how trackers view your browser
@@ -89,11 +89,21 @@
     </div>
 
     {% if config.get('USE_MATOMO') %}
-      <noscript><img src="https://{{ config.get('MATOMO_URL') }}/js/?idsite={{ config.get('MATOMO_SITE_ID') }}&amp;rec=1&amp;action_name=Panopticlick{% if title %} | {{ title }}{% endif %}" style="border:0" height="0" width="0" alt="" /></noscript>
-      <div style="height: 0; width: 0; position: absolute" id="anon-stats"></div>
+      <!-- Matomo -->
       <script type="text/javascript">
-        document.getElementById('anon-stats').innerHTML = '<img src="https://{{ config.get('MATOMO_URL') }}/js/?idsite={{ config.get('MATOMO_SITE_ID') }}&amp;rec=1&amp;urlref=' + encodeURIComponent(document.referrer) + '&amp;action_name=' + encodeURIComponent(document.title) + '" style="border:0" height="0" width="0" alt="" />';
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="https://anon-stats.eff.org/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '40']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
       </script>
+      <!-- End Matomo Code -->
     {% endif %}
   </body>
 </html>
