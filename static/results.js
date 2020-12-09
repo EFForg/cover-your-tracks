@@ -106,6 +106,21 @@ $(document).ready(function(){
         var selfname = $(this);
         getText(filename, selfname);
       }
+      if ($(this).html().includes('Language')) {
+        var filename = '/static/results-text/language.txt';
+        var selfname = $(this);
+        getText(filename, selfname);
+      }
+      if ($(this).html().includes('Ad Blocker Used')) {
+        var filename = '/static/results-text/ad-blocker.txt';
+        var selfname = $(this);
+        getText(filename, selfname);
+      }
+      if ($(this).html().includes('CPU Class')) {
+        var filename = '/static/results-text/cpu-class.txt';
+        var selfname = $(this);
+        getText(filename, selfname);
+      }
     });
     $('#default-button').on( 'click', function(e) {
       $('#default-button').addClass('active');
