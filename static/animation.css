@@ -5,13 +5,13 @@
   --STEP-COUNT: 10;
 
   /* these variables are configurable! */
-  --path-height: 400px;
-  --path-width: 150px;
+  --path-height: 500px;
+  --path-width: 200px;
   --foot-spread: calc(var(--path-width) * 0.25);
   --animation-duration: 5s;
-  --step-delay: 0.5s;
-  --footprint-width: 35px;
-  --footprint-height: 35px;
+  --step-delay: 0.7s;
+  --footprint-width: 60px;
+  --footprint-height: 60px;
 }
 
 .footprints {
@@ -184,6 +184,6 @@
 }
 .footprints[first-raccoonfoot] {
   transform: translate(600px, 90px) rotate(-20deg) scale(1.3);
-  --timing-offset: 5.5s;
+  --timing-offset: 6.5s;
   --animation-duration: 11s;
 }
