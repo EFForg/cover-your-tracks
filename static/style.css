@@ -462,7 +462,7 @@ iframe {
         z-index: 10; }
     #front .content .static-tracks {
       display: none;
-      margin-top: 100px; }
+      position: absolute; }
       #front .content .static-tracks img {
         height: auto;
         width: 100%; }
