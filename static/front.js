@@ -23,6 +23,8 @@ $(document).ready(function(){
 
   $('.stop').on( 'click', function(e) {
     $('.footprints').css('--animation-duration', '0s');
+    $('.static-tracks').show();
+    $(this).hide();
   });
 
 });
