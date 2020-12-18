@@ -376,3 +376,30 @@ iframe {
     display: none;
   }
 }
+
+body#not-found-404 {
+  background-color: $green-dark;
+  height: 100%;
+  h1 {
+    color: $gold;
+    margin-top: 0;
+    text-transform: none;
+  }
+  p {
+    color: $beige;
+    text-align: center;
+    a {
+      color: $beige;
+      &:hover {
+        border-bottom-color: $beige;
+      }
+    }
+  }
+  img {
+    width: 50%;
+  }
+  div {
+    display: grid;
+    place-items: center;
+  }
+}

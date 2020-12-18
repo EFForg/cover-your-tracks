@@ -25,6 +25,10 @@ app.config.update(
     MATOMO_SITE_ID=config.matomo_site_id,
 )
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
+
 if config.sentry_dsn:
     sentry_sdk.init(
         config.sentry_dsn,
