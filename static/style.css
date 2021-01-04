@@ -378,6 +378,7 @@ input[type=range]:focus::-ms-fill-upper {
       display: inline-block;
       font-size: 1.2rem;
       padding: 0;
+      text-align: right;
       width: 45%; }
   .header nav a {
     color: #2E243F;
@@ -406,7 +407,7 @@ iframe {
   border: none; }
 
 /* individual pages */
-/* front/home page */
+/* front/home page/landing page */
 #front {
   background: #305D42; }
   #front h1 {
@@ -448,7 +449,23 @@ iframe {
     width: auto; }
     #front .content .main-section {
       margin: 1rem 0 1rem 1rem;
+      position: relative;
       width: 78%; }
+      #front .content .main-section button.button-style.stop {
+        background: #1E3A29;
+        color: #F5EFEB;
+        font-size: 14px;
+        padding: 3px;
+        position: absolute;
+        right: 0;
+        width: 100px;
+        z-index: 10; }
+    #front .content .static-tracks {
+      display: none;
+      position: absolute; }
+      #front .content .static-tracks img {
+        height: auto;
+        width: 100%; }
   #front footer .footer-logo {
     background-image: url("/static/images/eff-logo-lockup.svg"); }
 

@@ -21,4 +21,10 @@ $(document).ready(function(){
       title: "In order to test whether some tracking companies have been whitelisted (unblocked) by your blocking or privacy software, we need to have your browser try to connect to one of these companies. You can enable or disable this as you prefer."
   });
 
+  $('.stop').on( 'click', function(e) {
+    $('.footprints').css('--animation-duration', '0s');
+    $('.static-tracks').show();
+    $(this).hide();
+  });
+
 });
