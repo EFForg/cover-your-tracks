@@ -642,6 +642,26 @@ iframe {
 #results-wrapper.nojs .results-buttons {
   display: none; }
 
+body#not-found-404 {
+  background-color: #1E3A29;
+  height: 100%; }
+  body#not-found-404 h1 {
+    color: #F6AD0F;
+    margin-top: 0;
+    text-transform: none; }
+  body#not-found-404 p {
+    color: #F5EFEB;
+    text-align: center; }
+    body#not-found-404 p a {
+      color: #F5EFEB; }
+      body#not-found-404 p a:hover {
+        border-bottom-color: #F5EFEB; }
+  body#not-found-404 img {
+    width: 50%; }
+  body#not-found-404 div {
+    display: grid;
+    place-items: center; }
+
 /* footer */
 footer {
   display: block;
