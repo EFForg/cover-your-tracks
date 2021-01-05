@@ -18,7 +18,7 @@
     <p>Here’s some more  granular information we gathered about your browser. Your report includes examples of several different kinds of metrics: </p>
 
     <h5>Header metrics</h5>
-    <p>Whenever you connect to a website (in our case, “<strong>https://coveryourtracks.eff.org</strong>”), your device sends a request that includes several HTTP headers. These headers contain information like your device’s language and security settings, cookies, and the referring URL (the link that you clicked on prior to arriving on the site). Header metrics are transmitted by your browser by default.</p>
+    <p>Whenever you connect to a website (in our case, “<strong>https://{{ config.get('SITE_DOMAIN') }}</strong>”), your device sends a request that includes several HTTP headers. These headers contain information like your device’s language and security settings, cookies, and the referring URL (the link that you clicked on prior to arriving on the site). Header metrics are transmitted by your browser by default.</p>
     <h5>Browser metrics</h5>
     <p>Unique attributes or modifications that you’ve made to your browser. </p>
     <h5>Fingerprinting metrics</h5>

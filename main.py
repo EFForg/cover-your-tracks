@@ -23,6 +23,7 @@ app.config.update(
     USE_MATOMO=config.use_matomo,
     MATOMO_URL=config.matomo_url,
     MATOMO_SITE_ID=config.matomo_site_id,
+    SITE_DOMAIN=config.first_party_trackers[0],
 )
 
 @app.errorhandler(404)

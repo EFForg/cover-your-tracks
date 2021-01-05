@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="static/animation.css" type="text/css" />
     <link rel="shortcut icon" href='/static/favicon.ico'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta property="og:image" content="https://coveryourtracks.eff.org/static/images/cyt-banner.png"/>
-    <meta property="og:image:secure_url" content="https://coveryourtracks.eff.org/static/images/cyt-banner.png"/>
+    <meta property="og:image" content="https://{{ config.get('SITE_DOMAIN') }}/static/images/cyt-banner.png"/>
+    <meta property="og:image:secure_url" content="https://{{ config.get('SITE_DOMAIN') }}/static/images/cyt-banner.png"/>
     <meta property="og:description" content="See how trackers view your browser"/>
     <!-- Twitter: card tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Cover Your Tracks">
     <meta name="twitter:description" content="See how trackers view your browser">
-    <meta name="twitter:image"  content="https://coveryourtracks.eff.org/static/images/cyt-banner.png">
+    <meta name="twitter:image"  content="https://{{ config.get('SITE_DOMAIN') }}/static/images/cyt-banner.png">
     {% block meta %}
       <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     {% endblock %}
