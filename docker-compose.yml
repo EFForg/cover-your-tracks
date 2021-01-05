@@ -18,8 +18,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-root-password
       MYSQL_PASSWORD_FILE: /run/secrets/mysql-password
-      MYSQL_USER: "panopticlick"
-      MYSQL_DATABASE: "panopticlick"
+      MYSQL_USER: "coveryourtracks"
+      MYSQL_DATABASE: "coveryourtracks"
     volumes:
       - ./examples/sql:/docker-entrypoint-initdb.d
     secrets:
