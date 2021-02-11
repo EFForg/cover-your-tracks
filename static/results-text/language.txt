@@ -1,4 +1,4 @@
 <h5>What is this?</h5>
 <p>This metric notes  languages you prefer site content to be delivered in. </p>
 <h5>How is this used in your fingerprint?</h5>
-<p>This can add a fair amount of information about your browser fingerprint, especially if the language  is uncommon for your timezone.  Even when other fingerprinting metrics are protected by the browser or addons, spoofing the language settings can impede usability significantly. </p>
+<p>This can add a fair amount of information to your browser fingerprint. This is especially true if the language is uncommon for your timezone. While some other fingerprinting metrics can be protected by the browser or add-ons, this is not possible for language. Spoofing the language header would greatly impede usability. </p>

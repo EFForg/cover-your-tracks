@@ -1,4 +1,6 @@
 <h5>What is this?</h5>
-<p>Despite the name, “super cookies” are not technically cookies. While they also store and retrieve unique identifiers, they are much harder to detect and delete in comparison. </h5>
-<p>Super cookies can monitor what websites you visit and how long you spend on them. Super cookies can also access information collected by traditional tracking cookies–such as  login information, cached images and files– and reference it after the traditional cookie has been deleted.
+<p>Despite the name, “super cookies” are not <em>technically</em> cookies. While they also store and retrieve unique identifiers, they are much harder to detect and delete in comparison. </p>
+<p>Super cookies can monitor what websites you visit and how long you spend on them. Super cookies can also access data collected by traditional tracking cookies, like login information. After the traditional cookie has been deleted, the super cookie will still be able to reference it.
 </p>
+<h5>How is this used in your fingerprint?</h5>
+<p>The list of super cookies available to a tracker can be very revealing. Most browsers no longer support Flash animations, but if yours does this can be used as an extra fingerprinting metric.</p>

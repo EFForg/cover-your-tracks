@@ -1,4 +1,4 @@
 <h5>What is this?</h5>
-<p>A plugin is a small piece of software that helps a browser manage content it’s unable to process on its own. </p>
+<p>A plugin is a small piece of software that helps a browser manage content it is unable to process on its own. </p>
 <h5>How is this used in your fingerprint?</h5>
-<p>Browser plugins have been phased out over the past few years in favor of more regulated add-ons and extensions, but they persist in older browsers.</p>
+<p>Browser plugins have been phased out over the past few years. Instead, browsers favor more regulated add-ons and extensions. But plugins persist in older browsers.</p>
