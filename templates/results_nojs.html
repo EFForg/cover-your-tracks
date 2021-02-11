@@ -42,7 +42,12 @@
           <tr id='acceptable_ads_tr'>
             <td class='test_label'> <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>Acceptable ads</a> ?</td>
           </tr>
-
+          {% if fingerprint_result == no %}
+            <tr  style="display: none;">
+              <td class='test_label'>Unblocking 3rd parties that honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
+              <td id='dnt_status'>{{ dnt_result|safe }}</td>
+            </tr>
+          {% endif %}
         </tbody>
       </table>
       <p class="center">Still wondering how fingerprinting works?</p>
