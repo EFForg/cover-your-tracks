@@ -1,13 +1,7 @@
 <h5>What is this?</h5>
-<p>A web header which relays information to the web server about:
-<ul>
-<li>
-your browser</li>
-<li>
-its version </li>
-</ul>
+<p>A web header that relays information to the web server about your browser and its version.
 </p>
 <h5>How is this used in your fingerprint?</h5>
 <p>
-This information can be very specific, and if customized can single-handedly identify a specific user’s browser.
+This information can be very specific. <em>If customized</em> can single-handedly identify a specific user’s browser.
 </p>
