@@ -8,18 +8,18 @@
 <div id='results-wrapper' class="nojs">
   <aside>
     <h4>How to read your report</h4>
-    <p>
-      When we test your browser, you’ll see how well you are being protected from trackers and browser fingerprinting.  Most trackers can be blocked by browser addons or by browsers that have protection against trackers built in.  Some of the sneakiest trackers will still be able to perform browser fingerprinting.  That’s why it’s important to see both results.  We will also offer recommendations on what you can do to protect yourself.
+    <p>You will see a summary of your overall tracking protection. The first section gives you a general idea of what your browser configuration is blocking (or not blocking). Below that is a list of specific browser characteristics in the format that a tracker would view them. We also provide descriptions of how they are incorporated into your fingerprint.
     </p>
     <h4>How can trackers track you?</h4>
-    <p>Trackers use a variety of methods to track users.  Most often, this includes tracking cookies, but it can also include browser fingerprinting, which is a sneakier way to track users and makes it harder for users to regain control of their browsers.</p>
+    <p>Trackers use a variety of methods to identify and track users. Most often, this includes tracking cookies, but it can also include browser fingerprinting. Fingerprinting is a sneakier way to track users and makes it harder for users to regain control of their browsers. This report measures how easily trackers might be able to fingerprint your browser.</p>
     <h4>How can I use my results to be more anonymous?</h4>
-    <p>
-      Your results may indicate that you are easily identifiable, or that you aren’t currently blocking trackers.  We recommend you use a tracker blocker like <a href="https://www.eff.org/pb" target="_blank">Privacy Badger</a> or use a browser that has fingerprinting protection built in.
+    <p>Knowing how identifiable you are, or whether you are blocking trackers, can help you take steps to better protect your privacy. Browser add-ons or protection mechanisms built into the browser can help. Even so, the sneakiest trackers have ways around even the strongest security. We recommend you use a tracker blocker like <a href="https://privacybadger.org" target="_blank">Privacy Badger</a> , or a browser with built-in fingerprinting protection.
     </p>
+    <h4>What is a bit of information? </h4>
+    <p>A “bit” is a basic unit of information for computers. The bit represents a logical state with one of two possible values, often represented as "1" or "0", for example. In your results from Cover Your Tracks, some metrics may be listed as “1” or “0”, or “true” or “false”, indicating whether a setting is enabled or disabled. While each individual metric’s details may seem like a small amount of information, when combined with your browser’s other metrics, they can uniquely identify your browser. Your results are measured in “bits of identifying information,” which is a combined summary of all these metrics.   </p>
   </aside>
   <div class="main-section">
-    <!--p>Trackers use a variety of methods to identify and track users.  Most often, this includes tracking cookies, but it can also include browser fingerprinting, which is a sneakier way to track users and makes it harder for users to regain control of their browsers. </p-->
+    <p>Here are your Cover Your Tracks results. They include an overview of how visible you are to trackers, with an index (and glossary) of all the metrics we measure below. </p>
     <h3 class="indicate">
       Our tests indicate that you have
       <span id='summary_sentence'> {{ summary_sentence|safe }}</span></h3>
@@ -35,19 +35,14 @@
             <td class='test_label'>Blocking invisible trackers?</td>
             <td id='tracker_status'>{{ tracker_result|safe }}</td>
           </tr>
-          <tr id='acceptable_ads_tr'>
-            <td class='test_label'> <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>Acceptable ads</a> ?</td>
-          </tr>
-          {% if fingerprint_result == no %}
-            <tr>
-              <td class='test_label'>Unblocking 3rd parties that honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
-              <td id='dnt_status'>{{ dnt_result|safe }}</td>
-            </tr>
-          {% endif %}
           <tr>
             <td class='test_label'>Protecting you from fingerprinting?</td>
             <td id='fp_status'>{{ fingerprint_result|safe }}</td>
           </tr>
+          <tr id='acceptable_ads_tr'>
+            <td class='test_label'> <a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>Acceptable ads</a> ?</td>
+          </tr>
+
         </tbody>
       </table>
       <p class="center">Still wondering how fingerprinting works?</p>
