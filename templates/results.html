@@ -16,7 +16,7 @@
     {% include '_results_aside.html' %}
     </aside>
     <div class="main-section">
-      <!--p>Trackers use a variety of methods to identify and track users.  Most often, this includes tracking cookies, but it can also include browser fingerprinting, which is a sneakier way to track users and makes it harder for users to regain control of their browsers.</p-->
+      <p>Here are your Cover Your Tracks results. They include an overview of how visible you are to trackers, with an index (and glossary) of all the metrics we measure below. </p>
       <h3 class="indicate">
         Our tests indicate that
       <span id='summary_sentence'></span></h3>
@@ -31,17 +31,17 @@
             <td class='test_label'>Blocking invisible trackers?</td>
             <td id='tracker_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
+          <tr>
+            <td class='test_label'>Protecting you from <a id='showFingerprintLink1' href='#fingerprintTable'>fingerprinting</a>?</td>
+            <td id='fp_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
+          </tr>
           <tr id='acceptable_ads_tr'>
             <td class='test_label'><a href='https://www.eff.org/deeplinks/2017/11/panopticlick-30'>Acceptable ads?</a></td>
             <td id='acceptable_ads_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
-          <tr id='dnt_tr'>
+          <tr id='dnt_tr' style="display: none;">
             <td class='test_label'>Unblocking 3rd parties that honor <a href='https://www.eff.org/dnt-policy'>Do Not Track</a>?</td>
             <td id='dnt_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
-          </tr>
-          <tr>
-            <td class='test_label'>Protecting you from <a id='showFingerprintLink1' href='#fingerprintTable'>fingerprinting</a>?</td>
-            <td id='fp_status'><img src='/static/images/ajax-loader.gif' alt='loading...'></td>
           </tr>
         </tbody>
       </table>

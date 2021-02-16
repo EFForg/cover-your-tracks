@@ -2,5 +2,5 @@
 <p>This metric is just the manufacturer of your CPU. It is only rarely revealed by browsers.
 </p>
 <h5>How is this used in your fingerprint?</h5>
-<p>Especially on systems with custom hardware configurations, this metric can prove useful for identification.
+<p>This metric can prove useful for identification. This is especially true for systems with custom hardware.
 </p>

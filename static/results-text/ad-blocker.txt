@@ -1,4 +1,4 @@
 <h5>What is this?</h5>
-<p>This metric tests to see if you have an ad blocker installed, and is either ‘True’ or ‘False,’ and may differ depending on how you block ads. </p>
+<p>This metric tests to see if you have an ad blocker installed, and is either ‘True’ or ‘False,’ and may differ depending on <em>how</em> you block ads. </p>
 <h5>How is this used in your fingerprint?</h5>
 <p>This adds little information to your fingerprint, but can be minimally useful in making you identifiable.</p>

@@ -1,8 +1,5 @@
 <h5>What is this?</h5>
-<p>A web header that is used to let the server know:
-<ul>
-  <li>if you prefer not to be tracked. This is usually either not delivered at all, or set to ‘1’. A setting of “1” indicates that your browser would prefer not to be tracked, but right now, most sites ignore this request.</li>
-</ul>
+<p>A web header that is used to let the server know if you prefer not to be tracked. This is usually either not delivered at all, or set to ‘1’. A setting of ‘1’ indicates that your browser would prefer not to be tracked. Unfortunately, most sites ignore this request.
 </p>
 <h5>How is this used in your fingerprint?</h5>
 <p>Browsers which set the DNT header to ‘1’ are fairly rare, and this can be an identifying metric.  However, this should be left as the default for your browser.

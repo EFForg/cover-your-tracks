@@ -1,6 +1,6 @@
 <h5>What is this?</h5>
-<p>The 'hash of WebGL fingerprint' is very similar to the 'hash of canvas fingerprint' in its method of using your browser to generate graphics, extracting data from how each pixel is rendered, serializing the result and hashing it. However, it uses WebGL instead. WebGL is a JavaScript API for rendering interactive 2D and 3D graphics.
+<p>WebGL is a JavaScript API for rendering interactive 2D and 3D graphics. The method for generating a “hash of WebGL fingerprint” is very similar to generating a “hash of canvas fingerprint.” Its method is to use your browser to generate graphics, extracting data from how each pixel is rendered, serialize the result, and hash it.
 </p>
 <h5>How is this used in your fingerprint?</h5>
-<p>The WebGL and Canvas fingerprinting results are highly linked, as they both examine browser-rendered graphics for tiny differences between users. 
+<p>The WebGL and canvas fingerprinting results are closely linked. They both examine browser-rendered graphics for tiny differences between users.
 </p>
