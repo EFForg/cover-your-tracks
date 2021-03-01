@@ -1,11 +1,8 @@
 $(document).ready(function(){
   function sortUsingNestedText(parent, childSelector, keySelector) {
-    console.log('keySelector='+ keySelector);
     var items = parent.children(childSelector).sort(function(a, b) {
       var vA = $(keySelector, a).text();
-      console.log('va= '+vA);
       var vB = $(keySelector, b).text();
-      console.log('vb= '+vB);
       return (vA < vB) ? -1 : (vA > vB) ? 1 : 0;
     });
     parent.append(items);
@@ -153,6 +150,10 @@ $(document).ready(function(){
       }
     });
   sortUsingNestedText($('.detailed-results'), "div", "span");
+  $( "<h3>Browser Characteristics</h3>" ).insertBefore('[id^=Browser]');
+  $( "<h3>Fingerprint Metrics</h3>" ).insertBefore('[id^=System]');
+  $( "<h3>Hardware Specs</h3>" ).insertBefore('[id^=Platform]');
+  $( "<h3>Headers</h3>" ).insertBefore('[id^=User]');
   }, 2000);
 
 });
