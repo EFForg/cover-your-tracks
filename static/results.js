@@ -149,7 +149,9 @@ $(document).ready(function(){
         window.location.href = val;
       }
     });
+  // sort results by group
   sortUsingNestedText($('.detailed-results'), "div", "span");
+  // add grouped results titles
   $( "<h3>Browser Characteristics</h3>" ).insertBefore('[id^=Browser]');
   $( "<h3>Fingerprint Metrics</h3>" ).insertBefore('[id^=System]');
   $( "<h3>Hardware Specs</h3>" ).insertBefore('[id^=Platform]');

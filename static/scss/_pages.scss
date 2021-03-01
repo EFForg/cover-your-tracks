@@ -337,6 +337,10 @@ iframe {
   .text.detailed {
     font-weight: 400;
   }
+  .results-table h4 span { //group sorting variable
+    display: none;
+  }
+
   #buttons {
     a#kcarterlink.button-style {
       background: $yellow;
