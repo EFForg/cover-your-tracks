@@ -1,4 +1,16 @@
 $(document).ready(function(){
+  function sortUsingNestedText(parent, childSelector, keySelector) {
+    console.log('childSelector='+parent.children(childSelector).html());
+    console.log('keySelector='+ keySelector);
+    var items = parent.children(childSelector).sort(function(a, b) {
+      var vA = $(keySelector, a).attr('id');
+      console.log('va= '+vA);
+      var vB = $(keySelector, b).attr('id');
+      console.log('vb= '+vB);
+      return (vA < vB) ? -1 : (vA > vB) ? 1 : 0;
+    });
+    parent.append(items);
+  }
   setTimeout(function(){
     $('.results-table h4').each(function(i){
       function getText(file,self) {
@@ -12,6 +24,7 @@ $(document).ready(function(){
         })
       }
       if ($(this).html().includes('User Agent')) {
+        $(this).prepend('<span>header <span>')
         var filename = '/static/results-text/user-agent.txt';
         var selfname = $(this);
         getText(filename, selfname);
@@ -133,14 +146,15 @@ $(document).ready(function(){
       $('#default-button').removeClass('active');
       $('.detailed').show();
     });
-   // smaller phone, make table of contents (see results template)
-     $('select').selectmenu({
-           'change': function () {
-          var val = $( "#characteristic option:selected" ).val();
-          console.log('val='+val);
-          window.location.href = val;
-        }
-      });
+    // smaller phone, make table of contents (see results template)
+    $('select').selectmenu({
+      'change': function () {
+        var val = $( "#characteristic option:selected" ).val();
+        console.log('val='+val);
+        window.location.href = val;
+      }
+    });
+  sortUsingNestedText($('.detailed-results'), "div", "h4");
   }, 2000);
 
 });
