@@ -254,7 +254,7 @@ iframe {
     margin: 0 0 0 5rem;
   }
 
-  h3.indicate {
+  h2.indicate {
     color: $plum;
     font-weight: 600;
     margin-top: 1rem;
@@ -337,8 +337,13 @@ iframe {
   .text.detailed {
     font-weight: 400;
   }
-  .results-table h4 span { //group sorting variable
-    display: none;
+
+  .detailed-results {
+    padding-top: 2rem;
+
+    .results-table h4 span { //group sorting variable
+      display: none;
+    }
   }
 
   #buttons {
