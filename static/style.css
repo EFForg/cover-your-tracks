@@ -625,8 +625,6 @@ iframe {
     font-weight: 400; }
   #results-wrapper .detailed-results {
     padding-top: 2rem; }
-    #results-wrapper .detailed-results .results-table h4 span {
-      display: none; }
   #results-wrapper #buttons a#kcarterlink.button-style {
     background: #DECA54; }
     #results-wrapper #buttons a#kcarterlink.button-style:hover {
