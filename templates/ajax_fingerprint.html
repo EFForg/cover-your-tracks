@@ -1,4 +1,4 @@
-  <h3>Your Results</h3>
+  <h2>Your Results</h2>
   <div class='entropy' style='text-align:center border:1px'>
     {% if randomized_results >= 4: %}
     <p>Your browser fingerprint <strong>has been randomized</strong> among the {{ total_formatted }} tested in the past 45 days. Although sophisticated adversaries may still able to track you to some extent, randomization provides a very strong protection against tracking companies trying to fingerprint your browser.</p>
@@ -14,7 +14,7 @@
     <p>The measurements we used to obtain this result are listed below. You can <a href="about">read more about our methodology, statistical results, and some defenses against fingerprinting here</a>.</p>
   </div>
   <div id="results">
-    <h3>Detailed Results</h3>
+    <h2>Detailed Results</h2>
     <p>Here’s some more  granular information we gathered about your browser. Your report includes examples of several different kinds of metrics: </p>
 
     <h5>Web Headers</h5>
@@ -22,7 +22,7 @@
 
     <h5>JavaScript-derived Characteristics</h5>
     <p>TSome details about your browser can be discovered by using JavaScript code. This includes fonts, certain details about your hardware configuration, and your canvas fingerprint.</p>
-    
+
     <ul class="toc">
       <h5>Select a characteristic</h5>
       {% for key, label in labels.items(): %}
@@ -42,6 +42,7 @@
       <span id="detailed-button" class="button-style">detailed view</span>
     </div>
 
+    <div class="detailed-results">
     {% for key, label in labels.items(): %}
     <div class="results-table">
       <h4 id="{{ label }}" name="{{ label }}">{{ label }}</h4>
@@ -59,8 +60,9 @@
         {% else %}
         One in <i><font face=times new roman,times,serif>x</font></i> browsers have this value: <em>{{ uniqueness[key]['one_in_x'] }}</em>
         {% endif %}
+        <hr/>
       </div>
     </div>
-    <hr/>
     {% endfor %}
+  </div>
   </div>
