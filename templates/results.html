@@ -323,7 +323,7 @@
           if(results['tracker'] == 'yes' && results['ad'] == 'yes' && results['dnt'] == 'yes'){
             summary_sentence.innerHTML = "{% include '_summary_sentence_yes.html' %}";
           } else if(results['tracker'] == 'yes' && results['ad'] == 'yes' && results['dnt'] == 'no'){
-            summary_sentence.innerHTML = "{% include '_summary_sentence_yes_sans_dnt.html' %}";
+            summary_sentence.innerHTML = "{% include '_summary_sentence_yes.html' %}";
           } else {
             if(results['tracker'] == 'no' && results['ad'] == 'no') {
               summary_sentence.innerHTML = "{% include '_summary_sentence_no.html' %}";
