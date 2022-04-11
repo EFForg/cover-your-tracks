@@ -1,7 +1,7 @@
 {
-  "name": "panopticlick",
+  "name": "cover-your-tracks",
   "version": "1.0.0",
-  "repository": "git@github.com:efforg/panopticlick.git",
+  "repository": "git@github.com:efforg/cover-your-tracks.git",
   "author": "William Budington <bill@eff.org>",
   "license": "AGPLv3",
   "scripts": {
@@ -13,6 +13,6 @@
     "tooltip.js": "^1.3.3"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.3.1"
   }
 }
