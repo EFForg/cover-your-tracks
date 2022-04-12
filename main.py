@@ -326,7 +326,7 @@ def results_nojs():
         summary_sentence = render_template('_summary_sentence_yes.html')
     elif ad_result == yes and tracker_result == yes and dnt_result == no:
         summary_sentence = render_template(
-            '_summary_sentence_yes_sans_dnt.html')
+            '_summary_sentence_yes.html')
     else:
         if ad_result == no and tracker_result == no:
             summary_sentence = render_template('_summary_sentence_no.html')
