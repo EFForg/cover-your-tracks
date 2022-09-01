@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3214c43a0cf314cf9678a799c6816ea19476e76919e9fc2e3ba97c1c1cfec813"
+            "sha256": "44cbbfe5bda428db54d61889bed4c96337c1d143973457a4361a734b0220783f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -125,15 +125,14 @@
             "version": "==1.1.3"
         },
         "gunicorn": {
-            "extras": [
-                "eventlet"
-            ],
+            "editable": true,
+            "extras": [],
+            "git": "https://github.com/benoitc/gunicorn.git",
             "hashes": [
                 "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e",
                 "sha256:e0a968b5ba15f8a328fdfd7ab1fcb5af4470c28aaf7e55df02a99bc13138e6e8"
             ],
-            "index": "pypi",
-            "version": "==20.1.0"
+            "ref": "ff58e0c6da83d5520916bc4cc109a529258d76e1"
         },
         "importlib-metadata": {
             "hashes": [
@@ -220,11 +219,11 @@
         },
         "sentry-sdk": {
             "hashes": [
-                "sha256:630faec958e09b1151d88b8655bb749274c6b1acd19baa6f7a5ec3106276f752",
-                "sha256:f713f33ff7f82658c30e7e8cdec72c432218e6dd41b0f004905733793bd9719b"
+                "sha256:af0987fc074ada4a166bdc7e9d99d1da7811c6107e4b3416c7052ea1adb77dfc",
+                "sha256:d391204a2a59c54b764cd351c44c67eed17b43d51f4dbe3eba48b83b70c93db9"
             ],
             "index": "pypi",
-            "version": "==1.9.6"
+            "version": "==1.9.7"
         },
         "setuptools": {
             "hashes": [
