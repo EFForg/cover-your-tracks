@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+blinker = "1"
+flask = "2"
+mysqlclient = "2"
+sentry-sdk = "1"
+eventlet = "0.33"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
+
+[packages.gunicorn]
+extras = [ "eventlet",]
+version = "20"

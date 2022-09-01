@@ -8,6 +8,7 @@ WORKDIR /opt
 
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
+    python3.9-dev \
     cron && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* \
@@ -15,8 +16,9 @@ RUN apt-get update && \
     /var/tmp/*
 ADD docker/crontab /etc/crontab
 
-ADD requirements.txt ./
-RUN pip install -r requirements.txt
+RUN pip install pipenv
+ADD Pipfile Pipfile.lock ./
+RUN pipenv install
 
 ADD config_example.py env_config.py db.py entropy_helper.py main.py gunicorn.conf util.py ./
 ADD fingerprint ./fingerprint/
@@ -27,4 +29,4 @@ ADD docker ./docker/
 
 ENV PUBLIC True
 ENTRYPOINT ["/opt/docker/entrypoint.sh"]
-CMD ["python", "main.py"]
+CMD ["pipenv", "run", "python", "main.py"]

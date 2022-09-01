@@ -8,16 +8,18 @@ The easiest way to set up an instance of Cover Your Tracks is with `docker` and 
 
 ### Partial Installation on Host
 
-You may need to install `libmysqlclient-dev` and `python-dev` for Debian-based systems.
+You may need to install `libmysqlclient-dev` and `python3.9-dev` for Debian-based systems.
 
-    pip install -r requirements.txt
+    pip install pipenv
+    pipenv --python 3.9
+    pipenv install
     cp config_example.py config.py
 
 Then modify the relevant variables in config.py
 
 Now, you can run
 
-    python main.py
+    pipenv run python main.py
 
 ### Full Docker Installation
 

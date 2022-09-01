@@ -1,6 +1,0 @@
-blinker==1.4
-Flask==2.1.1
-gunicorn[eventlet]==20.1.0
-mysqlclient==2.1.0
-sentry-sdk==1.5.9
-eventlet==0.30.2

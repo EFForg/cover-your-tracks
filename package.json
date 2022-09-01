@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "fingerprintjs2": "^2.1.0",
-    "jquery": "^3.5.1",
-    "tooltip.js": "^1.3.3"
+    "jquery": "^3.6.1",
+    "tooltip-js": "^3.0.0"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.3.1"
+    "parcel": "^2.7.0"
   }
 }
