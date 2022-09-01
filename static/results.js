@@ -137,10 +137,9 @@ $(document).ready(function(){
       $('.detailed').show();
     });
     // smaller phone, make table of contents (see results template)
-    $('select').selectmenu({
+    $('#characteristic').selectmenu({
       'change': function () {
         var val = $( "#characteristic option:selected" ).val();
-        console.log('val='+val);
         window.location.href = val;
       }
     });
