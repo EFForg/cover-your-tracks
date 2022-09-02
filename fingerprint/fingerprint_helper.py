@@ -26,6 +26,31 @@ class FingerprintHelper(object):
         'device_memory': "Device Memory (GB)"
     }
 
+    whorl_v3_names = {
+        'user_agent': "User Agent",
+        'http_accept': "HTTP_ACCEPT Headers",
+        'loads_remote_fonts': "Loads Remote Fonts",
+        'plugins': "Browser Plugin Details",
+        'timezone': "Time Zone Offset",
+        'timezone_string': "Time Zone",
+        'video': "Screen Size and Color Depth",
+        'fonts_v2': "System Fonts",
+        'cookie_enabled': "Are Cookies Enabled?",
+        'supercookies_v2': "Limited supercookie test",
+        'canvas_hash_v2': "Hash of canvas fingerprint",
+        'webgl_hash_v2': "Hash of WebGL fingerprint",
+        'webgl_vendor_renderer': "WebGL Vendor & Renderer",
+        'dnt_enabled': "DNT Header Enabled?",
+        'language': "Language",
+        'platform': "Platform",
+        'touch_support': "Touch Support",
+        'ad_block': "Ad Blocker Used",
+        'audio': "AudioContext fingerprint",
+        'cpu_class': "CPU Class",
+        'hardware_concurrency': "Hardware Concurrency",
+        'device_memory': "Device Memory (GB)"
+    }
+
     # Which keys should be added to the expansion fingerprint tables?
     fingerprint_expansion_keys = {
         'v2': [
@@ -40,6 +65,9 @@ class FingerprintHelper(object):
             'cpu_class',
             'hardware_concurrency',
             'device_memory'
+        ],
+        'v3': [
+            'loads_remote_fonts'
         ]
     }
 

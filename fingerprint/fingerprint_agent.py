@@ -42,7 +42,10 @@ class FingerprintAgent(object):
         vars_v2['hardware_concurrency'] = u"no javascript"
         vars_v2['device_memory'] = u"no javascript"
 
-        return vars_v2
+        vars_v3 = vars_v2.copy()
+        vars_v3['loads_remote_fonts'] = u"no javascript"
+
+        return (vars_v2, vars_v3)
 
     def _get_header(self, header):
         return self.request.headers.get(header) or ""

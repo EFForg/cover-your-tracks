@@ -65,6 +65,20 @@ CREATE TABLE `fingerprint_v2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `fingerprint_v3`
+--
+
+DROP TABLE IF EXISTS `fingerprint_v3`;
+CREATE TABLE `fingerprint_v3` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fingerprint_id` int(11) NOT NULL,
+  `loads_remote_fonts` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY (`fingerprint_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
 -- Table structure for table `signatures`
 --
 

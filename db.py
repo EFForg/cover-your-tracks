@@ -75,6 +75,17 @@ class Db(object):
         finally:
             c.close()
 
+    def migrate_to_3(self):
+        c = self.cxn.cursor()
+        c.execute("""CREATE TABLE `fingerprint_v3` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `fingerprint_id` int(11) NOT NULL,
+            `loads_remote_fonts` varchar(10) DEFAULT NULL,
+            PRIMARY KEY (`id`),
+            UNIQUE KEY (`fingerprint_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8""");
+        self.cxn.commit()
+
     def count_sightings(self, cookie, signature):
         c = self.cxn.cursor()
         try:
@@ -118,7 +129,7 @@ class Db(object):
     def record_fingerprint(self, whorls, signatures, fingerprint_expansion_keys):
         c = self.cxn.cursor()
         try:
-            all_expansion_keys = fingerprint_expansion_keys['v2']
+            all_expansion_keys = fingerprint_expansion_keys['v2'] + fingerprint_expansion_keys['v3']
             whorls_base = {k: v for k, v in whorls.items() if k not in all_expansion_keys}
             self._record_fingerprint_helper(c, whorls_base)
             fingerprint_id = c.lastrowid

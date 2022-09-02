@@ -10,7 +10,7 @@ from util import get_ip_hmacs
 class FingerprintRecorder(object):
 
     @classmethod
-    def record_fingerprint(cls, whorls_v2, cookie, ip_addr, key):
+    def record_fingerprint(cls, whorls_v2, whorls_v3, cookie, ip_addr, key):
         # ensure no rogue values have been entered
         valid_vars_v2 = list(FingerprintHelper.whorl_v2_names.keys())
         valid_vars_v2.append('signature')
@@ -21,6 +21,15 @@ class FingerprintRecorder(object):
         signature_v2 = hashlib.md5(serialized_whorls_v2.encode("utf-8")).hexdigest()
         whorls_v2['signature'] = signature_v2
 
+        valid_vars_v3 = list(FingerprintHelper.whorl_v3_names.keys())
+        valid_vars_v3.append('signature')
+
+        sorted_whorls_v3 = sorted(whorls_v3.items())
+        serialized_whorls_v3 = json.dumps(sorted_whorls_v3)
+
+        signature_v3 = hashlib.md5(serialized_whorls_v3.encode("utf-8")).hexdigest()
+        whorls_v3['signature'] = signature_v3
+
         # When multiple whorl versions are being calculated, valid_print should
         # combine the whorls from both versions.  There should never be a
         # mismatch of a whorl between two versions.  If, say, the canvas_hash
@@ -30,9 +39,13 @@ class FingerprintRecorder(object):
         for i in whorls_v2:
             if i in valid_vars_v2:
                 valid_print[i] = whorls_v2[i]
+        for i in whorls_v3:
+            if i in valid_vars_v3:
+                valid_print[i] = whorls_v3[i]
 
         signatures = [
-            { 'version': 2, 'signature': signature_v2 }
+            { 'version': 2, 'signature': signature_v2 },
+            { 'version': 3, 'signature': signature_v3 }
         ]
 
         if cls._need_to_record(cookie, signatures, ip_addr, key):
@@ -49,7 +62,7 @@ class FingerprintRecorder(object):
         db.connect()
         try:
             old_epoch_beginning = db.get_epoch_beginning()
-            columns_to_update = list(FingerprintHelper.whorl_v2_names.keys())
+            columns_to_update = set(list(FingerprintHelper.whorl_v2_names.keys()) + list(FingerprintHelper.whorl_v3_names.keys()))
             db.epoch_update_totals(
                 old_epoch_beginning, epoch_beginning, columns_to_update, FingerprintHelper.md5_keys, FingerprintHelper.fingerprint_expansion_keys)
         finally:
@@ -73,7 +86,7 @@ class FingerprintRecorder(object):
     # been counted before
     @staticmethod
     def _need_to_record(cookie, signatures, ip_addr, key):
-        signature_v2 = signatures[0]['signature']
+        signature_v3 = signatures[1]['signature']
 
         db = Db()
         db.connect()
@@ -81,7 +94,7 @@ class FingerprintRecorder(object):
             if cookie:
                 # okay, we have a cookie; check whether we've seen it with this
                 # fingerprint before
-                seen = db.count_sightings(cookie, signature_v2)
+                seen = db.count_sightings(cookie, signature_v3)
                 write_cookie = cookie
             else:
                 seen = 0  # always count cookieless browsers
