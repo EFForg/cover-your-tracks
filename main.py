@@ -136,9 +136,11 @@ def fingerprint_generic(ajax_request, provide_additional_info=False):
     whorls_v2 = server_whorls_v2.copy()
     whorls_v3 = server_whorls_v3.copy()
     randomized_results = 0
+    ios_lockdown = False
     if ajax_request:
         data = json.loads(request.data)
         randomized_results = data['randomized_results']
+        ios_lockdown = data['ios_lockdown']
         for i in data['v2'].keys():
             whorls_v2[i] = str(data['v2'][i])
         for i in data['v3'].keys():
@@ -163,6 +165,7 @@ def fingerprint_generic(ajax_request, provide_additional_info=False):
                              labels=FingerprintHelper.whorl_v2_names,
                              whorls=whorls_v2,
                              randomized_results=randomized_results,
+                             ios_lockdown=ios_lockdown,
                              uniqueness=uniqueness)
 
     if ajax_request:

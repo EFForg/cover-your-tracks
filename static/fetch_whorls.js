@@ -325,10 +325,14 @@ function fetch_client_whorls(){
 
     whorls_v3 = JSON.parse(JSON.stringify(whorls_v2));
     whorls_v3['loads_remote_fonts'] = document.fonts.check("bold 12px WorkSans");
+    let ios_lockdown = false;
+    if(!whorls_v3['loads_remote_fonts'] && /^Mozilla.+iPhone OS 16_/.test(navigator.userAgent)) {
+      ios_lockdown = true;
+    }
 
     $.post({
       url: "/ajax-fingerprint",
-      data: JSON.stringify({v2: whorls_v2, v3: whorls_v3, randomized_results}),
+      data: JSON.stringify({v2: whorls_v2, v3: whorls_v3, randomized_results, ios_lockdown}),
       contentType: 'application/json',
       success: callback(randomized_results),
       dataType: "html"
