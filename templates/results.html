@@ -5,7 +5,7 @@
   <script src="static/deployJava.js" type="text/javascript"></script>
   <script src="static/fp2.js" type="text/javascript"></script>
   {% include 'dist/fp2.html' %}
-  <script src="static/jquery.flash.js" type="text/javascript"></script>
+  <script src="static/jquery.flash.js" defer type="text/javascript"></script>
   <script src="static/trkTestVars.js" type="text/javascript"></script>
   <link href="https://chrome.google.com/webstore/detail/pkehgijcmpdhfbdbbnkijodmdjhbjlgp" rel="chrome-webstore-item" />
 {% endblock %}
@@ -366,7 +366,7 @@
     window.onunload=function() {};
   </script>
   <script src="/static/zig.js" type='text/javascript'></script>
-  <script src="/static/jquery-ui/jquery-ui.js" type='text/javascript'></script>
-  <script src="/static/results.js" type='text/javascript'></script>
+  <script src="/static/jquery-ui/jquery-ui.js" defer type='text/javascript'></script>
+  <script src="/static/results.js" defer type='text/javascript'></script>
 
 {% endblock %}
