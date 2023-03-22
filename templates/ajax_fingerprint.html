@@ -1,7 +1,7 @@
   <h2>Your Results</h2>
   <div class='entropy' style='text-align:center border:1px'>
     {% if randomized_results >= 4: %}
-    <p>Your browser fingerprint <strong>has been randomized</strong> among the {{ total_formatted }} tested in the past 45 days. Although sophisticated adversaries may still able to track you to some extent, randomization provides a very strong protection against tracking companies trying to fingerprint your browser.</p>
+    <p>Your browser fingerprint <strong>has been randomized</strong> among the {{ total_formatted }} tested in the past 45 days. Although sophisticated adversaries may still be able to track you to some extent, randomization provides a very strong protection against tracking companies trying to fingerprint your browser.</p>
     {% elif matching == 1: %}
     <p>Your browser fingerprint <strong>appears to be unique</strong> among the {{ total_formatted }} tested in the past 45 days.</p>
     {% else %}
