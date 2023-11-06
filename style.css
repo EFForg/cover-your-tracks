@@ -26,7 +26,8 @@ body {
   font-size: 18px;
   font-weight: 400;
   margin: 0;
-  text-align: left; }
+  text-align: left;
+  overflow-x: hidden; }
 
 a {
   border-bottom: 1px solid #1E3A29;
