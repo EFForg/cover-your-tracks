@@ -4,12 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-blinker = "1"
-flask = "2"
-mysqlclient = "2"
-sentry-sdk = "1"
-eventlet = "0.33"
-gunicorn = {editable = true, ref = "ff58e0c", git = "https://github.com/benoitc/gunicorn.git"}
+blinker = ">=1"
+flask = "~=2.0"
+mysqlclient = ">=2"
+sentry-sdk = {version = ">=1", extras = ["flask"]}
+eventlet = ">=0"
+gunicorn = ">=21"
 
 [requires]
-python_version = "3.9"
+python_version = "3.11"

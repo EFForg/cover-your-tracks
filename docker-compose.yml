@@ -15,6 +15,7 @@ services:
 
   db:
     image: mysql
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-root-password
       MYSQL_PASSWORD_FILE: /run/secrets/mysql-password
@@ -25,7 +26,6 @@ services:
     secrets:
       - mysql-root-password
       - mysql-password
-    entrypoint: ['/entrypoint.sh', '--default-authentication-plugin=mysql_native_password'] 
 
   app:
     build: .
