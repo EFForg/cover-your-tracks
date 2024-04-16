@@ -54,6 +54,9 @@ class EntropyHelper(object):
             except TypeError:
                 return {'status': "Error: that value has not yet been recorded for '" + whorl_name + "'"}
 
+            if count == 0:
+                return {'status': "Error: that value has not been recorded recently for '" + whorl_name + "'"}
+
             total = db.get_total_count(config.epoched)
         finally:
             db.close()
