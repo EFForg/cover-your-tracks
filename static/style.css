@@ -64,6 +64,7 @@ body {
   font-weight: 400;
   margin: 0;
   text-align: left;
+  overflow-x: hidden;
 }
 
 a {
@@ -1230,3 +1231,5 @@ h5 {
 .ui-selectmenu-menu .ui-menu {
   max-height: 65vh;
 }
+
+/*# sourceMappingURL=style.css.map */
