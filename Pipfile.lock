@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "44cbbfe5bda428db54d61889bed4c96337c1d143973457a4361a734b0220783f"
+            "sha256": "c9ec6369bf7b88d8ceb0f39d5cd85a6efbaccbf7d05047e33b8ca82827cc061b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -26,11 +26,11 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d",
-                "sha256:fe86415d55e84719d75f8b69414f6438ac3547d2078ab91b67e779ef69378412"
+                "sha256:0569859f95fc761b18b45ef421b1290a0f65f147e92a1e5eb3e635f9a5e4e66f",
+                "sha256:dc383c07b76109f368f6106eee2b593b04a011ea4d55f652c6ca24a754d1cdd1"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==2022.6.15"
+            "version": "==2024.2.2"
         },
         "click": {
             "hashes": [
@@ -126,7 +126,9 @@
         },
         "gunicorn": {
             "editable": true,
-            "extras": [],
+            "extras": [
+
+            ],
             "git": "https://github.com/benoitc/gunicorn.git",
             "hashes": [
                 "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e",
@@ -219,11 +221,11 @@
         },
         "sentry-sdk": {
             "hashes": [
-                "sha256:af0987fc074ada4a166bdc7e9d99d1da7811c6107e4b3416c7052ea1adb77dfc",
-                "sha256:d391204a2a59c54b764cd351c44c67eed17b43d51f4dbe3eba48b83b70c93db9"
+                "sha256:273fe05adf052b40fd19f6d4b9a5556316807246bd817e5e3482930730726bb0",
+                "sha256:72c00322217d813cf493fe76590b23a757e063ff62fec59299f4af7201dd4448"
             ],
             "index": "pypi",
-            "version": "==1.9.7"
+            "version": "==1.14.0"
         },
         "setuptools": {
             "hashes": [
@@ -243,11 +245,11 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e",
-                "sha256:b930dd878d5a8afb066a637fbb35144fe7901e3b209d1cd4f524bd0e9deee997"
+                "sha256:450b20ec296a467077128bff42b73080516e71b56ff59a60a02bef2232c4fa9d",
+                "sha256:d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==1.26.12"
+            "version": "==2.2.1"
         },
         "werkzeug": {
             "hashes": [
