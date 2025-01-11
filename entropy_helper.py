@@ -69,6 +69,28 @@ class EntropyHelper(object):
         return uniqueness
 
     @staticmethod
+    def get_top_whorl_values(whorl_name):
+        db = Db()
+        db.connect()
+
+        try:
+            try:
+                top_whorl_value_counts = db.get_top_whorl_value_counts(whorl_name, 25, config.epoched)
+            except TypeError:
+                return {'status': "Error: no values have been recorded for '" + whorl_name + "'"}
+
+            if len(top_whorl_value_counts) == 0:
+                return {'status': "Error: no values have been recorded recently for '" + whorl_name + "'"}
+
+            total = db.get_total_count(config.epoched)
+        finally:
+            db.close()
+
+        top_whorl_values = [[item[0], item[1] / total] for item in top_whorl_value_counts]
+
+        return top_whorl_values
+
+    @staticmethod
     def _fetch_counts(whorls, whorl_names):
         db = Db()
         db.connect()
