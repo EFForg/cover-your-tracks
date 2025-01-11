@@ -12,8 +12,8 @@ secrets:
 services:
 
   db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: mysql:lts
+    command: --mysql-native-password=ON
     environment:
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-root-password
       MYSQL_PASSWORD_FILE: /run/secrets/mysql-password

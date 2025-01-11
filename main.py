@@ -461,6 +461,11 @@ def api_v1_ua_uniqueness():
     whorl = json.loads(request.data)
     return jsonify(EntropyHelper.single_whorl_uniqueness(whorl['name'], whorl['value']))
 
+# API endpoint for getting the top 25 values for a given whorl and the frequency of each value
+@app.route("/api/v1/top-whorl-values", methods=['POST'])
+def api_v1_top_whorl_values():
+    whorl = json.loads(request.data)
+    return jsonify(EntropyHelper.get_top_whorl_values(whorl['name']))
 
 @app.route("/privacy")
 def privacy():

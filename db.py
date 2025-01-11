@@ -180,6 +180,17 @@ class Db(object):
         finally:
             c.close()
 
+    def get_top_whorl_value_counts(self, whorl_name, limit, epoched):
+        c = self.cxn.cursor()
+        try:
+            c.execute("SELECT value, " + self.epoch_prefix(epoched) +
+                      "total FROM totals WHERE variable=%s ORDER BY " +
+                      self.epoch_prefix(epoched) + "total DESC LIMIT %s",
+                      (whorl_name, limit))
+            return c.fetchall()
+        finally:
+            c.close()
+
     def get_total_count(self, epoched):
         c = self.cxn.cursor()
         try:
