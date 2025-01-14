@@ -73,9 +73,21 @@ class EntropyHelper(object):
         db = Db()
         db.connect()
 
+        if whorl_name not in FingerprintHelper.whorl_v3_names:
+            return {'status': "Error: invalid whorl '" + whorl_name + "'"}
+
+        fingerprint_table = False
+        if whorl_name in FingerprintHelper.md5_keys:
+            if whorl_name in FingerprintHelper.fingerprint_expansion_keys['v3']:
+                fingerprint_table = "fingerprint_v3"
+            elif whorl_name in FingerprintHelper.fingerprint_expansion_keys['v2']:
+                fingerprint_table = "fingerprint_v2"
+            else:
+                fingerprint_table = "fingerprint"
+
         try:
             try:
-                top_whorl_value_counts = db.get_top_whorl_value_counts(whorl_name, 25, config.epoched)
+                top_whorl_value_counts = db.get_top_whorl_value_counts(whorl_name, 25, fingerprint_table, config.epoched)
             except TypeError:
                 return {'status': "Error: no values have been recorded for '" + whorl_name + "'"}
 
@@ -86,7 +98,7 @@ class EntropyHelper(object):
         finally:
             db.close()
 
-        top_whorl_values = [[item[0], item[1] / total] for item in top_whorl_value_counts]
+        top_whorl_values = [[str(item[0]), item[1] / total] for item in top_whorl_value_counts]
 
         return top_whorl_values
 

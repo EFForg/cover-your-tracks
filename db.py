@@ -180,13 +180,25 @@ class Db(object):
         finally:
             c.close()
 
-    def get_top_whorl_value_counts(self, whorl_name, limit, epoched):
+    def get_top_whorl_value_counts(self, whorl_name, limit, fingerprint_table, epoched):
         c = self.cxn.cursor()
         try:
-            c.execute("SELECT value, " + self.epoch_prefix(epoched) +
-                      "total FROM totals WHERE variable=%s ORDER BY " +
-                      self.epoch_prefix(epoched) + "total DESC LIMIT %s",
-                      (whorl_name, limit))
+            if fingerprint_table:
+                c.execute("""
+                    SELECT
+                        fp.""" + whorl_name + """,
+                        """ + self.epoch_prefix(epoched) + """total AS tt
+                    FROM totals
+                    JOIN """ + fingerprint_table + """ AS fp
+                        ON totals.value = MD5(fp.""" + whorl_name + """)
+                    WHERE variable=%s
+                    ORDER BY tt DESC
+                    LIMIT %s""",
+                    (whorl_name, limit))
+            else:
+                c.execute("SELECT value, " + self.epoch_prefix(epoched) +
+                        "total AS tt FROM totals WHERE variable=%s ORDER BY tt DESC LIMIT %s",
+                        (whorl_name, limit))
             return c.fetchall()
         finally:
             c.close()
