@@ -186,13 +186,14 @@ class Db(object):
             if fingerprint_table:
                 c.execute("""
                     SELECT
-                        fp.""" + whorl_name + """,
-                        """ + self.epoch_prefix(epoched) + """total AS tt
+                        fp.""" + whorl_name + """ AS whorl_value,
+                        SUM(""" + self.epoch_prefix(epoched) + """total) AS sum_total
                     FROM totals
                     JOIN """ + fingerprint_table + """ AS fp
                         ON totals.value = MD5(fp.""" + whorl_name + """)
                     WHERE variable=%s
-                    ORDER BY tt DESC
+                    GROUP BY whorl_value
+                    ORDER BY sum_total DESC
                     LIMIT %s""",
                     (whorl_name, limit))
             else:

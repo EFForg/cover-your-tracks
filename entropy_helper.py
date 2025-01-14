@@ -98,7 +98,7 @@ class EntropyHelper(object):
         finally:
             db.close()
 
-        top_whorl_values = [[str(item[0]), item[1] / total] for item in top_whorl_value_counts]
+        top_whorl_values = [[str(item[0]), float(item[1]) / total] for item in top_whorl_value_counts]
 
         return top_whorl_values
 
