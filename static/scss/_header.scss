@@ -75,7 +75,7 @@
 .header {
   nav {
     padding-bottom: 0.2rem;
-    width: 30%;
+    width: 40%;
     ul {
       list-style-type: none;
       margin: 0;
@@ -88,7 +88,13 @@
         font-size: 1.2rem;
         padding: 0;
         text-align: right; // right side of nav aligns with banner
-        width: 45%;
+        width: 25%;
+        &:last-child {
+          font-size: 1.2rem;
+          margin-left: 6%;
+          text-align: center;
+          width: 40%;
+        }
       }
     }
     a {

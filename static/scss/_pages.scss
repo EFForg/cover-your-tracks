@@ -120,7 +120,7 @@ iframe {
     width: 50%;
   }
   .header nav {
-    width: 50%;
+    width: 70%;
     ul {
       align-items: flex-end;
       display: flex;
@@ -129,7 +129,7 @@ iframe {
         width: 25%;
       }
       li.test-nav {
-        width: 50%;;
+        width: 50%;
         display: inline;
         a#kcarterlink.button-style {
           background: $yellow;
