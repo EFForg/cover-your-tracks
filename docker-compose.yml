@@ -12,7 +12,7 @@ secrets:
 services:
 
   db:
-    image: mysql
+    image: mysql:9.4
     environment:
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-root-password
       MYSQL_PASSWORD_FILE: /run/secrets/mysql-password
@@ -43,7 +43,7 @@ services:
       - admin-password
 
   nginx:
-    image: nginx
+    image: nginx:1.29
     volumes:
       - ./examples/nginx/extra:/etc/nginx/extra
       - ./examples/nginx/conf.d:/etc/nginx/conf.d
