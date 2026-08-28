@@ -1,4 +1,4 @@
-FROM python:3.11-bookworm
+FROM python:3.13-trixie
 
 MAINTAINER William Budington <bill@eff.org>
 
@@ -8,7 +8,7 @@ WORKDIR /opt
 
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
-    python3.11-dev \
+    python3.13-dev \
     cron && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* \

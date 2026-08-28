@@ -1,5 +1,4 @@
 import os
-import distutils.util
 
 try:
     from config import *
@@ -8,8 +7,10 @@ except ImportError:
 
 
 def env_bool(env, default):
-    if os.environ.get(env):
-        return distutils.util.strtobool(os.environ.get(env))
+    if os.environ.get(env) and os.environ.get(env).lower() in ("true", "1"):
+        return True
+    elif os.environ.get(env) and os.environ.get(env).lower() in ("false", "0"):
+        return False
     else:
         return default
 

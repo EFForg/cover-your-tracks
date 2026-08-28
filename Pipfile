@@ -12,4 +12,4 @@ eventlet = ">=0"
 gunicorn = ">=21"
 
 [requires]
-python_version = "3.11"
+python_version = "3.13"
