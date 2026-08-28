@@ -47,7 +47,7 @@ def detect_browser_and_platform(user_agent):
         elif re.search("msie", user_agent, re.IGNORECASE) or \
                 re.search("trident", user_agent, re.IGNORECASE):
             browser = "ie"
-        elif re.search("opr\/", user_agent, re.IGNORECASE):
+        elif re.search("opr\\/", user_agent, re.IGNORECASE):
             browser = "opera"
             if re.search("mobile", user_agent, re.IGNORECASE):
                 platform = "android"
