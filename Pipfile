@@ -4,12 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-blinker = ">=1"
-flask = "~=2.0"
+flask = ">=3"
 mysqlclient = ">=2"
-sentry-sdk = {version = ">=1", extras = ["flask"]}
-eventlet = ">=0"
-gunicorn = ">=21"
+sentry-sdk = {version = ">=2", extras = ["flask"]}
+gunicorn = ">=26"
 
 [requires]
 python_version = "3.13"
