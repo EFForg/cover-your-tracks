@@ -9,10 +9,16 @@
   },
   "dependencies": {
     "fingerprintjs2": "^2.1.0",
-    "jquery": "^3.6.1",
+    "jquery": "^4.0.0",
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {
-    "parcel": "^2.7.0"
+    "parcel": "^2.16.4"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "@swc/core@1.16.1": true,
+    "lmdb@2.8.5": true,
+    "msgpackr-extract@3.0.4": true
   }
 }
