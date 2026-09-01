@@ -8,6 +8,10 @@ flask = ">=3"
 mysqlclient = ">=2"
 sentry-sdk = {version = ">=2", extras = ["flask"]}
 gunicorn = ">=26"
+gevent = ">=26"
+packaging = ">=26"
 
 [requires]
 python_version = "3.13"
+
+[dev-packages]
