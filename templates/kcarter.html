@@ -26,7 +26,7 @@
   <script type="text/javascript">
 
     window.onload = function(){
-      var next = '{{ next_link }}{{ '&aat=' + aat if aat else '' }}';
+      var next = '{{ next_link }}{{ '&aat='|safe + aat if aat else '' }}';
 
       var cb = Math.floor((Math.random()*1000000)+1);
       var a = document.getElementById('a');
