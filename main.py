@@ -203,10 +203,11 @@ def kcarter():
             next_link = "https://" + \
                 config.first_party_trackers[i] + "/kcarter?try2=true"
 
+    aat = False
     if request.args.get('aat'):
-        next_link = next_link + "&aat=" + request.args.get('aat')
+        aat = request.args.get('aat')
 
-    return render_template('kcarter.html', next_link=next_link, last_redirect=last_redirect, third_party_trackers=config.third_party_trackers)
+    return render_template('kcarter.html', next_link=next_link, aat=aat, last_redirect=last_redirect, third_party_trackers=config.third_party_trackers)
 
 
 # third-party route accessed in an iframe for tallying up domains seen
