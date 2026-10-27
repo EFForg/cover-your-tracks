@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOMAINS="panopticlick.eff.org trackersimulator.org firstpartysimulator.org firstpartysimulator.net eviltracker.net do-not-tracker.org"
+DOMAINS="coveryourtracks.eff.org trackersimulator.org firstpartysimulator.org firstpartysimulator.net eviltracker.net do-not-tracker.org"
 
 for x in $DOMAINS; do
 cat <<EOF > /tmp/gen_cert.cnf
